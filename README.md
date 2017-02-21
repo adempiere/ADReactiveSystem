@@ -1,5 +1,5 @@
-# The Application Dictionary Reactive System 
-
+![alt tag](http://d379ifj7s9wntv.cloudfront.net/reactivemanifesto/images/ribbons/we-are-reactive-black-left.png) 
+# Application Dictionary Reactive System 
 ## About 
 
 The Application Dictionary Reactive System allows you to build an application based on an active data dictionary.

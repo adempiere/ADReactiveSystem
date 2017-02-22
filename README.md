@@ -52,7 +52,7 @@ This service exposes application dictionary entities using a Restful APi
 
 # Step to Install
 
-    git clone  https://github.com/adempiere/adempiereReactiveMicroservices.git
+    git clone  https://github.com/adempiere/ADReactiveSystem.git
         
 Installing SBT based on this steps http://www.scala-sbt.org/0.13/docs/Setup.html
     

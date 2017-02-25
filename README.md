@@ -2,6 +2,8 @@
 # Application Dictionary Reactive System 
 ## About 
 
+[![Join the chat at https://gitter.im/adempiere/ADReactiveSystem](https://badges.gitter.im/adempiere/ADReactiveSystem.svg)](https://gitter.im/adempiere/ADReactiveSystem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The Application Dictionary Reactive System allows you to build an application based on an active data dictionary.
 
 The architecture of this application is based on Domain Driven Design which will allow an efficient development, extension and maintenance for the future.

@@ -2,8 +2,9 @@ package com.eevolution.context.dictionary.infrastructure.repository
 
 import java.util.UUID
 
-import com.eevolution.context.dictionary.domain.model.Entity
-import com.eevolution.context.dictionary.domain.repository.api
+import com.eevolution.context.dictionary.api._
+import com.eevolution.context.dictionary.domain.model.{Attribute, Entity}
+import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 
@@ -30,15 +31,19 @@ import scala.concurrent.{ExecutionContext, Future}
   * @param session
   * @param executionContext
   */
-class EntityRepository(session: JdbcSession)(implicit executionContext: ExecutionContext) extends api.EntityRepository with EntityMapping {
+class EntityRepository(session: JdbcSession)(implicit executionContext: ExecutionContext) extends Repostory[Entity , Int]
+  with EntityMapping
+  with AttributeMapping {
 
-  import DbContext._
-
-  def getEntityById(id: Int): Future[Entity] = {
+  def getById(id: Int): Future[Entity] = {
     Future(run(queryEntity.filter(_.entityId == lift(id))).headOption.get)
   }
 
-  def getEntityByUUID(uuid: UUID): Future[Entity] = {
+  def getAttributes(id: Int): Future[List[Attribute]] = {
+    Future(run(queryAttribute.filter(_.entityId == lift(id))))
+  }
+
+  def getByUUID(uuid: UUID): Future[Entity] = {
     Future(run(queryEntity.filter(_.name == lift(uuid.toString))).headOption.get)
   }
 
@@ -46,7 +51,7 @@ class EntityRepository(session: JdbcSession)(implicit executionContext: Executio
     Future(run(queryEntity))
   }
 
-  def getEntities(page: Int, pageSize: Int): Future[PaginatedSequence[Entity]] = {
+  def getAll(page: Int, pageSize: Int): Future[PaginatedSequence[Entity]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
@@ -63,7 +68,6 @@ class EntityRepository(session: JdbcSession)(implicit executionContext: Executio
   }
 
   private def selectEntity(offset: Int, limit: Int): Future[Seq[Entity]] = {
-    import DbContext._
     Future(run(queryEntity).drop(offset).take(limit).toSeq)
   }
 }

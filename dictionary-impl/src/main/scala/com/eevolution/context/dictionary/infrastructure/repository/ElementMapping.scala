@@ -1,7 +1,7 @@
 package com.eevolution.context.dictionary.infrastructure.repository
 
 import com.eevolution.context.dictionary.domain.model.Element
-import io.getquill.{JdbcContext, Literal, PostgresDialect}
+import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -23,8 +23,6 @@ import io.getquill.{JdbcContext, Literal, PostgresDialect}
   * Element Mapping
   */
 trait ElementMapping {
-  lazy val DbContext = new JdbcContext[PostgresDialect, Literal]("ctx")
-  import DbContext._
   val queryElement = quote {
     querySchema[Element]("AD_Element",
       _.elementId -> "AD_Element_ID",

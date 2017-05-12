@@ -33,9 +33,11 @@ class EntityServiceImpl (registry: PersistentEntityRegistry, entityRepository: E
 
   override def getAll() = ServiceCall {_ => entityRepository.getAll()}
 
-  override def getEntities(page : Option[Int], pageSize : Option[Int]) =  ServiceCall{_ => entityRepository.getEntities(page.getOrElse(0) , pageSize.getOrElse(DefaultPageSize))}
+  override def getEntities(page : Option[Int], pageSize : Option[Int]) =  ServiceCall{_ => entityRepository.getAll(page.getOrElse(0) , pageSize.getOrElse(DefaultPageSize))}
 
-  override def getEntityById(id: Int) = ServiceCall { _ => entityRepository.getEntityById(id)}
+  override def getEntityById(id: Int) = ServiceCall { _ => entityRepository.getById(id)}
 
-  override def getEntityByUUID(uuid: UUID) = ServiceCall { _ => entityRepository.getEntityByUUID(uuid)}
+  override def getAttributes(entityId: Int) = ServiceCall { _ => entityRepository.getAttributes(entityId)}
+
+  override def getEntityByUUID(uuid: UUID) = ServiceCall { _ => entityRepository.getByUUID(uuid)}
 }

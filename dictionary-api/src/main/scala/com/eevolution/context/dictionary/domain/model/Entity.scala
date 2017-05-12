@@ -53,6 +53,7 @@ import com.eevolution.context.dictionary.domain.model.EntityType.Dictionary
   * @param acTriggerLength
   * @param isDocument
   * @param isIgnoreMigration
+  * @param attributes
   */
 case class Entity(entityId: Int,
                   isActive: Boolean = true,
@@ -130,5 +131,6 @@ object Entity  {
              isIgnoreMigration: Boolean) = Entity(entityId, isActive, created, createdBy, updated, updatedBy, name,
     None, None, tableName, isView, accessLevel, entityType, None, None, None,
     None, isSecurityEnabled, isDeleteable, isHighVolume, isImporttable, isChangeLog ,
-    replicationType , None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration )
+    replicationType , None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration)
+
 }

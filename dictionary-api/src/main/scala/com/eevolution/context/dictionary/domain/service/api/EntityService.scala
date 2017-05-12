@@ -25,5 +25,6 @@ trait EntityService {
   def getAll() : Object
   def getEntities(pageNo: Option[Int], pageSize: Option[Int]) : Object
   def getEntityById(id: Int)  : Object
+  def getAttributes(id: Int) : Object
   def getEntityByUUID(uuid :UUID)  : Object
 }

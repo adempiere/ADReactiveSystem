@@ -1,8 +1,11 @@
 package com.eevolution.context.dictionary.api
 
-import java.util.Date
+import java.util.{Date, UUID}
 
-import com.eevolution.context.dictionary.domain.model.{Organization, Tenant}
+import com.eevolution.context.dictionary.domain.model.{Element, Entity, Organization, Tenant}
+import com.eevolution.utils.PaginatedSequence
+
+import scala.concurrent.Future
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -99,4 +102,15 @@ abstract trait Traceable {
 
   def getUpdated: Date = updated
 
+}
+
+trait Repostory [DomainModel , idType] {
+
+  def getById(id: idType): Future[DomainModel]
+
+  def getByUUID(uuid: UUID): Future[DomainModel]
+
+  def getAll(page: Int, pageSize: Int): Future[PaginatedSequence[DomainModel]]
+
+  def getAll() : Future[List[DomainModel]]
 }

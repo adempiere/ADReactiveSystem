@@ -2,10 +2,11 @@ package com.eevolution.context.dictionary.infrastructure.repository
 
 import java.util.UUID
 
+import com.eevolution.context.dictionary.api._
 import com.eevolution.context.dictionary.domain.model.Element
-import com.eevolution.context.dictionary.domain.repository.api
-import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
+import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
+import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -30,19 +31,21 @@ import scala.concurrent.{ExecutionContext, Future}
   * @param session
   * @param executionContext
   */
-class ElementRepository(session: JdbcSession)(implicit executionContext: ExecutionContext) extends api.ElementRepository with ElementMapping {
+class ElementRepository(session: JdbcSession)(implicit executionContext: ExecutionContext) extends Repostory[Element , Int] with ElementMapping {
 
-  import DbContext._
-
-  def getElementById(id: Int): Future[Element] = {
+  def getById(id: Int): Future[Element] = {
     Future(run(queryElement.filter(_.elementId == lift(id))).headOption.get)
   }
 
-  def getElementByUUID(uuid: UUID): Future[Element] = {
+  def getByUUID(uuid: UUID): Future[Element] = {
     Future(run(queryElement.filter(_.name == lift(uuid.toString))).headOption.get)
   }
 
-  def getElements(page: Int, pageSize: Int): Future[PaginatedSequence[Element]] = {
+  def getAll() : Future[List[Element]] = {
+    Future(run(queryElement))
+  }
+
+  def getAll(page: Int, pageSize: Int): Future[PaginatedSequence[Element]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
@@ -60,7 +63,6 @@ class ElementRepository(session: JdbcSession)(implicit executionContext: Executi
 
 
   private def selectElement(offset: Int, limit: Int): Future[Seq[Element]] = {
-    import DbContext._
     Future(run(queryElement).drop(offset).take(limit).toSeq)
   }
 }

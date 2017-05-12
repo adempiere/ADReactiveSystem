@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.service
 import java.util.UUID
 
 import akka.NotUsed
-import com.eevolution.context.dictionary.domain.model.Entity
+import com.eevolution.context.dictionary.domain.model.{Attribute, Entity}
 import com.eevolution.service.api
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 import com.eevolution.utils.PaginatedSequence
@@ -31,6 +31,7 @@ trait EntityService extends Service with api.EntityService {
 
   override def getAll() :  ServiceCall[NotUsed, List[Entity]]
   override def getEntityById(id: Int): ServiceCall[NotUsed, Entity]
+  override def getAttributes(id: Int): ServiceCall[NotUsed, List[Attribute]]
   override def getEntityByUUID(uuid :UUID): ServiceCall[NotUsed, Entity]
   override def getEntities(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Entity]]
 
@@ -39,6 +40,7 @@ trait EntityService extends Service with api.EntityService {
     named("entity").withCalls(
       pathCall("/api/v1_0_0/entity/all", getAll _) ,
       pathCall("/api/v1_0_0/entity/:id", getEntityById _),
+      pathCall("/api/v1_0_0/entity/:id/attributes", getAttributes _),
       pathCall("/api/v1_0_0/entity/:uuid", getEntityByUUID _) ,
       pathCall("/api/v1_0_0/entity?pageNo&pageSize", getEntities _)
     )

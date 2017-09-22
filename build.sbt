@@ -9,7 +9,7 @@ organization in ThisBuild := "com.evolution"
 scalaVersion in ThisBuild := "2.11.8"
 
 val playJsonDerivedCodecs = "org.julienrf" %% "play-json-derived-codecs" % "3.3"
-val playJsonExtensions = "ai.x" %% "play-json-extensions" % "0.8.0"
+val playJsonExtensions = "ai.x" %% "play-json-extensions" % "0.9.0"
 val macwire = "com.softwaremill.macwire" %% "macros" % "2.3.0" % "provided"
 val scalaTest = "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
@@ -21,7 +21,7 @@ lazy val dictionaryApi = (project in file("dictionary-api"))
       lagomScaladslApi,
       playJsonExtensions,
       playJsonDerivedCodecs,
-      "io.getquill" % "quill-jdbc_2.11" % "1.1.1"
+      "io.getquill" %% "quill-jdbc" % "1.3.0"
       //"io.getquill" %% "quill-async-postgres" % "1.0.1"
     )
   )

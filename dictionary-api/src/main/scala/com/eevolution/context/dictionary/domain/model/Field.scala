@@ -19,6 +19,47 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Field Entity
+  * @param fieldId Field Id
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param isCentrallyMaintained Is Centrally Maintained
+  * @param tabId Tab ID
+  * @param columnId Column ID
+  * @param fieldGroup Field Group
+  * @param isDisplayed Is Displayed
+  * @param displayLogic Displayed Logic
+  * @param displayLength Displayed Length
+  * @param isReadOnly Is Read Only
+  * @param seqNo Seq No
+  * @param sortNo Sort No
+  * @param isSameLine Is Same Line
+  * @param isHeading Is Heading
+  * @param isFieldOnly Is Field Only
+  * @param isEncrypted Is Encrypted
+  * @param entityType Entity Type
+  * @param obscureType Obscure Type
+  * @param referenceId Reference ID
+  * @param isMandatory Is Mandatory
+  * @param includedTabId Include Tab ID
+  * @param defaultValue Default Value
+  * @param referenceValueId Reference Value ID
+  * @param valRuleId Val Rule ID
+  * @param infoFactoryClass Info Factory Class
+  * @param isEmbedded Is Embedded
+  * @param preferredWidth Preferred Width
+  * @param isDisplayedGrid Is Displayed Grid
+  * @param seqNoGrid Seq No Grid
+  * @param isAllowCopy Is Allow Copy
+  * @param uuId UU ID
+  */
 case class Field (fieldId: Int,
                   isActive: Boolean = true,
                   created: DateTime = DateTime.now(),

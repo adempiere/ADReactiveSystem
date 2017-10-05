@@ -21,30 +21,38 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cmm Entity
-  * @param treeNodeCmmId Tree Node Cmm ID
-  * @param nodeId Node ID
+  * Find Entity
+  * @param findId Find ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param updatedBy Updated By
   * @param updated Updated
-  * @param parentId Parent ID
-  * @param seqNo Seq No
+  * @param updatedBy Updated By
+  * @param andOr And Or
+  * @param columnId Column ID
+  * @param operation Operation
+  * @param value Value
+  * @param value2 Value 2
   * @param uuId UU ID
   */
 
-case class TreeNodeCmm (treeNodeCmmId: Int,
-                   nodeId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updatedBy: Int,
-                   updated: DateTime = DateTime.now,
-                   parentId: Option[Int],
-                   seqNo: Option[Int],
-                   uuId: Option[String]
-                  ) extends DomainModel
+case class Find(findId: Int,
+                tenantId: Int,
+                organizationId: Int,
+                isActive: Boolean = true,
+                created: DateTime = DateTime.now,
+                createdBy: Int,
+                updated: DateTime = DateTime.now,
+                updatedBy: Int,
+                andOr: Boolean,
+                columnId: Int,
+                operation: String,
+                value: String,
+                value2: Option[String],
+                uuId: Option[String]
+               ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,25 +61,30 @@ case class TreeNodeCmm (treeNodeCmmId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmmId
+  override def Id: Int = findId
 
-  override val entityName: String = "AD_TreeNodeCmm"
-  override val identifier: String = "AD_TreeNodeCmm_ID"
+  override val entityName: String = "AD_Find"
+  override val identifier: String = "AD_Find_ID"
 }
 
-object TreeNodeCmm  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCmm]
-  def create(treeNodeCmmId: Int,
-             nodeId: Int,
+object Find  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Find]
+  def create(findId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updatedBy: Int,
              updated: DateTime,
-             parentId: Int,
-             seqNo: Int,
-             uuId: String) = TreeNodeCmm(treeNodeCmmId, nodeId, isActive, created, createdBy, updatedBy, updated,
-    None, None, None)
+             updatedBy: Int,
+             andOr: Boolean,
+             columnId: Int,
+             operation: String,
+             value: String,
+             value2: String,
+             uuId: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, andOr, columnId,
+    operation, value, None, None)
 }
+
 
 

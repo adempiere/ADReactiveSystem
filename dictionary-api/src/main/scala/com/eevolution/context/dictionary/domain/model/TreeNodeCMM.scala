@@ -21,8 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cms Entity
-  * @param treeNodeCmsId Tree Node Cms ID
+  * Tree Node CMM Entity
+  * @param treeNodeCMMId Tree Node CMM ID
   * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
@@ -34,16 +34,16 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class TreeNodeCms (treeNodeCmsId: Int,
-                   nodeId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updatedBy: Int,
-                   updated: DateTime = DateTime.now,
-                   parentId: Option[Int],
-                   seqNo: Option[Int],
-                   uuId: Option[String]
+case class TreeNodeCMM(treeNodeCMMId: Int,
+                       nodeId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updatedBy: Int,
+                       updated: DateTime = DateTime.now,
+                       parentId: Option[Int],
+                       seqNo: Option[Int],
+                       uuId: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -53,15 +53,15 @@ case class TreeNodeCms (treeNodeCmsId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmsId
+  override def Id: Int = treeNodeCMMId
 
-  override val entityName: String = "AD_TreeNodeCms"
-  override val identifier: String = "AD_TreeNodeCms_ID"
+  override val entityName: String = "AD_TreeNodeCMM"
+  override val identifier: String = "AD_TreeNodeCMM_ID"
 }
 
-object TreeNodeCms  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCms]
-  def create(treeNodeCmsId: Int,
+object TreeNodeCMM  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCMM]
+  def create(treeNodeCMMId: Int,
              nodeId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -70,6 +70,8 @@ object TreeNodeCms  {
              updated: DateTime,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeCms(treeNodeCmsId, nodeId, isActive, created, createdBy, updatedBy, updated,
+             uuId: String) = TreeNodeCMM(treeNodeCMMId, nodeId, isActive, created, createdBy, updatedBy, updated,
     None, None, None)
 }
+
+

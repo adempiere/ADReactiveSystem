@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cmt Entity
-  * @param treeNodeCmtId Tree Node Cmt ID
+  * Tree Node Business Partner Entity
+  * @param treeNodeBPId tree Node Business Partner ID
   * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
-  * @param createdBy Created By
-  * @param updatedBy Updated By
+  * @param createdBy Created  By
   * @param updated Updated
+  * @param updatedBy Updated By
   * @param parentId Parent ID
   * @param seqNo Seq No
   * @param uuId UU ID
   */
 
-case class TreeNodeCmt(treeNodeCmtId: Int,
-                       nodeId: Int,
-                       isActive: Boolean = true,
-                       created: DateTime = DateTime.now,
-                       createdBy: Int,
-                       updatedBy: Int,
-                       updated: DateTime = DateTime.now,
-                       parentId: Option[Int],
-                       seqNo: Option[Int],
-                       uuId: Option[String]
-                      ) extends DomainModel
+case class TreeNodeBP(treeNodeBPId: Int,
+                      nodeId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      parentId: Option[Int],
+                      seqNo: Option[Int],
+                      uuId: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,23 +53,24 @@ case class TreeNodeCmt(treeNodeCmtId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmtId
+  override def Id: Int = treeNodeBPId
 
-  override val entityName: String = "AD_TreeNodeCmt"
-  override val identifier: String = "AD_TreeNodeCmt_ID"
+  override val entityName: String = "AD_TreeNodeBP"
+  override val identifier: String = "AD_TreeNodeBP_ID"
 }
 
-object TreeNodeCmt  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCmt]
-  def create(treeNodeCmtId: Int,
+object TreeNodeBP  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeBP]
+  def create(treeNodeBPId: Int,
              nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updatedBy: Int,
              updated: DateTime,
+             updatedBy: Int,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeCmt(treeNodeCmtId, nodeId, isActive, created, createdBy, updatedBy, updated,
+             uuId: String) = TreeNodeBP(treeNodeBPId, nodeId, isActive, created, createdBy, updated, updatedBy,
     None, None, None)
 }
+

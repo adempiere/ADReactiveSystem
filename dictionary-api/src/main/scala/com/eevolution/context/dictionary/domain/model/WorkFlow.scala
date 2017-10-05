@@ -159,7 +159,7 @@ object WorkFlow {
              isDefault: Boolean,
              tableId: Int,
              validateWorkFlow: Int,
-             workFlowType: Boolean,
+             workFlowType: Boolean, //
              docValueLogic: String,
              isValid: Boolean,
              sResourceId: Int,

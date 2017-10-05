@@ -21,20 +21,20 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Event Audit Entity
-  * @param wfEventAuditId Wf Event Audit ID
+  * Workflow Event Audit Entity
+  * @param workflowEventAuditId Wf Event Audit ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
   * @param eventType Event Type
-  * @param wfState Wf State
-  * @param wfProcessId Wf Process ID
+  * @param workflowState Wf State
+  * @param workflowProcessId Wf Process ID
   * @param nodeId Node ID
   * @param tableId Table ID
   * @param recordId Record ID
-  * @param wfResponsibleId Wf Responsive ID
+  * @param workflowResponsibleId Wf Responsive ID
   * @param userId User ID
   * @param elapsedTimeMs Elapsed Time MS
   * @param attributeName Attribute Name
@@ -45,27 +45,27 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfEventAudit(wfEventAuditId: Int,
-                        isActive: Boolean = true,
-                        created: DateTime = DateTime.now,
-                        createdBy: Int,
-                        updated: DateTime = DateTime.now,
-                        updatedBy: Int,
-                        eventType: String,
-                        wfState: String,
-                        wfProcessId: Int,
-                        nodeId: Int,
-                        tableId: Int,
-                        recordId: Int,
-                        wfResponsibleId: Int,
-                        userId: Option[Int],
-                        elapsedTimeMs: Int,
-                        attributeName: Option[String],
-                        oldValue: Option[String],
-                        newValue: Option[String],
-                        description: Option[String],
-                        textMsg: Option[String],
-                        uuId: Option[String]
+case class WorkflowEventAudit(workflowEventAuditId: Int,
+                              isActive: Boolean = true,
+                              created: DateTime = DateTime.now,
+                              createdBy: Int,
+                              updated: DateTime = DateTime.now,
+                              updatedBy: Int,
+                              eventType: String,
+                              workflowState: String,
+                              workflowProcessId: Int,
+                              nodeId: Int,
+                              tableId: Int,
+                              recordId: Int,
+                              workflowResponsibleId: Int,
+                              userId: Option[Int],
+                              elapsedTimeMs: Int,
+                              attributeName: Option[String],
+                              oldValue: Option[String],
+                              newValue: Option[String],
+                              description: Option[String],
+                              textMsg: Option[String],
+                              uuId: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -75,27 +75,27 @@ case class WfEventAudit(wfEventAuditId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfEventAuditId
+  override def Id: Int = workflowEventAuditId
 
   override val entityName: String = "AD_WfEventAudit"
   override val identifier: String = "AD_WfEventAudit_ID"
 }
 
-object WfEventAudit  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfEventAudit]
-  def create(wfEventAuditId: Int,
+object WorkflowEventAudit  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowEventAudit]
+  def create(workflowEventAuditId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
              eventType: String,
-             wfState: String,
-             wfProcessId: Int,
+             workflowState: String,
+             workflowProcessId: Int,
              nodeId: Int,
              tableId: Int,
              recordId: Int,
-             wfResponsibleId: Int,
+             workflowResponsibleId: Int,
              userId: Int,
              elapsedTimeMs: Int,
              attributeName: String,
@@ -103,8 +103,8 @@ object WfEventAudit  {
              newValue: String,
              description: String,
              textMsg: String,
-             uuId: String) = WfEventAudit(wfEventAuditId, isActive, created, createdBy, updated, updatedBy,
-    eventType, wfState, wfProcessId, nodeId, tableId, recordId, wfResponsibleId, None, elapsedTimeMs,
+             uuId: String) = WorkflowEventAudit(workflowEventAuditId, isActive, created, createdBy, updated, updatedBy,
+    eventType, workflowState, workflowProcessId, nodeId, tableId, recordId, workflowResponsibleId, None, elapsedTimeMs,
     None, None, None, None, None, None)
 }
 

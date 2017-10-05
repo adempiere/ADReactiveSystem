@@ -19,34 +19,30 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Work Bench Trl Entity
-  * @param workBenchTrlId Work Bench Trl ID
-  * @param language Language
+  * Workflow Access Entity
+  * @param workflowAccessId Work Flow Access ID
+  * @param workflowId Work Flow ID
+  * @param roleId Role Id
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param isReadWrite Is Read Write
   * @param uuId UU ID
   */
 
-case class WorkBenchTrl (workBenchTrlId: Int,
-                         language: String,
-                         isActive: Boolean = true,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         name: String,
-                         description: Option[String],
-                         help: Option[String],
-                         isTranslated: Boolean = false,
-                         uuId: Option[String]
-                        ) extends DomainModel
+case class WorkflowAccess(workflowAccessId: Int,
+                          workflowId: Int,
+                          roleId: Int,
+                          isActive: Boolean = true,
+                          created: DateTime = DateTime.now,
+                          createdBy: Int,
+                          updated: DateTime = DateTime.now,
+                          updatedBy: Int,
+                          isReadWrite: Boolean = true,
+                          uuId: Option[String]
+                          ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -54,26 +50,24 @@ case class WorkBenchTrl (workBenchTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workBenchTrlId
+  override def Id: Int = workflowAccessId
 
-  override val entityName: String = "AD_WorkBenchTrl"
-  override val identifier: String = "AD_WorkBenchTrl_ID"
+  override val entityName: String = "AD_workflowAccess"
+  override val identifier: String = "AD_workflowAccess_ID"
 
 }
 
-object WorkBenchTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkBenchTrl]
-  def create(workBenchTrlId: Int,
-             language: String,
+object WorkflowAccess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowAccess]
+  def create(workflowAccessId: Int,
+             workflowId: Int,
+             roleId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuId: String) = WorkBenchTrl(workBenchTrlId, language, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+             isReadWrite: Boolean,
+             uuId: String) = WorkflowAccess(workflowAccessId, workflowId, roleId, isActive, created, createdBy,
+    updated, updatedBy, isReadWrite, None)
 }

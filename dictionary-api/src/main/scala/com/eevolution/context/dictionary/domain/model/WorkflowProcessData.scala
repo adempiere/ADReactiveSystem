@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Block Entity
-  * @param wfBlockId Wf Block ID
+  * Workflow Process Data Entity
+  * @param workflowProcessDataId Wf Process Data ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param workFlowId Work Flow ID
+  * @param workflowProcessId Wf process ID
+  * @param attributeName Attribute Name
+  * @param attributeValue Attribute Value
   * @param uuId UU ID
   */
 
-case class WfBlock(wfBlockId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   workFlowId: Int,
-                   uuId: Option[String]
-                  ) extends DomainModel
+case class WorkflowProcessData(workflowProcessDataId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               workflowProcessId: Int,
+                               attributeName: String,
+                               attributeValue: Option[String],
+                               uuId: Option[String]
+                        ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,26 +53,25 @@ case class WfBlock(wfBlockId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfBlockId
+  override def Id: Int = workflowProcessDataId
 
-  override val entityName: String = "AD_WfBlock"
-  override val identifier: String = "AD_WfBlock_ID"
+  override val entityName: String = "AD_WfProcessData"
+  override val identifier: String = "AD_WfProcessData_ID"
 }
 
-object WfBlock {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfBlock]
-  def create(wfBlockId: Int,
+object WorkflowProcessData {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessData]
+  def create(workflowProcessDataId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             workFlowId: Int,
-             uuId: String) = WfBlock(wfBlockId, isActive, created, createdBy, updated, updatedBy, name,
-    None, workFlowId, None)
+             workflowProcessId: Int,
+             attributeName: String,
+             attributeValue: String,
+             uuId: String) = WorkflowProcessData(workflowProcessDataId, isActive, created, createdBy, updated, updatedBy,
+    workflowProcessId, attributeName, None, None)
 
 }
-
 

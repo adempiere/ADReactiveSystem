@@ -21,18 +21,18 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Activity Entity
-  * @param wfActivityId Wf Activity ID
+  * Workflow Activity Entity
+  * @param workflowActivityId Wf Activity ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfProcessId Wf Process ID
-  * @param wfNodeId Wf Node ID
-  * @param wfResponsibleId Wf Responsible ID
+  * @param workflowProcessId Wf Process ID
+  * @param workflowNodeId Wf Node ID
+  * @param workflowResponsibleId Wf Responsible ID
   * @param userId User ID
-  * @param wfState Wf State
+  * @param workflowState Wf State
   * @param messageId Message ID
   * @param processing Processing
   * @param processed Processed
@@ -47,29 +47,29 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfActivity(wfActivityId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      wfProcessId: Int,
-                      wfNodeId: Int,
-                      wfResponsibleId: Option[Int],
-                      userId: Option[Int],
-                      wfState: String,
-                      messageId: Option[Int],
-                      processing: Option[Boolean],
-                      processed: Boolean = false,
-                      textMsg: Option[String],
-                      workFlowId: Int,
-                      tableId: Int,
-                      recordId: Int,
-                      priority: Option[Int],
-                      endWaitTime: Option[DateTime],
-                      dateLastAlert: Option[DateTime],
-                      dynPriorityStart: Option[Int],
-                      uuId: Option[String]
+case class WorkflowActivity(workflowActivityId: Int,
+                            isActive: Boolean = true,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            workflowProcessId: Int,
+                            workflowNodeId: Int,
+                            workflowResponsibleId: Option[Int],
+                            userId: Option[Int],
+                            workflowState: String,
+                            messageId: Option[Int],
+                            processing: Option[Boolean],
+                            processed: Boolean = false,
+                            textMsg: Option[String],
+                            workFlowId: Int,
+                            tableId: Int,
+                            recordId: Int,
+                            priority: Option[Int],
+                            endWaitTime: Option[DateTime],
+                            dateLastAlert: Option[DateTime],
+                            dynPriorityStart: Option[Int],
+                            uuId: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -79,25 +79,25 @@ case class WfActivity(wfActivityId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfActivityId
+  override def Id: Int = workflowActivityId
 
   override val entityName: String = "AD_WfActivity"
   override val identifier: String = "AD_WfActivity_ID"
 }
 
-object WfActivity {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfActivity]
-  def create(wfActivityId: Int,
+object WorkflowActivity {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowActivity]
+  def create(workflowActivityId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfProcessId: Int,
-             wfNodeId: Int,
-             wfResponsibleId: Int,
+             workflowProcessId: Int,
+             workflowNodeId: Int,
+             workflowResponsibleId: Int,
              userId: Int,
-             wfState: String,
+             workflowState: String,
              messageId: Int,
              processing: Boolean,
              processed: Boolean,
@@ -109,8 +109,8 @@ object WfActivity {
              endWaitTime: DateTime,
              dateLastAlert: DateTime,
              dynPriorityStart: Int,
-             uuId: String) = WfActivity(wfActivityId, isActive, created, createdBy, updated, updatedBy,
-    wfProcessId, wfNodeId, None, None, wfState, None, None, processed, None, workFlowId, tableId, recordId,
+             uuId: String) = WorkflowActivity(workflowActivityId, isActive, created, createdBy, updated, updatedBy,
+    workflowProcessId, workflowNodeId, None, None, workflowState, None, None, processed, None, workFlowId, tableId, recordId,
     None, None, None, None, None)
 
 }

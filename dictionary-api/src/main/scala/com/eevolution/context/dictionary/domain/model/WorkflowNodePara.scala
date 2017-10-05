@@ -21,30 +21,36 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Process Data Entity
-  * @param wfProcessDataId Wf Process Data ID
+  * Workflow Node Para Entity
+  * @param workflowNodeParaId Wf Node Para ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfProcessId Wf process ID
+  * @param workflowNodeId Wf Node ID
   * @param attributeName Attribute Name
+  * @param processParaId Process Para ID
+  * @param description Description
   * @param attributeValue Attribute Value
+  * @param entityType Entity Type
   * @param uuId UU ID
   */
 
-case class WfProcessData(wfProcessDataId: Int,
-                         isActive: Boolean = true,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         wfProcessId: Int,
-                         attributeName: String,
-                         attributeValue: Option[String],
-                         uuId: Option[String]
-                        ) extends DomainModel
+case class WorkflowNodePara(workflowNodeParaId: Int,
+                            isActive: Boolean = true,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            workflowNodeId: Int,
+                            attributeName: Option[String],
+                            processParaId: Option[Int],
+                            description: Option[String],
+                            attributeValue: Option[String],
+                            entityType: String ="D",
+                            uuId: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,25 +59,30 @@ case class WfProcessData(wfProcessDataId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfProcessDataId
+  override def Id: Int = workflowNodeParaId
 
-  override val entityName: String = "AD_WfProcessData"
-  override val identifier: String = "AD_WfProcessData_ID"
+  override val entityName: String = "AD_WfNodePara"
+  override val identifier: String = "AD_WfNodePara_ID"
 }
 
-object WfProcessData {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfProcessData]
-  def create(wfProcessDataId: Int,
+
+object WorkflowNodePara {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodePara]
+  def create(workflowNodeParaId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfProcessId: Int,
+             workflowNodeId: Int,
              attributeName: String,
+             processParaId: Int,
+             description: String,
              attributeValue: String,
-             uuId: String) = WfProcessData(wfProcessDataId, isActive, created, createdBy, updated, updatedBy,
-    wfProcessId, attributeName, None, None)
+             entityType: String,
+             uuId: String) = WorkflowNodePara(workflowNodeParaId, isActive, created, createdBy, updated, updatedBy,
+    workflowNodeId, None, None, None, None, entityType, None)
 
 }
+
 

@@ -21,33 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Activity Result Entity
-  * @param wfActivityResultId Wf Activity Result ID
+  * Workflow Block Entity
+  * @param workflowBlockId Wf Block ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfActivityId Wf Activity ID
-  * @param attributeName Attribute Name
-  * @param attributeValue Attribute Value
+  * @param name Name
   * @param description Description
-  * @param help Help
+  * @param workflowId Work Flow ID
   * @param uuId UU ID
   */
-case class WfActivityResult(wfActivityResultId: Int,
-                            isActive: Boolean = true,
-                            created: DateTime = DateTime.now,
-                            createdBy: Int,
-                            updated: DateTime = DateTime.now,
-                            updatedBy: Int,
-                            wfActivityId: Int,
-                            attributeName: String,
-                            attributeValue: Option[String],
-                            description: Option[String],
-                            help: Option[String],
-                            uuId: Option[String]
-                           ) extends DomainModel
+
+case class WorkflowBlock(workflowBlockId: Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         name: String,
+                         description: Option[String],
+                         workflowId: Int,
+                         uuId: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -56,27 +53,26 @@ case class WfActivityResult(wfActivityResultId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfActivityResultId
+  override def Id: Int = workflowBlockId
 
-  override val entityName: String = "AD_WfActivityResult"
-  override val identifier: String = "AD_WfActivityResult_ID"
+  override val entityName: String = "AD_WfBlock"
+  override val identifier: String = "AD_WfBlock_ID"
 }
 
-object WfActivityResult  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfActivityResult]
-  def create(wfActivityResultId: Int,
+object WorkflowBlock {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowBlock]
+  def create(workflowBlockId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfActivityId: Int,
-             attributeName: String,
-             attributeValue: String,
+             name: String,
              description: String,
-             help: String,
-             uuId: String) = WfActivityResult(wfActivityResultId, isActive, created, createdBy, updated, updatedBy,
-    wfActivityId, attributeName, None, None, None, None)
+             workflowId: Int,
+             uuId: String) = WorkflowBlock(workflowBlockId, isActive, created, createdBy, updated, updatedBy, name,
+    None, workflowId, None)
+
 }
 
 

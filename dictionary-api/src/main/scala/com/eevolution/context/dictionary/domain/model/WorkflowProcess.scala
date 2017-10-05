@@ -21,17 +21,17 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Process entity
-  * @param wfProcessId Wf Process ID
+  * Workflow Process entity
+  * @param workflowProcessId Wf Process ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
   * @param workFlowId Work Flow
-  * @param wfResponsiveId Wf Responsive ID
+  * @param workflowResponsiveId Wf Responsive ID
   * @param userId User ID
-  * @param wfState Wf State
+  * @param workflowState Wf State
   * @param messageId Message ID
   * @param processing Processing
   * @param processed Processed
@@ -42,24 +42,24 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfProcess(wfProcessId: Int,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     workFlowId: Int,
-                     wfResponsiveId: Int,
-                     userId: Option[Int],
-                     wfState: String,
-                     messageId: Option[Int],
-                     processing: Option[Boolean],
-                     processed: Boolean = false,
-                     textMsg: Option[String],
-                     tableId: Int,
-                     recordId: Int,
-                     priority: Option[Int],
-                     uuId: Option[String]
+case class WorkflowProcess(workflowProcessId: Int,
+                           isActive: Boolean = true,
+                           created: DateTime = DateTime.now,
+                           createdBy: Int,
+                           updated: DateTime = DateTime.now,
+                           updatedBy: Int,
+                           workFlowId: Int,
+                           workflowResponsiveId: Int,
+                           userId: Option[Int],
+                           workflowState: String,
+                           messageId: Option[Int],
+                           processing: Option[Boolean],
+                           processed: Boolean = false,
+                           textMsg: Option[String],
+                           tableId: Int,
+                           recordId: Int,
+                           priority: Option[Int],
+                           uuId: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -69,25 +69,25 @@ case class WfProcess(wfProcessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfProcessId
+  override def Id: Int = workflowProcessId
 
   override val entityName: String = "AD_WfProcess"
   override val identifier: String = "AD_WfProcess_ID"
 }
 
 
-object WfProcess {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfProcess]
-  def create(wfProcessId: Int,
+object WorkflowProcess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcess]
+  def create(workflowProcessId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
              workFlowId: Int,
-             wfResponsiveId: Int,
+             workflowResponsiveId: Int,
              userId: Int,
-             wfState: String,
+             workflowState: String,
              messageId: Int,
              processing: Boolean,
              processed: Boolean,
@@ -95,7 +95,7 @@ object WfProcess {
              tableId: Int,
              recordId: Int,
              priority: Int,
-             uuId: String) = WfProcess(wfProcessId, isActive, created, createdBy, updated, updatedBy,
-    workFlowId, wfResponsiveId, None, wfState, None, None, processed, None, tableId, recordId, None, None)
+             uuId: String) = WorkflowProcess(workflowProcessId, isActive, created, createdBy, updated, updatedBy,
+    workFlowId, workflowResponsiveId, None, workflowState, None, None, processed, None, tableId, recordId, None, None)
 
 }

@@ -21,8 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Node Entity
-  * @param wfNodeId Wf Node ID
+  * Workflow Node Entity
+  * @param workflowNodeId Wf Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -42,7 +42,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param xPosition X Position
   * @param yPosition Y Position
-  * @param wfBlockId Wf Block ID
+  * @param workflowBlockId Wf Block ID
   * @param subFlowExecution Sub Flow Execution
   * @param startMode Start Mode
   * @param finishMode Finish Mode
@@ -50,7 +50,7 @@ import org.joda.time.DateTime
   * @param cost Cost
   * @param workingTime Working Time
   * @param waitingTime Waiting Time
-  * @param wfResponsibleId Wf Responsible ID
+  * @param workflowResponsibleId Wf Responsible ID
   * @param imageId Image ID
   * @param joinElement Join Element
   * @param splitElement Split Element
@@ -82,64 +82,64 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfNode(wfNodeId: Int,
-                  isActive: Boolean = true,
-                  created: DateTime = DateTime.now,
-                  createdBy: Int,
-                  updated: DateTime = DateTime.now,
-                  updatedBy: Int,
-                  name: String,
-                  description: Option[String],
-                  help: Option[String],
-                  workFlowId: Int,
-                  isCentrallyMaintained: Boolean = true,
-                  action: Boolean,
-                  windowId: Option[Int],
-                  workFlowId2: Option[Int],
-                  taskId: Option[Int],
-                  processId: Option[Int],
-                  formId: Option[Int],
-                  entityType: String = "U",
-                  xPosition: Int = 0,
-                  yPosition: Int = 0,
-                  wfBlockId: Option[Int],
-                  subFlowExecution: Option[Boolean],
-                  startMode: Option[Boolean],
-                  finishMode: Option[Boolean],
-                  limit: Int = 0,
-                  cost: Int = 0,
-                  workingTime: Option[Int],
-                  waitingTime: Int = 0,
-                  wfResponsibleId: Option[Int],
-                  imageId: Option[Int],
-                  joinElement: Boolean,
-                  splitElement: Boolean,
-                  waitTime: Option[Int],
-                  columnId: Option[Int],
-                  attributeName: Option[String],
-                  attributeValue: Option[String],
-                  docAction: Option[String],
-                  value: String,
-                  dynPriorityUnit: Option[Boolean],
-                  dynPriorityChange: Option[Int],
-                  emailRecipient: Option[Boolean],
-                  email: Option[String],
-                  mailTextId: Option[Int],
-                  validTo: Option[DateTime],
-                  isMilestone: Boolean = false,
-                  isSubContracting: Boolean = false,
-                  unitsCycles: Int = 0,
-                  movingTime: Option[Int],
-                  overlapUnits: Option[Int],
-                  bPartnerId: Option[Int],
-                  queuingTime: Option[Int],
-                  resourceId: Option[Int],
-                  setupTime: Option[Int],
-                  validFrom: Option[DateTime],
-                  yieldData: Int = 100,
-                  viewId: Option[Int],
-                  browseId: Option[Int],
-                  uuId: Option[String]
+case class WorkflowNode(workflowNodeId: Int,
+                        isActive: Boolean = true,
+                        created: DateTime = DateTime.now,
+                        createdBy: Int,
+                        updated: DateTime = DateTime.now,
+                        updatedBy: Int,
+                        name: String,
+                        description: Option[String],
+                        help: Option[String],
+                        workFlowId: Int,
+                        isCentrallyMaintained: Boolean = true,
+                        action: Boolean,
+                        windowId: Option[Int],
+                        workFlowId2: Option[Int],
+                        taskId: Option[Int],
+                        processId: Option[Int],
+                        formId: Option[Int],
+                        entityType: String = "U",
+                        xPosition: Int = 0,
+                        yPosition: Int = 0,
+                        workflowBlockId: Option[Int],
+                        subFlowExecution: Option[Boolean],
+                        startMode: Option[Boolean],
+                        finishMode: Option[Boolean],
+                        limit: Int = 0,
+                        cost: Int = 0,
+                        workingTime: Option[Int],
+                        waitingTime: Int = 0,
+                        workflowResponsibleId: Option[Int],
+                        imageId: Option[Int],
+                        joinElement: Boolean,
+                        splitElement: Boolean,
+                        waitTime: Option[Int],
+                        columnId: Option[Int],
+                        attributeName: Option[String],
+                        attributeValue: Option[String],
+                        docAction: Option[String],
+                        value: String,
+                        dynPriorityUnit: Option[Boolean],
+                        dynPriorityChange: Option[Int],
+                        emailRecipient: Option[Boolean],
+                        email: Option[String],
+                        mailTextId: Option[Int],
+                        validTo: Option[DateTime],
+                        isMilestone: Boolean = false,
+                        isSubContracting: Boolean = false,
+                        unitsCycles: Int = 0,
+                        movingTime: Option[Int],
+                        overlapUnits: Option[Int],
+                        bPartnerId: Option[Int],
+                        queuingTime: Option[Int],
+                        resourceId: Option[Int],
+                        setupTime: Option[Int],
+                        validFrom: Option[DateTime],
+                        yieldData: Int = 100,
+                        viewId: Option[Int],
+                        browseId: Option[Int],
+                        uuId: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -149,15 +149,15 @@ case class WfNode(wfNodeId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNodeId
+  override def Id: Int = workflowNodeId
 
   override val entityName: String = "AD_WfNode"
   override val identifier: String = "AD_WfNode_ID"
 }
 
-object WfNode  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNode]
-  def create(wfNodeId: Int,
+object WorkflowNode  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNode]
+  def create(workflowNodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -177,7 +177,7 @@ object WfNode  {
              entityType: String,
              xPosition: Int,
              yPosition: Int,
-             wfBlockId: Int,
+             workflowBlockId: Int,
              subFlowExecution: Boolean,
              startMode: Boolean,
              finishMode: Boolean,
@@ -185,7 +185,7 @@ object WfNode  {
              cost: Int,
              workingTime: Int,
              waitingTime: Int,
-             wfResponsibleId: Int,
+             workflowResponsibleId: Int,
              imageId: Int,
              joinElement: Boolean,
              splitElement: Boolean,
@@ -214,7 +214,7 @@ object WfNode  {
              yieldData: Int,
              viewId: Int,
              browseId: Int,
-             uuId: String) = WfNode(wfNodeId, isActive, created, createdBy, updated, updatedBy,
+             uuId: String) = WorkflowNode(workflowNodeId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, workFlowId, isCentrallyMaintained, action, None, None, None, None, None,
     entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
     None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,

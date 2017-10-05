@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.model
 
+
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
@@ -21,34 +22,36 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Node Trl Entity
-  * @param wfNodeTrlId Wf Node Trl ID
-  * @param language Language
+  * Tenant Share Entity
+  * @param tenantShareId Tenant Share ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
-  * @param createdBy Created By
+  * @param createdBy Created by
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param tableId Table ID
+  * @param shareType Share Type
   * @param uuId UU ID
   */
 
-case class WfNodeTrl(wfNodeTrlId: Int,
-                     language: String,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     help: Option[String],
-                     isTranslated: Boolean =false,
-                     uuId: Option[String]
-                    ) extends DomainModel
+case class TenantShare(tenantShareId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
+                       isActive: Boolean,
+                       created: DateTime,
+                       createdBy: Int,
+                       updated: DateTime,
+                       updatedBy: Int,
+                       name: String,
+                       description: Option[String],
+                       tableId: Int,
+                       shareType: Boolean,
+                       uuId: Option[String]
+                      ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -57,17 +60,17 @@ case class WfNodeTrl(wfNodeTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNodeTrlId
+  override def Id: Int = tenantShareId
 
-  override val entityName: String = "AD_WfNodeTrl"
-  override val identifier: String = "AD_WfNodeTrl_ID"
+  override val entityName: String = "AD_ClientShare"
+  override val identifier: String = "AD_ClientShare_ID"
 }
 
-
-object WfNodeTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNodeTrl]
-  def create(wfNodeTrlId: Int,
-             language: String,
+object TenantShare  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TenantShare]
+  def create(tenantShareId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -75,9 +78,10 @@ object WfNodeTrl {
              updatedBy: Int,
              name: String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuId: String) = WfNodeTrl(wfNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, isTranslated, None)
-
+             tableId: Int,
+             shareType: Boolean,
+             uuId: String) = TenantShare(tenantShareId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    name, None, tableId, shareType, None)
 }
+
+

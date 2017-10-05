@@ -16,12 +16,13 @@ import org.joda.time.DateTime
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com.
+  * Modified by emeris.hernandezmoreno@e-evolution.com , www.e-evolution.com.
   */
 /**
-  * Work Flow Trl Entity
-  * @param workFlowTrlId Work Flow Trl ID
-  * @param workFlowId Work Flow
+  * Workflow Trl Entity
+  * @param workflowTrlId Work Flow Trl ID
+  * @param workflowId Work Flow
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -35,19 +36,19 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WorkFlowTrl (workFlowTrlId: Int,
-                        workFlowId: Int,
-                        language: String,
-                        isActive: Boolean = true,
-                        created: DateTime = DateTime.now,
-                        createdBy: Int,
-                        updated: DateTime = DateTime.now,
-                        updatedBy: Int,
-                        name: String,
-                        description: Option[String],
-                        help: Option[String],
-                        isTranslated: Boolean = false,
-                        uuId: Option[String]
+case class WorkflowTrl(workflowTrlId: Int,
+                       workflowId: Int,
+                       language: String,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updated: DateTime = DateTime.now,
+                       updatedBy: Int,
+                       name: String,
+                       description: Option[String],
+                       help: Option[String],
+                       isTranslated: Boolean = false,
+                       uuId: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -56,17 +57,17 @@ case class WorkFlowTrl (workFlowTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowTrlId
+  override def Id: Int = workflowTrlId
 
-  override val entityName: String = "AD_WorkFlowTrl"
-  override val identifier: String = "AD_WorkFlowTrl_ID"
+  override val entityName: String = "AD_WorkflowTrl"
+  override val identifier: String = "AD_WorkflowTrl_ID"
 
 }
 
-object WorkFlowTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowTrl]
-  def create(workFlowTrlId: Int,
-             workFlowId: Int,
+object WorkflowTrl {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowTrl]
+  def create(workflowTrlId: Int,
+             workflowId: Int,
              language: String,
              isActive: Boolean,
              created: DateTime,
@@ -77,6 +78,6 @@ object WorkFlowTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = WorkFlowTrl(workFlowTrlId, workFlowId, language, isActive, created, createdBy,
+             uuId: String) = WorkflowTrl(workflowTrlId, workflowId, language, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

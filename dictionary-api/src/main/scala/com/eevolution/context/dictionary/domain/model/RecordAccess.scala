@@ -20,6 +20,22 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Record Access Entity
+  * @param recordAccessId Record Access ID
+  * @param roleId Role ID
+  * @param tableId Table ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isReadOnly Is Read Only
+  * @param isExclude Is Exclude
+  * @param isDependentEntities Is Dependent Entities
+  * @param uuId UU ID
+  */
+
 case class RecordAccess(recordAccessId: Int,
                         roleId: Int,
                         tableId: Int,

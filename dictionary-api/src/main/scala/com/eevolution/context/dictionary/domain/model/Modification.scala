@@ -20,6 +20,23 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Modification Entity
+  * @param modificationId Modification ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param seqNo Seq No
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param entityType Entity Type
+  * @param version Version
+  * @param uuId UU ID
+  */
+
 case class Modification(modificationId: Int,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,

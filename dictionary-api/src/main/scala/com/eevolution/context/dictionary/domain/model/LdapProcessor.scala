@@ -20,6 +20,25 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Ldap Processor Entity
+  * @param ldapProcessorId Ldap Processor ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isActive Is Active
+  * @param name Name
+  * @param description Description
+  * @param ldapPort Ldap Port
+  * @param dateLastRun Date Last Run
+  * @param dateNextRun Date Next Run
+  * @param supervisorId Supervisor ID
+  * @param keepLogDays Keep Log Days
+  * @param processing Processing
+  * @param uuId UU ID
+  */
+
 case class LdapProcessor(ldapProcessorId: Int,
                          created: DateTime = DateTime.now,
                          createdBy: Int,

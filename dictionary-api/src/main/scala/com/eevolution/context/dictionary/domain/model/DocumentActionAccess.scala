@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Document Action Entity
+  * @param documentActionAccessId Document Action Access ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param doctypeId Doctype ID
+  * @param roleId Role ID
+  * @param refListId Ref List ID
+  * @param uuId UU ID
+  */
+
 case class DocumentActionAccess(documentActionAccessId: Int,
                                 isActive:Boolean=true,
                                 created:DateTime = DateTime.now,

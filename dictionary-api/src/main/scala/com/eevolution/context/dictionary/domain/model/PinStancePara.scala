@@ -20,6 +20,27 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Pin Stance Para Entity
+  * @param pinStanceParaId Pin Stance Para ID
+  * @param seqNo Seq No
+  * @param parameterName Parameter Name
+  * @param string String
+  * @param stringTo String To
+  * @param number Number
+  * @param numberTo Number To
+  * @param date Date
+  * @param dateTo Date To
+  * @param info Info
+  * @param infoTo Info To
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isActive Is Active
+  * @param uuId UU ID
+  */
+
 case class PinStancePara(pinStanceParaId: Int,
                          seqNo: Int,
                          parameterName: Option[String],

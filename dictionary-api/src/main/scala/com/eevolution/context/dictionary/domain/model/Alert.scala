@@ -20,6 +20,26 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Alert Entity
+  * @param alertId Alert ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param alertSubject Alert Subject
+  * @param alertMessage Alert Message
+  * @param enforceClientSecurity Enforce Client Security
+  * @param enforceRoleSecurity Enforce Role Security
+  * @param alertProcessorId Alert Processor ID
+  * @param isValid Is Valid
+  * @param uuId UU ID
+  */
+
 case class Alert(alertId: Int,
                  isActive: Boolean = true,
                  created: DateTime = DateTime.now(),

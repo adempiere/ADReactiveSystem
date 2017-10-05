@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Private Access Entity
+  * @param privateAccessId Private Access ID
+  * @param userId User ID
+  * @param tableId Table ID
+  * @param recordId Record ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param uuId UU ID
+  */
+
 case class PrivateAccess(privateAccessId: Int,
                          userId: Int,
                          tableId: Int,

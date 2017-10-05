@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Column Process Para Entity
+  * @param columnProcessParaId Column Process Para ID
+  * @param columnProcessId Column Process ID
+  * @param processParaId Process Para ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param defaultValue Default Value
+  * @param isActive Is Active
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param uuId UU ID
+  */
+
 case class ColumnProcessPara(columnProcessParaId: Int,
                              columnProcessId: Option[Int],
                              processParaId: Option[Int],

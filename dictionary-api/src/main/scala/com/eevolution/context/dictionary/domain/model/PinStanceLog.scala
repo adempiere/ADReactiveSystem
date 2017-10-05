@@ -20,6 +20,22 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Pin Stance Log Entity
+  * @param pinStanceLogId Pin Stance Log ID
+  * @param pinStanceId Pin Stance ID
+  * @param date Date
+  * @param id ID
+  * @param number Number
+  * @param msg Msg
+  * @param createdBy Created By
+  * @param created Created
+  * @param updatedBy Updated By
+  * @param updated Updated
+  * @param isActive Is Active
+  * @param uuId UU ID
+  */
+
 case class PinStanceLog(pinStanceLogId: Int,
                         pinStanceId: Int,
                         date: DateTime = DateTime.now,

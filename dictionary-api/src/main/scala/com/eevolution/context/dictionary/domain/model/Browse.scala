@@ -20,6 +20,35 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Browse Entity
+  * @param browseId Browse ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param description Description
+  * @param entityType Entity Type
+  * @param help Help
+  * @param name Name
+  * @param value Value
+  * @param viewId View ID
+  * @param whereClause Where Clause
+  * @param processing Processing
+  * @param processId Process ID
+  * @param isBetaFunctionality Is Beta Functionality
+  * @param accessLevel Access Level
+  * @param copyFrom Copy From
+  * @param isDeleteAble Is Delete Able
+  * @param isCollapsibleByDefault Is Collapsible By Default
+  * @param isSelectedByDefault Is Selected By Default
+  * @param isExecutedQueryByDefault Is Executed Query By Default
+  * @param windowId Window ID
+  * @param isShowTotal Is Show Total
+  * @param uuId UU ID
+  */
+
 case class Browse(browseId: Int,
                   created: DateTime =  DateTime.now,
                   createdBy: Int,

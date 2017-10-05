@@ -20,6 +20,24 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Ldap Processor Log Entity
+  * @param ldapProcessorLogId Ldap Processor Log ID
+  * @param ldapProcessorId Ldap Processor ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param summary Summary
+  * @param isError Is Error
+  * @param reference Reference
+  * @param description Description
+  * @param textMsg Text Msg
+  * @param binaryData Binary Data
+  * @param uuId UU ID
+  */
+
 case class LdapProcessorLog(ldapProcessorLogId: Int,
                        ldapProcessorId: Int,
                        isActive: Boolean = true,

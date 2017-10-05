@@ -21,6 +21,22 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Desktop Entity
+  * @param desktopId Desktop ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param imageId Image ID
+  * @param colorId Color ID
+  * @param uuId UU ID
+  */
+
 case class Desktop(desktopId: Int,
                    isActive:Boolean=true,
                    created:DateTime = DateTime.now(),

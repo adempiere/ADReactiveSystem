@@ -20,6 +20,27 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Memo Entity
+  * @param memoId Memo ID
+  * @param tableId Table ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param recordId Record ID
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param comments Comments
+  * @param userId User ID
+  * @param activityId Activity ID
+  * @param bPartnerId Business Partner ID
+  * @param campaignId Campaign ID
+  * @param projectId Project ID
+  * @param productId Product ID
+  * @param isAlert Is Alert
+  * @param uuId UU ID
+  */
+
 case class Memo(memoId: Int,
                 tableId: Int,
                 created: DateTime = DateTime.now,

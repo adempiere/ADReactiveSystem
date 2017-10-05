@@ -20,6 +20,22 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Browse Field Trl Entity
+  * @param browseFieldTrlId Browse Field Trl ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param language Language
+  * @param description Description
+  * @param help Help
+  * @param isTranslated Is Translated
+  * @param name Name
+  * @param uuId  UU ID
+  */
+
 case class BrowseFieldTrl(browseFieldTrlId: Int,
                           created: DateTime =  DateTime.now(),
                           createdBy: Int,

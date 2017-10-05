@@ -20,6 +20,24 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Tree Favorite Node Entity
+  * @param treeFavoriteNodeId Tree Favorite Node ID
+  * @param menuId Menu ID
+  * @param treeFavoriteId Tree Favorite ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param isSummary Is Summary
+  * @param nodeName Node Name
+  * @param parentId Parent ID
+  * @param seqNo Seq No
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isCollapsible Is Collapsible
+  * @param uuId UU ID
+  */
+
 case class TreeFavoriteNode(treeFavoriteNodeId: Int,
                             menuId: Int,
                             treeFavoriteId: Int,

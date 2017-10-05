@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Column Trl Entity
+  * @param columnTrlId Column Trl ID
+  * @param language Language
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param isTranslated Is Translated
+  * @param uuId UU ID
+  */
+
 case class ColumnTrl(columnTrlId: Int,
                      language: String,
                      isActive: Boolean = true,

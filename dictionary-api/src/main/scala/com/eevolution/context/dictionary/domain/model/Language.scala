@@ -21,6 +21,27 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Language Entity
+  * @param languageId Language ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param languageIso Language Iso
+  * @param countryCode Country Code
+  * @param isBaseLanguage is Base Language
+  * @param isSystemLanguage Is System Language
+  * @param processing Processing
+  * @param language Language
+  * @param isDecimalPoint Is Decimal Point
+  * @param datePattern Date Pattern
+  * @param timePattern Time Pattern
+  * @param uuId UU ID
+  */
+
 case class Language(languageId: Int,
                     isActive: Boolean = true,
                     created: DateTime =  DateTime.now,

@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Tree Node Entity
+  * @param treeNodeId Tree Node ID
+  * @param nodeId Node ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param parentId Parent ID
+  * @param seqNo Seq No
+  * @param uuId UU ID
+  */
+
 case class TreeNode(treeNodeId: Int,
                     nodeId: Int,
                     isActive: Boolean = true,

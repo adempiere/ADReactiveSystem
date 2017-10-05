@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Tree Node Cms Entity
+  * @param treeNodeCmsId Tree Node Cms ID
+  * @param nodeId Node ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updatedBy Updated By
+  * @param updated Updated
+  * @param parentId Parent ID
+  * @param seqNo Seq No
+  * @param uuId UU ID
+  */
+
 case class TreeNodeCms (treeNodeCmsId: Int,
                    nodeId: Int,
                    isActive: Boolean = true,

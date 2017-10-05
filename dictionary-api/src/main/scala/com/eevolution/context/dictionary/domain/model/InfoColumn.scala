@@ -20,6 +20,28 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Info Column Entity
+  * @param infoColumnId Info Column ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param infoWindowId Info Window ID
+  * @param entityType Entity Type
+  * @param selectClause Select Clause
+  * @param seqNo Seq No
+  * @param isDisplayed Is Displayed
+  * @param isQueryCriteria Is Query Criteria
+  * @param elementId Element ID
+  * @param referenceId Reference ID
+  * @param uuId UU ID
+  */
+
 case class InfoColumn(infoColumnId: Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,

@@ -20,6 +20,32 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Menu Entity
+  * @param menuId Menu ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param name Name
+  * @param updatedBy Updated By
+  * @param description Description
+  * @param isSummary Is Summary
+  * @param isSoTrx Is So Trx
+  * @param isReadOnly Is Read Only
+  * @param action Action
+  * @param windowId Window ID
+  * @param workFlowId Work Flow ID
+  * @param taskId Task ID
+  * @param processId Process ID
+  * @param formId Form ID
+  * @param workbenchId Workbench ID
+  * @param entityType Entity Type
+  * @param isCentrallyMaintained Is Centrally Maintained
+  * @param browseId Browse ID
+  * @param uuId UU ID
+  */
+
 case class Menu(menuId: Int,
            isActive: Boolean = true,
            created: DateTime =  DateTime.now,
@@ -29,7 +55,7 @@ case class Menu(menuId: Int,
            updatedBy: Int,
            description: Option[String],
            isSummary: Boolean = false,
-           isSotrx: Boolean = true,
+           isSoTrx: Boolean = true,
            isReadOnly: Boolean = false,
            action: Option[Boolean],
            windowId: Option[Int],
@@ -68,7 +94,7 @@ object Menu {
              updatedBy: Int,
              description: String,
              isSummary: Boolean,
-             isSotrx: Boolean,
+             isSoTrx: Boolean,
              isReadOnly: Boolean,
              action: Boolean,
              windowId: Int,
@@ -81,6 +107,6 @@ object Menu {
              isCentrallyMaintained: Boolean,
              browseId: Int,
              uuId: String) = Menu (menuId,isActive, created, createdBy, updated,
-    name, updatedBy,None, isSummary, isSotrx, isReadOnly,
+    name, updatedBy,None, isSummary, isSoTrx, isReadOnly,
     None, None, None, None, None, None, None, entityType, isCentrallyMaintained, None, None)
 }

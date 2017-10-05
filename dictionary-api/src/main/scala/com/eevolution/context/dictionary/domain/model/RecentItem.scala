@@ -20,6 +20,24 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Recent Item Entity
+  * @param recentItemId Recent Item ID
+  * @param roleId Role ID
+  * @param tabId Tab ID
+  * @param tableId Table ID
+  * @param userId User ID
+  * @param windowId Window ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param recordId Record ID
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param menuId Menu ID
+  * @param uuId UU ID
+  */
+
 case class RecentItem(recentItemId: Int,
                       roleId: Int,
                       tabId: Option[Int],

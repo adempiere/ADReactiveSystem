@@ -20,6 +20,19 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Browse Access Entity
+  * @param browseAccessId Browse Access ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param roleId Role ID
+  * @param isReadWrite Is Read Write
+  * @param uuId UU ID
+  */
+
 case class BrowseAccess(browseAccessId: Int,
                         created: DateTime =  DateTime.now(),
                         createdBy: Int,

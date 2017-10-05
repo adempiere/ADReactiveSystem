@@ -20,6 +20,34 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Color Entity
+  * @param colorId Color ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param isDefault is Default
+  * @param colorType Color Type
+  * @param red Red
+  * @param green Green
+  * @param blue Blue
+  * @param alpha Alpha
+  * @param imageId Image ID
+  * @param imageAlpha Image Alpha
+  * @param red1 Red 1
+  * @param green1 Green 1
+  * @param blue1 Blue 1
+  * @param alpha1 Alpha 1
+  * @param lineWidth Line Width
+  * @param lineDistance Line Distance
+  * @param startPoint Start Point
+  * @param repeatDistance Repeat Distance
+  * @param uuId UU ID
+  */
+
 case class Color(colorId: Int,
                  isActive: Boolean = true,
                  created: DateTime =  DateTime.now(),

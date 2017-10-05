@@ -20,6 +20,23 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Ldap Access Entity
+  * @param ldapAccessId Ldap Access ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param ldapProcessorId Ldap Processor ID
+  * @param userId User ID
+  * @param interestAreaId Interest Area ID
+  * @param isError Is Error
+  * @param summary Summary
+  * @param description Description
+  * @param uuId UU ID
+  */
+
 case class LdapAccess(ldapAccessId: Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,

@@ -20,6 +20,26 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Pin Stance Entity
+  * @param pinStanceId Pin Stance ID
+  * @param processId Process ID
+  * @param recordId Record ID
+  * @param isProcessing Is Processing
+  * @param created Created
+  * @param userId User ID
+  * @param updated Updated
+  * @param result Result
+  * @param errorMsg Error Msg
+  * @param createdBy Created By
+  * @param updatedBy Updated By
+  * @param isActive Is Active
+  * @param name Name
+  * @param reportType Report Type
+  * @param printFormatId Print Format ID
+  * @param uuId UU ID
+  */
+
 case class PinStance(pinStanceId: Int,
                      processId: Int,
                      recordId: Int,

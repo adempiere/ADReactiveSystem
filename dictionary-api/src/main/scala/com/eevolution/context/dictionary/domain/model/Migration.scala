@@ -21,6 +21,27 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Migration Entity
+  * @param migrationId Migration ID
+  * @param apply Apply
+  * @param comments Comments
+  * @param created Created
+  * @param createdBy Created By
+  * @param entityType Entity Type
+  * @param exportXml Export XML
+  * @param isActive is Active
+  * @param name Name
+  * @param releaseNo Release No
+  * @param seqNo Seq No
+  * @param statusCode Status Code
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param processing Processing
+  * @param processed Processed
+  * @param uuId UU ID
+  */
+
 case class Migration(migrationId: Int,
                      apply: Option[Boolean],
                      comments: Option[String],

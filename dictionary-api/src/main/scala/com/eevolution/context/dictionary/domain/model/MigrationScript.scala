@@ -20,6 +20,29 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Migration Script Entity
+  * @param migrationScriptId Migration Script ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param description Description
+  * @param developerName Developer Name
+  * @param isActive Is Active
+  * @param name Name
+  * @param projectName Project Name
+  * @param reference Reference
+  * @param releaseNo Release No
+  * @param scriptRoll Script Roll
+  * @param status Status
+  * @param url URL
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isApply Is Apply
+  * @param filename Filename
+  * @param script Script
+  * @param uuId UU ID
+  */
+
 case class MigrationScript(migrationScriptId: Int,
                       created: DateTime =  DateTime.now,
                       createdBy: Int,

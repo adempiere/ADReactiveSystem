@@ -20,6 +20,20 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Desktop Workbench Entity
+  * @param desktopWorkbenchId Desktop Workbench ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param workbenchId Workbench ID
+  * @param desktopId Desktop ID
+  * @param seqNo Seq No
+  * @param uuId UU ID
+  */
+
 case class DesktopWorkbench(desktopWorkbenchId: Int,
                             isActive:Boolean=true,
                             created:DateTime = DateTime.now,

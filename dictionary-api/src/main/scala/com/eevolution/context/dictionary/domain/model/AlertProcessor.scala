@@ -20,6 +20,26 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Alert Processor Entity
+  * @param alertProcessorId Alert Processor ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param frequencyType Frequency Type
+  * @param frequency Frequency
+  * @param dateLastRun Date Last Run
+  * @param dateNextRun Date Next Run
+  * @param supervisorId Supervisor ID
+  * @param keepLogDays Keep Log Days
+  * @param processing Processing
+  * @param uuId UU ID
+  */
+
 case class AlertProcessor(alertProcessorId: Int,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now(),

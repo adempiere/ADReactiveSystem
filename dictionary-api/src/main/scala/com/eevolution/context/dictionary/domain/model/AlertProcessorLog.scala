@@ -20,6 +20,24 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Alert Processor Log Entity
+  * @param alertProcessorLogId Alert Processor Log ID
+  * @param alertProcessorId Alert Processor ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isError Is Error
+  * @param summary Summary
+  * @param reference Reference
+  * @param description Description
+  * @param textMsg Text Msg
+  * @param binaryData Binary Data
+  * @param uuId UU ID
+  */
+
 case class AlertProcessorLog(alertProcessorLogId: Int,
                              alertProcessorId: Int,
                              isActive: Boolean = true,

@@ -20,6 +20,21 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Attachment Note Entity
+  * @param attachmentNoteId Attachment Note ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param attachmentId Attachment ID
+  * @param userId User ID
+  * @param title Title
+  * @param textMsg Text Msg
+  * @param uuId UU ID
+  */
+
 case class AttachmentNote(attachmentNoteId: Int,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now,

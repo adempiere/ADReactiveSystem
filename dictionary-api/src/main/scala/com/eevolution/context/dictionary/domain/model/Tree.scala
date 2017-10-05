@@ -20,6 +20,23 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Tree Entity
+  * @param treeId Tree ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated  Updated
+  * @param updatedBy Updated By
+  * @param isActive Is Active
+  * @param name Name
+  * @param description Description
+  * @param treeType Tree Types
+  * @param isAllNodes Is All Notes
+  * @param processing Processing
+  * @param isDefault Is Default
+  * @param uuId UU ID
+  */
+
 case class Tree(treeId: Int,
                 created: DateTime = DateTime.now,
                 createdBy: Int,

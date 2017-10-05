@@ -20,6 +20,25 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Migration Data Entity
+  * @param migrationDataId Migration Data ID
+  * @param columnId Column ID
+  * @param migrationStep Migration Step
+  * @param backupValue Backup Value
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param isBackupNull Is Backup Null
+  * @param isOldNull Is Old Null
+  * @param isNewNull Is New Null
+  * @param newValue New Value
+  * @param oldValue Old Value
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param uuId UU ID
+  */
+
 case class MigrationData (migrationDataId: Int,
                           columnId: Int,
                           migrationStep: Int,

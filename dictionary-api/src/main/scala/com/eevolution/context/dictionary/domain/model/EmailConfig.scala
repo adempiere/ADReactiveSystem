@@ -20,6 +20,28 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Email Config Entity
+  * @param emailConfigId Email Config ID
+  * @param authMechanism Auth Mechanism
+  * @param connectionTimeOut Connection Time Out
+  * @param created Created
+  * @param createdBy Created By
+  * @param description Description
+  * @param encryptionType Encryption Type
+  * @param isActive Is Active
+  * @param isSmTpAuthorization Is Sm Tp Authorization
+  * @param ldapDomain Ldap Domain
+  * @param name Name
+  * @param port Port
+  * @param protocol Protocol
+  * @param smTpHost Sm Tp Host
+  * @param timeOut Time Out
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param uuId UU ID
+  */
+
 case class EmailConfig(emailConfigId: Int,
                   authMechanism: String = "L",
                   connectionTimeOut: Int = 0,

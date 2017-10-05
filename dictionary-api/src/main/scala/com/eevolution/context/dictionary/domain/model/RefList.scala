@@ -20,6 +20,24 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Ref List Entity
+  * @param refListId Ref List ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value Value
+  * @param name Name
+  * @param description Description
+  * @param referenceId Reference ID
+  * @param validFrom Valid From
+  * @param validTo Valid To
+  * @param entityType Entity Type
+  * @param uuId UU ID
+  */
+
 case class RefList(refListId: Int,
                    isActive: Boolean = true,
                    created: DateTime = DateTime.now,

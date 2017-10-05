@@ -20,6 +20,55 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Column Entity
+  * @param columnId Column ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param updated Updated
+  * @param createdBy Created By
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param version Version
+  * @param entityType Entity Type
+  * @param columnName Column Name
+  * @param tableId Table ID
+  * @param referenceId Reference ID
+  * @param referenceValueId Reference Value ID
+  * @param valRuleId Val Rule ID
+  * @param fieldLength Field Length
+  * @param defaultValue Default Value
+  * @param isKey Is Key
+  * @param isParent Is Parent
+  * @param isMandatory Is Mandatory
+  * @param isUpdateAble Is Update Able
+  * @param readOnlyLogic Read Only Logic
+  * @param isIdentifier Is Identifier
+  * @param seqNo Seq No
+  * @param isTranslated Is Translated
+  * @param isEncrypted Is Encrypted
+  * @param callOut Call Out
+  * @param vFormat V Format
+  * @param valueMin Value Min
+  * @param valueMax Value Max
+  * @param isSelectionColumn is Selection Column
+  * @param elementId Element ID
+  * @param processId Process ID
+  * @param isSyncDatabase Is Sync Database
+  * @param isAlwaysUpdateAble Is Always Update Able
+  * @param columnSql Column SQL
+  * @param mandatoryLogic Mandatory Logic
+  * @param infoFactoryClass Info Factory Class
+  * @param isAutoComplete Is Auto Complete
+  * @param forMatPattern For Hat Pattern
+  * @param chartId Chart ID
+  * @param isRange Is Range
+  * @param isAllowCopy Is Allow Copy
+  * @param uuId UU ID
+  */
+
 case class Column(columnId: Int,
                   isActive:Boolean=true,
                   created:DateTime = DateTime.now,
@@ -55,7 +104,7 @@ case class Column(columnId: Int,
                   elementId: Option[Int],
                   processId: Option[Int],
                   isSyncDatabase: Boolean = false,
-                  isAlwaysUpDateAble: Boolean = false,
+                  isAlwaysUpdateAble: Boolean = false,
                   columnSql: Option[String],
                   mandatoryLogic: Option[String],
                   infoFactoryClass: Option[String],
@@ -118,7 +167,7 @@ object Column {
              elementId: Int,
              processId: Int,
              isSyncDatabase: Boolean,
-             isAlwaysUpDateAble: Boolean,
+             isAlwaysUpdateAble: Boolean,
              columnSql: String,
              mandatoryLogic: String,
              infoFactoryClass: String,
@@ -130,6 +179,6 @@ object Column {
              uuId: String) = Column(columnId, isActive,created, updated, createdBy,
     updatedBy, name, None, None, version, entityType, columnName, tableId, referenceId, None, None, None,
     None, isKey, isParent, isMandatory, isUpdateAble, None, isIdentifier, None, isTranslated,isEncrypted, None,
-    None, None, None, isSelectionColumn, None, None, isSyncDatabase, isAlwaysUpDateAble, None, None, None, isAutoComplete,
+    None, None, None, isSelectionColumn, None, None, isSyncDatabase, isAlwaysUpdateAble, None, None, None, isAutoComplete,
     None, None, isRange, isAllowCopy, None)
 }

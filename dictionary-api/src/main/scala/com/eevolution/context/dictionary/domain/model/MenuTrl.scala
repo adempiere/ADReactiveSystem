@@ -20,6 +20,21 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Menu Trl Entity
+  * @param menuTrlId Menu Trl ID
+  * @param language Language
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param isTranslated Is Translated
+  * @param uuId UU ID
+  */
+
 case class MenuTrl(menuTrlId: Int,
                    language: String,
                    isActive: Boolean = true,

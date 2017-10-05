@@ -20,6 +20,25 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Info Window Entity
+  * @param infoWindowId Info Window ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param tableId Table ID
+  * @param entityType Entity Type
+  * @param fromClause From Clause
+  * @param otherClause Other Clause
+  * @param processing Processing
+  * @param uuId UU ID
+  */
+
 case class InfoWindow(infoWindowId: Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,

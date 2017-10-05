@@ -20,6 +20,22 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Info Window Trl Entity
+  * @param infoWindowTrlId Info Window Trl ID
+  * @param language Language
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isTranslated Is Translated
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param uuId UU ID
+  */
+
 case class InfoWindowTrl (infoWindowTrlId: Int,
                           language: String,
                           isActive: Boolean = true,

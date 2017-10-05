@@ -20,6 +20,52 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Browse Field Entity
+  * @param browseFieldId Browse Field ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param isActive Is Active
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param elementId Element ID
+  * @param referenceId Reference ID
+  * @param viewColumnId View Column ID
+  * @param description Description
+  * @param entityType Entity Type
+  * @param help Help
+  * @param isCentrallyMaintained Is Centrally Maintained
+  * @param isDisplayed Is Displayed
+  * @param isIdentifier Is Identifier
+  * @param isKey Is Key
+  * @param isQueryCriteria Is Query Criteria
+  * @param isRange Is Range
+  * @param name Name
+  * @param seqNo Seq No
+  * @param browseId Browse ID
+  * @param referenceValueId Reference Value ID
+  * @param isMandatory Is Mandatory
+  * @param axisColumnId Axis Column ID
+  * @param axisParentColumnId Axis Parent Column ID
+  * @param isReadOnly Is Read Only
+  * @param sortNo Sort No
+  * @param isOrderBy Is Order By
+  * @param valRuleId Val Rule ID
+  * @param defaultValue Default Value
+  * @param defaultValue2 Default Value 2
+  * @param displayLogic Display Logic
+  * @param fieldLength Field Length
+  * @param readOnlyLogic Read Only Logic
+  * @param vFormat V Format
+  * @param valueMax Value Max
+  * @param valueMin Value Min
+  * @param callOut Call Out
+  * @param infoFactoryClass Info Factory Class
+  * @param seqNoGrid Seq No Grid
+  * @param isInfoOnly Is Info Only
+  * @param uuId UU ID
+  */
+
 case class BrowseField(browseFieldId: Int,
                        created: DateTime =  DateTime.now(),
                        createdBy: Int,

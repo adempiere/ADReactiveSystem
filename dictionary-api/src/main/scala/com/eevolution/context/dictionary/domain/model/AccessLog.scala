@@ -20,6 +20,25 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Access Log Entity
+  * @param accessLogId Access Log
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param tableId Table ID
+  * @param columnId Column ID
+  * @param recordId Record ID
+  * @param remoteAddress Remote Address
+  * @param remoteHost Remote Host
+  * @param description Description
+  * @param textMsg Text Msg
+  * @param reply Reply
+  * @param uuId UU ID
+  */
+
 case class AccessLog(accessLogId: Int,
                      isActive: Boolean = true,
                      created: DateTime =  DateTime.now(),

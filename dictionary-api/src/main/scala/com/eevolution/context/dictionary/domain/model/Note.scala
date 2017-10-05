@@ -20,6 +20,27 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Note Entity
+  * @param noteId Note ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param userId User ID
+  * @param messageId Message ID
+  * @param reference Reference
+  * @param tableId Table ID
+  * @param recordId Record ID
+  * @param processed Processed
+  * @param processing Processing
+  * @param description Description
+  * @param wfActivityId Wf Activity ID
+  * @param textMsg Text Msg
+  * @param uuId UU ID
+  */
+
 case class Note(noteId: Int,
                 isActive: Boolean = true,
                 created: DateTime = DateTime.now,

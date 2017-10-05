@@ -20,6 +20,31 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Migration Step Entity
+  * @param migrationStepId Migration Step ID
+  * @param migrationId Migration ID
+  * @param tableId Table ID
+  * @param action Action
+  * @param apply Apply
+  * @param comments Comments
+  * @param created Created
+  * @param createdBy Created By
+  * @param dbType DB Type
+  * @param errorMsg Error Msg
+  * @param isActive is Active
+  * @param recordId Record ID
+  * @param seqNo Seq No
+  * @param statusCode Status Code
+  * @param stepType Step Type
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param parse Parse
+  * @param sqlStatement SQL Statement
+  * @param rollBackStatement Roll Back Statement
+  * @param uuId UU ID
+  */
+
 case class MigrationStep(migrationStepId: Int,
                          migrationId: Int,
                          tableId: Option[Int],

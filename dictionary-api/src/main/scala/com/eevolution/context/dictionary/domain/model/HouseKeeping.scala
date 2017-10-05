@@ -20,6 +20,29 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * House Keeping Entity
+  * @param houseKeepingId House Keeping Id
+  * @param tableId Table ID
+  * @param backupFolder Backup Folder
+  * @param created Created
+  * @param createdBy Created By
+  * @param description Description
+  * @param help Help
+  * @param isActive Is Active
+  * @param isExportXmlBackup Is Export XML Backup
+  * @param isSaveInHistoric Is Save In Historic
+  * @param lastDeleted Last Deleted
+  * @param lastRun Last Run
+  * @param name Name
+  * @param processing Processing
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value  Value
+  * @param whereClause Where Clause
+  * @param uuId UU ID
+  */
+
 case class HouseKeeping (houseKeepingId: Int,
                          tableId: Int,
                          backupFolder: Option[String],

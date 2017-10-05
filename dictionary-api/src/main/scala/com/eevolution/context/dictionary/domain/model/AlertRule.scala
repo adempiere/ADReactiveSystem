@@ -20,6 +20,28 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Alert Rule Entity
+  * @param alertRuleId Alert Rule ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param alertId Alert ID
+  * @param selectClause Select Clause
+  * @param fromClause From Clause
+  * @param whereClause Where Clause
+  * @param tableId Table ID
+  * @param preProcessing Pre Processing
+  * @param postProcessing Post Processing
+  * @param isValid Is Valid
+  * @param errorMsg Error Msg
+  * @param otherClause Other Clause
+  * @param uuId UU ID
+  */
+
 case class AlertRule(alertRuleId: Int,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now(),

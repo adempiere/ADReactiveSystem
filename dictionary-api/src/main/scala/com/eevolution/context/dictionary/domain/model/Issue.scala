@@ -20,6 +20,58 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Issue Entity
+  * @param issueId Issue ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param releaseNo release No
+  * @param version Version
+  * @param name Name
+  * @param username Username
+  * @param supportEmail Support Email
+  * @param dbAddress DB Address
+  * @param localHost Local Host
+  * @param operatingSystemInfo Operating System Info
+  * @param releaseTag Release Tag
+  * @param databaseInfo Database Info
+  * @param javaInfo Java Info
+  * @param remoteAddress Remote Address
+  * @param remoteHost Remote Host
+  * @param issueSummary Issue Summary
+  * @param comments Comments
+  * @param sourceLassName Source Lass Name
+  * @param sourceMetHodName Source Met Hod Name
+  * @param loggerName Logger Name
+  * @param lineNo Line No
+  * @param stackTrace Stack Trace
+  * @param errorTrace Error Trace
+  * @param recordId Record ID
+  * @param requestDocumentNo Request Document No
+  * @param assetId Asset ID
+  * @param requestId Request ID
+  * @param responseText Response Text
+  * @param processing Processing
+  * @param processed Processed
+  * @param isVanillaSystem Is Vanilla System
+  * @param isReproducible Is Reproducible
+  * @param issueKnownId Issue Known ID
+  * @param statisticsInfo Statistics Info
+  * @param profileInfo Profile Info
+  * @param systemStatus System Status
+  * @param issueProjectId Issue Project ID
+  * @param issueUserId Issue User ID
+  * @param issueSystemId Issue System ID
+  * @param issueSource Issue Source
+  * @param windowId Window ID
+  * @param processId Process ID
+  * @param formId Form ID
+  * @param uuId UU ID
+  */
+
 case class Issue(issueId: Int,
                  isActive: Boolean,
                  created: DateTime = DateTime.now,

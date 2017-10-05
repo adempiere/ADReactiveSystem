@@ -21,6 +21,22 @@ import org.joda.time.DateTime
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
+/**
+  * Image Entity
+  * @param imageId Image ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param imageUrl Image URL
+  * @param binaryData Binary Data
+  * @param entityType Entity Type
+  * @param description Description
+  * @param uuId UU ID
+  */
+
 case class Image (imageId: Int,
                   isActive: Boolean = true,
                   created: DateTime =  DateTime.now,

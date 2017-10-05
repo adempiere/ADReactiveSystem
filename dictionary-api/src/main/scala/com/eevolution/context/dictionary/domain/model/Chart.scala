@@ -40,6 +40,7 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
+
 case class Chart (chartId: Int,
                   chartType: String,
                   created: DateTime = DateTime.now,

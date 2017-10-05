@@ -67,6 +67,7 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
+
 case class WorkFlow (workFlowId: Int,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,

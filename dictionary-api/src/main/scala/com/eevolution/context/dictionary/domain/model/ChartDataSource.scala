@@ -41,6 +41,7 @@ import org.joda.time.DateTime
   * @param seriesColumn Series Column
   * @param uuId UU ID
   */
+
 case class ChartDataSource (chartDataSourceId: Int,
                             chartId: Int,
                             tableId: Option[Int],

@@ -33,6 +33,7 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
+
 case class Preference (preferenceId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,

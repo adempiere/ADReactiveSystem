@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 
@@ -21,65 +23,72 @@ import org.joda.time.DateTime
 
 /**
   * User Entity
-  * @param userId
-  * @param tenantId
-  * @param organizationId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param password
-  * @param email
-  * @param supervisorId
-  * @param partnerId
-  * @param processing
-  * @param emailUser
-  * @param emailUserPW
-  * @param partnerLocationId
-  * @param greetingId
-  * @param title
-  * @param comments
-  * @param phone
-  * @param phone2
-  * @param fax
-  * @param lastContact
-  * @param lastResult
-  * @param birthDay
-  * @param orgTrxid
-  * @param emailVerify
-  * @param emailVerifyDate
-  * @param notificationType
-  * @param isFullBPAccess
-  * @param jobId
-  * @param ldapUser
-  * @param connectionProfile
-  * @param value
-  * @param userPin
-  * @param isInPayroll
-  * @param salt
-  * @param isSalesLead
-  * @param locationId
-  * @param leadSource
-  * @param leadStatus
-  * @param leadSourceDescription
-  * @param leadStatusDescription
-  * @param campaignId
-  * @param salesRepId
-  * @param bpName
-  * @param bpLocationId
-  * @param emailConfigId
+  * @param userId User ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param password Password
+  * @param email Email
+  * @param supervisorId Supervisor ID
+  * @param partnerId Partner ID
+  * @param processing Processing
+  * @param emailUser Email User
+  * @param emailUserPW Email User PW
+  * @param partnerLocationId Partner Location ID
+  * @param greetingId Greeting ID
+  * @param title Title
+  * @param comments Comments
+  * @param phone Phone
+  * @param phone2 Phone 2
+  * @param fax Fax
+  * @param lastContact Last Contact
+  * @param lastResult Last Result
+  * @param birthday Birthday
+  * @param orgTrxId Org TRX ID
+  * @param emailVerify Email Verify
+  * @param emailVerifyDate Email Verify Date
+  * @param notificationType Notification Type
+  * @param isFullBPAccess Is Full BP Access
+  * @param jobId Job ID
+  * @param ldapUser LDAP User
+  * @param connectionProfile Connection Profile
+  * @param value Value
+  * @param userPin User Pin
+  * @param isInPayroll Is In Payroll
+  * @param salt Salt
+  * @param isSalesLead Is Sales Lead
+  * @param locationId Location ID
+  * @param leadSource Lead Source
+  * @param leadStatus Lead Status
+  * @param leadSourceDescription Lead Source Description
+  * @param leadStatusDescription Lead Status Description
+  * @param campaignId Campaign ID
+  * @param salesRepId Sales Rep ID
+  * @param bpName BP Name
+  * @param bpLocationId BP Location ID
+  * @param emailConfigId Email Config
+  * @param isLogInUser Is Log In User
+  * @param isInternalUser Is Internal User
+  * @param isWebStoreUser Is Web Store User
+  * @param recentItemsMaxSaved Recent Items Max Saved
+  * @param recentItemsMaxShown Recent Items Max Shown
+  * @param uuId UUID
   */
-case class User(userId : String ,
+
+case class User(userId : Int ,
                 tenantId: Int,
                 organizationId : Int = 0 ,
                 isActive : Boolean = true,
-                created : DateTime = DateTime.now(),
+                created : DateTime = DateTime.now,
                 createdBy : Int ,
                 updated :Int ,
-                updatedBy : DateTime = DateTime.now(),
+                updatedBy : DateTime = DateTime.now,
                 name: String,
                 description: Option[String],
                 password : Option[String] ,
@@ -98,8 +107,8 @@ case class User(userId : String ,
                 fax : Option[String],
                 lastContact : Option[DateTime] ,
                 lastResult : Option[String],
-                birthDay : Option[DateTime],
-                orgTrxid : Option[Int],
+                birthday : Option[DateTime],
+                orgTrxId : Option[Int],
                 emailVerify : Option[String],
                 emailVerifyDate : Option[DateTime],
                 notificationType : String = "E",
@@ -121,8 +130,88 @@ case class User(userId : String ,
                 salesRepId : Option[Int],
                 bpName : Option[String],
                 bpLocationId : Option[Int],
-                emailConfigId : Option[Int]) {
+                emailConfigId : Option[Int],
+                isLogInUser: Boolean = false,
+                isInternalUser: Boolean = false,
+                isWebStoreUser: Boolean = false,
+                recentItemsMaxSaved: Int = 50,
+                recentItemsMaxShown: Int = 20,
+                uuId: Option[String]
+               ) extends DomainModel
 
-  def Identity = "AD_User_ID"
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
 
+  override def Id: Int = userId
+
+  override val entityName: String = "AD_User"
+  override val identifier: String = "AD_User_ID"
+}
+
+object User  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[User]
+  def create(userId : Int ,
+             tenantId: Int,
+             organizationId : Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated :Int ,
+             updatedBy : DateTime,
+             name: String,
+             description: String,
+             password : String ,
+             email : String,
+             supervisorId : Int,
+             partnerId : Int ,
+             processing : Boolean ,
+             emailUser : String ,
+             emailUserPW : String ,
+             partnerLocationId : Int ,
+             greetingId : Int ,
+             title : String,
+             comments : String ,
+             phone : String,
+             phone2 : String ,
+             fax : String,
+             lastContact : DateTime ,
+             lastResult : String,
+             birthday : DateTime,
+             orgTrxId : Int,
+             emailVerify : String,
+             emailVerifyDate : DateTime,
+             notificationType : String,
+             isFullBPAccess : Boolean ,
+             jobId : Int,
+             ldapUser : String,
+             connectionProfile : String,
+             value : String,
+             userPin : String,
+             isInPayroll : Boolean,
+             salt : String,
+             isSalesLead : Boolean ,
+             locationId : Int,
+             leadSource : String ,
+             leadStatus : String ,
+             leadSourceDescription : String,
+             leadStatusDescription : String,
+             campaignId : Int,
+             salesRepId : Int,
+             bpName : String,
+             bpLocationId : Int,
+             emailConfigId : Int,
+             isLogInUser: Boolean,
+             isInternalUser: Boolean,
+             isWebStoreUser: Boolean,
+             recentItemsMaxSaved: Int,
+             recentItemsMaxShown: Int,
+             uuId: String) = User(userId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy,name, None, None, None, None, None, processing, None, None, None, None, None, None, None,
+    None, None, None, None, None, None, None, None, notificationType, isFullBPAccess, None, None, None,
+    None, None, isInPayroll, None, isSalesLead, None, None, None, None, None, None, None, None, None,
+    None, isLogInUser, isInternalUser, isWebStoreUser, recentItemsMaxSaved, recentItemsMaxShown, None)
 }

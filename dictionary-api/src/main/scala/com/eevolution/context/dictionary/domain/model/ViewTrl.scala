@@ -22,7 +22,8 @@ import org.joda.time.DateTime
 
 /**
   * View Trl Entity
-  * @param viewTrlId View Trl ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -37,19 +38,20 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class ViewTrl(viewTrlId: Int,
-              created: DateTime = DateTime.now,
-              createdBy: Int,
-              isActive: Boolean,
-              updated: DateTime = DateTime.now,
-              updatedBy: Int,
-              viewId: Int,
-              language: String,
-              description: Option[String],
-              isTranslated: Boolean,
-              name: String,
-              help : Option[String],
-              uuid: Option[String]
+case class ViewTrl(tenantId: Int,
+                   organizationId:Int,
+                   created: DateTime = DateTime.now,
+                   createdBy: Int,
+                   isActive: Boolean,
+                   updated: DateTime = DateTime.now,
+                   updatedBy: Int,
+                   viewId: Int,
+                   language: String,
+                   description: Option[String],
+                   isTranslated: Boolean,
+                   name: String,
+                   help : Option[String],
+                   uuid: Option[String]
              ) extends DomainModel
 
   with ActiveEnabled
@@ -59,15 +61,16 @@ case class ViewTrl(viewTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = viewTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_ViewTrl"
-  override val identifier: String = "AD_ViewTrl_ID"
+  override val entityName: String = "AD_View_Trl"
+  override val identifier: String = null
 }
 
 object ViewTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewTrl]
-  def create(viewTrlId: Int,
+  def create(tenantId: Int,
+             organizationId:Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -79,7 +82,7 @@ object ViewTrl  {
              isTranslated: Boolean,
              name: String,
              help : String,
-             uuid: String) = ViewTrl(viewTrlId, created, createdBy, isActive, updated, updatedBy,
+             uuid: String) = ViewTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
     viewId, language, None, isTranslated, name, None, None)
 }
 

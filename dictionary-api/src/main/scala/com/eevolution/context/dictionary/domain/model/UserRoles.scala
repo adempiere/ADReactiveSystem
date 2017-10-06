@@ -21,31 +21,29 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Workflow Node Trl Entity
-  * @param language Language
+  * User Roles Entity
+  * @param userId User ID
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
-  * @param uuid UUID
+  * @param uuId UUID
   */
 
-case class WorkflowNodeTrl(language: String,
-                           isActive: Boolean = true,
-                           created: DateTime = DateTime.now,
-                           createdBy: Int,
-                           updated: DateTime = DateTime.now,
-                           updatedBy: Int,
-                           name: String,
-                           description: Option[String],
-                           help: Option[String],
-                           isTranslated: Boolean =false,
-                           uuid: Option[String]
+case class UserRoles(userId : Int ,
+                     roleId: Int,
+                     tenantId: Int,
+                     organizationId : Int,
+                     isActive : Boolean = true,
+                     created : DateTime = DateTime.now,
+                     createdBy : Int ,
+                     updated :Int ,
+                     updatedBy : DateTime = DateTime.now,
+                     uuId: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -57,24 +55,22 @@ case class WorkflowNodeTrl(language: String,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_Wf_Node_Trl"
+  override val entityName: String = "AD_User_Roles"
   override val identifier: String = null
 }
 
-
-object WorkflowNodeTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeTrl]
-  def create(language: String,
-             isActive: Boolean,
-             created: DateTime,
-             createdBy: Int,
-             updated: DateTime,
-             updatedBy: Int,
-             name: String,
-             description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = WorkflowNodeTrl( language, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, isTranslated, None)
-
+object UserRoles  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserRoles]
+  def create(userId : Int ,
+             roleId: Int,
+             tenantId: Int,
+             organizationId : Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated :Int ,
+             updatedBy : DateTime,
+             uuId: String) = UserRoles(userId, roleId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, None)
 }
+

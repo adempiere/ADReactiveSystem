@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param accessLevel Access Level
-  * @param WfNodeId Wf Node ID
+  * @param workflowNodeId Wf Node ID
   * @param entityType Entity Type
   * @param durationUnit Duration Unit
   * @param author Author
@@ -45,7 +45,7 @@ import org.joda.time.DateTime
   * @param cost Cost
   * @param workingTime Working Time
   * @param waitingTime Waiting Time
-  * @param wfResponsibleId Wf Responsible ID
+  * @param workflowResponsibleId Wf Responsible ID
   * @param publishStatus Publish Status
   * @param workflowProcessorId Work Flow Processor ID
   * @param value Value
@@ -60,7 +60,7 @@ import org.joda.time.DateTime
   * @param movingTime Moving Time
   * @param processType Process Type
   * @param documentNo Document No
-  * @param qTyBatchSize G Ty Batch Size
+  * @param quantityBatchSize G Ty Batch Size
   * @param queUIngTime Que U Ing Time
   * @param isBetaFunctionality Is Beta Functionality
   * @param yieldData Yield Data
@@ -82,7 +82,7 @@ case class Workflow(workflowId: Int,
                     description: Option[String],
                     help: Option[String],
                     accessLevel: Boolean,
-                    WfNodeId: Option[String],
+                    workflowNodeId: Option[String],
                     entityType: String = "D",
                     durationUnit: Option[Boolean],
                     author: String,
@@ -95,7 +95,7 @@ case class Workflow(workflowId: Int,
                     cost: Int,
                     workingTime: Int,
                     waitingTime: Int,
-                    wfResponsibleId: Option[Int],
+                    workflowResponsibleId: Option[Int],
                     publishStatus: Boolean,
                     workflowProcessorId: Option[Int],
                     value: String,
@@ -110,7 +110,7 @@ case class Workflow(workflowId: Int,
                     movingTime: Option[Int],
                     processType: Option[String],
                     documentNo: Option[String],
-                    qTyBatchSize: Option[Int],
+                    quantityBatchSize: Option[Int],
                     queUIngTime: Option[Int],
                     isBetaFunctionality: Boolean = false,
                     yieldData: Option[Int],
@@ -146,7 +146,7 @@ object Workflow {
              description: String,
              help: String,
              accessLevel: Boolean,
-             WfNodeId: String,
+             workflowNodeId: String,
              entityType: String,
              durationUnit: Boolean,
              author: String,
@@ -159,7 +159,7 @@ object Workflow {
              cost: Int,
              workingTime: Int,
              waitingTime: Int,
-             wfResponsibleId: Int,
+             workflowResponsibleId: Int,
              publishStatus: Boolean,
              workflowProcessorId: Int,
              value: String,
@@ -174,7 +174,7 @@ object Workflow {
              movingTime: Int,
              processType: String,
              documentNo: String,
-             qTyBatchSize: Int,
+             quantityBatchSize: Int,
              queUIngTime: Int,
              isBetaFunctionality: Boolean,
              yieldData: Int,

@@ -19,8 +19,8 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Work Flow Entity
-  * @param workFlowId Work Flow ID
+  * Workflow Entity
+  * @param workflowId Workflow ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -47,12 +47,12 @@ import org.joda.time.DateTime
   * @param waitingTime Waiting Time
   * @param wfResponsibleId Wf Responsible ID
   * @param publishStatus Publish Status
-  * @param workFlowProcessorId Work Flow Processor ID
+  * @param workflowProcessorId Work Flow Processor ID
   * @param value Value
   * @param isDefault Is Default
   * @param tableId Table ID
-  * @param validateWorkFlow Validate Work Flow
-  * @param workFlowType Work Flow Type
+  * @param validateWorkflow Validate Workflow
+  * @param workflowType Work Flow Type
   * @param docValueLogic Doc Value Logic
   * @param isValid Is Valid
   * @param sResourceId S Resource ID
@@ -70,53 +70,53 @@ import org.joda.time.DateTime
   */
 
 
-case class WorkFlow (workFlowId: Int,
-                     tenantId: Int,
-                     organizationId: Int,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     help: Option[String],
-                     accessLevel: Boolean,
-                     WfNodeId: Option[String],
-                     entityType: String = "D",
-                     durationUnit: Option[Boolean],
-                     author: String,
-                     version: Int,
-                     validFrom: Option[DateTime],
-                     validTo: Option[DateTime],
-                     priority: Option[Int],
-                     limit: Option[Int],
-                     duration: Int,
-                     cost: Int,
-                     workingTime: Int,
-                     waitingTime: Int,
-                     wfResponsibleId: Option[Int],
-                     publishStatus: Boolean,
-                     workFlowProcessorId: Option[Int],
-                     value: String,
-                     isDefault: Boolean = false,
-                     tableId: Option[Int],
-                     validateWorkFlow: Option[Int],
-                     workFlowType: String = "G",
-                     docValueLogic: Option[String],
-                     isValid: Boolean = false,
-                     sResourceId: Option[Int],
-                     setupTime: Option[Int],
-                     movingTime: Option[Int],
-                     processType: Option[String],
-                     documentNo: Option[String],
-                     qTyBatchSize: Option[Int],
-                     queUIngTime: Option[Int],
-                     isBetaFunctionality: Boolean = false,
-                     yieldData: Option[Int],
-                     unitsCycles: Option[Int],
-                     overLapUnits: Option[Int],
-                     uuId: Option[String]
+case class Workflow(workflowId: Int,
+                    tenantId: Int,
+                    organizationId: Int,
+                    isActive: Boolean = true,
+                    created: DateTime = DateTime.now,
+                    createdBy: Int,
+                    updated: DateTime = DateTime.now,
+                    updatedBy: Int,
+                    name: String,
+                    description: Option[String],
+                    help: Option[String],
+                    accessLevel: Boolean,
+                    WfNodeId: Option[String],
+                    entityType: String = "D",
+                    durationUnit: Option[Boolean],
+                    author: String,
+                    version: Int,
+                    validFrom: Option[DateTime],
+                    validTo: Option[DateTime],
+                    priority: Option[Int],
+                    limit: Option[Int],
+                    duration: Int,
+                    cost: Int,
+                    workingTime: Int,
+                    waitingTime: Int,
+                    wfResponsibleId: Option[Int],
+                    publishStatus: Boolean,
+                    workflowProcessorId: Option[Int],
+                    value: String,
+                    isDefault: Boolean = false,
+                    tableId: Option[Int],
+                    validateWorkflow: Option[Int],
+                    workflowType: String = "G",
+                    docValueLogic: Option[String],
+                    isValid: Boolean = false,
+                    sResourceId: Option[Int],
+                    setupTime: Option[Int],
+                    movingTime: Option[Int],
+                    processType: Option[String],
+                    documentNo: Option[String],
+                    qTyBatchSize: Option[Int],
+                    queUIngTime: Option[Int],
+                    isBetaFunctionality: Boolean = false,
+                    yieldData: Option[Int],
+                    unitsCycles: Option[Int],
+                    overLapUnits: Option[Int],
+                    uuId: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -125,16 +125,16 @@ case class WorkFlow (workFlowId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowId
+  override def Id: Int = workflowId
 
-  override val entityName: String = "AD_WorkFlow"
-  override val identifier: String = "AD_WorkFlow_ID"
+  override val entityName: String = "AD_Workflow"
+  override val identifier: String = "AD_Workflow_ID"
 
 }
 
-object WorkFlow {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlow]
-  def create(workFlowId: Int,
+object Workflow {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Workflow]
+  def create(workflowId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -161,12 +161,12 @@ object WorkFlow {
              waitingTime: Int,
              wfResponsibleId: Int,
              publishStatus: Boolean,
-             workFlowProcessorId: Int,
+             workflowProcessorId: Int,
              value: String,
              isDefault: Boolean,
              tableId: Int,
-             validateWorkFlow: Int,
-             workFlowType: String,
+             validateWorkflow: Int,
+             workflowType: String,
              docValueLogic: String,
              isValid: Boolean,
              sResourceId: Int,
@@ -180,8 +180,8 @@ object WorkFlow {
              yieldData: Int,
              unitsCycles: Int,
              overLapUnits: Int,
-             uuId: String) = WorkFlow(workFlowId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuId: String) = Workflow(workflowId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration,
-    cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workFlowType, None,
+    cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workflowType, None,
     isValid, None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, None)
 }

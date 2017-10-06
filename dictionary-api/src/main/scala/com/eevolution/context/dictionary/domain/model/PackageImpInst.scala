@@ -66,7 +66,7 @@ case class PackageImpInst (packageImpInstId: Int,
                            createdDate: Option[String],
                            updateDate: Option[String],
                            uninstall: Option[Boolean],
-                           uuId: Option[String],
+                           uuId: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -107,5 +107,6 @@ object PackageImpInst {
              updateDate: String,
              uninstall: Boolean,
              uuId: String) = PackageImpInst(packageImpId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, None, None, None, None, None, None, None, processed, processing, None, None, None, None, None, None)
+    updated, updatedBy, None, None, None, None, None, None, None, processed, processing, None, None, None, None, None,
+    None)
 }

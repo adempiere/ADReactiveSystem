@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cmm Entity
-  * @param treeNodeCmmId Tree Node Cmm ID
+  * Tree Node MM Entity
+  * @param treeNodeMMId Tree Node MM ID
   * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param updatedBy Updated By
   * @param updated Updated
+  * @param updatedBy Updated By
   * @param parentId Parent ID
   * @param seqNo Seq No
   * @param uuId UU ID
   */
 
-case class TreeNodeCmm (treeNodeCmmId: Int,
-                   nodeId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updatedBy: Int,
-                   updated: DateTime = DateTime.now,
-                   parentId: Option[Int],
-                   seqNo: Option[Int],
-                   uuId: Option[String]
-                  ) extends DomainModel
+case class TreeNodeMM(treeNodeMMId: Int,
+                      nodeId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      parentId: Option[Int],
+                      seqNo: Option[Int],
+                      uuId: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,25 +53,23 @@ case class TreeNodeCmm (treeNodeCmmId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmmId
+  override def Id: Int = treeNodeMMId
 
-  override val entityName: String = "AD_TreeNodeCmm"
-  override val identifier: String = "AD_TreeNodeCmm_ID"
+  override val entityName: String = "AD_TreeNodeMM"
+  override val identifier: String = "AD_TreeNodeMM_ID"
 }
 
-object TreeNodeCmm  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCmm]
-  def create(treeNodeCmmId: Int,
+object TreeNodeMM  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeMM]
+  def create(treeNodeMMId: Int,
              nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updatedBy: Int,
              updated: DateTime,
+             updatedBy: Int,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeCmm(treeNodeCmmId, nodeId, isActive, created, createdBy, updatedBy, updated,
+             uuId: String) = TreeNodeMM(treeNodeMMId, nodeId, isActive, created, createdBy, updated, updatedBy,
     None, None, None)
 }
-
-

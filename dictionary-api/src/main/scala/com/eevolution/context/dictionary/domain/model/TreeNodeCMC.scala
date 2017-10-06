@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Block Entity
-  * @param wfBlockId Wf Block ID
+  * Tree Node CMC Entity
+  * @param treeNodeCMCId Tree Node CMC ID
+  * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param workFlowId Work Flow ID
+  * @param updated Updated
+  * @param parentId Parent ID
+  * @param seqNo Seq No
   * @param uuId UU ID
   */
 
-case class WfBlock(wfBlockId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   workFlowId: Int,
-                   uuId: Option[String]
-                  ) extends DomainModel
+case class TreeNodeCMC(treeNodeCMCId: Int,
+                       nodeId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updatedBy: Int,
+                       updated: DateTime = DateTime.now,
+                       parentId: Option[Int],
+                       seqNo: Option[Int],
+                       uuId: Option[String]
+                      ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,26 +53,24 @@ case class WfBlock(wfBlockId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfBlockId
+  override def Id: Int = treeNodeCMCId
 
-  override val entityName: String = "AD_WfBlock"
-  override val identifier: String = "AD_WfBlock_ID"
+  override val entityName: String = "AD_TreeNodeCMC"
+  override val identifier: String = "AD_TreeNodeCMC_ID"
 }
 
-object WfBlock {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfBlock]
-  def create(wfBlockId: Int,
+object TreeNodeCMC  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCMC]
+  def create(treeNodeCMCId: Int,
+             nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             workFlowId: Int,
-             uuId: String) = WfBlock(wfBlockId, isActive, created, createdBy, updated, updatedBy, name,
-    None, workFlowId, None)
-
+             updated: DateTime,
+             parentId: Int,
+             seqNo: Int,
+             uuId: String) = TreeNodeCMC(treeNodeCMCId, nodeId, isActive, created, createdBy, updatedBy, updated,
+    None, None, None)
 }
-
 

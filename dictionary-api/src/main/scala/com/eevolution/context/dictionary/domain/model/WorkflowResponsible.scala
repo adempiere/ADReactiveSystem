@@ -21,8 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Responsive Entity
-  * @param wfResponsibleId Wf Responsible ID
+  * Workflow Responsive Entity
+  * @param workflowResponsibleId Wf Responsible ID
   * @param isActive Is Active
   * @param created created
   * @param createdBy Created By
@@ -37,20 +37,20 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfResponsible(wfResponsibleId: Int,
-                         isActive: Boolean = true,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         name: String,
-                         description: Option[String],
-                         responsibleType: Boolean,
-                         userId: Option[Int],
-                         roleId: Option[Int],
-                         entityType: String = "D",
-                         uuId: Option[String]
-                        ) extends DomainModel
+case class WorkflowResponsible(workflowResponsibleId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               name: String,
+                               description: Option[String],
+                               responsibleType: Boolean,
+                               userId: Option[Int],
+                               roleId: Option[Int],
+                               entityType: String = "D",
+                               uuId: Option[String]
+                              ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -59,15 +59,15 @@ case class WfResponsible(wfResponsibleId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfResponsibleId
+  override def Id: Int = workflowResponsibleId
 
   override val entityName: String = "AD_WfResponsible"
   override val identifier: String = "AD_WfResponsible_ID"
 }
 
-object WfResponsible {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfResponsible]
-  def create(wfResponsibleId: Int,
+object WorkflowResponsible {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowResponsible]
+  def create(workflowResponsibleId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -79,7 +79,7 @@ object WfResponsible {
              userId: Int,
              roleId: Int,
              entityType: String,
-             uuId: String) = WfResponsible(wfResponsibleId, isActive, created, createdBy, updated, updatedBy,
+             uuId: String) = WorkflowResponsible(workflowResponsibleId, isActive, created, createdBy, updated, updatedBy,
     name, None, responsibleType, None, None, entityType, None)
 }
 

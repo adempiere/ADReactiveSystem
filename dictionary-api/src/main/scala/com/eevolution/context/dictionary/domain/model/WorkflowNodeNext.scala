@@ -21,15 +21,15 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Node Next Entity
-  * @param wfNodeNextId Wf Node Next ID
+  * Workflow Node Next Entity
+  * @param workflowNodeNextId Wf Node Next ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfNodeId Wf Node ID
-  * @param wfNextId Wf Next ID
+  * @param workflowNodeId Wf Node ID
+  * @param workflowNextId Wf Next ID
   * @param description Description
   * @param seqNo Seq No
   * @param entityType Entity Type
@@ -38,20 +38,20 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfNodeNext(wfNodeNextId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now(),
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now(),
-                      updatedBy: Int,
-                      wfNodeId: Int,
-                      wfNextId: Int,
-                      description: Option[String],
-                      seqNo: Int,
-                      entityType: String = "D",
-                      transitionCode: Option[String],
-                      isStdUserWorkFlow: Boolean = false,
-                      uuId: Option[String]
+case class WorkflowNodeNext(workflowNodeNextId: Int,
+                            isActive: Boolean = true,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            workflowNodeId: Int,
+                            workflowNextId: Int,
+                            description: Option[String],
+                            seqNo: Int,
+                            entityType: String = "D",
+                            transitionCode: Option[String],
+                            isStdUserWorkFlow: Boolean = false,
+                            uuId: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -61,28 +61,28 @@ case class WfNodeNext(wfNodeNextId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNodeNextId
+  override def Id: Int = workflowNodeNextId
 
   override val entityName: String = "AD_WfNodeNext"
   override val identifier: String = "AD_WfNodeNext_ID"
 }
 
-object WfNodeNext {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNodeNext]
-  def create(wfNodeNextId: Int,
+object WorkflowNodeNext {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeNext]
+  def create(workflowNodeNextId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfNodeId: Int,
-             wfNextId: Int,
+             workflowNodeId: Int,
+             workflowNextId: Int,
              description: String,
              seqNo: Int,
              entityType: String,
              transitionCode: String,
              isStdUserWorkFlow: Boolean,
-             uuId: String) = WfNodeNext(wfNodeNextId, isActive, created, createdBy, updated, updatedBy,
-    wfNodeId, wfNextId, None, seqNo, entityType, None, isStdUserWorkFlow, None)
+             uuId: String) = WorkflowNodeNext(workflowNodeNextId, isActive, created, createdBy, updated, updatedBy,
+    workflowNodeId, workflowNextId, None, seqNo, entityType, None, isStdUserWorkFlow, None)
 
 }

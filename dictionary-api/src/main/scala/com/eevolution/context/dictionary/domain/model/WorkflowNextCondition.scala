@@ -21,14 +21,14 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Next Condition Entity
-  * @param wfNextConditionId Wf Next Condition ID
+  * Workflow Next Condition Entity
+  * @param workflowNextConditionId Wf Next Condition ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfNodeNextId Wf Node Next ID
+  * @param workflowNodeNextId Wf Node Next ID
   * @param seqNo Seq No
   * @param entityType Entity Type
   * @param andOr And Or
@@ -39,21 +39,21 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WfNextCondition(wfNextConditionId: Int,
-                           isActive: Boolean = true,
-                           created: DateTime = DateTime.now,
-                           createdBy: Int,
-                           updated: DateTime = DateTime.now,
-                           updatedBy: Int,
-                           wfNodeNextId: Int,
-                           seqNo: Int,
-                           entityType: String = "D",
-                           andOr: Boolean,
-                           columnId: Int,
-                           operation: String,
-                           value: String,
-                           value2: Option[String],
-                           uuId: Option[String]
+case class WorkflowNextCondition(workflowNextConditionId: Int,
+                                 isActive: Boolean = true,
+                                 created: DateTime = DateTime.now,
+                                 createdBy: Int,
+                                 updated: DateTime = DateTime.now,
+                                 updatedBy: Int,
+                                 workflowNodeNextId: Int,
+                                 seqNo: Int,
+                                 entityType: String = "D",
+                                 andOr: Boolean,
+                                 columnId: Int,
+                                 operation: String,
+                                 value: String,
+                                 value2: Option[String],
+                                 uuId: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -63,21 +63,21 @@ case class WfNextCondition(wfNextConditionId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNextConditionId
+  override def Id: Int = workflowNextConditionId
 
   override val entityName: String = "AD_WfNextCondition"
   override val identifier: String = "AD_WfNextCondition_ID"
 }
 
-object WfNextCondition  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNextCondition]
-  def create(wfNextConditionId: Int,
+object WorkflowNextCondition  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNextCondition]
+  def create(workflowNextConditionId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfNodeNextId: Int,
+             workflowNodeNextId: Int,
              seqNo: Int,
              entityType: String,
              andOr: Boolean,
@@ -85,8 +85,8 @@ object WfNextCondition  {
              operation: String,
              value: String,
              value2: String,
-             uuId: String) = WfNextCondition(wfNextConditionId, isActive, created, createdBy, updated, updatedBy,
-    wfNodeNextId, seqNo, entityType, andOr, columnId, operation, value, None, None)
+             uuId: String) = WorkflowNextCondition(workflowNextConditionId, isActive, created, createdBy, updated, updatedBy,
+    workflowNodeNextId, seqNo, entityType, andOr, columnId, operation, value, None, None)
 }
 
 

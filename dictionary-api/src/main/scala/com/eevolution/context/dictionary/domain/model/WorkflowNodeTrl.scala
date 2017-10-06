@@ -21,36 +21,34 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Node Para Entity
-  * @param wfNodeParaId Wf Node Para ID
+  * Workflow Node Trl Entity
+  * @param workflowNodeTrlId Wf Node Trl ID
+  * @param language Language
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfNodeId Wf Node ID
-  * @param attributeName Attribute Name
-  * @param processParaId Process Para ID
+  * @param name Name
   * @param description Description
-  * @param attributeValue Attribute Value
-  * @param entityType Entity Type
+  * @param help Help
+  * @param isTranslated Is Translated
   * @param uuId UU ID
   */
 
-case class WfNodePara(wfNodeParaId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      wfNodeId: Int,
-                      attributeName: Option[String],
-                      processParaId: Option[Int],
-                      description: Option[String],
-                      attributeValue: Option[String],
-                      entityType: String ="D",
-                      uuId: Option[String]
-                     ) extends DomainModel
+case class WorkflowNodeTrl(workflowNodeTrlId: Int,
+                           language: String,
+                           isActive: Boolean = true,
+                           created: DateTime = DateTime.now,
+                           createdBy: Int,
+                           updated: DateTime = DateTime.now,
+                           updatedBy: Int,
+                           name: String,
+                           description: Option[String],
+                           help: Option[String],
+                           isTranslated: Boolean =false,
+                           uuId: Option[String]
+                    ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -59,30 +57,27 @@ case class WfNodePara(wfNodeParaId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNodeParaId
+  override def Id: Int = workflowNodeTrlId
 
-  override val entityName: String = "AD_WfNodePara"
-  override val identifier: String = "AD_WfNodePara_ID"
+  override val entityName: String = "AD_WfNodeTrl"
+  override val identifier: String = "AD_WfNodeTrl_ID"
 }
 
 
-object WfNodePara {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNodePara]
-  def create(wfNodeParaId: Int,
+object WorkflowNodeTrl {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeTrl]
+  def create(workflowNodeTrlId: Int,
+             language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfNodeId: Int,
-             attributeName: String,
-             processParaId: Int,
+             name: String,
              description: String,
-             attributeValue: String,
-             entityType: String,
-             uuId: String) = WfNodePara(wfNodeParaId, isActive, created, createdBy, updated, updatedBy,
-    wfNodeId, None, None, None, None, entityType, None)
+             help: String,
+             isTranslated: Boolean,
+             uuId: String) = WorkflowNodeTrl(workflowNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, isTranslated, None)
 
 }
-
-

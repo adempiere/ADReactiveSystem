@@ -21,34 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Node Trl Entity
-  * @param wfNodeTrlId Wf Node Trl ID
-  * @param language Language
+  * Tree Node CMM Entity
+  * @param treeNodeCMMId Tree Node CMM ID
+  * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param updated Updated
+  * @param parentId Parent ID
+  * @param seqNo Seq No
   * @param uuId UU ID
   */
 
-case class WfNodeTrl(wfNodeTrlId: Int,
-                     language: String,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     help: Option[String],
-                     isTranslated: Boolean =false,
-                     uuId: Option[String]
-                    ) extends DomainModel
+case class TreeNodeCMM(treeNodeCMMId: Int,
+                       nodeId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updatedBy: Int,
+                       updated: DateTime = DateTime.now,
+                       parentId: Option[Int],
+                       seqNo: Option[Int],
+                       uuId: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -57,27 +53,25 @@ case class WfNodeTrl(wfNodeTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfNodeTrlId
+  override def Id: Int = treeNodeCMMId
 
-  override val entityName: String = "AD_WfNodeTrl"
-  override val identifier: String = "AD_WfNodeTrl_ID"
+  override val entityName: String = "AD_TreeNodeCMM"
+  override val identifier: String = "AD_TreeNodeCMM_ID"
 }
 
-
-object WfNodeTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfNodeTrl]
-  def create(wfNodeTrlId: Int,
-             language: String,
+object TreeNodeCMM  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCMM]
+  def create(treeNodeCMMId: Int,
+             nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuId: String) = WfNodeTrl(wfNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, isTranslated, None)
-
+             updated: DateTime,
+             parentId: Int,
+             seqNo: Int,
+             uuId: String) = TreeNodeCMM(treeNodeCMMId, nodeId, isActive, created, createdBy, updatedBy, updated,
+    None, None, None)
 }
+
+

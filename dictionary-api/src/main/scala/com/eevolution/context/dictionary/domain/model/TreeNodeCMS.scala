@@ -21,8 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cmc Entity
-  * @param treeNodeCmcId Tree Node Cmc ID
+  * Tree Node CMS Entity
+  * @param treeNodeCMSId Tree Node CMS ID
   * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class TreeNodeCmc(treeNodeCmcId: Int,
+case class TreeNodeCMS(treeNodeCMSId: Int,
                        nodeId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
@@ -44,7 +44,7 @@ case class TreeNodeCmc(treeNodeCmcId: Int,
                        parentId: Option[Int],
                        seqNo: Option[Int],
                        uuId: Option[String]
-                      ) extends DomainModel
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,15 +53,15 @@ case class TreeNodeCmc(treeNodeCmcId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmcId
+  override def Id: Int = treeNodeCMSId
 
-  override val entityName: String = "AD_TreeNodeCmc"
-  override val identifier: String = "AD_TreeNodeCmc_ID"
+  override val entityName: String = "AD_TreeNodeCMS"
+  override val identifier: String = "AD_TreeNodeCMS_ID"
 }
 
-object TreeNodeCmc  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCmc]
-  def create(treeNodeCmcId: Int,
+object TreeNodeCMS  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCMS]
+  def create(treeNodeCMSId: Int,
              nodeId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -70,7 +70,6 @@ object TreeNodeCmc  {
              updated: DateTime,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeCmc(treeNodeCmcId, nodeId, isActive, created, createdBy, updatedBy, updated,
+             uuId: String) = TreeNodeCMS(treeNodeCMSId, nodeId, isActive, created, createdBy, updatedBy, updated,
     None, None, None)
 }
-

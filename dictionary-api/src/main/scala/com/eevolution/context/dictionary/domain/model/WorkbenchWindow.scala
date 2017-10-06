@@ -19,34 +19,40 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Work Flow Access Entity
-  * @param workFlowAccessId Work Flow Access ID
-  * @param workFlowId Work Flow ID
-  * @param roleId Role ID
-  * @param tenantId Tenant ID
-  * @param organizationId Organization ID
+  * Workbench Window Entity
+  * @param workbenchWindowId Work Bench Window ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param isReadWrite Is Read Write
+  * @param workbenchId Work Bench ID
+  * @param seqNo Seq No
+  * @param isPrimary Is Primary
+  * @param windowId Window ID
+  * @param formId Form  ID
+  * @param processId Process ID
+  * @param taskId Task ID
+  * @param entityType Entity Type
   * @param uuId UU ID
   */
 
-case class WorkFlowAccess (workFlowAccessId: Int,
-                           workFlowId: Int,
-                           roleId: Int,
-                           tenantId: Int,
-                           organizationId: Int,
+case class WorkbenchWindow(workbenchWindowId: Int,
                            isActive: Boolean = true,
                            created: DateTime = DateTime.now,
                            createdBy: Int,
                            updated: DateTime = DateTime.now,
                            updatedBy: Int,
-                           isReadWrite: Boolean = true,
+                           workbenchId: Int,
+                           seqNo: Int,
+                           isPrimary: Boolean = false,
+                           windowId: Option[Int],
+                           formId: Option[Int],
+                           processId: Option[Int],
+                           taskId: Option[Int],
+                           entityType: String = "D",
                            uuId: Option[String]
-                          ) extends DomainModel
+                           ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -54,26 +60,29 @@ case class WorkFlowAccess (workFlowAccessId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowAccessId
+  override def Id: Int = workbenchWindowId
 
-  override val entityName: String = "AD_WorkFlowAccess"
-  override val identifier: String = "AD_WorkFlowAccess_ID"
+  override val entityName: String = "AD_WorkbenchWindow"
+  override val identifier: String = "AD_WorkbenchWindow_ID"
 
 }
 
-object WorkFlowAccess {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowAccess]
-  def create(workFlowAccessId: Int,
-             workFlowId: Int,
-             roleId: Int,
-             tenantId: Int,
-             organizationId: Int,
+object WorkbenchWindow {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkbenchWindow]
+  def create(workbenchWindowId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             isReadWrite: Boolean,
-             uuId: String) = WorkFlowAccess(workFlowAccessId, workFlowId, roleId, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, isReadWrite, None)
+             workbenchId: Int,
+             seqNo: Int,
+             isPrimary: Boolean,
+             windowId: Int,
+             formId: Int,
+             processId: Int,
+             taskId: Int,
+             entityType: String,
+             uuId: String) = WorkbenchWindow(workbenchWindowId, isActive, created, createdBy, updated,
+    updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, None)
 }

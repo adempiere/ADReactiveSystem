@@ -21,33 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Wf Activity Result Entity
-  * @param wfActivityResultId Wf Activity Result ID
+  * Tree Node Business Partner Entity
+  * @param treeNodeBPId tree Node Business Partner ID
+  * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
-  * @param createdBy Created By
+  * @param createdBy Created  By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param wfActivityId Wf Activity ID
-  * @param attributeName Attribute Name
-  * @param attributeValue Attribute Value
-  * @param description Description
-  * @param help Help
+  * @param parentId Parent ID
+  * @param seqNo Seq No
   * @param uuId UU ID
   */
-case class WfActivityResult(wfActivityResultId: Int,
-                            isActive: Boolean = true,
-                            created: DateTime = DateTime.now,
-                            createdBy: Int,
-                            updated: DateTime = DateTime.now,
-                            updatedBy: Int,
-                            wfActivityId: Int,
-                            attributeName: String,
-                            attributeValue: Option[String],
-                            description: Option[String],
-                            help: Option[String],
-                            uuId: Option[String]
-                           ) extends DomainModel
+
+case class TreeNodeBP(treeNodeBPId: Int,
+                      nodeId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      parentId: Option[Int],
+                      seqNo: Option[Int],
+                      uuId: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -56,27 +53,24 @@ case class WfActivityResult(wfActivityResultId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = wfActivityResultId
+  override def Id: Int = treeNodeBPId
 
-  override val entityName: String = "AD_WfActivityResult"
-  override val identifier: String = "AD_WfActivityResult_ID"
+  override val entityName: String = "AD_TreeNodeBP"
+  override val identifier: String = "AD_TreeNodeBP_ID"
 }
 
-object WfActivityResult  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WfActivityResult]
-  def create(wfActivityResultId: Int,
+object TreeNodeBP  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeBP]
+  def create(treeNodeBPId: Int,
+             nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             wfActivityId: Int,
-             attributeName: String,
-             attributeValue: String,
-             description: String,
-             help: String,
-             uuId: String) = WfActivityResult(wfActivityResultId, isActive, created, createdBy, updated, updatedBy,
-    wfActivityId, attributeName, None, None, None, None)
+             parentId: Int,
+             seqNo: Int,
+             uuId: String) = TreeNodeBP(treeNodeBPId, nodeId, isActive, created, createdBy, updated, updatedBy,
+    None, None, None)
 }
-
 

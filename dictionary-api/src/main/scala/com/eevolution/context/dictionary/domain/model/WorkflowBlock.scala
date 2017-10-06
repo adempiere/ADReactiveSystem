@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Cmt Entity
-  * @param treeNodeCmtId Tree Node Cmt ID
-  * @param nodeId Node ID
+  * Workflow Block Entity
+  * @param workflowBlockId Wf Block ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param updatedBy Updated By
   * @param updated Updated
-  * @param parentId Parent ID
-  * @param seqNo Seq No
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param workflowId Work Flow ID
   * @param uuId UU ID
   */
 
-case class TreeNodeCmt(treeNodeCmtId: Int,
-                       nodeId: Int,
-                       isActive: Boolean = true,
-                       created: DateTime = DateTime.now,
-                       createdBy: Int,
-                       updatedBy: Int,
-                       updated: DateTime = DateTime.now,
-                       parentId: Option[Int],
-                       seqNo: Option[Int],
-                       uuId: Option[String]
-                      ) extends DomainModel
+case class WorkflowBlock(workflowBlockId: Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         name: String,
+                         description: Option[String],
+                         workflowId: Int,
+                         uuId: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,23 +53,26 @@ case class TreeNodeCmt(treeNodeCmtId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeCmtId
+  override def Id: Int = workflowBlockId
 
-  override val entityName: String = "AD_TreeNodeCmt"
-  override val identifier: String = "AD_TreeNodeCmt_ID"
+  override val entityName: String = "AD_WfBlock"
+  override val identifier: String = "AD_WfBlock_ID"
 }
 
-object TreeNodeCmt  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeCmt]
-  def create(treeNodeCmtId: Int,
-             nodeId: Int,
+object WorkflowBlock {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowBlock]
+  def create(workflowBlockId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updatedBy: Int,
              updated: DateTime,
-             parentId: Int,
-             seqNo: Int,
-             uuId: String) = TreeNodeCmt(treeNodeCmtId, nodeId, isActive, created, createdBy, updatedBy, updated,
-    None, None, None)
+             updatedBy: Int,
+             name: String,
+             description: String,
+             workflowId: Int,
+             uuId: String) = WorkflowBlock(workflowBlockId, isActive, created, createdBy, updated, updatedBy, name,
+    None, workflowId, None)
+
 }
+
+

@@ -3,7 +3,6 @@ package com.eevolution.context.dictionary.domain.model
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
-
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -16,35 +15,34 @@ import org.joda.time.DateTime
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
-
 /**
-  * Tree Node Bp Entity
-  * @param treeNodeBpId tree Node Bp ID
-  * @param nodeId Node ID
+  * Workflow Access Entity
+  * @param workflowAccessId Work Flow Access ID
+  * @param workflowId Work Flow ID
+  * @param roleId Role Id
   * @param isActive Is Active
   * @param created Created
-  * @param createdBy Created  By
+  * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param parentId Parent ID
-  * @param seqNo Seq No
+  * @param isReadWrite Is Read Write
   * @param uuId UU ID
   */
 
-case class TreeNodeBp(treeNodeBpId: Int,
-                      nodeId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      parentId: Option[Int],
-                      seqNo: Option[Int],
-                      uuId: Option[String]
-                     ) extends DomainModel
+case class WorkflowAccess(workflowAccessId: Int,
+                          workflowId: Int,
+                          roleId: Int,
+                          isActive: Boolean = true,
+                          created: DateTime = DateTime.now,
+                          createdBy: Int,
+                          updated: DateTime = DateTime.now,
+                          updatedBy: Int,
+                          isReadWrite: Boolean = true,
+                          uuId: Option[String]
+                          ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -52,25 +50,24 @@ case class TreeNodeBp(treeNodeBpId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+  override def Id: Int = workflowAccessId
 
-  override def Id: Int = treeNodeBpId
+  override val entityName: String = "AD_workflowAccess"
+  override val identifier: String = "AD_workflowAccess_ID"
 
-  override val entityName: String = "AD_TreeNodeBp"
-  override val identifier: String = "AD_TreeNodeBp_ID"
 }
 
-object TreeNodeBp  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodeBp]
-  def create(treeNodeBpId: Int,
-             nodeId: Int,
+object WorkflowAccess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowAccess]
+  def create(workflowAccessId: Int,
+             workflowId: Int,
+             roleId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             parentId: Int,
-             seqNo: Int,
-             uuId: String) = TreeNodeBp(treeNodeBpId, nodeId, isActive, created, createdBy, updated, updatedBy,
-    None, None, None)
+             isReadWrite: Boolean,
+             uuId: String) = WorkflowAccess(workflowAccessId, workflowId, roleId, isActive, created, createdBy,
+    updated, updatedBy, isReadWrite, None)
 }
-

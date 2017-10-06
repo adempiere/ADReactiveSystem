@@ -17,13 +17,13 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modified by emeris.hernandezmoreno@e-evolution.com , www.e-evolution.com.
+  *
   */
 /**
-  * Work Flow Processor Log Entity
-  * @param workFlowProcessorLogId Work Flow Processor Log ID
-  * @param workFlowProcessorId Work Flow Processor ID
-  * @param tenantId Tenant ID
-  * @param organizationId Organization ID
+  * Workflow Processor Log Entity
+  * @param workflowProcessorLogId Work Flow Processor Log ID
+  * @param workflowProcessorId Work Flow Processor ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,22 +38,20 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WorkFlowProcessorLog (workFlowProcessorLogId: Int,
-                                 workFlowProcessorId: Int,
-                                 tenantId: Int,
-                                 organizationId: Int,
-                                 isActive: Boolean = true,
-                                 created: DateTime = DateTime.now,
-                                 createdBy: Int,
-                                 updated: DateTime = DateTime.now,
-                                 updatedBy: Int,
-                                 isError: Boolean = false,
-                                 summary: Option[String],
-                                 reference: Option[String],
-                                 description: Option[String],
-                                 textMsg: Option[String],
-                                 binaryDate: Option[String],
-                                 uuId: Option[String]
+case class WorkflowProcessorLog(workflowProcessorLogId: Int,
+                                workflowProcessorId: Int,
+                                isActive: Boolean = true,
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                isError: Boolean = false,
+                                summary: Option[String],
+                                reference: Option[String],
+                                description: Option[String],
+                                textMsg: Option[String],
+                                binaryDate: Option[String],
+                                uuId: Option[String]
                                 ) extends DomainModel
 
   with ActiveEnabled
@@ -62,19 +60,17 @@ case class WorkFlowProcessorLog (workFlowProcessorLogId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowProcessorLogId
+  override def Id: Int = workflowProcessorLogId
 
-  override val entityName: String = "AD_WorkFlowProcessorLog"
-  override val identifier: String = "AD_WorkFlowProcessorLog_ID"
+  override val entityName: String = "AD_WorkflowProcessorLog"
+  override val identifier: String = "AD_WorkflowProcessorLog_ID"
 
 }
 
-object WorkFlowProcessorLog {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowProcessorLog]
-  def create(workFlowProcessorLogId: Int,
-             workFlowProcessorId: Int,
-             tenantId: Int,
-             organizationId: Int,
+object WorkflowProcessorLog {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessorLog]
+  def create(workflowProcessorLogId: Int,
+             workflowProcessorId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -86,6 +82,6 @@ object WorkFlowProcessorLog {
              description: String,
              textMsg: String,
              binaryDate: String,
-             uuId: String) = WorkFlowProcessorLog(workFlowProcessorLogId, workFlowProcessorId, tenantId, organizationId,
-    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
+             uuId: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, isActive, created, createdBy, updated,
+    updatedBy, isError, None, None, None, None, None, None)
 }

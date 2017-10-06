@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,38 +18,72 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 05/10/17.
   */
 
 /**
   * Reference List Entity
-  * @param referenceListId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param value
-  * @param name
-  * @param description
-  * @param referenceId
-  * @param validfrom
-  * @param validTo
-  * @param entityType
+  * @param referenceListId Reference List ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value Value
+  * @param name Name
+  * @param description Description
+  * @param referenceId Reference ID
+  * @param validFrom Valid From
+  * @param validTo Valid To
+  * @param entityType Entity Type
+  * @param uuId UU ID
   */
 case class ReferenceList(referenceListId: Int,
-                         isActive : Boolean = true,
-                         created : DateTime = DateTime.now(),
-                         createdBy : Int ,
-                         updated :Int ,
-                         updatedBy : DateTime = DateTime.now(),
-                         value : String ,
-                         name : String,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         value: String,
+                         name: String,
                          description: Option[String],
-                         referenceId : Int ,
-                         validfrom : Option[DateTime],
-                         validTo : Option[DateTime],
-                         entityType : String = EntityType.Dictionary)  {
+                         referenceId: Int,
+                         validFrom: Option[DateTime],
+                         validTo: Option[DateTime],
+                         entityType: String = "D",
+                         uuId: Option[String]
+                        ) extends DomainModel
 
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
 
-  def Identity = "AD_RefList_ID"
+  override def Id: Int = referenceListId
+
+  override val entityName: String = "AD_RefList"
+  override val identifier: String = "AD_RefList_ID"
 }
+
+object ReferenceList  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ReferenceList]
+  def create(referenceListId: Int,
+             isActive: Boolean,
+             created: DateTime,
+             createdBy: Int,
+             updated: DateTime,
+             updatedBy: Int,
+             value: String,
+             name: String,
+             description: String,
+             referenceId: Int,
+             validFrom: DateTime,
+             validTo: DateTime,
+             entityType: String,
+             uuId: String) = ReferenceList(referenceListId, isActive, created, createdBy, updated, updatedBy, value,
+    name, None, referenceId, None, None, entityType, None)
+}
+
+

@@ -17,12 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modified by emeris.hernandezmoreno@e-evolution.com , www.e-evolution.com.
   */
 /**
-  * Work Flow Processor Entity
-  * @param workFlowProcessorId Work Flow Processor ID
-  * @param tenantId Tenant ID
-  * @param organizationId Organization ID
+  * Workflow Processor Entity
+  * @param workflowProcessorId Work Flow Processor ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -43,27 +42,25 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class WorkFlowProcessor (workFlowProcessorId: Int,
-                              tenantId: Int,
-                              organizationId: Int,
-                              isActive: Boolean = true,
-                              created: DateTime = DateTime.now,
-                              createdBy: Int,
-                              updated: DateTime = DateTime.now,
-                              updatedBy: Int,
-                              name: String,
-                              description: Option[String],
-                              frequencyType: Boolean,
-                              frequency: Int,
-                              dateLastRun: Option[DateTime],
-                              dateNextRun: Option[DateTime],
-                              superVisorId: Int,
-                              keepLogDays: Int,
-                              processing: Option[Boolean],
-                              inactivityAlertDays: Option[Int],
-                              remindDays: Option[Int],
-                              alertOverPriority: Option[Int],
-                              uuId: Option[String]
+case class WorkflowProcessor(workflowProcessorId: Int,
+                             isActive: Boolean = true,
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
+                             updated: DateTime = DateTime.now,
+                             updatedBy: Int,
+                             name: String,
+                             description: Option[String],
+                             frequencyType: Boolean,
+                             frequency: Int,
+                             dateLastRun: Option[DateTime],
+                             dateNextRun: Option[DateTime],
+                             superVisorId: Int,
+                             keepLogDays: Int,
+                             processing: Option[Boolean],
+                             inactivityAlertDays: Option[Int],
+                             remindDays: Option[Int],
+                             alertOverPriority: Option[Int],
+                             uuId: Option[String]
                              ) extends DomainModel
 
   with ActiveEnabled
@@ -72,18 +69,16 @@ case class WorkFlowProcessor (workFlowProcessorId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowProcessorId
+  override def Id: Int = workflowProcessorId
 
-  override val entityName: String = "AD_WorkFlowProcessor"
-  override val identifier: String = "AD_WorkFlowProcessor_ID"
+  override val entityName: String = "AD_WorkflowProcessor"
+  override val identifier: String = "AD_WorkflowProcessor_ID"
 
 }
 
-object WorkFlowProcessor {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowProcessor]
-  def create(workFlowProcessorId: Int,
-             tenantId: Int,
-             organizationId: Int,
+object WorkflowProcessor {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessor]
+  def create(workflowProcessorId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -101,7 +96,6 @@ object WorkFlowProcessor {
              inactivityAlertDays: Int,
              remindDays: Int,
              alertOverPriority: Int,
-             uuId: String) = WorkFlowProcessor(workFlowProcessorId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays, None,
-    None, None, None, None)
+             uuId: String) = WorkflowProcessor(workflowProcessorId, isActive, created, createdBy, updated,
+    updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, None, None, None)
 }

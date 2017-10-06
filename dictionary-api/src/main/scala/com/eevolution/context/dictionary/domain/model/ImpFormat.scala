@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Imp Format Entity
   * @param impFormatId Imp Format ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -36,19 +38,21 @@ import org.joda.time.DateTime
   */
 
 case class ImpFormat (impFormatId: Int,
-                 isActive: Boolean = true,
-                 created: DateTime = DateTime.now,
-                 createdBy: Int,
-                 updated: DateTime = DateTime.now,
-                 updatedBy: Int,
-                 name: String,
-                 description: Option[String],
-                 tableId: Int,
-                 formatType: Boolean,
-                 processing: Boolean,
-                 separatorChar: Option[Boolean],
-                 uuId: Option[String]
-                ) extends DomainModel
+                      tenantId: Int,
+                      organizationId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      name: String,
+                      description: Option[String],
+                      tableId: Int,
+                      formatType: Boolean,
+                      processing: Boolean,
+                      separatorChar: Option[Boolean],
+                      uuId: Option[String]
+                    ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -66,6 +70,8 @@ case class ImpFormat (impFormatId: Int,
 object ImpFormat {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImpFormat]
   def create(impFormatId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -77,8 +83,8 @@ object ImpFormat {
              formatType: Boolean,
              processing: Boolean,
              separatorChar: Boolean,
-             uuId: String) = ImpFormat(impFormatId, isActive, created, createdBy, updated, updatedBy, name,
-    None, tableId, formatType, processing, None, None)
+             uuId: String) = ImpFormat(impFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, tableId, formatType, processing, None, None)
 }
 
 

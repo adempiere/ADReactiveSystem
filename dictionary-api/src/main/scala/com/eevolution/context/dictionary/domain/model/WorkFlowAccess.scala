@@ -22,7 +22,9 @@ import org.joda.time.DateTime
   * Work Flow Access Entity
   * @param workFlowAccessId Work Flow Access ID
   * @param workFlowId Work Flow ID
-  * @param roleId Role Id
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -35,6 +37,8 @@ import org.joda.time.DateTime
 case class WorkFlowAccess (workFlowAccessId: Int,
                            workFlowId: Int,
                            roleId: Int,
+                           tenantId: Int,
+                           organizationId: Int,
                            isActive: Boolean = true,
                            created: DateTime = DateTime.now,
                            createdBy: Int,
@@ -62,12 +66,14 @@ object WorkFlowAccess {
   def create(workFlowAccessId: Int,
              workFlowId: Int,
              roleId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuId: String) = WorkFlowAccess(workFlowAccessId, workFlowId, roleId, isActive, created, createdBy,
-    updated, updatedBy, isReadWrite, None)
+             uuId: String) = WorkFlowAccess(workFlowAccessId, workFlowId, roleId, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, isReadWrite, None)
 }

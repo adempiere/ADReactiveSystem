@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Form Entity
   * @param printFormId Print Form ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -44,6 +46,8 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 case class PrintForm (printFormId: Int,
+                      tenantId: Int,
+                      organizationId: Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,
                       createdBy: Int,
@@ -83,6 +87,8 @@ case class PrintForm (printFormId: Int,
 object PrintForm {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintForm]
   def create(printFormId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -103,6 +109,6 @@ object PrintForm {
              manufOrderPrintFormatId: Int,
              distribOrderMailTextId: Int,
              distribOrderPrintFormatId: Int,
-             uuId: String) = PrintForm(printFormId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+             uuId: String) = PrintForm(printFormId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 }

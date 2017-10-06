@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Field Trl Entity
   * @param fieldTrlId Field Trl ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -36,6 +38,8 @@ import org.joda.time.DateTime
 
 case class FieldTrl (fieldTrlId: Int,
                      language: String,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,
                      createdBy: Int,
@@ -66,6 +70,8 @@ object FieldTrl {
 
   def create(fieldTrlId: Int,
              language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -75,6 +81,6 @@ object FieldTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = FieldTrl(fieldTrlId, language, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, isTranslated, None)
+             uuId: String) = FieldTrl(fieldTrlId, language, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, isTranslated, None)
 }

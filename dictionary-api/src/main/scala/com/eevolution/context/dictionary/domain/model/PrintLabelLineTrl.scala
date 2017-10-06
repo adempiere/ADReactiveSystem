@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Print Label Line Trl Entity
   * @param printLabelLineTrlId Print Label Linel Trl ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,6 +36,8 @@ import org.joda.time.DateTime
 
 case class PrintLabelLineTrl (printLabelLineTrlId: Int,
                               language: String,
+                              tenantId: Int,
+                              organizationId: Int,
                               isActive: Boolean = true,
                               created: DateTime = DateTime.now,
                               createdBy: Int,
@@ -61,6 +65,8 @@ object PrintLabelLineTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintLabelLineTrl]
   def create(printLabelLineTrlId: Int,
              language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -68,6 +74,6 @@ object PrintLabelLineTrl {
              updatedBy: Int,
              printName: String,
              isTranslated: Boolean,
-             uuId: String) = PrintLabelLineTrl(printLabelLineTrlId, language, isActive, created, createdBy, updated,
-    updatedBy, None, isTranslated, None)
+             uuId: String) = PrintLabelLineTrl(printLabelLineTrlId, language, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, None, isTranslated, None)
 }

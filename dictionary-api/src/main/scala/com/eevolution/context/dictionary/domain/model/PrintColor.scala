@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Color Entity
   * @param printColorId Print Color ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created
@@ -33,6 +35,8 @@ import org.joda.time.DateTime
   */
 
 case class PrintColor (printColorId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
@@ -60,6 +64,8 @@ case class PrintColor (printColorId: Int,
 object PrintColor {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintColor]
   def create(printColorId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -68,6 +74,6 @@ object PrintColor {
              name: String,
              isDefault: Boolean,
              code: String,
-             uuId: String) = PrintColor(printColorId, isActive, created, createdBy, updated, updatedBy, name,
-    isDefault, code, None)
+             uuId: String) = PrintColor(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, isDefault, code, None)
 }

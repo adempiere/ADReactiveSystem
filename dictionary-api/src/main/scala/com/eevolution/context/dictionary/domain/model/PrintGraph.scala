@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Graph Entity
   * @param printGraphId Print Graph ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created
@@ -40,6 +42,8 @@ import org.joda.time.DateTime
   */
 
 case class PrintGraph (printGraphId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
@@ -74,6 +78,8 @@ case class PrintGraph (printGraphId: Int,
 object PrintGraph {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintGraph]
   def create(printGraphId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -89,6 +95,7 @@ object PrintGraph {
              data3PrintFormatItemID: Int,
              data4PrintFormatItemID: Int,
              printFormatId: Int,
-             uuId: String) = PrintGraph(printFormatId, isActive, created, createdBy, updated, updatedBy, name,
-    None, graphType, descriptionPrintFormatItemId, dataPrintFormatItemID, None, None, None, None, printFormatId, None)
+             uuId: String) = PrintGraph(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, graphType, descriptionPrintFormatItemId, dataPrintFormatItemID, None, None, None, None,
+    printFormatId, None)
 }

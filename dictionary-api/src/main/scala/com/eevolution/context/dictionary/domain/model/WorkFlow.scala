@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Work Flow Entity
   * @param workFlowId Work Flow ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -69,6 +71,8 @@ import org.joda.time.DateTime
 
 
 case class WorkFlow (workFlowId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,
                      createdBy: Int,
@@ -131,6 +135,8 @@ case class WorkFlow (workFlowId: Int,
 object WorkFlow {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlow]
   def create(workFlowId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -174,8 +180,8 @@ object WorkFlow {
              yieldData: Int,
              unitsCycles: Int,
              overLapUnits: Int,
-             uuId: String) = WorkFlow(workFlowId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration, cost,
-    workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workFlowType, None, isValid,
-    None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, None)
+             uuId: String) = WorkFlow(workFlowId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration,
+    cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workFlowType, None,
+    isValid, None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, None)
 }

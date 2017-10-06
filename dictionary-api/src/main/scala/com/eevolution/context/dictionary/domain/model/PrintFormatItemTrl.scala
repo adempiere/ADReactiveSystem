@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Print Format Item Trl Entity
   * @param printFormatItemTrlId Print Format Item Trl ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,6 +36,8 @@ import org.joda.time.DateTime
   */
 case class PrintFormatItemTrl (printFormatItemTrlId: Int,
                                language: String,
+                               tenantId: Int,
+                               organizationId: Int,
                                isActive: Boolean = true,
                                created: DateTime = DateTime.now,
                                createdBy: Int,
@@ -62,6 +66,8 @@ object PrintFormatItemTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintFormatItemTrl]
   def create(printFormatItemTrlId: Int,
              language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -70,6 +76,6 @@ object PrintFormatItemTrl {
              printName: String,
              isTranslated : Boolean,
              printNameSuffix: String,
-             uuId: String) = PrintFormatItemTrl(printFormatItemTrlId, language, isActive, created, createdBy,
-    updated, updatedBy, None, isTranslated, None, None)
+             uuId: String) = PrintFormatItemTrl(printFormatItemTrlId, language, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, None, isTranslated, None, None)
 }

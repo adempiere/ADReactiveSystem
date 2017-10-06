@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Label Entity
   * @param printLabelId Print Label ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class PrintLabel (printLabelId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
@@ -70,6 +74,8 @@ case class PrintLabel (printLabelId: Int,
 object PrintLabel {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintLabel]
   def create(printLabelId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -83,6 +89,6 @@ object PrintLabel {
              labelHeight: Int,
              labelWidth: Int,
              labelPrinterId: Int,
-             uuId: String) = PrintLabel(printLabelId, isActive, created, createdBy, updated, updatedBy, name,
-    None, tableId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
+             uuId: String) = PrintLabel(printLabelId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, tableId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
 }

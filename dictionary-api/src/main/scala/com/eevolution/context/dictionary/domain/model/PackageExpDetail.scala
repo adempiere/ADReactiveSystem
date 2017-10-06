@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Package Exp Detail Entity
   * @param packageExpDetailId Package Exp Detail ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -65,6 +67,8 @@ import org.joda.time.DateTime
   */
 
 case class PackageExpDetail (packageExpDetailId: Int,
+                             tenantId: Int,
+                             organizationId: Int,
                              isActive: Boolean = true,
                              created: DateTime = DateTime.now,
                              createdBy: Int,
@@ -126,6 +130,8 @@ object PackageExpDetail {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExpDetail]
 
   def create(packageExpDetailId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -166,8 +172,8 @@ object PackageExpDetail {
              entityTypeId: Int,
              viewId: Int,
              browseId: Int,
-             uuId: String) = PackageExpDetail(packageExpDetailId, isActive, created, createdBy, updated,
-    updatedBy, None, None, None, None, None, None, None, None, None, None, None, description, None, typePackage,
-    None, None, None, processing, None, None, None, None, None, None, packageExpId, None, None, None, None, None, None,
-    None, None, None, None, None)
+             uuId: String) = PackageExpDetail(packageExpDetailId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, None, None, description, None,
+    typePackage, None, None, None, processing, None, None, None, None, None, None, packageExpId, None, None, None, None,
+    None, None, None, None, None, None, None)
 }

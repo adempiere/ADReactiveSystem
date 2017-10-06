@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Chart Entity
   * @param chartId Chart ID
   * @param chartType Chart Type
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param description Description
@@ -43,6 +45,8 @@ import org.joda.time.DateTime
 
 case class Chart (chartId: Int,
                   chartType: String,
+                  tenantId: Int,
+                  organizationId: Int,
                   created: DateTime = DateTime.now,
                   createdBy: Int,
                   description: String,
@@ -78,6 +82,8 @@ object Chart {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Chart]
   def create(chartId: Int,
              chartType: String,
+             tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              description: String,
@@ -93,6 +99,6 @@ object Chart {
              timeScope: Int,
              domainLabel: String,
              rageLabel: String,
-             uuId: String) = Chart(chartId, chartType, created, createdBy, description, isActive, name, updated,
+             uuId: String) = Chart(chartId, chartType, tenantId, organizationId, created, createdBy, description, isActive, name, updated,
     updatedBy, None, isDisplayLegend, chartOrientation, isTimeSeries, None, None, None, None, None)
 }

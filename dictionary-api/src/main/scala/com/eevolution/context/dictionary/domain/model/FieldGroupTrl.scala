@@ -23,6 +23,8 @@ import org.joda.time.DateTime
   * Field Group Trl Entity
   * @param fieldGruopTrlId Field Group Trl ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -35,6 +37,8 @@ import org.joda.time.DateTime
 
 case class FieldGroupTrl (fieldGruopTrlId: Int,
                           language: String,
+                          tenantId: Int,
+                          organizationId: Int,
                           isActive: Boolean = true,
                           created: DateTime= DateTime.now,
                           createdBy: Int,
@@ -62,6 +66,8 @@ object FieldGroupTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldGroupTrl]
   def create(fieldGruopTrlId: Int,
              language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -69,7 +75,7 @@ object FieldGroupTrl {
              updatedBy: Int,
              name: String,
              isTranslated: Boolean,
-             uuId: String) = FieldGroupTrl(fieldGruopTrlId, language, isActive, created, createdBy, updated,
-    updatedBy, name, isTranslated, None)
+             uuId: String) = FieldGroupTrl(fieldGruopTrlId, language, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, isTranslated, None)
 }
 

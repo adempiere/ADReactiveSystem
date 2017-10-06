@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Preference Entity
   * @param preferenceId Preference ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -35,6 +37,8 @@ import org.joda.time.DateTime
 
 
 case class Preference (preferenceId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
@@ -63,6 +67,8 @@ case class Preference (preferenceId: Int,
 object Preference {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Preference]
   def create(preferenceId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -72,6 +78,6 @@ object Preference {
              userId: Int,
              attribute: String,
              value: String,
-             uuId: String) = Preference(preferenceId, isActive, created, createdBy, updated, updatedBy,
-    None, None, attribute, value, None)
+             uuId: String) = Preference(preferenceId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, None, None, attribute, value, None)
 }

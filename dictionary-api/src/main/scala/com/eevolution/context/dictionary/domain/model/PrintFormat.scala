@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Format Entity
   * @param printFormatId Print Format ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -50,6 +52,8 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 case class PrintFormat (printFormatId: Int,
+                        tenantId: Int,
+                        organizationId: Int,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -95,6 +99,8 @@ case class PrintFormat (printFormatId: Int,
 object PrintFormat {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintFormat]
   def create(printFormatId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -121,7 +127,8 @@ object PrintFormat {
              args: String,
              isSummary: Boolean,
              isPrintParameters: Boolean,
-             uuId: String) = PrintFormat(printFormatId, isActive, created, createdBy, updated, updatedBy, name,
-    None, isTableBased, isForm, tableId, printPaperId, printColorId, printFontId, isStandardHeaderFooter, headerMargin,
-    footerMargin, None, None, None, None, isDefault, None, None, None, isSummary, isPrintParameters, None)
+             uuId: String) = PrintFormat(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, isTableBased, isForm, tableId, printPaperId, printColorId, printFontId,
+    isStandardHeaderFooter, headerMargin, footerMargin, None, None, None, None, isDefault, None, None, None, isSummary,
+    isPrintParameters, None)
 }

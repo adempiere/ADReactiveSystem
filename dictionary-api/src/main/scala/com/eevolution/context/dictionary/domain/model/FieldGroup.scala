@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Field Group Entity
   * @param fieldGroupId Field Group ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,17 +36,19 @@ import org.joda.time.DateTime
   */
 
 case class FieldGroup (fieldGroupId: Int,
-                  isActive: Boolean = true,
-                  created: DateTime = DateTime.now,
-                  createdBy: Int,
-                  updated: DateTime = DateTime.now,
-                  updatedBy: Int,
-                  name: String,
-                  entityType: String = "D",
-                  fieldGroupType: Option[Boolean],
-                  isCollapsedByDefault: Boolean = false,
-                  uuId: Option[String]
-                 ) extends DomainModel
+                       tenantId: Int,
+                       organizationId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updated: DateTime = DateTime.now,
+                       updatedBy: Int,
+                       name: String,
+                       entityType: String = "D",
+                       fieldGroupType: Option[Boolean],
+                       isCollapsedByDefault: Boolean = false,
+                       uuId: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -62,6 +66,8 @@ case class FieldGroup (fieldGroupId: Int,
 object FieldGroup {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldGroup]
   def create(fieldGroupId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -71,6 +77,6 @@ object FieldGroup {
              entityType: String,
              fieldGroupType: Boolean,
              isCollapsedByDefault: Boolean,
-             uuId: String) = FieldGroup(fieldGroupId, isActive, created, createdBy, updated, updatedBy,name,
-    entityType, None, isCollapsedByDefault, None)
+             uuId: String) = FieldGroup(fieldGroupId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy,name, entityType, None, isCollapsedByDefault, None)
 }

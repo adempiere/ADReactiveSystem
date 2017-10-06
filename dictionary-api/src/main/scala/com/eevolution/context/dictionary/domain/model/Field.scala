@@ -22,6 +22,8 @@ import org.joda.time.DateTime
 /**
   * Field Entity
   * @param fieldId Field Id
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -61,6 +63,8 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 case class Field (fieldId: Int,
+                  tenantId: Int,
+                  organizationId: Int,
                   isActive: Boolean = true,
                   created: DateTime = DateTime.now(),
                   createdBy: Int,
@@ -115,6 +119,8 @@ case class Field (fieldId: Int,
 object Field {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Field]
   def create(fieldId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -151,8 +157,8 @@ object Field {
              isDisplayedGrid: Boolean,
              seqNoGrid: Int,
              isAllowCopy: Boolean,
-             uuId: String) = Field(fieldId, isActive, created, createdBy, updated, updatedBy, name, None,
-    None, isCentrallyMaintained, tabId, None, None, isDisplayed, None, None, isReadOnly, None, None, isSameLine,
-    isHeading, isFieldOnly, isEncrypted, entityType, None, None, None, None, None, None, None, None, isEmbedded,
-    None, isDisplayedGrid, None, isAllowCopy, None)
+             uuId: String) = Field(fieldId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, isCentrallyMaintained, tabId, None, None, isDisplayed, None, None, isReadOnly, None, None,
+    isSameLine, isHeading, isFieldOnly, isEncrypted, entityType, None, None, None, None, None, None, None, None,
+    isEmbedded, None, isDisplayedGrid, None, isAllowCopy, None)
 }

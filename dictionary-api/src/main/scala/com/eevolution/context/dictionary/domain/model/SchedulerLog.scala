@@ -19,10 +19,9 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Work Flow Trl Entity
-  * @param workFlowTrlId Work Flow Trl ID
-  * @param workFlowId Work Flow
-  * @param language Language
+  * Scheduler Log Entity
+  * @param schedulerLogId Scheduler Log ID
+  * @param schedulerId Scheduler ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -30,16 +29,17 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
+  * @param isError Is Error
+  * @param summary Summary
+  * @param reference Reference
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param textMsg Text Msg
+  * @param binaryData Binary Data
   * @param uuId UU ID
   */
 
-case class WorkFlowTrl (workFlowTrlId: Int,
-                        workFlowId: Int,
-                        language: String,
+case class SchedulerLog(schedulerLogId: Int,
+                        schedulerId: Int,
                         tenantId: Int,
                         organizationId: Int,
                         isActive: Boolean = true,
@@ -47,10 +47,12 @@ case class WorkFlowTrl (workFlowTrlId: Int,
                         createdBy: Int,
                         updated: DateTime = DateTime.now,
                         updatedBy: Int,
-                        name: String,
+                        isError: Boolean = false,
+                        summary: Option[String],
+                        reference: Option[String],
                         description: Option[String],
-                        help: Option[String],
-                        isTranslated: Boolean = false,
+                        textMsg: Option[String],
+                        binaryData: Option[String],
                         uuId: Option[String]
                        ) extends DomainModel
 
@@ -60,29 +62,31 @@ case class WorkFlowTrl (workFlowTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowTrlId
 
-  override val entityName: String = "AD_WorkFlowTrl"
-  override val identifier: String = "AD_WorkFlowTrl_ID"
+  override def Id: Int = schedulerLogId
+
+  override val entityName: String = "AD_SchedulerLog"
+  override val identifier: String = "AD_SchedulerLog_ID"
 
 }
 
-object WorkFlowTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowTrl]
-  def create(workFlowTrlId: Int,
-             workFlowId: Int,
-             language: String,
+object SchedulerLog {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerLog]
+  def create(schedulerLogId: Int,
+             schedulerId: Int,
              tenantId: Int,
              organizationId: Int,
-             isActive: Boolean,
-             created: DateTime,
+             isActive: Boolean = true,
+             created: DateTime = DateTime.now,
              createdBy: Int,
-             updated: DateTime,
+             updated: DateTime = DateTime.now,
              updatedBy: Int,
-             name: String,
-             description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuId: String) = WorkFlowTrl(workFlowTrlId, workFlowId, language, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, name, None, None, isTranslated, None)
+             isError: Boolean = false,
+             summary: Option[String],
+             reference: Option[String],
+             description: Option[String],
+             textMsg: Option[String],
+             binaryData: Option[String],
+             uuId: Option[String]) = SchedulerLog(schedulerLogId, schedulerId, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
 }

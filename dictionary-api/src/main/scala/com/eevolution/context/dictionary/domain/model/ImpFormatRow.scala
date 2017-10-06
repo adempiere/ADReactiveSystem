@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Imp Format Row Entity
   * @param impFormatRowId Imp Format Row ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Creted
   * @param createdBy Created By
@@ -44,27 +46,29 @@ import org.joda.time.DateTime
   */
 
 case class ImpFormatRow (impFormatRowId: Int,
-                    isActive: Boolean = true,
-                    created: DateTime = DateTime.now,
-                    createdBy: Int,
-                    updated: DateTime = DateTime.now,
-                    updatedBy: Int,
-                    impFormatId: Int,
-                    seqNo: Int,
-                    name: String,
-                    columnId: String,
-                    startNo: Option[Int],
-                    endNo: Option[Int],
-                    dataType: Boolean,
-                    dataFormat: Option[String],
-                    decimalPoint: Boolean,
-                    divideBy100: Boolean = false,
-                    constantValue: Option[String],
-                    callOut: Option[String],
-                    script: Option[String],
-                    defaultValue: Option[String],
-                    uuId: Option[String]
-                   ) extends DomainModel
+                         tenantId: Int,
+                         organizationId: Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         impFormatId: Int,
+                         seqNo: Int,
+                         name: String,
+                         columnId: String,
+                         startNo: Option[Int],
+                         endNo: Option[Int],
+                         dataType: Boolean,
+                         dataFormat: Option[String],
+                         decimalPoint: Boolean,
+                         divideBy100: Boolean = false,
+                         constantValue: Option[String],
+                         callOut: Option[String],
+                         script: Option[String],
+                         defaultValue: Option[String],
+                         uuId: Option[String]
+                        ) extends DomainModel
 
 
   with ActiveEnabled
@@ -84,6 +88,8 @@ object ImpFormatRow {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImpFormatRow]
 
   def create(impFormatRowId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -103,7 +109,7 @@ object ImpFormatRow {
              callOut: String,
              script: String,
              defaultValue: String,
-             uuId: String) = ImpFormatRow(impFormatRowId, isActive, created, createdBy, updated, updatedBy,
-    impFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None, None, None, None,
-    None)
+             uuId: String) = ImpFormatRow(impFormatRowId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, impFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None,
+    None, None, None, None)
 }

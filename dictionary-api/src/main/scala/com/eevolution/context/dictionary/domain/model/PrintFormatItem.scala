@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Format Item Entity
   * @param printFormatItemId Print Format Item ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -85,6 +87,8 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 case class PrintFormatItem (printFormatItemId: Int,
+                            tenantId: Int,
+                            organizationId: Int,
                             isActive: Boolean = true,
                             created: DateTime = DateTime.now,
                             createdBy: Int,
@@ -165,6 +169,8 @@ case class PrintFormatItem (printFormatItemId: Int,
 object PrintFormatItem {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintFormatItem]
   def create(printFormatItemId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -226,11 +232,11 @@ object PrintFormatItem {
              isDesc: Boolean,
              isPrintBarcodeText: Boolean,
              displayLogic: String,
-             uuId: String) = PrintFormatItem(printFormatItemId,isActive, created, createdBy, updated, updatedBy,
-    printFormatId, name, None,isPrinted, printAreaType, seqNo, printFormatType, None, None, isRelativePosition,
-    isNextLine, xSpace, ySpace, xPosition, yPosition, maxWidth, isHeightOneLine, maxHeight, fieldAlignmentType,
-    lineAlignmentType, None, None, isOrderBy, sortNo,isGroupBy, isPageBrake, isSummarized,imageIsAttached, None,
-    isAveraged, isCounted, isSetNlPosition, isSuppressNull, None, None, isFixedWidth, isNextPage, None, isMinCalc,
-    isMaxCalc, isRunningTotal, None, isVarianceCalc, isDeviationCalc, isFilledRectangle, None, None, None,
-    isCentrallyMaintained, isImageField, None, None, isSuppressRepeats, isDesc, isPrintBarcodeText, None, None)
+             uuId: String) = PrintFormatItem(printFormatItemId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, printFormatId, name, None,isPrinted, printAreaType, seqNo, printFormatType, None, None,
+    isRelativePosition, isNextLine, xSpace, ySpace, xPosition, yPosition, maxWidth, isHeightOneLine, maxHeight,
+    fieldAlignmentType, lineAlignmentType, None, None, isOrderBy, sortNo,isGroupBy, isPageBrake, isSummarized,
+    imageIsAttached, None, isAveraged, isCounted, isSetNlPosition, isSuppressNull, None, None, isFixedWidth, isNextPage,
+    None, isMinCalc, isMaxCalc, isRunningTotal, None, isVarianceCalc, isDeviationCalc, isFilledRectangle, None, None,
+    None, isCentrallyMaintained, isImageField, None, None, isSuppressRepeats, isDesc, isPrintBarcodeText, None, None)
 }

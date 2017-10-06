@@ -19,10 +19,10 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Work Flow Trl Entity
-  * @param workFlowTrlId Work Flow Trl ID
-  * @param workFlowId Work Flow
-  * @param language Language
+  * Scheduler Para Entity
+  * @param schedulerParaId Scheduler Para ID
+  * @param schedulerId Scheduler ID
+  * @param processParaId Process Para ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -30,29 +30,25 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
+  * @param parameterDefault Parameter Default
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
   * @param uuId UU ID
   */
 
-case class WorkFlowTrl (workFlowTrlId: Int,
-                        workFlowId: Int,
-                        language: String,
-                        tenantId: Int,
-                        organizationId: Int,
-                        isActive: Boolean = true,
-                        created: DateTime = DateTime.now,
-                        createdBy: Int,
-                        updated: DateTime = DateTime.now,
-                        updatedBy: Int,
-                        name: String,
-                        description: Option[String],
-                        help: Option[String],
-                        isTranslated: Boolean = false,
-                        uuId: Option[String]
-                       ) extends DomainModel
+case class SchedulerPara (schedulerParaId: Int,
+                          schedulerId: Int,
+                          processParaId: Int,
+                          tenantId: Int,
+                          organizationId: Int,
+                          isActive: Boolean = true,
+                          created: DateTime = DateTime.now,
+                          createdBy: Int,
+                          updated: DateTime = DateTime.now,
+                          updatedBy: Int,
+                          parameterDefault: Option[String],
+                          description: Option[String],
+                          uuId: Option[String]
+                         )extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -60,18 +56,19 @@ case class WorkFlowTrl (workFlowTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workFlowTrlId
 
-  override val entityName: String = "AD_WorkFlowTrl"
-  override val identifier: String = "AD_WorkFlowTrl_ID"
+  override def Id: Int = schedulerParaId
+
+  override val entityName: String = "AD_SchedulerPara"
+  override val identifier: String = "AD_SchedulerPara_ID"
 
 }
 
-object WorkFlowTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkFlowTrl]
-  def create(workFlowTrlId: Int,
-             workFlowId: Int,
-             language: String,
+object SchedulerPara {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerPara]
+  def create(schedulerParaId: Int,
+             schedulerId: Int,
+             processParaId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -79,10 +76,8 @@ object WorkFlowTrl {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
+             parameterDefault: String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuId: String) = WorkFlowTrl(workFlowTrlId, workFlowId, language, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, name, None, None, isTranslated, None)
+             uuId: String) = SchedulerPara(schedulerParaId, schedulerId, processParaId, tenantId,
+    organizationId, isActive, created, createdBy, updated, updatedBy, None, None, None)
 }

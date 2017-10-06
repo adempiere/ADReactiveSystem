@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Package Exp Entity
   * @param packageExpId Package Exp ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created by
@@ -42,6 +44,8 @@ import org.joda.time.DateTime
   */
 
 case class PackageExp (packageExpId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
@@ -78,6 +82,8 @@ case class PackageExp (packageExpId: Int,
 object PackageExp {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExp]
   def create(packageExpId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -95,7 +101,7 @@ object PackageExp {
              pkVersion: String,
              fileDirectory: String,
              description: String,
-             uuId: String) = PackageExp(packageExpId, isActive, created, createdBy, updated, updatedBy, None,
-    email, instructions, name, None, releaseNo, version, userName, processing, pkVersion, fileDirectory, description,
-    None)
+             uuId: String) = PackageExp(packageExpId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, None, email, instructions, name, None, releaseNo, version, userName, processing, pkVersion,
+    fileDirectory, description, None)
 }

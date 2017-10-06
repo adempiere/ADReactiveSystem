@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Label Printer Function Entity
   * @param labelPrinterFunctionId Label Printer Function ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -37,20 +39,22 @@ import org.joda.time.DateTime
   */
 
 case class LabelPrinterFunction (labelPrinterFunctionId: Int,
-                            isActive: Boolean = true,
-                            created: DateTime = DateTime.now,
-                            createdBy: Int,
-                            updated: DateTime = DateTime.now,
-                            updatedBy: Int,
-                            name: String,
-                            description: Option[String],
-                            labelPrinterId: Int,
-                            functionPrefix: Option[String],
-                            functionSuffix: Option[String],
-                            isXYPosition: Boolean = false,
-                            xYSeparator: Option[String],
-                            uuId: Option[String]
-                           ) extends DomainModel
+                                 tenantId: Int,
+                                 organizationId: Int,
+                                 isActive: Boolean = true,
+                                 created: DateTime = DateTime.now,
+                                 createdBy: Int,
+                                 updated: DateTime = DateTime.now,
+                                 updatedBy: Int,
+                                 name: String,
+                                 description: Option[String],
+                                 labelPrinterId: Int,
+                                 functionPrefix: Option[String],
+                                 functionSuffix: Option[String],
+                                 isXYPosition: Boolean = false,
+                                 xYSeparator: Option[String],
+                                 uuId: Option[String]
+                               ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -69,6 +73,8 @@ object LabelPrinterFunction{
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[LabelPrinterFunction]
 
   def create(labelPrinterFunctionId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -81,6 +87,6 @@ object LabelPrinterFunction{
              functionSuffix: String,
              isXYPosition: Boolean,
              xYSeparator: String,
-             uuId: String) = LabelPrinterFunction(labelPrinterFunctionId, isActive, created, createdBy, updated,
-    updatedBy, name, None, labelPrinterId, None, None, isXYPosition, None, None)
+             uuId: String) = LabelPrinterFunction(labelPrinterFunctionId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, labelPrinterId, None, None, isXYPosition, None, None)
 }

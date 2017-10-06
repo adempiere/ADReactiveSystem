@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Print Table Format Entity
   * @param printTableFormatId Print Table Format ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -60,6 +62,8 @@ import org.joda.time.DateTime
   */
 
 case class PrintTableFormat (printTableFormatId: Int,
+                             tenantId: Int,
+                             organizationId: Int,
                              isActive: Boolean = true,
                              created: DateTime = DateTime.now,
                              createdBy: Int,
@@ -114,6 +118,8 @@ case class PrintTableFormat (printTableFormatId: Int,
 object PrintTableFormat {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintTableFormat]
   def create(printTableFormatId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -149,9 +155,9 @@ object PrintTableFormat {
              isPaintHeaderLines: Boolean,
              imageId: Int,
              isMultiLineHeader: Boolean,
-             uuId: String) = PrintTableFormat(printTableFormatId, isActive, created, createdBy, updated,
-    updatedBy, None, None, None, None, None, None, None, None, None, isPaintBoundaryLines, isPaintHLines, isPaintVLines,
-    isPrintFunctionSymbols, name, isDefault, None, None, None, None, None, None, None, imageIsAttached, None, None,
-    None, None, isPaintHeaderLines, None,isMultiLineHeader, None)
+             uuId: String) = PrintTableFormat(printTableFormatId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, isPaintBoundaryLines,
+    isPaintHLines, isPaintVLines, isPrintFunctionSymbols, name, isDefault, None, None, None, None, None, None, None,
+    imageIsAttached, None, None, None, None, isPaintHeaderLines, None,isMultiLineHeader, None)
 }
 

@@ -21,6 +21,8 @@ import org.joda.time.DateTime
 /**
   * Zoom Condition Entity
   * @param zoomConditionId Zoom Confition ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param tableId Table ID
   * @param windowId Window ID
   * @param created Created
@@ -37,6 +39,8 @@ import org.joda.time.DateTime
   */
 
 case class ZoomCondition (zoomConditionId: Int,
+                          tenantId: Int,
+                          organizationId: Int,
                           tableId: Option[Int],
                           windowId: Option[Int],
                           created: DateTime = DateTime.now,
@@ -68,6 +72,8 @@ case class ZoomCondition (zoomConditionId: Int,
 object ZoomCondition {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ZoomCondition]
   def create(zoomConditionId: Int,
+             tenantId: Int,
+             organizationId: Int,
              tableId: Int,
              windowId: Int,
              created: DateTime,
@@ -80,6 +86,6 @@ object ZoomCondition {
              updatedBy: Int,
              whereClause: String,
              zoomLogic: String,
-             uuId: String) = ZoomCondition(zoomConditionId, None, None, created, createdBy, None, isActive,
-    None, None, updated, updatedBy, None, None, None)
+             uuId: String) = ZoomCondition(zoomConditionId, tenantId, organizationId, None, None, created, createdBy,
+    None, isActive, None, None, updated, updatedBy, None, None, None)
 }

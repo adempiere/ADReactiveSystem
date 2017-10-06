@@ -42,9 +42,9 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
 
 case class Alert(alertId: Int,
                  isActive: Boolean = true,
-                 created: DateTime = DateTime.now(),
+                 created: DateTime = DateTime.now,
                  createdBy: Int,
-                 updated: DateTime = DateTime.now(),
+                 updated: DateTime = DateTime.now,
                  updatedBy: Int,
                  name: String,
                  description: Option[String],

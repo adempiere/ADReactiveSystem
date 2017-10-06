@@ -28,8 +28,8 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param tableId Table ID
-  * @param columnId Column ID
+  * @param entityId Table ID
+  * @param attributeId Column ID
   * @param recordId Record ID
   * @param remoteAddress Remote Address
   * @param remoteHost Remote Host
@@ -40,13 +40,15 @@ import org.joda.time.DateTime
   */
 
 case class AccessLog(accessLogId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive: Boolean = true,
-                     created: DateTime =  DateTime.now(),
+                     created: DateTime =  DateTime.now,
                      createdBy: Int,
-                     updated: DateTime =  DateTime.now(),
+                     updated: DateTime =  DateTime.now,
                      updatedBy: Int,
-                     tableId: Option[Int],
-                     columnId: Option[Int],
+                     entityId: Option[Int],
+                     attributeId: Option[Int],
                      recordId: Option[Int],
                      remoteAddress: Option[String],
                      remoteHost: Option[String],
@@ -72,6 +74,8 @@ case class AccessLog(accessLogId: Int,
 object AccessLog  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AccessLog]
   def create(accessLogId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -85,6 +89,6 @@ object AccessLog  {
              description: String,
              textMsg: String,
              reply: String,
-             uuId: String) = AccessLog(accessLogId, isActive, created, createdBy, updated,
+             uuId: String) = AccessLog(accessLogId, tenantId , organizationId, isActive, created, createdBy, updated,
     updatedBy, None, None, None, None, None, None, None, None, None)
 }

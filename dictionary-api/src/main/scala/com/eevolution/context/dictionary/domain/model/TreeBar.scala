@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TreeBar(treeBarId: Int,
@@ -41,7 +41,7 @@ case class TreeBar(treeBarId: Int,
               createdBy: Int,
               updated: DateTime = DateTime.now,
               updatedBy: Int,
-              uuId: Option[String]
+              uuid: Option[String]
              ) extends DomainModel
 
   with ActiveEnabled
@@ -67,6 +67,6 @@ object TreeBar  {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuId: String) = TreeBar(treeBarId, userId, nodeId, isActive, created, createdBy, updated,
+             uuid: String) = TreeBar(treeBarId, userId, nodeId, isActive, created, createdBy, updated,
     updatedBy, None)
 }

@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param operation Operation
   * @param value Value
   * @param value2 Value 2
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Find(findId: Int,
@@ -51,7 +51,7 @@ case class Find(findId: Int,
                 operation: String,
                 value: String,
                 value2: Option[String],
-                uuId: Option[String]
+                uuid: Option[String]
                ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object Find  {
              operation: String,
              value: String,
              value2: String,
-             uuId: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, andOr, columnId,
+             uuid: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, andOr, columnId,
     operation, value, None, None)
 }
 

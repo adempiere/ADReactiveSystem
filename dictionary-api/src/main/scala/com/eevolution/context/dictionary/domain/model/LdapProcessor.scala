@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param supervisorId Supervisor ID
   * @param keepLogDays Keep Log Days
   * @param processing Processing
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class LdapProcessor(ldapProcessorId: Int,
@@ -53,7 +53,7 @@ case class LdapProcessor(ldapProcessorId: Int,
                          supervisorId: Int,
                          keepLogDays: Int = 0,
                          processing: Option[Boolean],
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -86,7 +86,7 @@ object LdapProcessor  {
              supervisorId: Int,
              keepLogDays: Int,
              processing: Boolean,
-             uuId: String) = LdapProcessor(ldapProcessorId, created, createdBy, updated, updatedBy, isActive,
+             uuid: String) = LdapProcessor(ldapProcessorId, created, createdBy, updated, updatedBy, isActive,
     name, None, ldapPort, dateLastRun, dateNextRun,supervisorId, keepLogDays, None, None )
 }
 

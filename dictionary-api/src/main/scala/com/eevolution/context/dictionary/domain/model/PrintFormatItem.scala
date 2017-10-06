@@ -84,7 +84,7 @@ import org.joda.time.DateTime
   * @param isDesc Is Desc
   * @param isPrintBarcodeText Is Print Barcode Text
   * @param displayLogic Display Logic
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PrintFormatItem (printFormatItemId: Int,
                             tenantId: Int,
@@ -150,7 +150,7 @@ case class PrintFormatItem (printFormatItemId: Int,
                             isDesc: Boolean = false,
                             isPrintBarcodeText: Boolean = true,
                             displayLogic: Option[String],
-                            uuId: Option[String]
+                            uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -232,7 +232,7 @@ object PrintFormatItem {
              isDesc: Boolean,
              isPrintBarcodeText: Boolean,
              displayLogic: String,
-             uuId: String) = PrintFormatItem(printFormatItemId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = PrintFormatItem(printFormatItemId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, printFormatId, name, None,isPrinted, printAreaType, seqNo, printFormatType, None, None,
     isRelativePosition, isNextLine, xSpace, ySpace, xPosition, yPosition, maxWidth, isHeightOneLine, maxHeight,
     fieldAlignmentType, lineAlignmentType, None, None, isOrderBy, sortNo,isGroupBy, isPageBrake, isSummarized,

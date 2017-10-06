@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param fromClause From Clause
   * @param otherClause Other Clause
   * @param processing Processing
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class InfoWindow(infoWindowId: Int,
@@ -53,7 +53,7 @@ case class InfoWindow(infoWindowId: Int,
                       fromClause: String,
                       otherClause: Option[String],
                       processing: Option[Boolean],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -85,7 +85,7 @@ object InfoWindow  {
              fromClause: String,
              otherClause: String,
              processing: Boolean,
-             uuId: String) = InfoWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = InfoWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, tableId, entityType, fromClause, None, None, None)
 }
 

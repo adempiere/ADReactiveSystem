@@ -45,7 +45,7 @@ import org.joda.time.DateTime
   * @param lineDistance Line Distance
   * @param startPoint Start Point
   * @param repeatDistance Repeat Distance
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Color(colorId: Int,
@@ -71,7 +71,7 @@ case class Color(colorId: Int,
                  lineDistance: Option[Int],
                  startPoint: Option[Int],
                  repeatDistance: Option[Int],
-                 uuId: Option[String]
+                 uuid: Option[String]
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -113,7 +113,7 @@ object Color {
              lineDistance: Int,
              startPoint: Int,
              repeatDistance: Int,
-             uuId: String) = Color(colorId, isActive, created, createdBy, updated,
+             uuid: String) = Color(colorId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, colorType, red, green, blue, alpha, None, imageAlpha, None,
     None, None, None, None, None, None, None, None)
 }

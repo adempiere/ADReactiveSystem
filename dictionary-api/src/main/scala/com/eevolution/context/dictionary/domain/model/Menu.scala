@@ -43,7 +43,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param isCentrallyMaintained Is Centrally Maintained
   * @param browseId Browse ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Menu(menuId: Int,
@@ -67,7 +67,7 @@ case class Menu(menuId: Int,
            entityType: String = "D",
            isCentrallyMaintained: Boolean = true,
            browseId: Option[Int],
-           uuId: Option[String]
+           uuid: Option[String]
           ) extends DomainModel
 
   with ActiveEnabled
@@ -106,7 +106,7 @@ object Menu {
              entityType: String,
              isCentrallyMaintained: Boolean,
              browseId: Int,
-             uuId: String) = Menu (menuId,isActive, created, createdBy, updated,
+             uuid: String) = Menu (menuId,isActive, created, createdBy, updated,
     name, updatedBy,None, isSummary, isSoTrx, isReadOnly,
     None, None, None, None, None, None, None, entityType, isCentrallyMaintained, None, None)
 }

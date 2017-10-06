@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param textMsg Text Msg
   * @param reply Reply
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class AccessLog(accessLogId: Int,
@@ -53,7 +53,7 @@ case class AccessLog(accessLogId: Int,
                      description:Option [String],
                      textMsg: Option[String],
                      reply: Option[String],
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -85,6 +85,6 @@ object AccessLog  {
              description: String,
              textMsg: String,
              reply: String,
-             uuId: String) = AccessLog(accessLogId, isActive, created, createdBy, updated,
+             uuid: String) = AccessLog(accessLogId, isActive, created, createdBy, updated,
     updatedBy, None, None, None, None, None, None, None, None, None)
 }

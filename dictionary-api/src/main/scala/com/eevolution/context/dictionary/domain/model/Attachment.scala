@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param title Title
   * @param binaryData Binary Data
   * @param textMsg Text Msg
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Attachment(attachmentId: Int,
@@ -46,7 +46,7 @@ case class Attachment(attachmentId: Int,
                       title: String,
                       binaryData: String,
                       textMsg: Option[String],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -75,7 +75,7 @@ object Attachment {
              title: String,
              binaryData: String,
              textMsg: String,
-             uuId: String) = Attachment(attachmentId, isActive,created, createdBy, updated,
+             uuid: String) = Attachment(attachmentId, isActive,created, createdBy, updated,
     updatedBy,tableId, recordId, title, binaryData, None, None)
 
 }

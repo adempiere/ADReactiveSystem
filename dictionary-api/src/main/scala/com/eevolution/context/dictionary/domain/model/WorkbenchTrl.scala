@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkbenchTrl(workbenchTrlId: Int,
@@ -45,7 +45,7 @@ case class WorkbenchTrl(workbenchTrlId: Int,
                         description: Option[String],
                         help: Option[String],
                         isTranslated: Boolean = false,
-                        uuId: Option[String]
+                        uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -74,6 +74,6 @@ object WorkbenchTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = WorkbenchTrl(workbenchTrlId, language, isActive, created, createdBy,
+             uuid: String) = WorkbenchTrl(workbenchTrlId, language, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

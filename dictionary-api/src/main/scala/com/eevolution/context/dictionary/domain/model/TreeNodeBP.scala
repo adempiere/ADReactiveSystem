@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param parentId Parent ID
   * @param seqNo Seq No
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TreeNodeBP(treeNodeBPId: Int,
@@ -43,7 +43,7 @@ case class TreeNodeBP(treeNodeBPId: Int,
                       updatedBy: Int,
                       parentId: Option[Int],
                       seqNo: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -70,7 +70,7 @@ object TreeNodeBP  {
              updatedBy: Int,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeBP(treeNodeBPId, nodeId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = TreeNodeBP(treeNodeBPId, nodeId, isActive, created, createdBy, updated, updatedBy,
     None, None, None)
 }
 

@@ -33,11 +33,10 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param help Help
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
-case class InfoColumnTrl(infoColumnTrlId: Int,
-                    language: String,
+case class InfoColumnTrl(language: String,
                     isActive: Boolean = true,
                     created: DateTime = DateTime.now,
                     createdBy: Int,
@@ -47,7 +46,7 @@ case class InfoColumnTrl(infoColumnTrlId: Int,
                     name: String,
                     description: Option[String],
                     help: Option[String],
-                    uuId: Option[String]
+                    uuid: Option[String]
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -57,16 +56,15 @@ case class InfoColumnTrl(infoColumnTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = infoColumnTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_InfoColumnTrl"
-  override val identifier: String = "AD_InfoColumnTrl_ID"
+  override val entityName: String = "AD_InfoColumn_Trl"
+  override val identifier: String = null
 }
 
 object InfoColumnTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoColumnTrl]
-  def create(infoColumnTrlId: Int,
-             language: String,
+  def create(language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -76,6 +74,6 @@ object InfoColumnTrl  {
              name: String,
              description: String,
              help: String,
-             uuId: String) = InfoColumnTrl(infoColumnTrlId, language, isActive, created, createdBy,
+             uuid: String) = InfoColumnTrl(language, isActive, created, createdBy,
     updated, updatedBy, isTranslated, name, None, None, None)
 }

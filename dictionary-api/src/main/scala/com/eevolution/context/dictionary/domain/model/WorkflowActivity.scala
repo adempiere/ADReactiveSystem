@@ -44,7 +44,7 @@ import org.joda.time.DateTime
   * @param endWaitTime End Wait Time
   * @param dateLastAlert Date Last Alert
   * @param dynPriorityStart Dyn Priority Start
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowActivity(workflowActivityId: Int,
@@ -69,7 +69,7 @@ case class WorkflowActivity(workflowActivityId: Int,
                             endWaitTime: Option[DateTime],
                             dateLastAlert: Option[DateTime],
                             dynPriorityStart: Option[Int],
-                            uuId: Option[String]
+                            uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -109,7 +109,7 @@ object WorkflowActivity {
              endWaitTime: DateTime,
              dateLastAlert: DateTime,
              dynPriorityStart: Int,
-             uuId: String) = WorkflowActivity(workflowActivityId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowActivity(workflowActivityId, isActive, created, createdBy, updated, updatedBy,
     workflowProcessId, workflowNodeId, None, None, workflowState, None, None, processed, None, workFlowId, tableId, recordId,
     None, None, None, None, None)
 

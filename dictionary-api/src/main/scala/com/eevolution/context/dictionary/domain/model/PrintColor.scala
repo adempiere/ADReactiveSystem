@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param isDefault Is Default
   * @param code Code
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintColor (printColorId: Int,
@@ -45,7 +45,7 @@ case class PrintColor (printColorId: Int,
                        name: String,
                        isDefault: Boolean = false,
                        code: String,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -74,6 +74,6 @@ object PrintColor {
              name: String,
              isDefault: Boolean,
              code: String,
-             uuId: String) = PrintColor(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintColor(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, code, None)
 }

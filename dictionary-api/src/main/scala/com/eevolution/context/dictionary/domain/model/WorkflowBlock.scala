@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param workflowId Work Flow ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowBlock(workflowBlockId: Int,
@@ -43,7 +43,7 @@ case class WorkflowBlock(workflowBlockId: Int,
                          name: String,
                          description: Option[String],
                          workflowId: Int,
-                         uuId: Option[String]
+                         uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -70,7 +70,7 @@ object WorkflowBlock {
              name: String,
              description: String,
              workflowId: Int,
-             uuId: String) = WorkflowBlock(workflowBlockId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = WorkflowBlock(workflowBlockId, isActive, created, createdBy, updated, updatedBy, name,
     None, workflowId, None)
 
 }

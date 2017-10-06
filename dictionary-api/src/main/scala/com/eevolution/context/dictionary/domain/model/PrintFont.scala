@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param isDefault Is Default
   * @param code Code
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PrintFont (printFontId: Int,
                       tenantId: Int,
@@ -44,7 +44,7 @@ case class PrintFont (printFontId: Int,
                       name: String,
                       isDefault: Boolean = false,
                       code: String,
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -73,6 +73,6 @@ object PrintFont {
              name: String,
              isDefault: Boolean,
              code: String,
-             uuId: String) = PrintFont(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintFont(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, code, None)
 }

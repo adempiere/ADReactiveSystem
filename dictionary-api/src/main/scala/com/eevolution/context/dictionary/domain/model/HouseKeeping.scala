@@ -40,7 +40,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param value  Value
   * @param whereClause Where Clause
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class HouseKeeping (houseKeepingId: Int,
@@ -61,7 +61,7 @@ case class HouseKeeping (houseKeepingId: Int,
                          updatedBy: Int,
                          value: String,
                          whereClause: Option[String],
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -97,7 +97,7 @@ object HouseKeeping  {
              updatedBy: Int,
              value: String,
              whereClause: String,
-             uuId: String) = HouseKeeping(houseKeepingId, tableId, None, created, createdBy, None, None,
+             uuid: String) = HouseKeeping(houseKeepingId, tableId, None, created, createdBy, None, None,
     isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, None)
 }
 

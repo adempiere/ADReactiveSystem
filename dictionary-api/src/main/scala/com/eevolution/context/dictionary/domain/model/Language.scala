@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param isDecimalPoint Is Decimal Point
   * @param datePattern Date Pattern
   * @param timePattern Time Pattern
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Language(languageId: Int,
@@ -58,7 +58,7 @@ case class Language(languageId: Int,
                     isDecimalPoint: Boolean = true,
                     datePattern: Option[String],
                     timePattern: Option[String],
-                    uuId: Option[String]
+                    uuid: Option[String]
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -92,7 +92,7 @@ object Language {
              isDecimalPoint: Boolean,
              datePattern: String,
              timePattern: String,
-             uuId: String) = Language(languageId,isActive, created, createdBy, updated,
+             uuid: String) = Language(languageId,isActive, created, createdBy, updated,
     updatedBy, name, None, None, isBaseLanguage, isSystemLanguage, None, language, isDecimalPoint, None, None, None)
 }
 

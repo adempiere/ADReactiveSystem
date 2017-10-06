@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param functionSuffix Function Suffix
   * @param isXYPosition Is X Y Position
   * @param xYSeparator X Y Separator
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class LabelPrinterFunction (labelPrinterFunctionId: Int,
@@ -53,7 +53,7 @@ case class LabelPrinterFunction (labelPrinterFunctionId: Int,
                                  functionSuffix: Option[String],
                                  isXYPosition: Boolean = false,
                                  xYSeparator: Option[String],
-                                 uuId: Option[String]
+                                 uuid: Option[String]
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -87,6 +87,6 @@ object LabelPrinterFunction{
              functionSuffix: String,
              isXYPosition: Boolean,
              xYSeparator: String,
-             uuId: String) = LabelPrinterFunction(labelPrinterFunctionId, tenantId, organizationId, isActive, created,
+             uuid: String) = LabelPrinterFunction(labelPrinterFunctionId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, labelPrinterId, None, None, isXYPosition, None, None)
 }

@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param supervisorId Supervisor ID
   * @param keepLogDays Keep Log Days
   * @param processing Processing
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class AlertProcessor(alertProcessorId: Int,
@@ -55,7 +55,7 @@ case class AlertProcessor(alertProcessorId: Int,
                           supervisorId: Int,
                           keepLogDays: Int,
                           processing: Option[Boolean],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          )extends DomainModel
 
   with ActiveEnabled
@@ -88,6 +88,6 @@ object AlertProcessor  {
              supervisorId: Int,
              keepLogDays: Int,
              processing: Boolean,
-             uuId: String) = AlertProcessor(alertProcessorId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = AlertProcessor(alertProcessorId, isActive, created, createdBy, updated, updatedBy, name,
     None, frequencyType, frequency, dateLastRun, dateNextRun,supervisorId, keepLogDays, None, None)
 }

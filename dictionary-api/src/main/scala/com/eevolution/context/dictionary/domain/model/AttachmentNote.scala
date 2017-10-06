@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param userId User ID
   * @param title Title
   * @param textMsg Text Msg
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class AttachmentNote(attachmentNoteId: Int,
@@ -45,7 +45,7 @@ case class AttachmentNote(attachmentNoteId: Int,
                           userId: Int,
                           title: String,
                           textMsg: String,
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -73,7 +73,7 @@ object AttachmentNote {
              userId: Int,
              title: String,
              textMsg: String,
-             uuId: String) = AttachmentNote(attachmentNoteId, isActive,created, createdBy, updated,
+             uuid: String) = AttachmentNote(attachmentNoteId, isActive,created, createdBy, updated,
     updatedBy,attachmentId, userId, title, textMsg, None)
 
 }

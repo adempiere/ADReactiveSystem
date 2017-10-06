@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param isTranslated Is Translated
   * @param name Name
   * @param help Help
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ViewTrl(viewTrlId: Int,
@@ -49,7 +49,7 @@ case class ViewTrl(viewTrlId: Int,
               isTranslated: Boolean,
               name: String,
               help : Option[String],
-              uuId: Option[String]
+              uuid: Option[String]
              ) extends DomainModel
 
   with ActiveEnabled
@@ -79,7 +79,7 @@ object ViewTrl  {
              isTranslated: Boolean,
              name: String,
              help : String,
-             uuId: String) = ViewTrl(viewTrlId, created, createdBy, isActive, updated, updatedBy,
+             uuid: String) = ViewTrl(viewTrlId, created, createdBy, isActive, updated, updatedBy,
     viewId, language, None, isTranslated, name, None, None)
 }
 

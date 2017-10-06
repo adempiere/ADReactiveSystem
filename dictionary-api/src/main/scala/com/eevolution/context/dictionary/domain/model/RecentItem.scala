@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param menuId Menu ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class RecentItem(recentItemId: Int,
@@ -51,7 +51,7 @@ case class RecentItem(recentItemId: Int,
                       updated: DateTime = DateTime.now,
                       updatedBy: Int,
                       menuId: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object RecentItem {
              updated: DateTime,
              updatedBy: Int,
              menuId: Int,
-             uuId: String) = RecentItem(recentItemId, roleId, None, None, None, None, created, createdBy, isActive,
+             uuid: String) = RecentItem(recentItemId, roleId, None, None, None, None, created, createdBy, isActive,
     None, updated, updatedBy, None, None)
 }
 

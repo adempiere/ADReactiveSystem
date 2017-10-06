@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isCollapsible Is Collapsible
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TreeFavoriteNode(treeFavoriteNodeId: Int,
@@ -51,7 +51,7 @@ case class TreeFavoriteNode(treeFavoriteNodeId: Int,
                             updated: DateTime = DateTime.now,
                             updatedBy: Int,
                             isCollapsible: Boolean = false,
-                            uuId: Option[String]
+                            uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object TreeFavoriteNode  {
              updated: DateTime,
              updatedBy: Int,
              isCollapsible: Boolean,
-             uuId: String) = TreeFavoriteNode(treeFavoriteId, menuId, treeFavoriteId, created, createdBy,
+             uuid: String) = TreeFavoriteNode(treeFavoriteId, menuId, treeFavoriteId, created, createdBy,
     isActive, isSummary, None, None, seqNo, updated, updatedBy, isCollapsible, None)
 }
 

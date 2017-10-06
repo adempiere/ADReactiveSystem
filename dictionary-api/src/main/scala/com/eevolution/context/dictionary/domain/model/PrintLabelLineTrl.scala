@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param printName Printed Name
   * @param isTranslated In Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintLabelLineTrl (printLabelLineTrlId: Int,
@@ -45,7 +45,7 @@ case class PrintLabelLineTrl (printLabelLineTrlId: Int,
                               updatedBy: Int,
                               printName: Option[String],
                               isTranslated: Boolean = false,
-                              uuId: Option[String]
+                              uuid: Option[String]
                              ) extends DomainModel
 
   with ActiveEnabled
@@ -74,6 +74,6 @@ object PrintLabelLineTrl {
              updatedBy: Int,
              printName: String,
              isTranslated: Boolean,
-             uuId: String) = PrintLabelLineTrl(printLabelLineTrlId, language, tenantId, organizationId, isActive,
+             uuid: String) = PrintLabelLineTrl(printLabelLineTrlId, language, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, None, isTranslated, None)
 }

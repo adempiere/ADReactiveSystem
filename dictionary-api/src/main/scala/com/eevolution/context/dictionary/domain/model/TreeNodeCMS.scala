@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param parentId Parent ID
   * @param seqNo Seq No
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TreeNodeCMS(treeNodeCMSId: Int,
@@ -43,7 +43,7 @@ case class TreeNodeCMS(treeNodeCMSId: Int,
                        updated: DateTime = DateTime.now,
                        parentId: Option[Int],
                        seqNo: Option[Int],
-                       uuId: Option[String]
+                       uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object TreeNodeCMS  {
              updated: DateTime,
              parentId: Int,
              seqNo: Int,
-             uuId: String) = TreeNodeCMS(treeNodeCMSId, nodeId, isActive, created, createdBy, updatedBy, updated,
+             uuid: String) = TreeNodeCMS(treeNodeCMSId, nodeId, isActive, created, createdBy, updatedBy, updated,
     None, None, None)
 }

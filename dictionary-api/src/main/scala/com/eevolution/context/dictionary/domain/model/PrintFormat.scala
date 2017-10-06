@@ -49,7 +49,7 @@ import org.joda.time.DateTime
   * @param args Args
   * @param isSummary Is Summary
   * @param isPrintParameters Is Print Parameters
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PrintFormat (printFormatId: Int,
                         tenantId: Int,
@@ -80,7 +80,7 @@ case class PrintFormat (printFormatId: Int,
                         args: Option[String],
                         isSummary: Boolean = false,
                         isPrintParameters: Boolean = true,
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -127,7 +127,7 @@ object PrintFormat {
              args: String,
              isSummary: Boolean,
              isPrintParameters: Boolean,
-             uuId: String) = PrintFormat(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintFormat(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, isTableBased, isForm, tableId, printPaperId, printColorId, printFontId,
     isStandardHeaderFooter, headerMargin, footerMargin, None, None, None, None, isDefault, None, None, None, isSummary,
     isPrintParameters, None)

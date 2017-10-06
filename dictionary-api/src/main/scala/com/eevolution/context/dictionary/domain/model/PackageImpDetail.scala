@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param tableName Table Name
   * @param tableId Table ID
   * @param uninstall Uninstall
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PackageImpDetail (packageImpDetailId: Int,
@@ -59,7 +59,7 @@ case class PackageImpDetail (packageImpDetailId: Int,
                              tableName: Option[String],
                              tableId: Option[Int],
                              uninstall: Option[Boolean],
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -95,6 +95,6 @@ object PackageImpDetail {
              tableName: String,
              tableId: Int,
              uninstall: Boolean,
-             uuId: String) = PackageImpDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageImpDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, packageImpId, originalId, None, None, None, None, None, None, None, None)
 }

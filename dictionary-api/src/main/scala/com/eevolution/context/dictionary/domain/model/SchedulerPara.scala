@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param parameterDefault Parameter Default
   * @param description Description
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class SchedulerPara (schedulerParaId: Int,
@@ -47,7 +47,7 @@ case class SchedulerPara (schedulerParaId: Int,
                           updatedBy: Int,
                           parameterDefault: Option[String],
                           description: Option[String],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          )extends DomainModel
 
   with ActiveEnabled
@@ -78,6 +78,6 @@ object SchedulerPara {
              updatedBy: Int,
              parameterDefault: String,
              description: String,
-             uuId: String) = SchedulerPara(schedulerParaId, schedulerId, processParaId, tenantId,
+             uuid: String) = SchedulerPara(schedulerParaId, schedulerId, processParaId, tenantId,
     organizationId, isActive, created, createdBy, updated, updatedBy, None, None, None)
 }

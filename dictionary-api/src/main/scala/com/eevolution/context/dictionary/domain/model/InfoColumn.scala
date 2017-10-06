@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param isQueryCriteria Is Query Criteria
   * @param elementId Element ID
   * @param referenceId Reference ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class InfoColumn(infoColumnId: Int,
@@ -59,7 +59,7 @@ case class InfoColumn(infoColumnId: Int,
                       isQueryCriteria: Boolean = false,
                       elementId: Option[Int],
                       referenceId: Int,
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -94,7 +94,7 @@ object InfoColumn  {
              isQueryCriteria: Boolean,
              elementId: Int,
              referenceId: Int,
-             uuId: String) = InfoColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = InfoColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
     None, None, infoWindowId, entityType, selectClause, seqNo,
     isDisplayed, isQueryCriteria, None, referenceId, None)
 }

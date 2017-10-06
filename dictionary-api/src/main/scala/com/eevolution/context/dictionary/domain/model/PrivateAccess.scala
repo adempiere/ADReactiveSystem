@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrivateAccess(privateAccessId: Int,
@@ -43,7 +43,7 @@ case class PrivateAccess(privateAccessId: Int,
                          createdBy: Int,
                          updated: DateTime = DateTime.now,
                          updatedBy: Int,
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object PrivateAccess  {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuId: String) = PrivateAccess(privateAccessId, userId, tableId, recordId, isActive, created, createdBy,
+             uuid: String) = PrivateAccess(privateAccessId, userId, tableId, recordId, isActive, created, createdBy,
     updated, updatedBy, None)
 }

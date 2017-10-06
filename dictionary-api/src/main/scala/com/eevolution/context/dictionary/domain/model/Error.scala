@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param code Code
   * @param language Language
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Error(errorId: Int,
@@ -43,7 +43,7 @@ case class Error(errorId: Int,
                  name: String,
                  code: Option[String],
                  language: Option[String],
-                 uuId: Option[String]
+                 uuid: Option[String]
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object Error {
              name: String,
              code: String,
              language: String,
-             uuId: String) = Error(errorId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = Error(errorId, isActive, created, createdBy, updated, updatedBy, name,
   None, None, None)
 }

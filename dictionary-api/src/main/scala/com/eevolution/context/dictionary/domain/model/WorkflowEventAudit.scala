@@ -42,7 +42,7 @@ import org.joda.time.DateTime
   * @param newValue New Value
   * @param description Description
   * @param textMsg Text Msg
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowEventAudit(workflowEventAuditId: Int,
@@ -65,7 +65,7 @@ case class WorkflowEventAudit(workflowEventAuditId: Int,
                               newValue: Option[String],
                               description: Option[String],
                               textMsg: Option[String],
-                              uuId: Option[String]
+                              uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -103,7 +103,7 @@ object WorkflowEventAudit  {
              newValue: String,
              description: String,
              textMsg: String,
-             uuId: String) = WorkflowEventAudit(workflowEventAuditId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowEventAudit(workflowEventAuditId, isActive, created, createdBy, updated, updatedBy,
     eventType, workflowState, workflowProcessId, nodeId, tableId, recordId, workflowResponsibleId, None, elapsedTimeMs,
     None, None, None, None, None, None)
 }

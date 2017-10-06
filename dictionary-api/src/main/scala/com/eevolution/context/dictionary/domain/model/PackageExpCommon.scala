@@ -51,7 +51,7 @@ import org.joda.time.DateTime
   * @param roleId Role ID
   * @param processId Process ID
   * @param menuId Menu ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PackageExpCommon (packageExpCommonId: Int,
@@ -85,7 +85,7 @@ case class PackageExpCommon (packageExpCommonId: Int,
                              roleId: Option[Int],
                              processId: Option[Int],
                              menuId: Option[Int],
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -134,7 +134,7 @@ object PackageExpCommon {
              roleId: Int,
              processId: Int,
              menuId: Int,
-             uuId: String) = PackageExpCommon(packageExpCommonId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageExpCommon(packageExpCommonId, tenantId, organizationId, isActive, created,
     createdBy,updated, updatedBy, formId, None, None, None, None, None, None, None, None, None, None, None, None,
     None, None, None, None, None, None, None, None, None, None, None)
 }

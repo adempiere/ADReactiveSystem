@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param packageImpOrgDir Package Imp Org Dir
   * @param colValue Col Value
   * @param uninstall Uninstall
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PackageImpBackup (packageImpBackupId: Int,
@@ -57,7 +57,7 @@ case class PackageImpBackup (packageImpBackupId: Int,
                              packageImpOrgDir: Option[String],
                              colValue: Option[String],
                              uninstall: Option[Boolean],
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
 
@@ -93,6 +93,6 @@ object PackageImpBackup {
              packageImpOrgDir: String,
              colValue: String,
              uninstall: Boolean,
-             uuId: String) = PackageImpBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageImpBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, packageImpId, packageImpDetailId, None, None, None, None, None, None, None, None)
 }

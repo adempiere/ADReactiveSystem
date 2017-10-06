@@ -40,7 +40,7 @@ import org.joda.time.DateTime
   * @param isApply Is Apply
   * @param filename Filename
   * @param script Script
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class MigrationScript(migrationScriptId: Int,
@@ -61,7 +61,7 @@ case class MigrationScript(migrationScriptId: Int,
                       isApply: Boolean,
                       filename: String,
                       script: String,
-                      uuId: Option [String]
+                      uuid: Option [String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -97,7 +97,7 @@ object MigrationScript {
              isApply: Boolean,
              filename: String,
              script: String,
-             uuId: String) = MigrationScript(migrationScriptId, created, createdBy, None, None, isActive, name,
+             uuid: String) = MigrationScript(migrationScriptId, created, createdBy, None, None, isActive, name,
     projectName, None, releaseNo, None, status, None, updated, updatedBy, isApply, filename, script, None)
 }
 

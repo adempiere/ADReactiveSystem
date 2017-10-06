@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param fieldGroupType Field Group Type
   * @param isCollapsedByDefault Is Collapsed By Default
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class FieldGroup (fieldGroupId: Int,
@@ -47,7 +47,7 @@ case class FieldGroup (fieldGroupId: Int,
                        entityType: String = "D",
                        fieldGroupType: Option[Boolean],
                        isCollapsedByDefault: Boolean = false,
-                       uuId: Option[String]
+                       uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -77,6 +77,6 @@ object FieldGroup {
              entityType: String,
              fieldGroupType: Boolean,
              isCollapsedByDefault: Boolean,
-             uuId: String) = FieldGroup(fieldGroupId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = FieldGroup(fieldGroupId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy,name, entityType, None, isCollapsedByDefault, None)
 }

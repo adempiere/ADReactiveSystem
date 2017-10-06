@@ -60,7 +60,7 @@ import org.joda.time.DateTime
   * @param isDisplayedGrid Is Displayed Grid
   * @param seqNoGrid Seq No Grid
   * @param isAllowCopy Is Allow Copy
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class Field (fieldId: Int,
                   tenantId: Int,
@@ -101,7 +101,7 @@ case class Field (fieldId: Int,
                   isDisplayedGrid: Boolean = true,
                   seqNoGrid: Option[Int],
                   isAllowCopy: Boolean = true,
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -157,7 +157,7 @@ object Field {
              isDisplayedGrid: Boolean,
              seqNoGrid: Int,
              isAllowCopy: Boolean,
-             uuId: String) = Field(fieldId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = Field(fieldId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isCentrallyMaintained, tabId, None, None, isDisplayed, None, None, isReadOnly, None, None,
     isSameLine, isHeading, isFieldOnly, isEncrypted, entityType, None, None, None, None, None, None, None, None,
     isEmbedded, None, isDisplayedGrid, None, isAllowCopy, None)

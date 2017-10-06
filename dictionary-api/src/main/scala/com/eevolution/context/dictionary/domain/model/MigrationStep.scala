@@ -42,7 +42,7 @@ import org.joda.time.DateTime
   * @param parse Parse
   * @param sqlStatement SQL Statement
   * @param rollBackStatement Roll Back Statement
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class MigrationStep(migrationStepId: Int,
@@ -65,7 +65,7 @@ case class MigrationStep(migrationStepId: Int,
                          parse: Boolean = true,
                          sqlStatement: Option[String],
                          rollBackStatement: Option[String],
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -103,7 +103,7 @@ object MigrationStep  {
              parse: Boolean = true,
              sqlStatement: Option[String],
              rollBackStatement: Option[String],
-             uuId: Option[String]) = MigrationStep(migrationStepId, migrationId, None, None, None, None, created,
+             uuid: Option[String]) = MigrationStep(migrationStepId, migrationId, None, None, None, None, created,
     createdBy, dbType, None, isActive, None, seqNo, None, stepType, updated, updatedBy, parse, None, None, None)
 }
 

@@ -69,7 +69,7 @@ import org.joda.time.DateTime
   * @param windowId Window ID
   * @param processId Process ID
   * @param formId Form ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Issue(issueId: Int,
@@ -119,7 +119,7 @@ case class Issue(issueId: Int,
                  windowId: Option[Int],
                  processId: Option[Int],
                  formId: Option[Int],
-                 uuId: Option[String]
+                 uuid: Option[String]
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -184,7 +184,7 @@ object Issue  {
              windowId: Int,
              processId: Int,
              formId: Int,
-             uuId: String) = Issue(issueId, isActive, created, createdBy, updated, updatedBy, releaseNo,
+             uuid: String) = Issue(issueId, isActive, created, createdBy, updated, updatedBy, releaseNo,
     version, name, username, None, None, None, None, None, None, None, None, None, issueSummary, None, None, None,
     None, lineNo, None, None, None, None, None, None, None, None, processed, isVanillaSystem, isReproducible,
     None, None, None, systemStatus, None, None, None, None, None, None, None, None)

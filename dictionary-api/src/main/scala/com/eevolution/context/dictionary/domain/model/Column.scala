@@ -66,7 +66,7 @@ import org.joda.time.DateTime
   * @param chartId Chart ID
   * @param isRange Is Range
   * @param isAllowCopy Is Allow Copy
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Column(columnId: Int,
@@ -113,7 +113,7 @@ case class Column(columnId: Int,
                   chartId: Option[Int],
                   isRange: Boolean = false,
                   isAllowCopy: Boolean = true,
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -176,7 +176,7 @@ object Column {
              chartId: Int,
              isRange: Boolean,
              isAllowCopy: Boolean,
-             uuId: String) = Column(columnId, isActive,created, updated, createdBy,
+             uuid: String) = Column(columnId, isActive,created, updated, createdBy,
     updatedBy, name, None, None, version, entityType, columnName, tableId, referenceId, None, None, None,
     None, isKey, isParent, isMandatory, isUpdateAble, None, isIdentifier, None, isTranslated,isEncrypted, None,
     None, None, None, isSelectionColumn, None, None, isSyncDatabase, isAlwaysUpdateAble, None, None, None, isAutoComplete,

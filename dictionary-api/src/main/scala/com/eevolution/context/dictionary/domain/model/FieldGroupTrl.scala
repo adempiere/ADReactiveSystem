@@ -21,7 +21,6 @@ import org.joda.time.DateTime
   */
 /**
   * Field Group Trl Entity
-  * @param fieldGruopTrlId Field Group Trl ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -32,11 +31,10 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
-case class FieldGroupTrl (fieldGruopTrlId: Int,
-                          language: String,
+case class FieldGroupTrl (language: String,
                           tenantId: Int,
                           organizationId: Int,
                           isActive: Boolean = true,
@@ -46,7 +44,7 @@ case class FieldGroupTrl (fieldGruopTrlId: Int,
                           updatedBy: Int,
                           name: String,
                           isTranslated: Boolean = false,
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -55,17 +53,16 @@ case class FieldGroupTrl (fieldGruopTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = fieldGruopTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_FieldGroupTrl"
-  override val identifier: String = "AD_FieldGroupTrl_ID"
+  override val entityName: String = "AD_FieldGroup_Trl"
+  override val identifier: String = null
 
 }
 
 object FieldGroupTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldGroupTrl]
-  def create(fieldGruopTrlId: Int,
-             language: String,
+  def create(language: String,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -75,7 +72,7 @@ object FieldGroupTrl {
              updatedBy: Int,
              name: String,
              isTranslated: Boolean,
-             uuId: String) = FieldGroupTrl(fieldGruopTrlId, language, tenantId, organizationId, isActive, created,
+             uuid: String) = FieldGroupTrl(language, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, isTranslated, None)
 }
 

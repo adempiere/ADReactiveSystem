@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param updatedBy Update By
   * @param whereClause Where Clause
   * @param zoomLogic Zoom Logic
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ZoomCondition (zoomConditionId: Int,
@@ -53,7 +53,7 @@ case class ZoomCondition (zoomConditionId: Int,
                           updatedBy: Int,
                           whereClause: Option[String],
                           zoomLogic: Option[String],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -86,6 +86,6 @@ object ZoomCondition {
              updatedBy: Int,
              whereClause: String,
              zoomLogic: String,
-             uuId: String) = ZoomCondition(zoomConditionId, tenantId, organizationId, None, None, created, createdBy,
+             uuid: String) = ZoomCondition(zoomConditionId, tenantId, organizationId, None, None, created, createdBy,
     None, isActive, None, None, updated, updatedBy, None, None, None)
 }

@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param tableId Table ID
   * @param shareType Share Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TenantShare(tenantShareId: Int,
@@ -50,7 +50,7 @@ case class TenantShare(tenantShareId: Int,
                        description: Option[String],
                        tableId: Int,
                        shareType: Boolean,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -80,7 +80,7 @@ object TenantShare  {
              description: String,
              tableId: Int,
              shareType: Boolean,
-             uuId: String) = TenantShare(tenantShareId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = TenantShare(tenantShareId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     name, None, tableId, shareType, None)
 }
 

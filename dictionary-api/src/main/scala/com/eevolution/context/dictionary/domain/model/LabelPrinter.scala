@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class LabelPrinter (labelPrinterId: Int,
@@ -43,7 +43,7 @@ case class LabelPrinter (labelPrinterId: Int,
                          updatedBy: Int,
                          name: String,
                          description: Option[String],
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -72,6 +72,6 @@ object LabelPrinter{
              updatedBy: Int,
              name: String,
              description: String,
-             uuId: String) = LabelPrinter(labelPrinterId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = LabelPrinter(labelPrinterId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None)
 }

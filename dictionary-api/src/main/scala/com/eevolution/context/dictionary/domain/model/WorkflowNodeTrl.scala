@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowNodeTrl(workflowNodeTrlId: Int,
@@ -47,7 +47,7 @@ case class WorkflowNodeTrl(workflowNodeTrlId: Int,
                            description: Option[String],
                            help: Option[String],
                            isTranslated: Boolean =false,
-                           uuId: Option[String]
+                           uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -77,7 +77,7 @@ object WorkflowNodeTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = WorkflowNodeTrl(workflowNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowNodeTrl(workflowNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isTranslated, None)
 
 }

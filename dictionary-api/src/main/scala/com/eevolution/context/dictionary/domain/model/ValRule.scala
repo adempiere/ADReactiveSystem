@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param typePackage Type Package
   * @param code Code
   * @param entityType Entity Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class ValRule(valRuleId: Int,
                    isActive: Boolean = true,
@@ -46,7 +46,7 @@ case class ValRule(valRuleId: Int,
                    typePackage: Option[Boolean],
                    code: Option[String],
                    entityType: String = "D",
-                   uuId: Option[String]
+                   uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -75,7 +75,7 @@ object ValRule  {
              typePackage: Boolean,
              code: String,
              entityType: String,
-             uuId: String) = ValRule(valRuleId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = ValRule(valRuleId, isActive, created, createdBy, updated, updatedBy, name,
     None, None, None, entityType, None)
 }
 

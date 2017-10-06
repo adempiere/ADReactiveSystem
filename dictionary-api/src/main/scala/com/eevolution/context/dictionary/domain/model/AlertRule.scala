@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param isValid Is Valid
   * @param errorMsg Error Msg
   * @param otherClause Other Clause
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class AlertRule(alertRuleId: Int,
@@ -59,7 +59,7 @@ case class AlertRule(alertRuleId: Int,
                      isValid: Boolean = true,
                      errorMsg: Option[String],
                      otherClause: Option[String],
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -94,7 +94,7 @@ object AlertRule  {
              isValid: Boolean,
              errorMsg:String,
              otherClause: String,
-             uuId: String) = AlertRule(alertId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = AlertRule(alertId, isActive, created, createdBy, updated, updatedBy, name,
     alertId, selectClause, fromClause, None, None, None, None, isValid, None, None, None)
 }
 

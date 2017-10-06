@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param userId User ID
   * @param attribute Attribute
   * @param value Value
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 
@@ -48,7 +48,7 @@ case class Preference (preferenceId: Int,
                        userId: Option[Int],
                        attribute: String,
                        value: String,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -78,6 +78,6 @@ object Preference {
              userId: Int,
              attribute: String,
              value: String,
-             uuId: String) = Preference(preferenceId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = Preference(preferenceId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, None, None, attribute, value, None)
 }

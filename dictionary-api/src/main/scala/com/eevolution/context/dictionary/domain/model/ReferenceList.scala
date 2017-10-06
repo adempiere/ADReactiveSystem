@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param validFrom Valid From
   * @param validTo Valid To
   * @param entityType Entity Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class ReferenceList(referenceListId: Int,
                          isActive: Boolean = true,
@@ -51,7 +51,7 @@ case class ReferenceList(referenceListId: Int,
                          validFrom: Option[DateTime],
                          validTo: Option[DateTime],
                          entityType: String = "D",
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object ReferenceList  {
              validFrom: DateTime,
              validTo: DateTime,
              entityType: String,
-             uuId: String) = ReferenceList(referenceListId, isActive, created, createdBy, updated, updatedBy, value,
+             uuid: String) = ReferenceList(referenceListId, isActive, created, createdBy, updated, updatedBy, value,
     name, None, referenceId, None, None, entityType, None)
 }
 

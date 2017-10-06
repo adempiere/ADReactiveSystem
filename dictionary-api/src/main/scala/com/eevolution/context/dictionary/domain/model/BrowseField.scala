@@ -63,7 +63,7 @@ import org.joda.time.DateTime
   * @param infoFactoryClass Info Factory Class
   * @param seqNoGrid Seq No Grid
   * @param isInfoOnly Is Info Only
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class BrowseField(browseFieldId: Int,
@@ -107,7 +107,7 @@ case class BrowseField(browseFieldId: Int,
                        infoFactoryClass: Option[String],
                        seqNoGrid: Int = 0,
                        isInfoOnly: Boolean = false,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -166,7 +166,7 @@ object BrowseField  {
              infoFactoryClass: String,
              seqNoGrid: Int,
              isInfoOnly: Boolean,
-             uuId: String) = BrowseField(browseFieldId,created, createdBy, isActive, updated, updatedBy,
+             uuid: String) = BrowseField(browseFieldId,created, createdBy, isActive, updated, updatedBy,
     elementId, referenceId, viewColumnId, None,entityType, None, isCentrallyMaintained, isDisplayed, None, None,
     isQueryCriteria, None, name, None, browseId, None, isMandatory, None, None, isReadOnly, None, isOrderBy, None,
     None, None, None, None, None, None, None, None, None, None, seqNoGrid, isInfoOnly, None)

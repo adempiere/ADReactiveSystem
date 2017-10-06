@@ -37,7 +37,7 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   * @param enforceRoleSecurity Enforce Role Security
   * @param alertProcessorId Alert Processor ID
   * @param isValid Is Valid
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Alert(alertId: Int,
@@ -55,7 +55,7 @@ case class Alert(alertId: Int,
                  enforceRoleSecurity: Boolean = true,
                  alertProcessorId: Int,
                  isValid: Boolean = true,
-                 uuId: Option[String]
+                 uuid: Option[String]
                 ) extends DomainModel
 
 with ActiveEnabled
@@ -88,7 +88,7 @@ with Traceable {
                enforceRoleSecurity: Boolean,
                alertProcessorId: Int,
                isValid: Boolean,
-               uuId: String) = Alert(alertId, isActive, created, createdBy, updated, updatedBy, name,
+               uuid: String) = Alert(alertId, isActive, created, createdBy, updated, updatedBy, name,
       None, None, alertSubject, alertMessage, enforceClientSecurity, enforceRoleSecurity, alertProcessorId, isValid, None)
   }
 

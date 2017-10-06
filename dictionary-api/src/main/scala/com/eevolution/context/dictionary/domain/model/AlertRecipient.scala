@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param alertId Alert ID
   * @param userId User ID
   * @param roleId Role ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class AlertRecipient(alertRecipientId: Int,
                           isActive: Boolean = true,
@@ -42,7 +42,7 @@ case class AlertRecipient(alertRecipientId: Int,
                           alertId: Int,
                           userId: Option[Int],
                           roleId: Option[Int],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -69,6 +69,6 @@ object AlertRecipient  {
              alertId: Int,
              userId: Int,
              roleId: Int,
-             uuId: String) = AlertRecipient(alertRecipientId, isActive, created, createdBy, updated, updatedBy, alertId,
+             uuid: String) = AlertRecipient(alertRecipientId, isActive, created, createdBy, updated, updatedBy, alertId,
     None, None, None )
 }

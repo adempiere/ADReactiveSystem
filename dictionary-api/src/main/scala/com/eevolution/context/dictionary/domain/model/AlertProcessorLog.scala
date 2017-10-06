@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param textMsg Text Msg
   * @param binaryData Binary Data
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class AlertProcessorLog(alertProcessorLogId: Int,
@@ -51,7 +51,7 @@ case class AlertProcessorLog(alertProcessorLogId: Int,
                              description: Option[String],
                              textMsg: Option[String],
                              binaryData: Option[String],
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object AlertProcessorLog  {
              description: String,
              textMsg:String,
              binaryData: String,
-             uuId: String) = AlertProcessorLog(alertProcessorLogId, alertProcessorId,  isActive, created, createdBy, updated,
+             uuid: String) = AlertProcessorLog(alertProcessorLogId, alertProcessorId,  isActive, created, createdBy, updated,
     updatedBy, isError, None, None, None, None, None, None)
 }
 

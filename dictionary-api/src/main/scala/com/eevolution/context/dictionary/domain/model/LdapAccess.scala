@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param isError Is Error
   * @param summary Summary
   * @param description Description
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class LdapAccess(ldapAccessId: Int,
@@ -49,7 +49,7 @@ case class LdapAccess(ldapAccessId: Int,
                       isError: Boolean = false,
                       summary: Option[String],
                       description: Option[String],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -79,7 +79,7 @@ object LdapAccess  {
              isError: Boolean,
              summary: String,
              description: String,
-             uuId: String) = LdapAccess(ldapAccessId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = LdapAccess(ldapAccessId, isActive, created, createdBy, updated, updatedBy,
     ldapProcessorId, None, None, isError, None, None, None)
 }
 

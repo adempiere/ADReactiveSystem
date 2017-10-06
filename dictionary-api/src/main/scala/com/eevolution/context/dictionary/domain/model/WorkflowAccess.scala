@@ -29,7 +29,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isReadWrite Is Read Write
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowAccess(workflowAccessId: Int,
@@ -41,7 +41,7 @@ case class WorkflowAccess(workflowAccessId: Int,
                           updated: DateTime = DateTime.now,
                           updatedBy: Int,
                           isReadWrite: Boolean = true,
-                          uuId: Option[String]
+                          uuid: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -68,6 +68,6 @@ object WorkflowAccess {
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuId: String) = WorkflowAccess(workflowAccessId, workflowId, roleId, isActive, created, createdBy,
+             uuid: String) = WorkflowAccess(workflowAccessId, workflowId, roleId, isActive, created, createdBy,
     updated, updatedBy, isReadWrite, None)
 }

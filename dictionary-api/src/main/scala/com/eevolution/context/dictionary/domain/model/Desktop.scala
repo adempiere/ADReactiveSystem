@@ -34,7 +34,7 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   * @param help Help
   * @param imageId Image ID
   * @param colorId Color ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Desktop(desktopId: Int,
@@ -48,7 +48,7 @@ case class Desktop(desktopId: Int,
                    help: Option[String],
                    imageId: Option[Int],
                    colorId:Option[Int],
-                   uuId: Option[String]
+                   uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -77,6 +77,6 @@ case class Desktop(desktopId: Int,
              help: String,
              imageId: Int,
              colorId:Int,
-             uuId:String) = Desktop(desktopId, isActive,created, createdBy, updated,
+             uuid:String) = Desktop(desktopId, isActive,created, createdBy, updated,
     updatedBy, name, None, None, None, None, None)
 }

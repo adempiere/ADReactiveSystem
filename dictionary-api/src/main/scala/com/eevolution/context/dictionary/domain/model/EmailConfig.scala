@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param timeOut Time Out
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class EmailConfig(emailConfigId: Int,
@@ -59,7 +59,7 @@ case class EmailConfig(emailConfigId: Int,
                   timeOut: Int = 0,
                   updated: DateTime = DateTime.now,
                   updatedBy: Int,
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -94,7 +94,7 @@ object EmailConfig {
              timeOut: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuId: String) = EmailConfig(emailConfigId, authMechanism, connectionTimeOut, created, createdBy,
+             uuid: String) = EmailConfig(emailConfigId, authMechanism, connectionTimeOut, created, createdBy,
     None, encryptionType, isActive, isSmTpAuthorization, None, name, port, protocol, smTpHost, timeOut,
     updated, updatedBy, None)
 }

@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param operation Operation
   * @param value Value
   * @param value2 Value 2
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowNextCondition(workflowNextConditionId: Int,
@@ -53,7 +53,7 @@ case class WorkflowNextCondition(workflowNextConditionId: Int,
                                  operation: String,
                                  value: String,
                                  value2: Option[String],
-                                 uuId: Option[String]
+                                 uuid: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -85,7 +85,7 @@ object WorkflowNextCondition  {
              operation: String,
              value: String,
              value2: String,
-             uuId: String) = WorkflowNextCondition(workflowNextConditionId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowNextCondition(workflowNextConditionId, isActive, created, createdBy, updated, updatedBy,
     workflowNodeNextId, seqNo, entityType, andOr, columnId, operation, value, None, None)
 }
 

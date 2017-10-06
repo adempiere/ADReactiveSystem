@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isActive Is Active
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PinStancePara(pinStanceParaId: Int,
@@ -57,7 +57,7 @@ case class PinStancePara(pinStanceParaId: Int,
                          updated: DateTime = DateTime.now,
                          updatedBy: Int,
                          isActive: Boolean,
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -91,6 +91,6 @@ object PinStancePara {
              updated: DateTime,
              updatedBy: Int,
              isActive: Boolean,
-             uuId: String) = PinStancePara(pinStanceParaId, seqNo, None, None, None, None, None, date, dateTo,
+             uuid: String) = PinStancePara(pinStanceParaId, seqNo, None, None, None, None, None, date, dateTo,
     None, None, created, createdBy, updated, updatedBy, isActive, None)
 }

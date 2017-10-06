@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param workflowProcessId Wf process ID
   * @param attributeName Attribute Name
   * @param attributeValue Attribute Value
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowProcessData(workflowProcessDataId: Int,
@@ -43,7 +43,7 @@ case class WorkflowProcessData(workflowProcessDataId: Int,
                                workflowProcessId: Int,
                                attributeName: String,
                                attributeValue: Option[String],
-                               uuId: Option[String]
+                               uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -70,7 +70,7 @@ object WorkflowProcessData {
              workflowProcessId: Int,
              attributeName: String,
              attributeValue: String,
-             uuId: String) = WorkflowProcessData(workflowProcessDataId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowProcessData(workflowProcessDataId, isActive, created, createdBy, updated, updatedBy,
     workflowProcessId, attributeName, None, None)
 
 }

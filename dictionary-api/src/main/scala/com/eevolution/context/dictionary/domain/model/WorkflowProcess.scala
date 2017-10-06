@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param tableId Table ID
   * @param recordId Record ID
   * @param priority Priority
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowProcess(workflowProcessId: Int,
@@ -59,7 +59,7 @@ case class WorkflowProcess(workflowProcessId: Int,
                            tableId: Int,
                            recordId: Int,
                            priority: Option[Int],
-                           uuId: Option[String]
+                           uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -95,7 +95,7 @@ object WorkflowProcess {
              tableId: Int,
              recordId: Int,
              priority: Int,
-             uuId: String) = WorkflowProcess(workflowProcessId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowProcess(workflowProcessId, isActive, created, createdBy, updated, updatedBy,
     workFlowId, workflowResponsiveId, None, workflowState, None, None, processed, None, tableId, recordId, None, None)
 
 }

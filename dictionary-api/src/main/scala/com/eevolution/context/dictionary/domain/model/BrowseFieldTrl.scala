@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param help Help
   * @param isTranslated Is Translated
   * @param name Name
-  * @param uuId  UU ID
+  * @param uuid  UUID
   */
 
 case class BrowseFieldTrl(browseFieldTrlId: Int,
@@ -47,7 +47,7 @@ case class BrowseFieldTrl(browseFieldTrlId: Int,
                           help: Option[String],
                           isTranslated: Boolean,
                           name: String,
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -76,6 +76,6 @@ object BrowseFieldTrl  {
              help: String,
              isTranslated: Boolean,
              name: String,
-             uuId: String) = BrowseFieldTrl(browseFieldTrlId,created, createdBy, isActive, updated,
+             uuid: String) = BrowseFieldTrl(browseFieldTrlId,created, createdBy, isActive, updated,
     updatedBy, language, None, None, isTranslated, name, None)
 }

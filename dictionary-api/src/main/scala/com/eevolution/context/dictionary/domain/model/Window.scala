@@ -41,7 +41,7 @@ import org.joda.time.DateTime
   * @param winHeight Win Height
   * @param winWidth Win Width
   * @param isBetaFunctionality Is Beta Functionality
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Window(windowId: Int,
@@ -63,7 +63,7 @@ case class Window(windowId: Int,
                   winHeight: Option[Int],
                   winWidth: Option[Int],
                   isBetaFunctionality: Boolean = false,
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -100,7 +100,7 @@ object Window {
              winHeight: Int,
              winWidth: Int,
              isBetaFunctionality: Boolean,
-             uuId: String) = Window(windowId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = Window(windowId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, None, isSotRx, entityType, None, None, None, isDefault,
     None, None, isBetaFunctionality, None)
 }

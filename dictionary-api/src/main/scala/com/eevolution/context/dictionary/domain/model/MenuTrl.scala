@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class MenuTrl(menuTrlId: Int,
@@ -45,7 +45,7 @@ case class MenuTrl(menuTrlId: Int,
                    name: String,
                    description: Option[String],
                    isTranslated: Boolean = false,
-                   uuId: Option[String]
+                   uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -74,7 +74,7 @@ object MenuTrl  {
              name: String,
              description: String,
              isTranslated: Boolean,
-             uuId: String) = MenuTrl(menuTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = MenuTrl(menuTrlId, language, isActive, created, createdBy, updated, updatedBy,
     name, None, isTranslated, None)
 }
 

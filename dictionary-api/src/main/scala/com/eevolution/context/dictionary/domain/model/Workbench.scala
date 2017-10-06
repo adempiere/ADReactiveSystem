@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param imageId Image ID
   * @param colorId Color ID
   * @param entityType Entity Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Workbench(workbenchId: Int,
@@ -51,7 +51,7 @@ case class Workbench(workbenchId: Int,
                      imageId: Option[Int],
                      colorId: Option[Int],
                      entityType: String = "D",
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -83,6 +83,6 @@ object Workbench {
              imageId: Int,
              colorId: Int,
              entityType: String,
-             uuId: String) = Workbench(workbenchId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = Workbench(workbenchId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, columnId, None, None, entityType, None)
 }

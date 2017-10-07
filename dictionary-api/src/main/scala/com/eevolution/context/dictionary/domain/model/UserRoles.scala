@@ -18,6 +18,7 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modified by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
@@ -31,7 +32,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class UserRoles(userId : Int ,
@@ -41,9 +42,9 @@ case class UserRoles(userId : Int ,
                      isActive : Boolean = true,
                      created : DateTime = DateTime.now,
                      createdBy : Int ,
-                     updated :Int ,
-                     updatedBy : DateTime = DateTime.now,
-                     uuId: Option[String]
+                     updated : DateTime = DateTime.now,
+                     updatedBy : Int ,
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -68,9 +69,9 @@ object UserRoles  {
              isActive : Boolean,
              created : DateTime,
              createdBy : Int ,
-             updated :Int ,
-             updatedBy : DateTime,
-             uuId: String) = UserRoles(userId, roleId, tenantId, organizationId, isActive, created, createdBy,
+             updated : DateTime ,
+             updatedBy : Int,
+             uuid: String) = UserRoles(userId, roleId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None)
 }
 

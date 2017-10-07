@@ -23,9 +23,9 @@ import org.joda.time.DateTime
   */
 case class Attribute(attributeId: Int,
                      isActive : Boolean = true,
-                     created : Date = new Date,
+                     created : DateTime = new DateTime,
                      createdBy : Int ,
-                     updated : Date = new Date ,
+                     updated : DateTime = new DateTime ,
                      updatedBy : Int,
                      name : String,
                      description: Option[String],
@@ -82,9 +82,9 @@ object Attribute {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Attribute]
   def create(attributeId: Int,
              isActive : Boolean ,
-             created : Date ,
+             created : DateTime,
              createdBy : Int ,
-             updated : Date ,
+             updated : DateTime ,
              updatedBy : Int,
              name : String,
              description : String,

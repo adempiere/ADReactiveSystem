@@ -4,6 +4,7 @@ import java.util.{Date, UUID}
 
 import com.eevolution.context.dictionary.domain.model.{Element, Entity, Organization, Tenant}
 import com.eevolution.utils.PaginatedSequence
+import org.joda.time.DateTime
 
 import scala.concurrent.Future
 
@@ -91,16 +92,16 @@ abstract trait Traceable {
 
   val updatedBy: Int
   val createdBy: Int
-  val created: Date
-  val updated: Date
+  val created: DateTime
+  val updated: DateTime
 
   def getCreatedBy: Int = createdBy
 
-  def getCreated: Date = created
+  def getCreated: DateTime = created
 
   def getUpdatedBy: Int = updatedBy
 
-  def getUpdated: Date = updated
+  def getUpdated: DateTime = updated
 
 }
 

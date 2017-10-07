@@ -18,12 +18,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
-  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Menu Trl Entity
-  * @param language Language
+  * Info Window Entity
+  * @param infoWindowId Info Window ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -31,21 +30,31 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param isTranslated Is Translated
+  * @param help Help
+  * @param tableId Table ID
+  * @param entityType Entity Type
+  * @param fromClause From Clause
+  * @param otherClause Other Clause
+  * @param processing Processing
   * @param uuid UUID
   */
 
-case class MenuTrl(language: String,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   isTranslated: Boolean = false,
-                   uuid: Option[String]
-                  ) extends DomainModel
+case class InformationWindow(infoWindowId: Int,
+                             isActive: Boolean = true,
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
+                             updated: DateTime = DateTime.now,
+                             updatedBy: Int,
+                             name: String,
+                             description: Option[String],
+                             help: Option[String],
+                             tableId: Int,
+                             entityType: String = "D",
+                             fromClause: String,
+                             otherClause: Option[String],
+                             processing: Option[Boolean],
+                             uuid: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -54,16 +63,15 @@ case class MenuTrl(language: String,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = infoWindowId
 
-  override val entityName: String = "AD_Menu_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_InfoWindow"
+  override val identifier: String = "AD_InfoWindow_ID"
 }
 
-
-object MenuTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[MenuTrl]
-  def create(language: String,
+object InformationWindow  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationWindow]
+  def create(infoWindowId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -71,8 +79,13 @@ object MenuTrl  {
              updatedBy: Int,
              name: String,
              description: String,
-             isTranslated: Boolean,
-             uuid: String) = MenuTrl(language, isActive, created, createdBy, updated, updatedBy,
-    name, None, isTranslated, None)
+             help: String,
+             tableId: Int,
+             entityType: String,
+             fromClause: String,
+             otherClause: String,
+             processing: Boolean,
+             uuid: String) = InformationWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, tableId, entityType, fromClause, None, None, None)
 }
 

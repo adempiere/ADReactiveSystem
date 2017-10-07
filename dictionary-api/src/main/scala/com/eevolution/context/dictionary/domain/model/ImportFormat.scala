@@ -17,11 +17,12 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
+  *
   */
 /**
-  * Field Trl Entity
-  * @param fieldTrlId Field Trl ID
-  * @param language Language
+  * Imp Format Entity
+  * @param importFormatId Import Format ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -31,24 +32,28 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param tableId Table ID
+  * @param formatType Format Type
+  * @param processing Processing
+  * @param separatorCharacter Separator Character
   * @param uuid UUID
   */
 
-case class FieldTrl (language: String,
-                     tenantId: Int,
-                     organizationId: Int,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     help: Option[String],
-                     isTranslated: Boolean = false,
-                     uuid: Option[String]
+case class ImportFormat(importFormatId: Int,
+                        tenantId: Int,
+                        organizationId: Int,
+                        isActive: Boolean = true,
+                        created: DateTime = DateTime.now,
+                        createdBy: Int,
+                        updated: DateTime = DateTime.now,
+                        updatedBy: Int,
+                        name: String,
+                        description: Option[String],
+                        tableId: Int,
+                        formatType: Boolean,
+                        processing: Boolean,
+                        separatorCharacter: Option[String],
+                        uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -57,17 +62,16 @@ case class FieldTrl (language: String,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+  override def Id: Int = importFormatId
 
-  override val entityName: String = "AD_Field_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_ImpFormat"
+  override val identifier: String = "AD_ImpFormat_ID"
 
 }
 
-object FieldTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldTrl]
-
-  def create(language: String,
+object ImportFormat {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImportFormat]
+  def create(impportFormatId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -77,8 +81,12 @@ object FieldTrl {
              updatedBy: Int,
              name: String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+             tableId: Int,
+             formatType: Boolean,
+             processing: Boolean,
+             separatorChararcter: String,
+             uuid: String) = ImportFormat(impportFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, tableId, formatType, processing, None, None)
 }
+
+

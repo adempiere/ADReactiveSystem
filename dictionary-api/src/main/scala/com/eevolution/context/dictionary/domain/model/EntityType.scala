@@ -1,8 +1,8 @@
 package com.eevolution.context.dictionary.domain.model
 
-import java.util.Date
 
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
+import org.joda.time.DateTime
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -22,9 +22,9 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
 case class EntityType(entityTypeId: Int,
                       entityType: String = EntityType.Dictionary,
                       isActive: Boolean = true,
-                      created: Date = new Date,
+                      created: DateTime =  DateTime.now,
                       createdBy: Int,
-                      updated: Date = new Date,
+                      updated: DateTime =  DateTime.now,
                       updatedBy: Int ,
                       name: String,
                       description: Option[String],
@@ -43,8 +43,8 @@ case class EntityType(entityTypeId: Int,
 
   override def Id: Int = entityTypeId
 
-  override val entityName: String = "AD_Table"
-  override val identifier: String = "AD_Table_ID"
+  override val entityName: String = "AD_EntityType"
+  override val identifier: String = "AD_EntityType_ID"
 }
 
 object EntityType {

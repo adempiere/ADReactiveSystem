@@ -20,7 +20,6 @@ import org.joda.time.DateTime
   */
 /**
   * Workflow Access Entity
-  * @param workflowAccessId Work Flow Access ID
   * @param workflowId Work Flow ID
   * @param roleId Role Id
   * @param isActive Is Active
@@ -32,8 +31,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkflowAccess(workflowAccessId: Int,
-                          workflowId: Int,
+case class WorkflowAccess(workflowId: Int,
                           roleId: Int,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now,
@@ -50,17 +48,16 @@ case class WorkflowAccess(workflowAccessId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workflowAccessId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_workflowAccess"
-  override val identifier: String = "AD_workflowAccess_ID"
+  override val identifier: String = null
 
 }
 
 object WorkflowAccess {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowAccess]
-  def create(workflowAccessId: Int,
-             workflowId: Int,
+  def create(workflowId: Int,
              roleId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -68,6 +65,6 @@ object WorkflowAccess {
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuid: String) = WorkflowAccess(workflowAccessId, workflowId, roleId, isActive, created, createdBy,
+             uuid: String) = WorkflowAccess(workflowId, roleId, isActive, created, createdBy,
     updated, updatedBy, isReadWrite, None)
 }

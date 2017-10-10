@@ -21,7 +21,6 @@ import org.joda.time.DateTime
   */
 /**
   * Workflow Trl Entity
-  * @param workflowTrlId Work Flow Trl ID
   * @param workflowId Work Flow
   * @param language Language
   * @param isActive Is Active
@@ -36,8 +35,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkflowTrl(workflowTrlId: Int,
-                       workflowId: Int,
+case class WorkflowTrl(workflowId: Int,
                        language: String,
                        isActive: Boolean = true,
                        created: DateTime = DateTime.now,
@@ -57,10 +55,10 @@ case class WorkflowTrl(workflowTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workflowTrlId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_WorkflowTrl"
-  override val identifier: String = "AD_WorkflowTrl_ID"
+  override val identifier: String = null
 
 }
 
@@ -78,6 +76,6 @@ object WorkflowTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WorkflowTrl(workflowTrlId, workflowId, language, isActive, created, createdBy,
+             uuid: String) = WorkflowTrl(workflowId, language, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

@@ -20,7 +20,7 @@ import org.joda.time.DateTime
   */
 /**
   * Sequence Audit Entity
-  * @param sequenceAuditId Sequence Audit ID
+  * @param sequenceId Sequence Audit ID
   * @param documentNo Document No
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param uuId UU ID
   */
 
-case class SequenceAudit (sequenceAuditId: Int,
+case class SequenceAudit (sequenceId: Int,
                           documentNo: String,
                           tenantId: Int,
                           organizationId: Int,
@@ -55,16 +55,16 @@ case class SequenceAudit (sequenceAuditId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = sequenceAuditId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_SequenceAudit"
-  override val identifier: String = "AD_SequenceAudit_ID"
+  override val identifier: String = null
 
 }
 
 object SequenceAudit {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[SequenceAudit]
-  def create(sequenceAuditId: Int,
+  def create(sequenceId: Int,
              documentNo: String,
              tenantId: Int,
              organizationId: Int,
@@ -75,6 +75,6 @@ object SequenceAudit {
              updatedBy: Int,
              entityId: Int,
              recordId: Int,
-             uuId: String) = SequenceAudit(sequenceAuditId, documentNo, tenantId, organizationId, isActive, created,
+             uuId: String) = SequenceAudit(sequenceId, documentNo, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, entityId, recordId, None)
 }

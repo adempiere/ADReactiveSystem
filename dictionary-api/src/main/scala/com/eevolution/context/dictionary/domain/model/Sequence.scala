@@ -19,9 +19,8 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Field Trl Entity
-  * @param fieldTrlId Field Trl ID
-  * @param language Language
+  * Sequence Entity
+  * @param sequenceId Sequence ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -31,12 +30,23 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
-  * @param uuid UUID
+  * @param vFormat V Format
+  * @param isAutoSequence Is Auto Sequence
+  * @param incrementNo Increment No
+  * @param startNo Start No
+  * @param currentNext Current Next
+  * @param currentNextSys Current Next
+  * @param isAudited Is Audited
+  * @param isEntityId Is Entity ID
+  * @param prefix Prefix
+  * @param suffix Suffix
+  * @param startNewYear Start New Year
+  * @param dateAttribute Date Attribute
+  * @param decimalPattern Decimal Pattern
+  * @param uuId UU ID
   */
 
-case class FieldTrl (language: String,
+case class Sequence (sequenceId: Int,
                      tenantId: Int,
                      organizationId: Int,
                      isActive: Boolean = true,
@@ -46,9 +56,20 @@ case class FieldTrl (language: String,
                      updatedBy: Int,
                      name: String,
                      description: Option[String],
-                     help: Option[String],
-                     isTranslated: Boolean = false,
-                     uuid: Option[String]
+                     vFormat: Option[String],
+                     isAutoSequence: Boolean = true,
+                     incrementNo: Int,
+                     startNo: Int,
+                     currentNext: Int,
+                     currentNextSys: Int,
+                     isAudited: Boolean = false,
+                     isEntityId: Boolean = false,
+                     prefix: Option[String],
+                     suffix: Option[String],
+                     startNewYear: Boolean = false,
+                     dateAttribute: Option[String],
+                     decimalPattern: Option[String],
+                     uuId: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -57,17 +78,17 @@ case class FieldTrl (language: String,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
 
-  override val entityName: String = "AD_Field_Trl"
-  override val identifier: String = null
+  override def Id: Int = sequenceId
+
+  override val entityName: String = "AD_Sequence"
+  override val identifier: String = "AD_Sequence_ID"
 
 }
 
-object FieldTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldTrl]
-
-  def create(language: String,
+object Sequence {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Sequence]
+  def create(sequenceId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -77,8 +98,20 @@ object FieldTrl {
              updatedBy: Int,
              name: String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+             vFormat: String,
+             isAutoSequence: Boolean,
+             incrementNo: Int,
+             startNo: Int,
+             currentNext: Int,
+             currentNextSys: Int,
+             isAudited: Boolean,
+             isEntityId: Boolean,
+             prefix: String,
+             suffix: String,
+             startNewYear: Boolean,
+             dateAttribute: String,
+             decimalPattern: String,
+             uuId: String) = Sequence(sequenceId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, isAutoSequence, incrementNo, startNo, currentNext, currentNextSys, isAudited,
+    isEntityId, None, None, startNewYear, None, None, None)
 }

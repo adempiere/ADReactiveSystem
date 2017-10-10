@@ -18,11 +18,12 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * User Def Field Entity
-  * @param userDefFieldId User Def Field ID
+  * User Defined Field Entity
+  * @param userDefinedFieldId User Defined Field ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -30,7 +31,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param userDefTabId User Def Tab ID
+  * @param userDefinedTabId User Defined Tab ID
   * @param fieldId Field ID
   * @param name Name
   * @param description Description
@@ -38,7 +39,7 @@ import org.joda.time.DateTime
   * @param isDisplayed Is Displayed
   * @param isReadOnly Is Read Only
   * @param isSameLine Is Same Line
-  * @param isUpdateAble Is Update Able
+  * @param isUpdateable Is Update Able
   * @param displayLength Display Length
   * @param displayLogic Display Logic
   * @param defaultValue Default Value
@@ -47,29 +48,29 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class UserDefField(userDefFieldId: Int,
-                        tenantId: Int,
-                        organizationId: Int,
-                        isActive: Boolean = true,
-                        created: DateTime = DateTime.now,
-                        createdBy: Int,
-                        updated: DateTime = DateTime.now,
-                        updatedBy: Int,
-                        userDefTabId: Int,
-                        fieldId: Int,
-                        name: String,
-                        description: Option[String],
-                        help: Option[String],
-                        isDisplayed: Boolean = true,
-                        isReadOnly: Boolean = false,
-                        isSameLine: Boolean = false,
-                        isUpdateAble: Boolean = true,
-                        displayLength: Int = 0,
-                        displayLogic: String,
-                        defaultValue: String,
-                        sortNo: Int = 0,
-                        seqNo: Int = 0,
-                        uuid: Option[String]
+case class UserDefinedField(userDefinedFieldId: Int,
+                            tenantId: Int,
+                            organizationId: Int,
+                            isActive: Boolean = true,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            userDefinedTabId: Int,
+                            fieldId: Int,
+                            name: String,
+                            description: Option[String],
+                            help: Option[String],
+                            isDisplayed: Boolean = true,
+                            isReadOnly: Boolean = false,
+                            isSameLine: Boolean = false,
+                            isUpdateable: Boolean = true,
+                            displayLength: Int = 0,
+                            displayLogic: String,
+                            defaultValue: String,
+                            sortNo: Int = 0,
+                            seqNo: Int = 0,
+                            uuid: Option[String]
                        )extends DomainModel
 
   with ActiveEnabled
@@ -85,31 +86,31 @@ case class UserDefField(userDefFieldId: Int,
   override val identifier: String = null
 }
 
-object UserDefField  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefField]
-  def create(userDefFieldId: Int,
+object UserDefinedField  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefinedField]
+  def create(userDefinedFieldId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
-             created: DateTime ,
+             created: DateTime,
              createdBy: Int,
-             updated: DateTime ,
+             updated: DateTime,
              updatedBy: Int,
-             userDefTabId: Int,
+             userDefinedTabId: Int,
              fieldId: Int,
              name: String,
              description: String,
              help: String,
              isDisplayed: Boolean,
-             isReadOnly: Boolean ,
-             isSameLine: Boolean ,
-             isUpdateAble: Boolean ,
-             displayLength: Int ,
+             isReadOnly: Boolean,
+             isSameLine: Boolean,
+             isUpdateAble: Boolean,
+             displayLength: Int,
              displayLogic: String,
              defaultValue: String,
-             sortNo: Int ,
-             seqNo: Int ,
-             uuid: String) = UserDefField(userDefFieldId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, userDefTabId, fieldId, name, None, None, isDisplayed, isReadOnly, isSameLine, isUpdateAble,
+             sortNo: Int,
+             seqNo: Int,
+             uuid: String) = UserDefinedField(userDefinedFieldId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, userDefinedTabId, fieldId, name, None, None, isDisplayed, isReadOnly, isSameLine, isUpdateAble,
     displayLength, displayLogic, defaultValue, sortNo, seqNo, None)
 }

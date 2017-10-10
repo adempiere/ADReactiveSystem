@@ -19,8 +19,8 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Imp Format Entity
-  * @param impFormatId Imp Format ID
+  * Scheduler Recipient Entity
+  * @param schedulerRecipientId Scheduler Recipient ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -28,31 +28,25 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param tableId Table ID
-  * @param formatType Format Type
-  * @param processing Processing
-  * @param separatorChar Separator Char
-  * @param uuid UUID
+  * @param schedulerId Scheduler ID
+  * @param userId User ID
+  * @param roleId Role ID
+  * @param uuId UU ID
   */
 
-case class ImpFormat (impFormatId: Int,
-                      tenantId: Int,
-                      organizationId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      name: String,
-                      description: Option[String],
-                      tableId: Int,
-                      formatType: Boolean,
-                      processing: Boolean,
-                      separatorChar: Option[Boolean],
-                      uuid: Option[String]
-                    ) extends DomainModel
+case class SchedulerRecipient (schedulerRecipientId: Int,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               schedulerId: Int,
+                               userId: Option[Int],
+                               roleId: Option[Int],
+                               uuId: Option[String]
+                               ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -60,16 +54,17 @@ case class ImpFormat (impFormatId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = impFormatId
 
-  override val entityName: String = "AD_ImpFormat"
-  override val identifier: String = "AD_ImpFormat_ID"
+  override def Id: Int = schedulerRecipientId
+
+  override val entityName: String = "AD_SchedulerRecipient"
+  override val identifier: String = "AD_SchedulerRecipient_ID"
 
 }
 
-object ImpFormat {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImpFormat]
-  def create(impFormatId: Int,
+object SchedulerRecipient {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerRecipient]
+  def create(schedulerRecipientId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -77,14 +72,9 @@ object ImpFormat {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             tableId: Int,
-             formatType: Boolean,
-             processing: Boolean,
-             separatorChar: Boolean,
-             uuid: String) = ImpFormat(impFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, tableId, formatType, processing, None, None)
+             schedulerId: Int,
+             userId: Int,
+             roleId: Int,
+             uuId: String) = SchedulerRecipient(schedulerRecipientId, tenantId, organizationId, isActive,
+    created,  createdBy, updated, updatedBy, schedulerId, None, None, None)
 }
-
-

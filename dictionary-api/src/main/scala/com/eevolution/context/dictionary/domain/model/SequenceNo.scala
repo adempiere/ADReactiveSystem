@@ -19,9 +19,9 @@ import org.joda.time.DateTime
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Field Trl Entity
-  * @param fieldTrlId Field Trl ID
-  * @param language Language
+  * Sequence No Entity
+  * @param sequenceNoId Sequence No ID
+  * @param calendarYear Calendar Year
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -29,27 +29,22 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
-  * @param uuid UUID
+  * @param currentNext Current Next
+  * @param uuId UU ID
   */
 
-case class FieldTrl (language: String,
-                     tenantId: Int,
-                     organizationId: Int,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     help: Option[String],
-                     isTranslated: Boolean = false,
-                     uuid: Option[String]
-                    ) extends DomainModel
+case class SequenceNo (sequenceNoId: Int,
+                       calendarYear: String,
+                       tenantId: Int,
+                       organizationId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updated: DateTime = DateTime.now,
+                       updatedBy: Int,
+                       currentNext: Int,
+                       uuId: Option[String]
+                      ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -57,17 +52,18 @@ case class FieldTrl (language: String,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
 
-  override val entityName: String = "AD_Field_Trl"
-  override val identifier: String = null
+  override def Id: Int = sequenceNoId
+
+  override val entityName: String = "AD_SequenceNo"
+  override val identifier: String = "AD_SequenceNo_ID"
 
 }
 
-object FieldTrl {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldTrl]
-
-  def create(language: String,
+object SequenceNo {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SequenceNo]
+  def create(sequenceNoId: Int,
+             calendarYear: String,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -75,10 +71,7 @@ object FieldTrl {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+             currentNext: Int,
+             uuId: String) = SequenceNo(sequenceNoId, calendarYear, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, currentNext, None)
 }

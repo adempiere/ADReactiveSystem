@@ -18,11 +18,12 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
   * User Business Partner Access Entity
-  * @param userBPAccessId User BP Access ID
+  * @param userBusinessPartnerAccessId User BP Access ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -31,25 +32,25 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param userId User ID
-  * @param bpAccessType BP Access Type
+  * @param businessPartnerAccessType Business Partner Access Type
   * @param requestType Request Type
-  * @param docBaseType Doc Base Type
-  * @param uuId UUID
+  * @param documentBaseType Doc Base Type
+  * @param uuid UUID
   */
 
-case class UserBPAccess(userBPAccessId : Int ,
-                        tenantId: Int,
-                        organizationId : Int ,
-                        isActive : Boolean = true,
-                        created : DateTime = DateTime.now,
-                        createdBy : Int ,
-                        updated :Int ,
-                        updatedBy : DateTime = DateTime.now,
-                        userId: Int,
-                        bpAccessType: Boolean,
-                        requestType: Option[Int],
-                        docBaseType: Option[String],
-                        uuId: Option[String]
+case class UserBusinessPartnerAccess(userBusinessPartnerAccessId : Int,
+                                     tenantId: Int,
+                                     organizationId : Int,
+                                     isActive : Boolean = true,
+                                     created : DateTime = DateTime.now,
+                                     createdBy : Int,
+                                     updated : DateTime = DateTime.now,
+                                     updatedBy : Int,
+                                     userId: Int,
+                                     businessPartnerAccessType: Boolean,
+                                     requestType: Option[Int],
+                                     documentBaseType: Option[String],
+                                     uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -59,26 +60,26 @@ case class UserBPAccess(userBPAccessId : Int ,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = userBPAccessId
+  override def Id: Int = userBusinessPartnerAccessId
 
   override val entityName: String = "AD_UserBPAccess"
   override val identifier: String = "AD_UserBPAccess_ID"
 }
 
-object UserBPAccess {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserBPAccess]
-  def create(userBPAccessId: Int,
+object UserBusinessPartnerAccess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserBusinessPartnerAccess]
+  def create(userBusinessPartnerAccessId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             updated: Int,
-             updatedBy: DateTime,
+             updated: DateTime,
+             updatedBy: Int,
              userId: Int,
-             bpAccessType: Boolean,
+             businessPartnerAccessType: Boolean,
              requestType: Int,
-             docBaseType: String,
-             uuId: String) = UserBPAccess(userBPAccessId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, userId, bpAccessType, None, None, None)
+             documentBaseType: String,
+             uuId: String) = UserBusinessPartnerAccess(userBusinessPartnerAccessId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, userId, businessPartnerAccessType, None, None, None)
 }

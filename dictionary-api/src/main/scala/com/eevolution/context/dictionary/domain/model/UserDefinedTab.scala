@@ -18,11 +18,12 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
   * User Def Tab Entity
-  * @param userDefTabId user Def Tab ID
+  * @param userDefinedTabId user Defined Tab ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -30,7 +31,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param userDefWinId user Def Win ID
+  * @param userDefinedWindowId user Defined Win ID
   * @param tabId Tab ID
   * @param isMultiRowOnly Is Multi Row Only
   * @param name Name
@@ -41,23 +42,23 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class UserDefTab(userDefTabId : Int ,
-                      tenantId: Int,
-                      organizationId : Int,
-                      isActive : Boolean = true,
-                      created : DateTime = DateTime.now,
-                      createdBy : Int ,
-                      updated :Int ,
-                      updatedBy : DateTime = DateTime.now,
-                      userDefWinId: Int,
-                      tabId: Int,
-                      isMultiRowOnly: Boolean = false,
-                      name: String,
-                      description : Option[String],
-                      help: Option[String],
-                      isReadOnly: Boolean = false,
-                      isSingleRow: Boolean = false,
-                      uuid: Option[String]
+case class UserDefinedTab(userDefinedTabId : Int,
+                          tenantId: Int,
+                          organizationId : Int,
+                          isActive : Boolean = true,
+                          created : DateTime = DateTime.now,
+                          createdBy : Int,
+                          updated : DateTime = DateTime.now,
+                          updatedBy : Int,
+                          userDefinedWindowId: Int,
+                          tabId: Int,
+                          isMultiRowOnly: Boolean = false,
+                          name: String,
+                          description : Option[String],
+                          help: Option[String],
+                          isReadOnly: Boolean = false,
+                          isSingleRow: Boolean = false,
+                          uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -67,32 +68,32 @@ case class UserDefTab(userDefTabId : Int ,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = userDefTabId
+  override def Id: Int = userDefinedTabId
 
   override val entityName: String = "AD_UserDef_Tab"
   override val identifier: String = "AD_UserDef_Tab_ID"
 }
 
-object UserDefTab  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefTab]
-  def create(userDefTabId : Int ,
+object UserDefinedTab  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefinedTab]
+  def create(userDefinedTabId : Int,
              tenantId: Int,
              organizationId : Int,
-             isActive : Boolean ,
-             created : DateTime ,
-             createdBy : Int ,
-             updated :Int ,
-             updatedBy : DateTime,
-             userDefWinId: Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int,
+             updated : DateTime,
+             updatedBy : Int,
+             userDefiendWindowId: Int,
              tabId: Int,
              isMultiRowOnly: Boolean,
              name: String,
              description : String,
              help: String,
-             isReadOnly: Boolean ,
-             isSingleRow: Boolean ,
-             uuid: String) = UserDefTab(userDefTabId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, userDefWinId, tabId, isMultiRowOnly, name, None, None, isReadOnly, isSingleRow, None)
+             isReadOnly: Boolean,
+             isSingleRow: Boolean,
+             uuid: String) = UserDefinedTab(userDefinedTabId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, userDefiendWindowId, tabId, isMultiRowOnly, name, None, None, isReadOnly, isSingleRow, None)
 }
 
 

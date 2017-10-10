@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
   * Package Exp Common Entity
-  * @param packageExpCommonId Package Exp Common Id
+  * @param packageExportCommonId Package Exp Common Id
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -29,10 +30,10 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param formId Form ID
-  * @param impFormatId Imp Format ID
+  * @param importFormatId Imp Format ID
   * @param reportViewId Report View ID
   * @param tableId Table ID
-  * @param workBenchId Work Bench ID
+  * @param workbenchId Workbench ID
   * @param dbType DB Type
   * @param processed Processed
   * @param name Name
@@ -46,7 +47,7 @@ import org.joda.time.DateTime
   * @param targetDirectory Target Directory
   * @param sqlStatement SQL Statement
   * @param processing Processing
-  * @param workFlowId Work Flow ID
+  * @param workflowId Work Flow ID
   * @param windowId Window ID
   * @param roleId Role ID
   * @param processId Process ID
@@ -54,38 +55,38 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageExpCommon (packageExpCommonId: Int,
-                             tenantId: Int,
-                             organizationId: Int,
-                             isActive: Boolean = true,
-                             created: DateTime = DateTime.now,
-                             createdBy: Int,
-                             updated: DateTime = DateTime.now,
-                             updatedBy: Int,
-                             formId: Int,
-                             impFormatId: Option[Int],
-                             reportViewId: Option[Int],
-                             tableId: Option[Int],
-                             workBenchId: Option[Int],
-                             dbType: Option[String],
-                             processed: Option[Boolean],
-                             name: Option[String],
-                             name2: Option[String],
-                             line: Option[Int],
-                             fileDirectory: Option[String],
-                             fileName: Option[String],
-                             destinationDirectory: Option[String],
-                             description: Option[String],
-                             typePackage: Option[String], // Cambiamos Type a TypePackage
-                             targetDirectory: Option[String],
-                             sqlStatement: Option[String],
-                             processing: Option[Boolean],
-                             workFlowId: Option[Int],
-                             windowId: Option[Int],
-                             roleId: Option[Int],
-                             processId: Option[Int],
-                             menuId: Option[Int],
-                             uuid: Option[String]
+case class PackageExportCommon(packageExportCommonId: Int,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               formId: Int,
+                               importFormatId: Option[Int],
+                               reportViewId: Option[Int],
+                               tableId: Option[Int],
+                               workbenchId: Option[Int],
+                               dbType: Option[String],
+                               processed: Option[Boolean],
+                               name: Option[String],
+                               name2: Option[String],
+                               line: Option[Int],
+                               fileDirectory: Option[String],
+                               fileName: Option[String],
+                               destinationDirectory: Option[String],
+                               description: Option[String],
+                               typePackage: Option[String], // Cambiamos Type a TypePackage
+                               targetDirectory: Option[String],
+                               sqlStatement: Option[String],
+                               processing: Option[Boolean],
+                               workflowId: Option[Int],
+                               windowId: Option[Int],
+                               roleId: Option[Int],
+                               processId: Option[Int],
+                               menuId: Option[Int],
+                               uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -94,16 +95,16 @@ case class PackageExpCommon (packageExpCommonId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageExpCommonId
+  override def Id: Int = packageExportCommonId
 
-  override val entityName: String = "AD_PackageExpCommon"
-  override val identifier: String = "AD_PackageExpCommon_ID"
+  override val entityName: String = "AD_Package_Exp_Common"
+  override val identifier: String = "AD_Package_Exp_Common_ID"
 
 }
 
-object PackageExpCommon {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExpCommon]
-  def create(packageExpCommonId: Int,
+object PackageExportCommon {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExportCommon]
+  def create(packageExportCommonId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -115,7 +116,7 @@ object PackageExpCommon {
              impFormatId: Int,
              reportViewId: Int,
              tableId: Int,
-             workBenchId: Int,
+             workbenchId: Int,
              dbType: String,
              processed: Boolean,
              name: String,
@@ -129,12 +130,12 @@ object PackageExpCommon {
              targetDirectory: String,
              sqlStatement: String,
              processing: Boolean,
-             workFlowId: Int,
+             workflowId: Int,
              windowId: Int,
              roleId: Int,
              processId: Int,
              menuId: Int,
-             uuid: String) = PackageExpCommon(packageExpCommonId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageExportCommon(packageExportCommonId, tenantId, organizationId, isActive, created,
     createdBy,updated, updatedBy, formId, None, None, None, None, None, None, None, None, None, None, None, None,
     None, None, None, None, None, None, None, None, None, None, None)
 }

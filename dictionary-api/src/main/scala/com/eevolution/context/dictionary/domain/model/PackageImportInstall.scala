@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
   * Package Imp Inst Entity
-  * @param packageImpInstId Package Imp Inst ID
+  * @param packageImportInstallId Package Imp Inst ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -44,29 +45,29 @@ import org.joda.time.DateTime
   * @param uninstall Uninstall
   * @param uuid UUID
   */
-case class PackageImpInst (packageImpInstId: Int,
-                           tenantId: Int,
-                           organizationId: Int,
-                           isActive: Boolean = true,
-                           created: DateTime = DateTime.now,
-                           createdBy: Int,
-                           updated: DateTime = DateTime.now,
-                           updatedBy: Int,
-                           name: Option[String],
-                           pkStatus: Option[String],
-                           releaseNo: Option[String],
-                           pkVersion: Option[String],
-                           version: Option[String],
-                           description: Option[String],
-                           email: Option[String],
-                           processed: Boolean = false,
-                           processing: Boolean = false,
-                           creator: Option[String],
-                           creatorContact: Option[String],
-                           createdDate: Option[String],
-                           updateDate: Option[String],
-                           uninstall: Option[Boolean],
-                           uuid: Option[String]
+case class PackageImportInstall(packageImportInstallId: Int,
+                                tenantId: Int,
+                                organizationId: Int,
+                                isActive: Boolean = true,
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                name: Option[String],
+                                pkStatus: Option[String],
+                                releaseNo: Option[String],
+                                pkVersion: Option[String],
+                                version: Option[String],
+                                description: Option[String],
+                                email: Option[String],
+                                processed: Boolean = false,
+                                processing: Boolean = false,
+                                creator: Option[String],
+                                creatorContact: Option[String],
+                                createdDate: Option[String],
+                                updateDate: Option[String],
+                                uninstall: Option[Boolean],
+                                uuid: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -75,16 +76,16 @@ case class PackageImpInst (packageImpInstId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageImpInstId
+  override def Id: Int = packageImportInstallId
 
   override val entityName: String = "AD_PackageImpInst"
   override val identifier: String = "AD_PackageImpInst_ID"
 
 }
 
-object PackageImpInst {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImpInst]
-  def create(packageImpId: Int,
+object PackageImportInstall {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImportInstall]
+  def create(packageImportInstallId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -106,6 +107,6 @@ object PackageImpInst {
              createdDate: String,
              updateDate: String,
              uninstall: Boolean,
-             uuid: String) = PackageImpInst(packageImpId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = PackageImportInstall(packageImportInstallId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, None, None, None, None, None, processed, processing, None, None, None, None, None, None)
 }

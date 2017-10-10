@@ -20,7 +20,7 @@ import org.joda.time.DateTime
   */
 /**
   * Package Exp Entity
-  * @param packageExpId Package Exp ID
+  * @param packageExportId Package Exp ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -43,27 +43,27 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageExp (packageExpId: Int,
-                       tenantId: Int,
-                       organizationId: Int,
-                       isActive: Boolean = true,
-                       created: DateTime = DateTime.now,
-                       createdBy: Int,
-                       updated: DateTime = DateTime.now,
-                       updatedBy: Int,
-                       packageType: Option[Boolean],
-                       email: String,
-                       instructions: String,
-                       name: String,
-                       processed: Option[Boolean],
-                       releaseNo: String,
-                       version: String,
-                       userName: String,
-                       processing: Boolean,
-                       pkVersion: String,
-                       fileDirectory: String,
-                       description: String,
-                       uuid: Option[String]
+case class PackageExport(packageExportId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         packageType: Option[Boolean],
+                         email: String,
+                         instructions: String,
+                         name: String,
+                         processed: Option[Boolean],
+                         releaseNo: String,
+                         version: String,
+                         userName: String,
+                         processing: Boolean,
+                         pkVersion: String,
+                         fileDirectory: String,
+                         description: String,
+                         uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -72,16 +72,16 @@ case class PackageExp (packageExpId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageExpId
+  override def Id: Int = packageExportId
 
-  override val entityName: String = "AD_PackageExp"
-  override val identifier: String = "AD_PackageExp_ID"
+  override val entityName: String = "AD_Package_Exp"
+  override val identifier: String = "AD_Package_Exp_ID"
 
 }
 
-object PackageExp {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExp]
-  def create(packageExpId: Int,
+object PackageExport {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExport]
+  def create(packageExportId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -101,7 +101,7 @@ object PackageExp {
              pkVersion: String,
              fileDirectory: String,
              description: String,
-             uuid: String) = PackageExp(packageExpId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PackageExport(packageExportId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, None, email, instructions, name, None, releaseNo, version, userName, processing, pkVersion,
     fileDirectory, description, None)
 }

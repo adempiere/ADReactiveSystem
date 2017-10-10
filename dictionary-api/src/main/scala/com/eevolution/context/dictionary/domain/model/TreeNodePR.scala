@@ -18,36 +18,34 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Val Rule Entity
-  * @param valRuleId Val Rule ID
+  * Tree Node Pr Entity
+  * @param treeNodePRId Tree Node Pr ID
+  * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param typePackage Type Package
-  * @param code Code
-  * @param entityType Entity Type
+  * @param parentId Parent ID
+  * @param seqNo Seq No
   * @param uuid UUID
   */
-case class ValRule(valRuleId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   typePackage: Option[Boolean],
-                   code: Option[String],
-                   entityType: String = "D",
-                   uuid: Option[String]
-                  ) extends DomainModel
+
+case class TreeNodePR(treeNodePRId: Int,
+                      nodeId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      parentId: Option[Int],
+                      seqNo: Option[Int],
+                      uuid: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -56,26 +54,24 @@ case class ValRule(valRuleId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = valRuleId
+  override def Id: Int = treeNodePRId
 
-  override val entityName: String = "AD_ValRule"
-  override val identifier: String = "AD_ValRule_ID"
+  override val entityName: String = "AD_TreeNodePR"
+  override val identifier: String = "AD_TreeNodePR_ID"
 }
 
-object ValRule  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ValRule]
-  def create(valRuleId: Int,
+object TreeNodePR  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodePR]
+  def create(treeNodePRId: Int,
+             nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             description: String,
-             typePackage: Boolean,
-             code: String,
-             entityType: String,
-             uuid: String) = ValRule(valRuleId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, None, entityType, None)
+             parentId: Int,
+             seqNo: Int,
+             uuid: String) = TreeNodePR(treeNodePRId, nodeId, isActive, created, createdBy, updated, updatedBy,
+    None, None, None)
 }
 

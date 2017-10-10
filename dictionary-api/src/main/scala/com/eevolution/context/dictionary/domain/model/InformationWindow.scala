@@ -21,8 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Info Column Entity
-  * @param infoColumnId Info Column ID
+  * Info Window Entity
+  * @param infoWindowId Info Window ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -31,35 +31,29 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param help Help
-  * @param infoWindowId Info Window ID
+  * @param tableId Table ID
   * @param entityType Entity Type
-  * @param selectClause Select Clause
-  * @param seqNo Seq No
-  * @param isDisplayed Is Displayed
-  * @param isQueryCriteria Is Query Criteria
-  * @param elementId Element ID
-  * @param referenceId Reference ID
+  * @param fromClause From Clause
+  * @param otherClause Other Clause
+  * @param processing Processing
   * @param uuid UUID
   */
 
-case class InfoColumn(infoColumnId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      name: String,
-                      description: Option[String],
-                      help: Option[String],
-                      infoWindowId: Int,
-                      entityType: String = "D",
-                      selectClause: String,
-                      seqNo: Int = 0,
-                      isDisplayed : Boolean = true,
-                      isQueryCriteria: Boolean = false,
-                      elementId: Option[Int],
-                      referenceId: Int,
-                      uuid: Option[String]
+case class InformationWindow(infoWindowId: Int,
+                             isActive: Boolean = true,
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
+                             updated: DateTime = DateTime.now,
+                             updatedBy: Int,
+                             name: String,
+                             description: Option[String],
+                             help: Option[String],
+                             tableId: Int,
+                             entityType: String = "D",
+                             fromClause: String,
+                             otherClause: Option[String],
+                             processing: Option[Boolean],
+                             uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -69,15 +63,15 @@ case class InfoColumn(infoColumnId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = infoColumnId
+  override def Id: Int = infoWindowId
 
-  override val entityName: String = "AD_InfoColumn"
-  override val identifier: String = "AD_InfoColumn_ID"
+  override val entityName: String = "AD_InfoWindow"
+  override val identifier: String = "AD_InfoWindow_ID"
 }
 
-object InfoColumn  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoColumn]
-  def create(infoColumnId: Int,
+object InformationWindow  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationWindow]
+  def create(infoWindowId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -86,17 +80,12 @@ object InfoColumn  {
              name: String,
              description: String,
              help: String,
-             infoWindowId: Int,
+             tableId: Int,
              entityType: String,
-             selectClause: String,
-             seqNo: Int,
-             isDisplayed : Boolean,
-             isQueryCriteria: Boolean,
-             elementId: Int,
-             referenceId: Int,
-             uuid: String) = InfoColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, infoWindowId, entityType, selectClause, seqNo,
-    isDisplayed, isQueryCriteria, None, referenceId, None)
+             fromClause: String,
+             otherClause: String,
+             processing: Boolean,
+             uuid: String) = InformationWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, tableId, entityType, fromClause, None, None, None)
 }
-
 

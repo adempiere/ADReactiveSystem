@@ -18,12 +18,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
-  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Menu Trl Entity
-  * @param language Language
+  * Val Rule Entity
+  * @param dynamicValidationRuleId Val Rule ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -31,20 +30,23 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param isTranslated Is Translated
+  * @param typePackage Type Package
+  * @param code Code
+  * @param entityType Entity Type
   * @param uuid UUID
   */
-
-case class MenuTrl(language: String,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   isTranslated: Boolean = false,
-                   uuid: Option[String]
+case class DynamicValidationRule(dynamicValidationRuleId: Int,
+                                 isActive: Boolean = true,
+                                 created: DateTime = DateTime.now,
+                                 createdBy: Int,
+                                 updated: DateTime = DateTime.now,
+                                 updatedBy: Int,
+                                 name: String,
+                                 description: Option[String],
+                                 typePackage: Option[Boolean],
+                                 code: Option[String],
+                                 entityType: String = "D",
+                                 uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -54,16 +56,15 @@ case class MenuTrl(language: String,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = dynamicValidationRuleId
 
-  override val entityName: String = "AD_Menu_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_ValRule"
+  override val identifier: String = "AD_ValRule_ID"
 }
 
-
-object MenuTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[MenuTrl]
-  def create(language: String,
+object DynamicValidationRule  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[DynamicValidationRule]
+  def create(dynamicValidationRuleId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -71,8 +72,10 @@ object MenuTrl  {
              updatedBy: Int,
              name: String,
              description: String,
-             isTranslated: Boolean,
-             uuid: String) = MenuTrl(language, isActive, created, createdBy, updated, updatedBy,
-    name, None, isTranslated, None)
+             typePackage: Boolean,
+             code: String,
+             entityType: String,
+             uuid: String) = DynamicValidationRule(dynamicValidationRuleId, isActive, created, createdBy, updated, updatedBy, name,
+    None, None, None, entityType, None)
 }
 

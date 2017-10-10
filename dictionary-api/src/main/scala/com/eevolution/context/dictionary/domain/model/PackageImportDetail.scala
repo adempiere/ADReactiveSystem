@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Package Imp Detail Entity
-  * @param packageImpDetailId Package Imp Detail ID
+  * Package Import Detail Entity
+  * @param packageImpDetailId Package Import Detail ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -29,7 +30,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param packageImpId Package Imp ID
+  * @param packageImportId Package Import ID
   * @param originalId Original ID
   * @param backupId Backup ID
   * @param action Action
@@ -41,25 +42,25 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageImpDetail (packageImpDetailId: Int,
-                             tenantId: Int,
-                             organizationId: Int,
-                             isActive: Boolean = true,
-                             created: DateTime = DateTime.now,
-                             createdBy: Int,
-                             updated: DateTime = DateTime.now,
-                             updatedBy: Int,
-                             name: Option[String],
-                             packageImpId: Int,
-                             originalId: Int,
-                             backupId: Option[Int],
-                             action: Option[String],
-                             success: Option[String],
-                             typePackage: Option[String], //Cambiamos type por typePackage
-                             tableName: Option[String],
-                             tableId: Option[Int],
-                             uninstall: Option[Boolean],
-                             uuid: Option[String]
+case class PackageImportDetail(packageImpDetailId: Int,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               name: Option[String],
+                               packageImportId: Int,
+                               originalId: Int,
+                               backupId: Option[Int],
+                               action: Option[String],
+                               success: Option[String],
+                               typePackage: Option[String], //Cambiamos type por typePackage
+                               tableName: Option[String],
+                               tableId: Option[Int],
+                               uninstall: Option[Boolean],
+                               uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -75,8 +76,8 @@ case class PackageImpDetail (packageImpDetailId: Int,
 
 }
 
-object PackageImpDetail {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImpDetail]
+object PackageImportDetail {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImportDetail]
   def create(packageImpDetailId: Int,
              tenantId: Int,
              organizationId: Int,
@@ -86,7 +87,7 @@ object PackageImpDetail {
              updated: DateTime,
              updatedBy: Int,
              name: String,
-             packageImpId: Int,
+             packageImportId: Int,
              originalId: Int,
              backupId: Int,
              action: String,
@@ -95,6 +96,6 @@ object PackageImpDetail {
              tableName: String,
              tableId: Int,
              uninstall: Boolean,
-             uuid: String) = PackageImpDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, None, packageImpId, originalId, None, None, None, None, None, None, None, None)
+             uuid: String) = PackageImportDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, packageImportId, originalId, None, None, None, None, None, None, None, None)
 }

@@ -20,7 +20,7 @@ import org.joda.time.DateTime
   */
 /**
   * Imp Format Row Entity
-  * @param impFormatRowId Imp Format Row ID
+  * @param importFormatRowId Imp Format Row ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -28,7 +28,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param impFormatId Imp Format Id
+  * @param importFormatId Imp Format Id
   * @param seqNo Seq No
   * @param name Name
   * @param columnId Column ID
@@ -39,35 +39,35 @@ import org.joda.time.DateTime
   * @param decimalPoint Decimal Point
   * @param divideBy100 Divide By 100
   * @param constantValue Constant Value
-  * @param callOut Call Out
+  * @param callout Call Out
   * @param script Script
   * @param defaultValue Default Value
   * @param uuid UUID
   */
 
-case class ImpFormatRow (impFormatRowId: Int,
-                         tenantId: Int,
-                         organizationId: Int,
-                         isActive: Boolean = true,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         impFormatId: Int,
-                         seqNo: Int,
-                         name: String,
-                         columnId: String,
-                         startNo: Option[Int],
-                         endNo: Option[Int],
-                         dataType: Boolean,
-                         dataFormat: Option[String],
-                         decimalPoint: Boolean,
-                         divideBy100: Boolean = false,
-                         constantValue: Option[String],
-                         callOut: Option[String],
-                         script: Option[String],
-                         defaultValue: Option[String],
-                         uuid: Option[String]
+case class ImportFormatRow(importFormatRowId: Int,
+                           tenantId: Int,
+                           organizationId: Int,
+                           isActive: Boolean = true,
+                           created: DateTime = DateTime.now,
+                           createdBy: Int,
+                           updated: DateTime = DateTime.now,
+                           updatedBy: Int,
+                           importFormatId: Int,
+                           seqNo: Int,
+                           name: String,
+                           columnId: String,
+                           startNo: Option[Int],
+                           endNo: Option[Int],
+                           dataType: Boolean,
+                           dataFormat: Option[String],
+                           decimalPoint: Boolean,
+                           divideBy100: Boolean = false,
+                           constantValue: Option[String],
+                           callout: Option[String],
+                           script: Option[String],
+                           defaultValue: Option[String],
+                           uuid: Option[String]
                         ) extends DomainModel
 
 
@@ -77,17 +77,17 @@ case class ImpFormatRow (impFormatRowId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = impFormatRowId
+  override def Id: Int = importFormatRowId
 
   override val entityName: String = "AD_ImpFormatRow"
   override val identifier: String = "AD_ImpFormatRow_ID"
 
 }
 
-object ImpFormatRow {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImpFormatRow]
+object ImportFormatRow {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImportFormatRow]
 
-  def create(impFormatRowId: Int,
+  def create(impportFormatRowId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -95,7 +95,7 @@ object ImpFormatRow {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             impFormatId: Int,
+             importFormatId: Int,
              seqNo: Int,
              name: String,
              columnId: String,
@@ -106,10 +106,10 @@ object ImpFormatRow {
              decimalPoint: Boolean,
              divideBy100: Boolean,
              constantValue: String,
-             callOut: String,
+             callout: String,
              script: String,
              defaultValue: String,
-             uuid: String) = ImpFormatRow(impFormatRowId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, impFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None,
+             uuid: String) = ImportFormatRow(impportFormatRowId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, importFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None,
     None, None, None, None)
 }

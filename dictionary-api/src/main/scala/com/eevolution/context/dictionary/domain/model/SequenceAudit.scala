@@ -3,7 +3,6 @@ package com.eevolution.context.dictionary.domain.model
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
-
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -16,36 +15,37 @@ import org.joda.time.DateTime
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
-
 /**
-  * Info Window Trl Entity
-  * @param language Language
+  * Sequence Audit Entity
+  * @param sequenceAuditId Sequence Audit ID
+  * @param documentNo Document No
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param isTranslated Is Translated
-  * @param name Name
-  * @param description Description
-  * @param help Help
-  * @param uuid UUID
+  * @param entityId Entity ID
+  * @param recordId Record ID
+  * @param uuId UU ID
   */
 
-case class InfoWindowTrl (language: String,
+case class SequenceAudit (sequenceAuditId: Int,
+                          documentNo: String,
+                          tenantId: Int,
+                          organizationId: Int,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now,
                           createdBy: Int,
                           updated: DateTime = DateTime.now,
                           updatedBy: Int,
-                          isTranslated: Boolean = false,
-                          name: String,
-                          description: Option[String],
-                          help: Option[String],
-                          uuid: Option[String]
+                          entityId: Int,
+                          recordId: Int,
+                          uuId: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -55,26 +55,26 @@ case class InfoWindowTrl (language: String,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = sequenceAuditId
 
-  override val entityName: String = "AD_InfoWindow_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_SequenceAudit"
+  override val identifier: String = "AD_SequenceAudit_ID"
+
 }
 
-object InfoWindowTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoWindowTrl]
-  def create(language: String,
+object SequenceAudit {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SequenceAudit]
+  def create(sequenceAuditId: Int,
+             documentNo: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             isTranslated: Boolean,
-             name: String,
-             description: String,
-             help: String,
-             uuid: String) = InfoWindowTrl(language, isActive, created, createdBy, updated, updatedBy,
-    isTranslated, name, None, None, None)
+             entityId: Int,
+             recordId: Int,
+             uuId: String) = SequenceAudit(sequenceAuditId, documentNo, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, entityId, recordId, None)
 }
-
-

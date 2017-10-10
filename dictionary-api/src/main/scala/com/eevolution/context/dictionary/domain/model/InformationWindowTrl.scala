@@ -21,30 +21,32 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Pr Entity
-  * @param treeNodePrId Tree Node Pr ID
-  * @param nodeId Node ID
+  * Info Window Trl Entity
+  * @param language Language
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param parentId Parent ID
-  * @param seqNo Seq No
+  * @param isTranslated Is Translated
+  * @param name Name
+  * @param description Description
+  * @param help Help
   * @param uuid UUID
   */
 
-case class TreeNodePr(treeNodePrId: Int,
-                      nodeId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      parentId: Option[Int],
-                      seqNo: Option[Int],
-                      uuid: Option[String]
-                     ) extends DomainModel
+case class InformationWindowTrl(language: String,
+                                isActive: Boolean = true,
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                isTranslated: Boolean = false,
+                                name: String,
+                                description: Option[String],
+                                help: Option[String],
+                                uuid: Option[String]
+                         ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,24 +55,26 @@ case class TreeNodePr(treeNodePrId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodePrId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_TreeNodePr"
-  override val identifier: String = "AD_TreeNodePr_ID"
+  override val entityName: String = "AD_InfoWindow_Trl"
+  override val identifier: String = null
 }
 
-object TreeNodePr  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodePr]
-  def create(treeNodePrId: Int,
-             nodeId: Int,
+object InformationWindowTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationWindowTrl]
+  def create(language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             parentId: Int,
-             seqNo: Int,
-             uuid: String) = TreeNodePr(treeNodePrId, nodeId, isActive, created, createdBy, updated, updatedBy,
-    None, None, None)
+             isTranslated: Boolean,
+             name: String,
+             description: String,
+             help: String,
+             uuid: String) = InformationWindowTrl(language, isActive, created, createdBy, updated, updatedBy,
+    isTranslated, name, None, None, None)
 }
+
 

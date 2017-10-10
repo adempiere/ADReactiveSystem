@@ -7,5 +7,5 @@ import io.getquill.{Literal, PostgresJdbcContext}
   */
 package object db {
 
-  lazy val DbContext = new PostgresJdbcContext[Literal]("ctx")
+  lazy val DbContext = new PostgresJdbcContext[Literal]("ctx") with Encoders with Decoders
 }

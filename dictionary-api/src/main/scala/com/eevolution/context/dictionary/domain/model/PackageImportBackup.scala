@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
-  * Package Imp Backup Entity
-  * @param packageImpBackupId Package Imp Backup ID
+  * Package Import Backup Entity
+  * @param packageImportBackupId Package Import Backup ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -28,36 +29,36 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param packageImpId Package Imp ID
-  * @param packageImpDetailId Package Imp Detail ID
+  * @param packageImportId Package Import ID
+  * @param packageImportDetailId Package Import Detail ID
   * @param tableId Table ID
   * @param column Column
   * @param referenceId Reference ID
-  * @param packageImpBckDir Package Imp Bck Dir
-  * @param packageImpOrgDir Package Imp Org Dir
+  * @param packageImportBckDir Package Import Bck Dir
+  * @param packageImportOrgDir Package Import Org Dir
   * @param colValue Col Value
   * @param uninstall Uninstall
   * @param uuid UUID
   */
 
-case class PackageImpBackup (packageImpBackupId: Int,
-                             tenantId: Int,
-                             organizationId: Int,
-                             isActive: Boolean = true,
-                             created: DateTime = DateTime.now,
-                             createdBy: Int,
-                             updated: DateTime = DateTime.now,
-                             updatedBy: Int,
-                             packageImpId: Int,
-                             packageImpDetailId: Int,
-                             tableId: Option[Int],
-                             column: Option[Int],
-                             referenceId: Option[Int],
-                             packageImpBckDir: Option[String],
-                             packageImpOrgDir: Option[String],
-                             colValue: Option[String],
-                             uninstall: Option[Boolean],
-                             uuid: Option[String]
+case class PackageImportBackup(packageImportBackupId: Int,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               packageImportId: Int,
+                               packageImportDetailId: Int,
+                               tableId: Option[Int],
+                               column: Option[Int],
+                               referenceId: Option[Int],
+                               packageImportBckDir: Option[String],
+                               packageImportOrgDir: Option[String],
+                               colValue: Option[String],
+                               uninstall: Option[Boolean],
+                               uuid: Option[String]
                             ) extends DomainModel
 
 
@@ -67,15 +68,15 @@ case class PackageImpBackup (packageImpBackupId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageImpBackupId
+  override def Id: Int = packageImportBackupId
 
   override val entityName: String = "AD_PackageImpBackupId"
   override val identifier: String = "AD_PackageImpBackupId_ID"
 
 }
 
-object PackageImpBackup {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImpBackup]
+object PackageImportBackup {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImportBackup]
   def create(packageImpBackupId: Int,
              tenantId: Int,
              organizationId: Int,
@@ -84,15 +85,15 @@ object PackageImpBackup {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             packageImpId: Int,
-             packageImpDetailId: Int,
+             packageImportId: Int,
+             packageImportDetailId: Int,
              tableId: Int,
              column: Int,
              referenceId: Int,
-             packageImpBckDir: String,
-             packageImpOrgDir: String,
+             packageImportBckDir: String,
+             packageImportOrgDir: String,
              colValue: String,
              uninstall: Boolean,
-             uuid: String) = PackageImpBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, packageImpId, packageImpDetailId, None, None, None, None, None, None, None, None)
+             uuid: String) = PackageImportBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, packageImportId, packageImportDetailId, None, None, None, None, None, None, None, None)
 }

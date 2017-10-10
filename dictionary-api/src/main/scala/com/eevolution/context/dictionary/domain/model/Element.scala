@@ -1,8 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
-import java.util.Date
-
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
+import org.joda.time.DateTime
 import play.api.libs.json.{Format, Json}
 
 /**
@@ -19,49 +18,58 @@ import play.api.libs.json.{Format, Json}
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Entity for Element
-  * @param elementId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param columnName
-  * @param name
-  * @param description
-  * @param help
-  * @param printName
-  * @param namePO
-  * @param descriptionPO
-  * @param helpPO
-  * @param printNamePO
-  * @param referenceId
-  * @param referenceValueId
-  * @param fieldLength
-  * @param entityType
+  * Element Entity
+  * @param elementId Element ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param columnName Column Name
+  * @param entityType Entity Type
+  * @param name Name
+  * @param printName Print Name
+  * @param description Description
+  * @param help Help
+  * @param namePO Name PO
+  * @param printNamePO Print Name PO
+  * @param descriptionPO Description PO
+  * @param helpPO Help PO
+  * @param referenceId Reference ID
+  * @param fieldLength Field Length
+  * @param referenceValueId Reference Value ID
+  * @param uuid UUID
   */
+
 case class Element(elementId: Int,
+                   tenantId: Int,
+                   organizationId: Int,
                    isActive: Boolean = true,
-                   created: Date = new Date(),
+                   created: DateTime =  DateTime.now,
                    createdBy: Int,
-                   updated: Date = new Date(),
+                   updated: DateTime =  DateTime.now,
                    updatedBy: Int,
                    columnName: String,
+                   entityType: String,
                    name: String,
+                   printName: Option[String],
                    description: Option[String],
                    help: Option[String],
-                   printName: Option[String],
                    namePO: Option[String],
+                   printNamePO: Option[String],
                    descriptionPO : Option[String],
                    helpPO: Option[String],
-                   printNamePO: Option[String],
                    referenceId: Option[Int],
-                   referenceValueId: Option[Int],
                    fieldLength: Option[Int],
-                   entityType: String) extends DomainModel
+                   referenceValueId: Option[Int],
+                   uuid: Option[String]
+                   ) extends DomainModel
 with ActiveEnabled
 with Identifiable
 with Traceable{
@@ -70,30 +78,35 @@ with Traceable{
   override type Identifiable = this.type
   override type Traceable = this.type
   override def Id: Int = elementId
+
   override val entityName: String = "AD_Element"
   override val identifier: String = "AD_Element_ID"
 }
 
 object Element {
   implicit val format: Format[Element] = Json.format
-  def create(
-             elementId: Int,
-             isActive: Boolean,
-             created: Date,
+  def create(elementId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive: Boolean ,
+             created: DateTime ,
              createdBy: Int,
-             updated: Date,
+             updated: DateTime ,
              updatedBy: Int,
              columnName: String,
+             entityType: String,
              name: String,
+             printName: String,
              description: String,
              help: String,
-             printName: String,
              namePO: String,
-             descriptionPO: String,
-             helpPO: String,
              printNamePO: String,
+             descriptionPO : String,
+             helpPO: String,
              referenceId: Int,
              fieldLength: Int,
              referenceValueId: Int,
-             entityType: String) = Element(elementId, isActive , created , createdBy , updated , updatedBy , columnName, name, None, None, None, None, None, None, None, None, None, None, entityType)
+             uuid: String) = Element(elementId, tenantId, organizationId, isActive , created , createdBy ,
+    updated , updatedBy , columnName, entityType, name, None, None, None, None, None, None, None, None, None, None,
+    None)
 }

@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
   * Package Exp Detail Entity
-  * @param packageExpDetailId Package Exp Detail ID
+  * @param packageExportDetailId Package Exp Detail ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -34,7 +35,7 @@ import org.joda.time.DateTime
   * @param processId Process ID
   * @param roleId Role ID
   * @param windowId Window ID
-  * @param workFlowId Work Flow ID
+  * @param workflowId Work Flow ID
   * @param fileDirectory File Directory
   * @param fileName File Name
   * @param destinationFileName Destination File Name
@@ -49,13 +50,13 @@ import org.joda.time.DateTime
   * @param processed Processed
   * @param name2 Name 2
   * @param line Line
-  * @param workBenchId Work Bench ID
+  * @param workbenchId Work Bench ID
   * @param tableId Table ID
   * @param reportViewId Report View ID
-  * @param packageExpId Package Exp ID
+  * @param packageExportId Package Exp ID
   * @param packageCodeNew Package Code New
   * @param packageCodeOld Package Code Old
-  * @param valRuleId Val Rule ID
+  * @param dinamicValidationRuleId Val Rule ID
   * @param messageId Message ID
   * @param printFormatId Print Format ID
   * @param referenceId Reference ID
@@ -66,50 +67,50 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageExpDetail (packageExpDetailId: Int,
-                             tenantId: Int,
-                             organizationId: Int,
-                             isActive: Boolean = true,
-                             created: DateTime = DateTime.now,
-                             createdBy: Int,
-                             updated: DateTime = DateTime.now,
-                             updatedBy: Int,
-                             formId: Option[Int],
-                             impFormatId: Option[Int],
-                             menuId: Option[Int],
-                             processId: Option[Int],
-                             roleId: Option[Int],
-                             windowId: Option[Int],
-                             workFlowId: Option[Int],
-                             fileDirectory: Option[String],
-                             fileName: Option[String],
-                             destinationFileName: Option[String],
-                             destinationDirectory: Option[String],
-                             description: String,
-                             dbType: Option[String],
-                             typePackage: String, // Cambiamos Type a TypePackage
-                             targetDirectory: Option[String],
-                             sqlStatement: Option[String],
-                             releaseNo: Option[String],
-                             processing: Boolean,
-                             processed: Option[Boolean],
-                             name2: Option[String],
-                             line: Option[Int],
-                             workBenchId: Option[Int],
-                             tableId: Option[Int],
-                             reportViewId: Option[Int],
-                             packageExpId: Int,
-                             packageCodeNew: Option[String],
-                             packageCodeOld: Option[String],
-                             valRuleId: Option[Int],
-                             messageId: Option[Int],
-                             printFormatId: Option[Int],
-                             referenceId: Option[Int],
-                             modelValidatorId: Option[Int],
-                             entityTypeId: Option[Int],
-                             viewId: Option[Int],
-                             browseId: Option[Int],
-                             uuid: Option[String]
+case class PackageExportDetail(packageExportDetailId: Int,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive: Boolean = true,
+                               created: DateTime = DateTime.now,
+                               createdBy: Int,
+                               updated: DateTime = DateTime.now,
+                               updatedBy: Int,
+                               formId: Option[Int],
+                               impFormatId: Option[Int],
+                               menuId: Option[Int],
+                               processId: Option[Int],
+                               roleId: Option[Int],
+                               windowId: Option[Int],
+                               workflowId: Option[Int],
+                               fileDirectory: Option[String],
+                               fileName: Option[String],
+                               destinationFileName: Option[String],
+                               destinationDirectory: Option[String],
+                               description: String,
+                               dbType: Option[String],
+                               typePackage: String, // Cambiamos Type a TypePackage
+                               targetDirectory: Option[String],
+                               sqlStatement: Option[String],
+                               releaseNo: Option[String],
+                               processing: Boolean,
+                               processed: Option[Boolean],
+                               name2: Option[String],
+                               line: Option[Int],
+                               workbenchId: Option[Int],
+                               tableId: Option[Int],
+                               reportViewId: Option[Int],
+                               packageExportId: Int,
+                               packageCodeNew: Option[String],
+                               packageCodeOld: Option[String],
+                               dinamicValidationRuleId: Option[Int],
+                               messageId: Option[Int],
+                               printFormatId: Option[Int],
+                               referenceId: Option[Int],
+                               modelValidatorId: Option[Int],
+                               entityTypeId: Option[Int],
+                               viewId: Option[Int],
+                               browseId: Option[Int],
+                               uuid: Option[String]
                             ) extends DomainModel
 
 
@@ -119,17 +120,17 @@ case class PackageExpDetail (packageExpDetailId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageExpDetailId
+  override def Id: Int = packageExportDetailId
 
-  override val entityName: String = "AD_PackageExpDetail"
-  override val identifier: String = "AD_PackageExpDetail_ID"
+  override val entityName: String = "AD_Package_Exp_Detail"
+  override val identifier: String = "AD_Package_Exp_Detail_ID"
 
 }
 
-object PackageExpDetail {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExpDetail]
+object PackageExportDetail {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageExportDetail]
 
-  def create(packageExpDetailId: Int,
+  def create(packageExportDetailId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -138,12 +139,12 @@ object PackageExpDetail {
              updated: DateTime,
              updatedBy: Int,
              formId: Int,
-             impFormatId: Int,
+             importFormatId: Int,
              menuId: Int,
              processId: Int,
              roleId: Int,
              windowId: Int,
-             workFlowId: Int,
+             workflowId: Int,
              fileDirectory: String,
              fileName: String,
              destinationFileName: String,
@@ -158,13 +159,13 @@ object PackageExpDetail {
              processed: Boolean,
              name2: String,
              line: Int,
-             workBenchId: Int,
+             workbenchId: Int,
              tableId: Int,
              reportViewId: Int,
              packageExpId: Int,
              packageCodeNew: String,
              packageCodeOld: String,
-             valRuleId: Int,
+             dinamicValidationRuleId: Int,
              messageId: Int,
              printFormatId: Int,
              referenceId: Int,
@@ -172,7 +173,7 @@ object PackageExpDetail {
              entityTypeId: Int,
              viewId: Int,
              browseId: Int,
-             uuid: String) = PackageExpDetail(packageExpDetailId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageExportDetail(packageExportDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, None, None, description, None,
     typePackage, None, None, None, processing, None, None, None, None, None, None, packageExpId, None, None, None, None,
     None, None, None, None, None, None, None)

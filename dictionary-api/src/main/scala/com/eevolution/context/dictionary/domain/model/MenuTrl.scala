@@ -18,11 +18,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
   * Menu Trl Entity
-  * @param menuTrlId Menu Trl ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -35,8 +35,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class MenuTrl(menuTrlId: Int,
-                   language: String,
+case class MenuTrl(language: String,
                    isActive: Boolean = true,
                    created: DateTime = DateTime.now,
                    createdBy: Int,
@@ -55,17 +54,16 @@ case class MenuTrl(menuTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = menuTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_MenuTrl"
-  override val identifier: String = "AD_MenuTrl_ID"
+  override val entityName: String = "AD_Menu_Trl"
+  override val identifier: String = null
 }
 
 
 object MenuTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[MenuTrl]
-  def create(menuTrlId: Int,
-             language: String,
+  def create(language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -74,7 +72,7 @@ object MenuTrl  {
              name: String,
              description: String,
              isTranslated: Boolean,
-             uuid: String) = MenuTrl(menuTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = MenuTrl(language, isActive, created, createdBy, updated, updatedBy,
     name, None, isTranslated, None)
 }
 

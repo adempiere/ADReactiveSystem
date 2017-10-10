@@ -21,36 +21,34 @@ import org.joda.time.DateTime
   */
 
 /**
-  * View Column Trl Entity
+  * Organization Type Entity
+  * @param organizationTypeId Organization Type ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
+  * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param viewColumnId View Column ID
-  * @param language Language
+  * @param name Name
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param printColorId Print Color ID
   * @param uuid UUID
   */
 
-case class ViewColumnTrl(tenantId: Int,
-                         organizationId: Int,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         isActive: Boolean,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         viewColumnId: Int,
-                         language: String,
-                         description: Option[String],
-                         help: Option[String],
-                         isTranslated: Boolean,
-                         uuid: Option[String]
-                        ) extends DomainModel
+case class OrganizationType(organizationTypeId: Int,
+                            tenantId : Int ,
+                            organizationId: Int,
+                            isActive : Boolean = true,
+                            created : DateTime =  DateTime.now,
+                            createdBy : Int ,
+                            updated : DateTime =  DateTime.now,
+                            updatedBy : Int ,
+                            name : String,
+                            description: Option[String],
+                            printColorId: Option[Int],
+                            uuid: Option[String]
+                           ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -58,28 +56,26 @@ case class ViewColumnTrl(tenantId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+  override def Id: Int = organizationTypeId
 
-  override def Id: Int = 0
-
-  override val entityName: String = "AD_View_Column_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_OrgType"
+  override val identifier: String = "AD_OrgType_ID"
 }
 
-object ViewColumnTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewColumnTrl]
-  def create(tenantId: Int,
+object OrganizationType {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[OrganizationType]
+  def create(organizationTypeId: Int,
+             tenantId : Int ,
              organizationId: Int,
-             created: DateTime,
-             createdBy: Int,
-             isActive: Boolean,
-             updated: DateTime,
-             updatedBy: Int,
-             viewColumnId: Int,
-             language: String,
+             isActive : Boolean ,
+             created : DateTime ,
+             createdBy : Int ,
+             updated : DateTime ,
+             updatedBy : Int ,
+             name : String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = ViewColumnTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
-    viewColumnId, language, None, None, isTranslated, None)
+             printColorId: Int,
+             uuid: String) = OrganizationType(organizationId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, None, None)
 }
 

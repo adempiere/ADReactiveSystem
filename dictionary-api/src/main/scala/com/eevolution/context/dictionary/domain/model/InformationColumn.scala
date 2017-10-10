@@ -42,24 +42,24 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class InfoColumn(infoColumnId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      name: String,
-                      description: Option[String],
-                      help: Option[String],
-                      infoWindowId: Int,
-                      entityType: String = "D",
-                      selectClause: String,
-                      seqNo: Int = 0,
-                      isDisplayed : Boolean = true,
-                      isQueryCriteria: Boolean = false,
-                      elementId: Option[Int],
-                      referenceId: Int,
-                      uuid: Option[String]
+case class InformationColumn(infoColumnId: Int,
+                             isActive: Boolean = true,
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
+                             updated: DateTime = DateTime.now,
+                             updatedBy: Int,
+                             name: String,
+                             description: Option[String],
+                             help: Option[String],
+                             infoWindowId: Int,
+                             entityType: String = "D",
+                             selectClause: String,
+                             seqNo: Int = 0,
+                             isDisplayed : Boolean = true,
+                             isQueryCriteria: Boolean = false,
+                             elementId: Option[Int],
+                             referenceId: Int,
+                             uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -75,8 +75,8 @@ case class InfoColumn(infoColumnId: Int,
   override val identifier: String = "AD_InfoColumn_ID"
 }
 
-object InfoColumn  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoColumn]
+object InformationColumn  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationColumn]
   def create(infoColumnId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -94,7 +94,7 @@ object InfoColumn  {
              isQueryCriteria: Boolean,
              elementId: Int,
              referenceId: Int,
-             uuid: String) = InfoColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = InformationColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
     None, None, infoWindowId, entityType, selectClause, seqNo,
     isDisplayed, isQueryCriteria, None, referenceId, None)
 }

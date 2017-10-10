@@ -1,11 +1,9 @@
 package com.eevolution.context.dictionary.domain.model
 
-
-import java.util.Date
-
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api._
 import com.eevolution.context.dictionary.domain.model.EntityType.Dictionary
+import org.joda.time.DateTime
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -53,13 +51,12 @@ import com.eevolution.context.dictionary.domain.model.EntityType.Dictionary
   * @param acTriggerLength
   * @param isDocument
   * @param isIgnoreMigration
-  * @param attributes
   */
 case class Entity(entityId: Int,
                   isActive: Boolean = true,
-                  created: Date = new Date(),
+                  created: DateTime = new DateTime,
                   createdBy: Int,
-                  updated: Date = new Date(),
+                  updated: DateTime = new DateTime,
                   updatedBy: Int,
                   name: String,
                   description: Option[String],
@@ -103,9 +100,9 @@ object Entity  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Entity]
   def create(entityId: Int,
              isActive: Boolean,
-             created: Date,
+             created: DateTime,
              createdBy: Int,
-             updated: Date,
+             updated: DateTime,
              updatedBy: Int,
              name: String,
              description: String,

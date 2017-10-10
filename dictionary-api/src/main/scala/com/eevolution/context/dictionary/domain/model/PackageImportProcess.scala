@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
   * Package Imp Proc Entity
-  * @param packageImpProcId Package Imp Proc ID
+  * @param packageImportProcessId Package Imp Proc ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive is Active
@@ -35,20 +36,20 @@ import org.joda.time.DateTime
   * @param processing Processing
   * @param uuid UUID
   */
-case class PackageImpProc (packageImpProcId: Int,
-                           tenantId: Int,
-                           organizationId: Int,
-                           isActive: Boolean = true,
-                           created: DateTime = DateTime.now,
-                           createdBy: Int,
-                           updated: DateTime = DateTime.now,
-                           updatedBy: Int,
-                           overrideDict: Option[Boolean],
-                           packageDir: Option[String],
-                           packageSource: Option[String],
-                           packageSourceType: String,
-                           processing: Option[Boolean],
-                           uuid: Option[String]
+case class PackageImportProcess(packageImportProcessId: Int,
+                                tenantId: Int,
+                                organizationId: Int,
+                                isActive: Boolean = true,
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                overrideDict: Option[Boolean],
+                                packageDir: Option[String],
+                                packageSource: Option[String],
+                                packageSourceType: String,
+                                processing: Option[Boolean],
+                                uuid: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -57,16 +58,16 @@ case class PackageImpProc (packageImpProcId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageImpProcId
+  override def Id: Int = packageImportProcessId
 
-  override val entityName: String = "AD_PackageImpProc"
-  override val identifier: String = "AD_PackageImpProc_ID"
+  override val entityName: String = "AD_Package_Imp_Proc"
+  override val identifier: String = "AD_Package_Imp_Proc_ID"
 
 }
 
-object PackageImpProc {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImpProc]
-  def create(packageImpProcId: Int,
+object PackageImportProcess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImportProcess]
+  def create(packageImportProcessId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -79,6 +80,6 @@ object PackageImpProc {
              packageSource: String,
              packageSourceType: String,
              processing: Boolean,
-             uuid: String) = PackageImpProc(packageImpProcId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = PackageImportProcess(packageImportProcessId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, None, packageSourceType, None, None)
 }

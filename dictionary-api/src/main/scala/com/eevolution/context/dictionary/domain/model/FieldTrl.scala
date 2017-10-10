@@ -36,8 +36,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class FieldTrl (fieldTrlId: Int,
-                     language: String,
+case class FieldTrl (language: String,
                      tenantId: Int,
                      organizationId: Int,
                      isActive: Boolean = true,
@@ -58,18 +57,17 @@ case class FieldTrl (fieldTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = fieldTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_FieldTrl"
-  override val identifier: String = "AD_FieldTrl_ID"
+  override val entityName: String = "AD_Field_Trl"
+  override val identifier: String = null
 
 }
 
 object FieldTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldTrl]
 
-  def create(fieldTrlId: Int,
-             language: String,
+  def create(language: String,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -81,6 +79,6 @@ object FieldTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = FieldTrl(fieldTrlId, language, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

@@ -22,7 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Window Trl Entity
-  * @param windowTrlId Window Trl ID
+  * @param windowId Window Trl ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -36,12 +36,12 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WindowTrl(windowTrlId: Int,
+case class WindowTrl(windowId: Int,
                      language: String,
                      isActive: Boolean = true,
-                     created: DateTime = DateTime.now(),
+                     created: DateTime = DateTime.now,
                      createdBy: Int,
-                     updated: DateTime = DateTime.now(),
+                     updated: DateTime = DateTime.now,
                      updatedBy: Int,
                      name: String,
                      description: Option[String],
@@ -57,15 +57,15 @@ case class WindowTrl(windowTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = windowTrlId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_WindowTrl"
-  override val identifier: String = "AD_WindowTrl_ID"
+  override val identifier: String = null
 }
 
 object WindowTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WindowTrl]
-  def create(windowTrlId: Int,
+  def create(windowId: Int,
              language: String,
              isActive: Boolean,
              created: DateTime,
@@ -76,6 +76,6 @@ object WindowTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WindowTrl(windowTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WindowTrl(windowId, language, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isTranslated, None)
 }

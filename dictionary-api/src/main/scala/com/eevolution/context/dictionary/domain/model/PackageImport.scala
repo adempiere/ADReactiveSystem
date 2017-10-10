@@ -17,10 +17,11 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 /**
   * Package Imp Entity
-  * @param packageImpId Package Imp ID
+  * @param packageImportId Package Imp ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -45,29 +46,29 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageImp (packageImpId: Int,
-                       tenantId: Int,
-                       organizationId: Int,
-                       isActive: Boolean = true,
-                       created: DateTime = DateTime.now,
-                       createdBy: Int,
-                       updated: DateTime = DateTime.now,
-                       updatedBy: Int,
-                       name: String,
-                       pkStatus: Option[String],
-                       releaseNo: Option[String],
-                       pkVersion: Option[String],
-                       version: Option[String],
-                       description: String,
-                       email: Option[String],
-                       processed: Boolean = false,
-                       processing: Boolean = false,
-                       creator: Option[String],
-                       creatorContact: Option[String],
-                       createdDate: Option[String],
-                       updatedDate: Option[String],
-                       uninstall: Option[Boolean],
-                       uuid: Option[String]
+case class PackageImport(packageImportId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         name: String,
+                         pkStatus: Option[String],
+                         releaseNo: Option[String],
+                         pkVersion: Option[String],
+                         version: Option[String],
+                         description: String,
+                         email: Option[String],
+                         processed: Boolean = false,
+                         processing: Boolean = false,
+                         creator: Option[String],
+                         creatorContact: Option[String],
+                         createdDate: Option[String],
+                         updatedDate: Option[String],
+                         uninstall: Option[Boolean],
+                         uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -76,16 +77,16 @@ case class PackageImp (packageImpId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageImpId
+  override def Id: Int = packageImportId
 
-  override val entityName: String = "AD_PackageImp"
-  override val identifier: String = "AD_PackageImp_ID"
+  override val entityName: String = "AD_Package_Imp"
+  override val identifier: String = "AD_Package_Imp_ID"
 
 }
 
-object PackageImp {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImp]
-  def create(packageImpId: Int,
+object PackageImport {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImport]
+  def create(packageImpportId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -107,7 +108,7 @@ object PackageImp {
              createdDate: String,
              updatedDate: String,
              uninstall: Boolean,
-             uuid: String) = PackageImp(packageImpId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PackageImport(packageImpportId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, None, None, description, None, processed, processing, None, None, None, None, None,
     None)
 }

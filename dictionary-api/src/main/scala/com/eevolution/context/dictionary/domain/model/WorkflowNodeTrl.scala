@@ -22,7 +22,6 @@ import org.joda.time.DateTime
 
 /**
   * Workflow Node Trl Entity
-  * @param workflowNodeTrlId Wf Node Trl ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -36,8 +35,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkflowNodeTrl(workflowNodeTrlId: Int,
-                           language: String,
+case class WorkflowNodeTrl(language: String,
                            isActive: Boolean = true,
                            created: DateTime = DateTime.now,
                            createdBy: Int,
@@ -57,17 +55,16 @@ case class WorkflowNodeTrl(workflowNodeTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = workflowNodeTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_WfNodeTrl"
-  override val identifier: String = "AD_WfNodeTrl_ID"
+  override val entityName: String = "AD_Wf_Node_Trl"
+  override val identifier: String = null
 }
 
 
 object WorkflowNodeTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeTrl]
-  def create(workflowNodeTrlId: Int,
-             language: String,
+  def create(language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -77,7 +74,7 @@ object WorkflowNodeTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WorkflowNodeTrl(workflowNodeTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowNodeTrl( language, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isTranslated, None)
 
 }

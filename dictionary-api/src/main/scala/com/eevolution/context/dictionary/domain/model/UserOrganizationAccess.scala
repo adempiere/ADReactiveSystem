@@ -21,30 +21,30 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Tree Node Pr Entity
-  * @param treeNodePrId Tree Node Pr ID
-  * @param nodeId Node ID
+  * User Organization Access Entity
+  * @param userId User ID
+  * @param organizationId Organization ID
+  * @param tenantId Tenant ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param parentId Parent ID
-  * @param seqNo Seq No
-  * @param uuid UUID
+  * @param isReadOnly Is Read Only
+  * @param uuId UUID
   */
 
-case class TreeNodePr(treeNodePrId: Int,
-                      nodeId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      parentId: Option[Int],
-                      seqNo: Option[Int],
-                      uuid: Option[String]
-                     ) extends DomainModel
+case class UserOrganizationAccess(userId: Int,
+                                  organizationId: Int,
+                                  tenantId: Int,
+                                  isActive: Boolean = true,
+                                  created: DateTime = DateTime.now,
+                                  createdBy: Int,
+                                  updated: DateTime = DateTime.now,
+                                  updatedBy: Int,
+                                  isReadOnly: Boolean = false,
+                                  uuId: Option[String]
+                                 ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -53,24 +53,25 @@ case class TreeNodePr(treeNodePrId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodePrId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_TreeNodePr"
-  override val identifier: String = "AD_TreeNodePr_ID"
+  override val entityName: String = "AD_UserOrgAccess"
+  override val identifier: String = null
 }
 
-object TreeNodePr  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodePr]
-  def create(treeNodePrId: Int,
-             nodeId: Int,
-             isActive: Boolean,
-             created: DateTime,
+object UserOrganizationAccess  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserOrganizationAccess]
+  def create(userId: Int,
+             organizationId: Int,
+             tenantId: Int,
+             isActive: Boolean ,
+             created: DateTime ,
              createdBy: Int,
-             updated: DateTime,
+             updated: DateTime ,
              updatedBy: Int,
-             parentId: Int,
-             seqNo: Int,
-             uuid: String) = TreeNodePr(treeNodePrId, nodeId, isActive, created, createdBy, updated, updatedBy,
-    None, None, None)
+             isReadOnly: Boolean,
+             uuId: String) = UserOrganizationAccess(userId, organizationId, tenantId, isActive, created, createdBy,
+    updated, updatedBy, isReadOnly, None)
 }
+
 

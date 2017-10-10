@@ -18,36 +18,34 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modified by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Val Rule Entity
-  * @param valRuleId Val Rule ID
+  * User Roles Entity
+  * @param userId User ID
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param description Description
-  * @param typePackage Type Package
-  * @param code Code
-  * @param entityType Entity Type
   * @param uuid UUID
   */
-case class ValRule(valRuleId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   name: String,
-                   description: Option[String],
-                   typePackage: Option[Boolean],
-                   code: Option[String],
-                   entityType: String = "D",
-                   uuid: Option[String]
-                  ) extends DomainModel
+
+case class UserRoles(userId : Int ,
+                     roleId: Int,
+                     tenantId: Int,
+                     organizationId : Int,
+                     isActive : Boolean = true,
+                     created : DateTime = DateTime.now,
+                     createdBy : Int ,
+                     updated : DateTime = DateTime.now,
+                     updatedBy : Int ,
+                     uuid: Option[String]
+                    ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -56,26 +54,24 @@ case class ValRule(valRuleId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = valRuleId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_ValRule"
-  override val identifier: String = "AD_ValRule_ID"
+  override val entityName: String = "AD_User_Roles"
+  override val identifier: String = null
 }
 
-object ValRule  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ValRule]
-  def create(valRuleId: Int,
-             isActive: Boolean,
-             created: DateTime,
-             createdBy: Int,
-             updated: DateTime,
-             updatedBy: Int,
-             name: String,
-             description: String,
-             typePackage: Boolean,
-             code: String,
-             entityType: String,
-             uuid: String) = ValRule(valRuleId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, None, entityType, None)
+object UserRoles  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserRoles]
+  def create(userId : Int ,
+             roleId: Int,
+             tenantId: Int,
+             organizationId : Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated : DateTime ,
+             updatedBy : Int,
+             uuid: String) = UserRoles(userId, roleId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, None)
 }
 

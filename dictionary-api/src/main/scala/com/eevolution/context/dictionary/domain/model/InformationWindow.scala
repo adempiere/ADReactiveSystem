@@ -39,21 +39,21 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class InfoWindow(infoWindowId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      name: String,
-                      description: Option[String],
-                      help: Option[String],
-                      tableId: Int,
-                      entityType: String = "D",
-                      fromClause: String,
-                      otherClause: Option[String],
-                      processing: Option[Boolean],
-                      uuid: Option[String]
+case class InformationWindow(infoWindowId: Int,
+                             isActive: Boolean = true,
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
+                             updated: DateTime = DateTime.now,
+                             updatedBy: Int,
+                             name: String,
+                             description: Option[String],
+                             help: Option[String],
+                             tableId: Int,
+                             entityType: String = "D",
+                             fromClause: String,
+                             otherClause: Option[String],
+                             processing: Option[Boolean],
+                             uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -69,8 +69,8 @@ case class InfoWindow(infoWindowId: Int,
   override val identifier: String = "AD_InfoWindow_ID"
 }
 
-object InfoWindow  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoWindow]
+object InformationWindow  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationWindow]
   def create(infoWindowId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -85,7 +85,7 @@ object InfoWindow  {
              fromClause: String,
              otherClause: String,
              processing: Boolean,
-             uuid: String) = InfoWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = InformationWindow(infoWindowId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, tableId, entityType, fromClause, None, None, None)
 }
 

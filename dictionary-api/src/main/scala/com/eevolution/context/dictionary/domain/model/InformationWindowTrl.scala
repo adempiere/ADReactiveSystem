@@ -35,17 +35,17 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class InfoWindowTrl (language: String,
-                          isActive: Boolean = true,
-                          created: DateTime = DateTime.now,
-                          createdBy: Int,
-                          updated: DateTime = DateTime.now,
-                          updatedBy: Int,
-                          isTranslated: Boolean = false,
-                          name: String,
-                          description: Option[String],
-                          help: Option[String],
-                          uuid: Option[String]
+case class InformationWindowTrl(language: String,
+                                isActive: Boolean = true,
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                isTranslated: Boolean = false,
+                                name: String,
+                                description: Option[String],
+                                help: Option[String],
+                                uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -61,8 +61,8 @@ case class InfoWindowTrl (language: String,
   override val identifier: String = null
 }
 
-object InfoWindowTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoWindowTrl]
+object InformationWindowTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationWindowTrl]
   def create(language: String,
              isActive: Boolean,
              created: DateTime,
@@ -73,7 +73,7 @@ object InfoWindowTrl  {
              name: String,
              description: String,
              help: String,
-             uuid: String) = InfoWindowTrl(language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = InformationWindowTrl(language, isActive, created, createdBy, updated, updatedBy,
     isTranslated, name, None, None, None)
 }
 

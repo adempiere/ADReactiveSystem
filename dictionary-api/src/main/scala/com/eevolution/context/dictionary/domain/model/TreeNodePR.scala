@@ -18,41 +18,34 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
-  * Ref List Entity
-  * @param refListId Ref List ID
+  * Tree Node Pr Entity
+  * @param treeNodePRId Tree Node Pr ID
+  * @param nodeId Node ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param value Value
-  * @param name Name
-  * @param description Description
-  * @param referenceId Reference ID
-  * @param validFrom Valid From
-  * @param validTo Valid To
-  * @param entityType Entity Type
+  * @param parentId Parent ID
+  * @param seqNo Seq No
   * @param uuid UUID
   */
 
-case class RefList(refListId: Int,
-                   isActive: Boolean = true,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   value: String,
-                   name: String,
-                   description: Option[String],
-                   referenceId: Int,
-                   validFrom: Option[DateTime],
-                   validTo: Option[DateTime],
-                   entityType: String = "D",
-                   uuid: Option[String]
-                  ) extends DomainModel
+case class TreeNodePR(treeNodePRId: Int,
+                      nodeId: Int,
+                      isActive: Boolean = true,
+                      created: DateTime = DateTime.now,
+                      createdBy: Int,
+                      updated: DateTime = DateTime.now,
+                      updatedBy: Int,
+                      parentId: Option[Int],
+                      seqNo: Option[Int],
+                      uuid: Option[String]
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -61,28 +54,24 @@ case class RefList(refListId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = refListId
+  override def Id: Int = treeNodePRId
 
-  override val entityName: String = "AD_RefList"
-  override val identifier: String = "AD_RefList_ID"
+  override val entityName: String = "AD_TreeNodePR"
+  override val identifier: String = "AD_TreeNodePR_ID"
 }
 
-object RefList  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[RefList]
-  def create(refListId: Int,
+object TreeNodePR  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNodePR]
+  def create(treeNodePRId: Int,
+             nodeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             value: String,
-             name: String,
-             description: String,
-             referenceId: Int,
-             validFrom: DateTime,
-             validTo: DateTime,
-             entityType: String,
-             uuid: String) = RefList(refListId, isActive, created, createdBy, updated, updatedBy, value,
-    name, None, referenceId, None, None, entityType, None)
+             parentId: Int,
+             seqNo: Int,
+             uuid: String) = TreeNodePR(treeNodePRId, nodeId, isActive, created, createdBy, updated, updatedBy,
+    None, None, None)
 }
 

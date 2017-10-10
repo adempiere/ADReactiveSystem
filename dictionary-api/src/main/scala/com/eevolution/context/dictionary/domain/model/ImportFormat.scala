@@ -17,10 +17,12 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Modify by victor.perez@e-evolution.com , www.e-evolution.com
+  *
   */
 /**
   * Imp Format Entity
-  * @param impFormatId Imp Format ID
+  * @param importFormatId Import Format ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -33,25 +35,25 @@ import org.joda.time.DateTime
   * @param tableId Table ID
   * @param formatType Format Type
   * @param processing Processing
-  * @param separatorChar Separator Char
+  * @param separatorCharacter Separator Character
   * @param uuid UUID
   */
 
-case class ImpFormat (impFormatId: Int,
-                      tenantId: Int,
-                      organizationId: Int,
-                      isActive: Boolean = true,
-                      created: DateTime = DateTime.now,
-                      createdBy: Int,
-                      updated: DateTime = DateTime.now,
-                      updatedBy: Int,
-                      name: String,
-                      description: Option[String],
-                      tableId: Int,
-                      formatType: Boolean,
-                      processing: Boolean,
-                      separatorChar: Option[Boolean],
-                      uuid: Option[String]
+case class ImportFormat(importFormatId: Int,
+                        tenantId: Int,
+                        organizationId: Int,
+                        isActive: Boolean = true,
+                        created: DateTime = DateTime.now,
+                        createdBy: Int,
+                        updated: DateTime = DateTime.now,
+                        updatedBy: Int,
+                        name: String,
+                        description: Option[String],
+                        tableId: Int,
+                        formatType: Boolean,
+                        processing: Boolean,
+                        separatorCharacter: Option[String],
+                        uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -60,16 +62,16 @@ case class ImpFormat (impFormatId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = impFormatId
+  override def Id: Int = importFormatId
 
   override val entityName: String = "AD_ImpFormat"
   override val identifier: String = "AD_ImpFormat_ID"
 
 }
 
-object ImpFormat {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImpFormat]
-  def create(impFormatId: Int,
+object ImportFormat {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImportFormat]
+  def create(impportFormatId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -82,8 +84,8 @@ object ImpFormat {
              tableId: Int,
              formatType: Boolean,
              processing: Boolean,
-             separatorChar: Boolean,
-             uuid: String) = ImpFormat(impFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+             separatorChararcter: String,
+             uuid: String) = ImportFormat(impportFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, tableId, formatType, processing, None, None)
 }
 

@@ -21,36 +21,33 @@ import org.joda.time.DateTime
   */
 
 /**
-  * View Column Trl Entity
-  * @param tenantId Tenant ID
-  * @param organizationId Organization ID
+  * Val Rule Entity
+  * @param dynamicValidationRuleId Val Rule ID
+  * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param viewColumnId View Column ID
-  * @param language Language
+  * @param name Name
   * @param description Description
-  * @param help Help
-  * @param isTranslated Is Translated
+  * @param typePackage Type Package
+  * @param code Code
+  * @param entityType Entity Type
   * @param uuid UUID
   */
-
-case class ViewColumnTrl(tenantId: Int,
-                         organizationId: Int,
-                         created: DateTime = DateTime.now,
-                         createdBy: Int,
-                         isActive: Boolean,
-                         updated: DateTime = DateTime.now,
-                         updatedBy: Int,
-                         viewColumnId: Int,
-                         language: String,
-                         description: Option[String],
-                         help: Option[String],
-                         isTranslated: Boolean,
-                         uuid: Option[String]
-                        ) extends DomainModel
+case class DynamicValidationRule(dynamicValidationRuleId: Int,
+                                 isActive: Boolean = true,
+                                 created: DateTime = DateTime.now,
+                                 createdBy: Int,
+                                 updated: DateTime = DateTime.now,
+                                 updatedBy: Int,
+                                 name: String,
+                                 description: Option[String],
+                                 typePackage: Option[Boolean],
+                                 code: Option[String],
+                                 entityType: String = "D",
+                                 uuid: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -59,27 +56,26 @@ case class ViewColumnTrl(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = dynamicValidationRuleId
 
-  override val entityName: String = "AD_View_Column_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_ValRule"
+  override val identifier: String = "AD_ValRule_ID"
 }
 
-object ViewColumnTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewColumnTrl]
-  def create(tenantId: Int,
-             organizationId: Int,
+object DynamicValidationRule  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[DynamicValidationRule]
+  def create(dynamicValidationRuleId: Int,
+             isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             viewColumnId: Int,
-             language: String,
+             name: String,
              description: String,
-             help: String,
-             isTranslated: Boolean,
-             uuid: String) = ViewColumnTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
-    viewColumnId, language, None, None, isTranslated, None)
+             typePackage: Boolean,
+             code: String,
+             entityType: String,
+             uuid: String) = DynamicValidationRule(dynamicValidationRuleId, isActive, created, createdBy, updated, updatedBy, name,
+    None, None, None, entityType, None)
 }
 

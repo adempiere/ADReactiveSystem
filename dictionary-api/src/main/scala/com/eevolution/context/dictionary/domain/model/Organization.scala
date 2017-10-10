@@ -1,7 +1,8 @@
 package com.eevolution.context.dictionary.domain.model
 
-import java.util.Date
+import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
+import org.joda.time.DateTime
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -16,36 +17,41 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by victor.perez@e-evolution.com , www.e-evolution.com
+  * Created by victor.perez@e-evolution.com , www.e-evolution.com.
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com.
   */
 
 /**
   * Organization Entity
-  * @param organizationId
-  * @param tenantId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param value
-  * @param name
-  * @param description
-  * @param isSummary
-  * @param replicationStrategyId
+  * @param organizationId Organization ID
+  * @param tenantId Tenant ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value Value
+  * @param name Name
+  * @param description Description
+  * @param isSummary Is Summary
+  * @param replicationStrategyId Replication Strategy ID
+  * @param uuid UUID
   */
 case class Organization(organizationId: Int,
                         tenantId : Int ,
                         isActive : Boolean = true,
-                        created : Date = new Date(),
+                        created : DateTime =  DateTime.now,
                         createdBy : Int ,
-                        updated : Date = new Date() ,
+                        updated : DateTime =  DateTime.now,
                         updatedBy : Int ,
                         value : String ,
                         name : String,
                         description: Option[String],
                         isSummary : Boolean = true ,
-                        replicationStrategyId : Option[Int]) extends DomainModel
+                        replicationStrategyId : Option[Int],
+                        uuid: Option[String]
+                       ) extends DomainModel
+
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -56,4 +62,22 @@ case class Organization(organizationId: Int,
 
   override val entityName: String = "AD_Org"
   override val identifier: String = "AD_Org_ID"
+}
+
+object Organization{
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Organization]
+  def create(organizationId: Int,
+             tenantId : Int ,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated : DateTime,
+             updatedBy : Int ,
+             value : String ,
+             name : String,
+             description: String,
+             isSummary : Boolean,
+             replicationStrategyId : Int,
+             uuid: String) = Organization(organizationId, tenantId, isActive, created, createdBy, updated,
+    updatedBy, value, name, None, isSummary, None, None)
 }

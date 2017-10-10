@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param isAllNodes Is All Notes
   * @param processing Processing
   * @param isDefault Is Default
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Tree(treeId: Int,
@@ -49,7 +49,7 @@ case class Tree(treeId: Int,
                 isAllNodes: Boolean = true,
                 processing: Option[Boolean],
                 isDefault: Boolean = false,
-                uuId: Option[String]
+                uuid: Option[String]
                ) extends DomainModel
 
   with ActiveEnabled
@@ -79,7 +79,7 @@ object Tree  {
              isAllNodes: Boolean,
              processing: Boolean,
              isDefault: Boolean,
-             uuId: String) = Tree(treeId, created, createdBy, updated, updatedBy, isActive, name, None,
+             uuid: String) = Tree(treeId, created, createdBy, updated, updatedBy, isActive, name, None,
     treeType, isAllNodes, None, isDefault, None)
 }
 

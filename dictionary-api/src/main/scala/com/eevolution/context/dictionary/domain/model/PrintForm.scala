@@ -43,7 +43,7 @@ import org.joda.time.DateTime
   * @param manufOrderPrintFormatId Manuf Order Print Format ID
   * @param distribOrderMailTextId Distrib Order Mail Text ID
   * @param distribOrderPrintFormatId Distrib Order Print Format ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PrintForm (printFormId: Int,
                       tenantId: Int,
@@ -68,7 +68,7 @@ case class PrintForm (printFormId: Int,
                       manufOrderPrintFormatId: Option[Int],
                       distribOrderMailTextId: Option[Int],
                       distribOrderPrintFormatId: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -109,6 +109,6 @@ object PrintForm {
              manufOrderPrintFormatId: Int,
              distribOrderMailTextId: Int,
              distribOrderPrintFormatId: Int,
-             uuId: String) = PrintForm(printFormId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintForm(printFormId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
 }

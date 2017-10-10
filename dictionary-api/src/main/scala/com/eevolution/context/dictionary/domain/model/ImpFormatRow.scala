@@ -42,7 +42,7 @@ import org.joda.time.DateTime
   * @param callOut Call Out
   * @param script Script
   * @param defaultValue Default Value
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ImpFormatRow (impFormatRowId: Int,
@@ -67,7 +67,7 @@ case class ImpFormatRow (impFormatRowId: Int,
                          callOut: Option[String],
                          script: Option[String],
                          defaultValue: Option[String],
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
 
@@ -109,7 +109,7 @@ object ImpFormatRow {
              callOut: String,
              script: String,
              defaultValue: String,
-             uuId: String) = ImpFormatRow(impFormatRowId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = ImpFormatRow(impFormatRowId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, impFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None,
     None, None, None, None)
 }

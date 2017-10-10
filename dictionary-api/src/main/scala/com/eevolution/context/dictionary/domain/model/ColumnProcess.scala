@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ColumnProcess(columnProcessId: Int,
@@ -43,7 +43,7 @@ case class ColumnProcess(columnProcessId: Int,
                          name: String,
                          updated: DateTime =  DateTime.now,
                          updatedBy: Int,
-                         uuId: Option[String]
+                         uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -70,7 +70,7 @@ object ColumnProcess  {
              name: String,
              updated: DateTime,
              updatedBy: Int,
-             uuId: String) = ColumnProcess(columnProcessId, None, None, created, createdBy, isActive,
+             uuid: String) = ColumnProcess(columnProcessId, None, None, created, createdBy, isActive,
     name, updated, updatedBy, None)
 }
 

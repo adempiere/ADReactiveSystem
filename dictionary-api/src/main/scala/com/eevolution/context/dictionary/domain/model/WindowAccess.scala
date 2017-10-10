@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isReadWrite Is Read Write
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WindowAccess(windowAccessId: Int,
@@ -41,7 +41,7 @@ case class WindowAccess(windowAccessId: Int,
                         updated: DateTime = DateTime.now,
                         updatedBy: Int,
                         isReadWrite: Boolean = true,
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -67,6 +67,6 @@ object WindowAccess {
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuId: String) = WindowAccess(windowAccessId, roleId, isActive, created, createdBy, updated,
+             uuid: String) = WindowAccess(windowAccessId, roleId, isActive, created, createdBy, updated,
     updatedBy, isReadWrite, None)
 }

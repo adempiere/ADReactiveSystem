@@ -58,7 +58,7 @@ import org.joda.time.DateTime
   * @param isPaintHeaderLines Is Paint Header Lines
   * @param imageId Image ID
   * @param isMultiLineHeader Is Multi Line Header
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintTableFormat (printTableFormatId: Int,
@@ -99,7 +99,7 @@ case class PrintTableFormat (printTableFormatId: Int,
                              isPaintHeaderLines: Boolean = true,
                              imageId: Option[Int],
                              isMultiLineHeader: Boolean = false,
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -155,7 +155,7 @@ object PrintTableFormat {
              isPaintHeaderLines: Boolean,
              imageId: Int,
              isMultiLineHeader: Boolean,
-             uuId: String) = PrintTableFormat(printTableFormatId, tenantId, organizationId, isActive, created,
+             uuid: String) = PrintTableFormat(printTableFormatId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, isPaintBoundaryLines,
     isPaintHLines, isPaintVLines, isPrintFunctionSymbols, name, isDefault, None, None, None, None, None, None, None,
     imageIsAttached, None, None, None, None, isPaintHeaderLines, None,isMultiLineHeader, None)

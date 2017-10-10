@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param data3PrintFormatItemID Data 3 Print Format Item ID
   * @param data4PrintFormatItemID Data 4 Print Format Item ID
   * @param printFormatId Print Format ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintGraph (printGraphId: Int,
@@ -59,7 +59,7 @@ case class PrintGraph (printGraphId: Int,
                        data3PrintFormatItemID: Option[Int],
                        data4PrintFormatItemID: Option[Int],
                        printFormatId: Int,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -95,7 +95,7 @@ object PrintGraph {
              data3PrintFormatItemID: Int,
              data4PrintFormatItemID: Int,
              printFormatId: Int,
-             uuId: String) = PrintGraph(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintGraph(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, graphType, descriptionPrintFormatItemId, dataPrintFormatItemID, None, None, None, None,
     printFormatId, None)
 }

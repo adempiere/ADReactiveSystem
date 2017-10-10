@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param help Help
   * @param entityType Entity Type
   * @param version Version
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Modification(modificationId: Int,
@@ -49,7 +49,7 @@ case class Modification(modificationId: Int,
                         help: Option[String],
                         entityType: String = "D",
                         version: Option[String],
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -79,7 +79,7 @@ object Modification  {
              help: String,
              entityType: String,
              version: String,
-             uuId: String) = Modification(modificationId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = Modification(modificationId, isActive, created, createdBy, updated, updatedBy,
     seqNo, name, None, None, entityType, None, None)
 }
 

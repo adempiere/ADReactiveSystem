@@ -41,7 +41,7 @@ import org.joda.time.DateTime
   * @param sizeX Size X
   * @param sizeY Size Y
   * @param dimensionUnits Dimension Units
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintPaper (printPaperId: Int,
@@ -65,7 +65,7 @@ case class PrintPaper (printPaperId: Int,
                        sizeX: Option[Int],
                        sizeY: Option[Int],
                        dimensionUnits: Option[Boolean],
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -104,7 +104,7 @@ object PrintPaper {
              sizeX: Int,
              sizeY: Int,
              dimensionUnits: Boolean,
-             uuId: String) = PrintPaper(printPaperId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintPaper(printPaperId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, isDefault, isLandscape, code, marginTop, marginLeft, marginRight, marginBottom, None, None,
     None, None, None)
 }

@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param tableAlias Table Alias
   * @param joinClause Join Clause
   * @param processing Processing
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ViewDefinition(viewDefinitionId: Int,
@@ -49,7 +49,7 @@ case class ViewDefinition(viewDefinitionId: Int,
                           tableAlias: String,
                           joinClause: Option[String],
                           processing: Option[Boolean],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -79,6 +79,6 @@ object ViewDefinition  {
              tableAlias: String,
              joinClause: String,
              processing: Boolean,
-             uuId: String) = ViewDefinition(viewDefinitionId, created, createdBy, isActive, updated, updatedBy,
+             uuid: String) = ViewDefinition(viewDefinitionId, created, createdBy, isActive, updated, updatedBy,
     None, None, None, tableAlias, None, None, None)
 }

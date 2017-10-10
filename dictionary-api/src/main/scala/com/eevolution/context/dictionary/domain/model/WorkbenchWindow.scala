@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param processId Process ID
   * @param taskId Task ID
   * @param entityType Entity Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkbenchWindow(workbenchWindowId: Int,
@@ -51,7 +51,7 @@ case class WorkbenchWindow(workbenchWindowId: Int,
                            processId: Option[Int],
                            taskId: Option[Int],
                            entityType: String = "D",
-                           uuId: Option[String]
+                           uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -83,6 +83,6 @@ object WorkbenchWindow {
              processId: Int,
              taskId: Int,
              entityType: String,
-             uuId: String) = WorkbenchWindow(workbenchWindowId, isActive, created, createdBy, updated,
+             uuid: String) = WorkbenchWindow(workbenchWindowId, isActive, created, createdBy, updated,
     updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, None)
 }

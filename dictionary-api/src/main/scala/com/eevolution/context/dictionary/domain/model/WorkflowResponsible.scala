@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param userId User ID
   * @param roleId Role ID
   * @param entityType Entity Type
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowResponsible(workflowResponsibleId: Int,
@@ -49,7 +49,7 @@ case class WorkflowResponsible(workflowResponsibleId: Int,
                                userId: Option[Int],
                                roleId: Option[Int],
                                entityType: String = "D",
-                               uuId: Option[String]
+                               uuid: Option[String]
                               ) extends DomainModel
 
   with ActiveEnabled
@@ -79,7 +79,7 @@ object WorkflowResponsible {
              userId: Int,
              roleId: Int,
              entityType: String,
-             uuId: String) = WorkflowResponsible(workflowResponsibleId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowResponsible(workflowResponsibleId, isActive, created, createdBy, updated, updatedBy,
     name, None, responsibleType, None, None, entityType, None)
 }
 

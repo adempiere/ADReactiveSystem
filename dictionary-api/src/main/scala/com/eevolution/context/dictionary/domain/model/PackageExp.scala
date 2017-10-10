@@ -40,7 +40,7 @@ import org.joda.time.DateTime
   * @param pkVersion PK Version
   * @param fileDirectory File Directory
   * @param description Description
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PackageExp (packageExpId: Int,
@@ -63,7 +63,7 @@ case class PackageExp (packageExpId: Int,
                        pkVersion: String,
                        fileDirectory: String,
                        description: String,
-                       uuId: Option[String]
+                       uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -101,7 +101,7 @@ object PackageExp {
              pkVersion: String,
              fileDirectory: String,
              description: String,
-             uuId: String) = PackageExp(packageExpId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PackageExp(packageExpId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, None, email, instructions, name, None, releaseNo, version, userName, processing, pkVersion,
     fileDirectory, description, None)
 }

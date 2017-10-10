@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TreeFavorite(treeFavoriteId: Int,
@@ -41,7 +41,7 @@ case class TreeFavorite(treeFavoriteId: Int,
                    isActive: Boolean = true,
                    updated: DateTime = DateTime.now,
                    updatedBy: Int,
-                   uuId: Option[String]
+                   uuid: Option[String]
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -68,6 +68,6 @@ object TreeFavorite  {
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             uuId: String) = TreeFavorite(treeFavoriteId, roleId, userId, created, createdBy, isActive,
+             uuid: String) = TreeFavorite(treeFavoriteId, roleId, userId, created, createdBy, isActive,
     updated, updatedBy, None)
 }

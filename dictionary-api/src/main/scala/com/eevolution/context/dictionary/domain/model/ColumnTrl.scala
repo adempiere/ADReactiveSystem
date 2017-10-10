@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ColumnTrl(columnTrlId: Int,
@@ -43,7 +43,7 @@ case class ColumnTrl(columnTrlId: Int,
                      updatedBy: Int,
                      name: String,
                      isTranslated: Boolean = false,
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object ColumnTrl  {
              updatedBy: Int,
              name: String,
              isTranslated: Boolean,
-             uuId: String) = ColumnTrl(columnTrlId, language, isActive, created, createdBy, updated,
+             uuid: String) = ColumnTrl(columnTrlId, language, isActive, created, createdBy, updated,
     updatedBy, name, isTranslated, None)
 }

@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param tableId Table ID
   * @param code Code
   * @param tabId Tab ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class UserQuery(userQueryId: Int,
@@ -49,7 +49,7 @@ case class UserQuery(userQueryId: Int,
                      tableId: Int,
                      code: Option[String],
                      tabId: Option[Int],
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -79,6 +79,6 @@ object UserQuery  {
              tableId: Int,
              code: String,
              tabId: Int,
-             uuId: String) = UserQuery(userQueryId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = UserQuery(userQueryId, isActive, created, createdBy, updated, updatedBy, name,
     None, None, tableId, None, None, None)
 }

@@ -63,7 +63,7 @@ import org.joda.time.DateTime
   * @param entityTypeId Entity Type ID
   * @param viewId View ID
   * @param browseId Browse ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PackageExpDetail (packageExpDetailId: Int,
@@ -109,7 +109,7 @@ case class PackageExpDetail (packageExpDetailId: Int,
                              entityTypeId: Option[Int],
                              viewId: Option[Int],
                              browseId: Option[Int],
-                             uuId: Option[String]
+                             uuid: Option[String]
                             ) extends DomainModel
 
 
@@ -172,7 +172,7 @@ object PackageExpDetail {
              entityTypeId: Int,
              viewId: Int,
              browseId: Int,
-             uuId: String) = PackageExpDetail(packageExpDetailId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageExpDetail(packageExpDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, None, None, description, None,
     typePackage, None, None, None, processing, None, None, None, None, None, None, packageExpId, None, None, None, None,
     None, None, None, None, None, None, None)

@@ -66,7 +66,7 @@ import org.joda.time.DateTime
   * @param yieldData Yield Data
   * @param unitsCycles Units Cycles
   * @param overLapUnits Over Lap Units
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 
@@ -116,7 +116,7 @@ case class Workflow(workflowId: Int,
                     yieldData: Option[Int],
                     unitsCycles: Option[Int],
                     overLapUnits: Option[Int],
-                    uuId: Option[String]
+                    uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -180,7 +180,7 @@ object Workflow {
              yieldData: Int,
              unitsCycles: Int,
              overLapUnits: Int,
-             uuId: String) = Workflow(workflowId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = Workflow(workflowId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration,
     cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workflowType, None,
     isValid, None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, None)

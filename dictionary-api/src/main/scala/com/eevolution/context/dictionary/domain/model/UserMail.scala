@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param isDelivered Is Delivered
   * @param subject Subject
   * @param mailText Mail Text
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class UserMail (userMailId: Int,
@@ -53,7 +53,7 @@ case class UserMail (userMailId: Int,
                      isDelivered: Option[Boolean],
                      subject: Option[String],
                      mailText: Option[String],
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -85,6 +85,6 @@ object UserMail  {
              isDelivered: Boolean,
              subject: String,
              mailText: String,
-             uuId: String) = UserMail(userMailId, isActive, created, createdBy, updated, updatedBy, userId,
+             uuid: String) = UserMail(userMailId, isActive, created, createdBy, updated, updatedBy, userId,
     None, None, None, None, None, None, None, None)
 }

@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param workbenchId Workbench ID
   * @param desktopId Desktop ID
   * @param seqNo Seq No
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class DesktopWorkbench(desktopWorkbenchId: Int,
@@ -43,7 +43,7 @@ case class DesktopWorkbench(desktopWorkbenchId: Int,
                             workbenchId: Int,
                             desktopId: Int,
                             seqNo: Int,
-                            uuId: Option[String]
+                            uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object DesktopWorkbench {
              workbenchId: Int,
              desktopId: Int,
              seqNo: Int,
-             uuId: String) = DesktopWorkbench(desktopWorkbenchId, isActive,created, createdBy, updated,
+             uuid: String) = DesktopWorkbench(desktopWorkbenchId, isActive,created, createdBy, updated,
     updatedBy, workbenchId, desktopId, seqNo, None)
 }

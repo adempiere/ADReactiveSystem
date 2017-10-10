@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param isTranslated Is Translated
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WindowTrl(windowTrlId: Int,
@@ -47,7 +47,7 @@ case class WindowTrl(windowTrlId: Int,
                      description: Option[String],
                      help: Option[String],
                      isTranslated: Boolean = false,
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -76,6 +76,6 @@ object WindowTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = WindowTrl(windowTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WindowTrl(windowTrlId, language, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isTranslated, None)
 }

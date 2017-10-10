@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param isReadOnly Is Read Only
   * @param isExclude Is Exclude
   * @param tableId Table ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ColumnAccess(columnId: Int,
@@ -45,7 +45,7 @@ case class ColumnAccess(columnId: Int,
                         isReadOnly: Boolean = false,
                         isExclude: Boolean = true,
                         tableId: Option[Int],
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -73,6 +73,6 @@ object ColumnAccess {
              isReadOnly: Boolean,
              isExclude: Boolean,
              tableId: Int,
-             uuId: String) = ColumnAccess (columnId, roleId,  isActive,created, createdBy, updated,
+             uuid: String) = ColumnAccess (columnId, roleId,  isActive,created, createdBy, updated,
     updatedBy, isReadOnly, isExclude, None, None)
 }

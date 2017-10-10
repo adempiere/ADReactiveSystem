@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param projectId Project ID
   * @param productId Product ID
   * @param isAlert Is Alert
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Memo(memoId: Int,
@@ -57,7 +57,7 @@ case class Memo(memoId: Int,
                 projectId: Option[Int],
                 productId: Option[Int],
                 isAlert: Option[Boolean],
-                uuId: Option[String]
+                uuid: Option[String]
                ) extends DomainModel
 
   with ActiveEnabled
@@ -91,6 +91,6 @@ object Memo {
              projectId: Int,
              productId: Int,
              isAlert: Boolean,
-             uuId: String) = Memo(memoId, tableId, created, createdBy, isActive, recordId, updated, updatedBy,
+             uuid: String) = Memo(memoId, tableId, created, createdBy, isActive, recordId, updated, updatedBy,
     None, None, None, None, None, None, None, None, None)
 }

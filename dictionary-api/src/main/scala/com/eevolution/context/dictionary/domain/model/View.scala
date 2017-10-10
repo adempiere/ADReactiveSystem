@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param help Help
   * @param copyFrom Copy From
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class View(viewId: Int,
@@ -49,7 +49,7 @@ case class View(viewId: Int,
                 entityType: String = "D",
                 help: Option[String],
                 copyFrom: Option[Boolean],
-                uuId: Option[String]
+                uuid: Option[String]
                ) extends DomainModel
 
   with ActiveEnabled
@@ -79,6 +79,6 @@ object View  {
              entityType: String,
              help: String,
              copyFrom: Boolean,
-             uuId: String) = View(viewId, created, createdBy, isActive, updated, updatedBy, None, name, None,
+             uuid: String) = View(viewId, created, createdBy, isActive, updated, updatedBy, None, name, None,
     entityType, None, None, None)
 }

@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param formatType Format Type
   * @param processing Processing
   * @param separatorChar Separator Char
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ImpFormat (impFormatId: Int,
@@ -51,7 +51,7 @@ case class ImpFormat (impFormatId: Int,
                       formatType: Boolean,
                       processing: Boolean,
                       separatorChar: Option[Boolean],
-                      uuId: Option[String]
+                      uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -83,7 +83,7 @@ object ImpFormat {
              formatType: Boolean,
              processing: Boolean,
              separatorChar: Boolean,
-             uuId: String) = ImpFormat(impFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = ImpFormat(impFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, tableId, formatType, processing, None, None)
 }
 

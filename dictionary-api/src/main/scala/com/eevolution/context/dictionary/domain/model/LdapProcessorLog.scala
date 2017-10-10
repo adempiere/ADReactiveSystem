@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param textMsg Text Msg
   * @param binaryData Binary Data
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class LdapProcessorLog(ldapProcessorLogId: Int,
@@ -51,7 +51,7 @@ case class LdapProcessorLog(ldapProcessorLogId: Int,
                        description: Option[String],
                        textMsg: Option[String],
                        binaryData: String,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object LdapProcessorLog  {
              description: String,
              textMsg: String,
              binaryData: String,
-             uuId: String) = LdapProcessorLog(ldapProcessorLogId, ldapProcessorId, isActive, created,
+             uuid: String) = LdapProcessorLog(ldapProcessorLogId, ldapProcessorId, isActive, created,
     createdBy, updated, updatedBy, None, isError, None, None, None, binaryData, None)
 }
 

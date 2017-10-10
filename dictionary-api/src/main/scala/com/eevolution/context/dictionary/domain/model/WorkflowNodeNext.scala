@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param transitionCode Transition Code
   * @param isStdUserWorkFlow Is Std User Work Flow
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowNodeNext(workflowNodeNextId: Int,
@@ -51,7 +51,7 @@ case class WorkflowNodeNext(workflowNodeNextId: Int,
                             entityType: String = "D",
                             transitionCode: Option[String],
                             isStdUserWorkFlow: Boolean = false,
-                            uuId: Option[String]
+                            uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object WorkflowNodeNext {
              entityType: String,
              transitionCode: String,
              isStdUserWorkFlow: Boolean,
-             uuId: String) = WorkflowNodeNext(workflowNodeNextId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowNodeNext(workflowNodeNextId, isActive, created, createdBy, updated, updatedBy,
     workflowNodeId, workflowNextId, None, seqNo, entityType, None, isStdUserWorkFlow, None)
 
 }

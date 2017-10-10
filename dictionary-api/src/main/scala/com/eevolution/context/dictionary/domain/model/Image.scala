@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param binaryData Binary Data
   * @param entityType Entity Type
   * @param description Description
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Image (imageId: Int,
@@ -48,7 +48,7 @@ case class Image (imageId: Int,
                   binaryData: String,
                   entityType: String,
                   description: Option[String],
-                  uuId: Option[String]
+                  uuid: Option[String]
                   )extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -76,6 +76,6 @@ object Image {
              binaryData: String,
              entityType: String,
              description: String,
-             uuId: String) = Image(imageId,isActive, created, createdBy, updated,
+             uuid: String) = Image(imageId,isActive, created, createdBy, updated,
     updatedBy, name, None, binaryData, entityType, None, None)
 }

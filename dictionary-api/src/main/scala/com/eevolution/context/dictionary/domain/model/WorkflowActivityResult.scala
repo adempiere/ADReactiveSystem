@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param attributeValue Attribute Value
   * @param description Description
   * @param help Help
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class WorkflowActivityResult(workflowActivityResultId: Int,
                                   isActive: Boolean = true,
@@ -46,7 +46,7 @@ case class WorkflowActivityResult(workflowActivityResultId: Int,
                                   attributeValue: Option[String],
                                   description: Option[String],
                                   help: Option[String],
-                                  uuId: Option[String]
+                                  uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -75,7 +75,7 @@ object WorkflowActivityResult  {
              attributeValue: String,
              description: String,
              help: String,
-             uuId: String) = WorkflowActivityResult(workflowActivityResultId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowActivityResult(workflowActivityResultId, isActive, created, createdBy, updated, updatedBy,
     workflowActivityId, attributeName, None, None, None, None)
 }
 

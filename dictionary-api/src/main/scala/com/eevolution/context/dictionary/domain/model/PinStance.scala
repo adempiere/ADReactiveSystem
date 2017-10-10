@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param reportType Report Type
   * @param printFormatId Print Format ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PinStance(pinStanceId: Int,
@@ -55,7 +55,7 @@ case class PinStance(pinStanceId: Int,
                      name: String,
                      reportType: String = "P",
                      printFormatId: Option[Int],
-                     uuId: Option[String]
+                     uuid: Option[String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -88,7 +88,7 @@ object PinStance  {
              name: String,
              reportType: String,
              printFormatId: Int,
-             uuId: String) = PinStance(pinStanceId, processId, recordId, isProcessing, created, None,
+             uuid: String) = PinStance(pinStanceId, processId, recordId, isProcessing, created, None,
     updated, None, None, createdBy, updatedBy, isActive, name, reportType, None, None)
 }
 

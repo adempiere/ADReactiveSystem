@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param textMsg Text Msg
   * @param binaryDate Binary Date
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowProcessorLog(workflowProcessorLogId: Int,
@@ -51,7 +51,7 @@ case class WorkflowProcessorLog(workflowProcessorLogId: Int,
                                 description: Option[String],
                                 textMsg: Option[String],
                                 binaryDate: Option[String],
-                                uuId: Option[String]
+                                uuid: Option[String]
                                 ) extends DomainModel
 
   with ActiveEnabled
@@ -82,6 +82,6 @@ object WorkflowProcessorLog {
              description: String,
              textMsg: String,
              binaryDate: String,
-             uuId: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, isActive, created, createdBy, updated,
+             uuid: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, isActive, created, createdBy, updated,
     updatedBy, isError, None, None, None, None, None, None)
 }

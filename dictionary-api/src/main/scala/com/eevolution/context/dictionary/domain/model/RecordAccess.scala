@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param isReadOnly Is Read Only
   * @param isExclude Is Exclude
   * @param isDependentEntities Is Dependent Entities
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class RecordAccess(recordAccessId: Int,
@@ -47,7 +47,7 @@ case class RecordAccess(recordAccessId: Int,
                         isReadOnly: Boolean = false,
                         isExclude: Boolean = true,
                         isDependentEntities: Boolean = false,
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -76,7 +76,7 @@ object RecordAccess  {
              isReadOnly: Boolean,
              isExclude: Boolean,
              isDependentEntities: Boolean,
-             uuId: String) = RecordAccess(recordAccessId, roleId, tableId, isActive, created, createdBy,
+             uuid: String) = RecordAccess(recordAccessId, roleId, tableId, isActive, created, createdBy,
     updated, updatedBy, isReadOnly, isExclude, isDependentEntities, None)
 }
 

@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param doctypeId Doctype ID
   * @param roleId Role ID
   * @param refListId Ref List ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class DocumentActionAccess(documentActionAccessId: Int,
@@ -43,7 +43,7 @@ case class DocumentActionAccess(documentActionAccessId: Int,
                                 doctypeId: Int,
                                 roleId: Int,
                                 refListId: Int,
-                                uuId: Option[String]
+                                uuid: Option[String]
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -70,6 +70,6 @@ object DocumentActionAccess {
              doctypeId: Int,
              roleId: Int,
              refListId: Int,
-             uuId: String) = DocumentActionAccess(documentActionAccessId, isActive, created, createdBy, updated,
+             uuid: String) = DocumentActionAccess(documentActionAccessId, isActive, created, createdBy, updated,
     updatedBy, doctypeId, roleId, refListId, None)
 }

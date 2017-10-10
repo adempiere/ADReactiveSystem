@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param processing Processing
   * @param processed Processed
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Migration(migrationId: Int,
@@ -58,7 +58,7 @@ case class Migration(migrationId: Int,
                      updatedBy: Int,
                      processing: Option[Boolean],
                      processed: Boolean = false,
-                     uuId: Option [String]
+                     uuid: Option [String]
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -92,6 +92,6 @@ object Migration  {
              updatedBy: Int,
              processing: Boolean,
              processed: Boolean,
-             uuId: String) = Migration(migrationId,None, None, created, createdBy, entityType, None,
+             uuid: String) = Migration(migrationId,None, None, created, createdBy, entityType, None,
     isActive, name, None, seqNo, None, updated, updatedBy, None, processed, None)
 }

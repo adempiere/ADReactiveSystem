@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param labelHeight Label Height
   * @param labelWidth Label Width
   * @param labelPrinterId Label Printer ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PrintLabel (printLabelId: Int,
@@ -55,7 +55,7 @@ case class PrintLabel (printLabelId: Int,
                        labelHeight: Int,
                        labelWidth: Int,
                        labelPrinterId: Int,
-                       uuId: Option[String]
+                       uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -89,6 +89,6 @@ object PrintLabel {
              labelHeight: Int,
              labelWidth: Int,
              labelPrinterId: Int,
-             uuId: String) = PrintLabel(printLabelId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintLabel(printLabelId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, tableId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
 }

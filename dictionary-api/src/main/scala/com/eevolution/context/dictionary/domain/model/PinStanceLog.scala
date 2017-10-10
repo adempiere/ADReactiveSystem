@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param updated Updated
   * @param isActive Is Active
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class PinStanceLog(pinStanceLogId: Int,
@@ -47,7 +47,7 @@ case class PinStanceLog(pinStanceLogId: Int,
                         updatedBy: Int,
                         updated: DateTime = DateTime.now,
                         isActive: Boolean = true,
-                        uuId: Option[String]
+                        uuid: Option[String]
                        ) extends DomainModel
 
 
@@ -77,6 +77,6 @@ object PinStanceLog  {
              updatedBy: Int,
              updated: DateTime,
              isActive: Boolean,
-             uuId: String) = PinStanceLog(pinStanceLogId, pinStanceId, date, None, None, None, createdBy,
+             uuid: String) = PinStanceLog(pinStanceLogId, pinStanceId, date, None, None, None, createdBy,
     created, updatedBy, updated, isActive, None)
 }

@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param roleId Role ID
   * @param isReadWrite Is Read Write
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class BrowseAccess(browseAccessId: Int,
@@ -41,7 +41,7 @@ case class BrowseAccess(browseAccessId: Int,
                         updatedBy: Int,
                         roleId: Int,
                         isReadWrite: Boolean = true,
-                        uuId: Option[String]
+                        uuid: Option[String]
                        )extends DomainModel
 
   with ActiveEnabled
@@ -67,6 +67,6 @@ object BrowseAccess  {
              updatedBy: Int,
              roleId: Int,
              isReadWrite: Boolean,
-             uuId: String) = BrowseAccess(browseAccessId,created, createdBy, isActive, updated,
+             uuid: String) = BrowseAccess(browseAccessId,created, createdBy, isActive, updated,
     updatedBy, roleId, isReadWrite, None)
 }

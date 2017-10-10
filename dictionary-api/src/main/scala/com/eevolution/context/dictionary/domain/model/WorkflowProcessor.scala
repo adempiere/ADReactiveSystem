@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param inactivityAlertDays Inactivity Alert Days
   * @param remindDays Remind Days
   * @param alertOverPriority Alert Over Priority
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowProcessor(workflowProcessorId: Int,
@@ -60,7 +60,7 @@ case class WorkflowProcessor(workflowProcessorId: Int,
                              inactivityAlertDays: Option[Int],
                              remindDays: Option[Int],
                              alertOverPriority: Option[Int],
-                             uuId: Option[String]
+                             uuid: Option[String]
                              ) extends DomainModel
 
   with ActiveEnabled
@@ -96,6 +96,6 @@ object WorkflowProcessor {
              inactivityAlertDays: Int,
              remindDays: Int,
              alertOverPriority: Int,
-             uuId: String) = WorkflowProcessor(workflowProcessorId, isActive, created, createdBy, updated,
+             uuid: String) = WorkflowProcessor(workflowProcessorId, isActive, created, createdBy, updated,
     updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, None, None, None)
 }

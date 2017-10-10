@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param timeScope Time Scope
   * @param domainLabel Domain Label
   * @param rageLabel Range Label
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 
@@ -62,7 +62,7 @@ case class Chart (chartId: Int,
                   timeScope: Option[Int],
                   domainLabel: Option[String],
                   rageLabel: Option[String],
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -99,6 +99,6 @@ object Chart {
              timeScope: Int,
              domainLabel: String,
              rageLabel: String,
-             uuId: String) = Chart(chartId, chartType, tenantId, organizationId, created, createdBy, description, isActive, name, updated,
+             uuid: String) = Chart(chartId, chartType, tenantId, organizationId, created, createdBy, description, isActive, name, updated,
     updatedBy, None, isDisplayLegend, chartOrientation, isTimeSeries, None, None, None, None, None)
 }

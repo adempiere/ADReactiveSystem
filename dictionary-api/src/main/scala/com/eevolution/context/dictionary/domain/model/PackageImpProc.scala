@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param packageSource Package Source
   * @param packageSourceType Package Source Type
   * @param processing Processing
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PackageImpProc (packageImpProcId: Int,
                            tenantId: Int,
@@ -48,7 +48,7 @@ case class PackageImpProc (packageImpProcId: Int,
                            packageSource: Option[String],
                            packageSourceType: String,
                            processing: Option[Boolean],
-                           uuId: Option[String]
+                           uuid: Option[String]
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -79,6 +79,6 @@ object PackageImpProc {
              packageSource: String,
              packageSourceType: String,
              processing: Boolean,
-             uuId: String) = PackageImpProc(packageImpProcId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = PackageImpProc(packageImpProcId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, None, packageSourceType, None, None)
 }

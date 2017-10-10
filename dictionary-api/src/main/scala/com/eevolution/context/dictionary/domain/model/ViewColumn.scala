@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param columnName Column Name
   * @param viewId View ID
   * @param columnId Column ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ViewColumn(viewColumnId: Int,
@@ -55,7 +55,7 @@ case class ViewColumn(viewColumnId: Int,
                       columnName: Option[String],
                       viewId: Option[Int],
                       columnId: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -88,7 +88,7 @@ object ViewColumn  {
              columnName: String,
              viewId: Int,
              columnId: Int,
-             uuId: String) = ViewColumn(viewColumnId, created, createdBy, isActive, updated, updatedBy,
+             uuid: String) = ViewColumn(viewColumnId, created, createdBy, isActive, updated, updatedBy,
     None, None, entityType, None, name, None, None, None, None, None)
 }
 

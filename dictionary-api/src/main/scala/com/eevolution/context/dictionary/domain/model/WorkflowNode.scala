@@ -79,7 +79,7 @@ import org.joda.time.DateTime
   * @param yieldData Yield Data
   * @param viewId View ID
   * @param browseId Browse ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class WorkflowNode(workflowNodeId: Int,
@@ -139,7 +139,7 @@ case class WorkflowNode(workflowNodeId: Int,
                         yieldData: Int = 100,
                         viewId: Option[Int],
                         browseId: Option[Int],
-                        uuId: Option[String]
+                        uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -214,7 +214,7 @@ object WorkflowNode  {
              yieldData: Int,
              viewId: Int,
              browseId: Int,
-             uuId: String) = WorkflowNode(workflowNodeId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = WorkflowNode(workflowNodeId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, workFlowId, isCentrallyMaintained, action, None, None, None, None, None,
     entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
     None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,

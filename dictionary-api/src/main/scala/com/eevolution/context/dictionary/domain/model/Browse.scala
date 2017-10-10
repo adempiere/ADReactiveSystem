@@ -46,7 +46,7 @@ import org.joda.time.DateTime
   * @param isExecutedQueryByDefault Is Executed Query By Default
   * @param windowId Window ID
   * @param isShowTotal Is Show Total
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Browse(browseId: Int,
@@ -73,7 +73,7 @@ case class Browse(browseId: Int,
                   isExecutedQueryByDefault: Boolean = false,
                   windowId: Option[Int],
                   isShowTotal: Boolean = false,
-                  uuId: Option[String]
+                  uuid: Option[String]
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -115,7 +115,7 @@ case class Browse(browseId: Int,
                isExecutedQueryByDefault: Boolean,
                windowId: Int,
                isShowTotal: Boolean,
-               uuId: String) = Browse(browseId,created, createdBy, isActive, updated,
+               uuid: String) = Browse(browseId,created, createdBy, isActive, updated,
       updatedBy, None, entityType, None , name, None, viewId, None, None,
       None, isBetaFunctionality, accessLevel, None, isDeleteAble, isCollapsibleByDefault,
       isSelectedByDefault, isExecutedQueryByDefault, None, isShowTotal, None)

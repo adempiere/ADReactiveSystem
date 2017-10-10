@@ -41,7 +41,7 @@ import org.joda.time.DateTime
   * @param whereClause Where Clause
   * @param timeOffSet Time Off Set
   * @param seriesColumn Series Column
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class ChartDataSource (chartDataSourceId: Int,
@@ -65,7 +65,7 @@ case class ChartDataSource (chartDataSourceId: Int,
                             whereClause: String,
                             timeOffSet: Option[Int],
                             seriesColumn: Option[String],
-                            uuId: Option[String]
+                            uuid: Option[String]
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -104,6 +104,6 @@ object ChartDataSource {
              whereClause: String,
              timeOffSet:Int,
              seriesColumn: String,
-             uuId: String) = ChartDataSource(chartDataSourceId, chartId, tenantId, organizationId, None, None, created, createdBy, None,
+             uuid: String) = ChartDataSource(chartDataSourceId, chartId, tenantId, organizationId, None, None, created, createdBy, None,
     None, entityType, fromClause, isActive, None, Name, updated, updatedBy, valueColumn, whereClause, None, None, None)
 }

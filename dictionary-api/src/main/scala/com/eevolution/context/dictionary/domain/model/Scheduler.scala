@@ -43,7 +43,7 @@ import org.joda.time.DateTime
   * @param cronPattern Cron Pattern
   * @param entityId Entity ID
   * @param recordId Record ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Scheduler (schedulerId: Int,
@@ -71,7 +71,7 @@ case class Scheduler (schedulerId: Int,
                       cronPattern: Option[String],
                       entityId: Option[Int],
                       recordId: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -115,7 +115,7 @@ object Scheduler {
              cronPattern: String,
              entityId: Int,
              recordId: Int,
-             uuId: String) = Scheduler(schedulerId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, name,
+             uuid: String) = Scheduler(schedulerId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, name,
     None, processId, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, scheduleType,
     None, isIgnoreProcessingTime, None, None, None, None)
 }

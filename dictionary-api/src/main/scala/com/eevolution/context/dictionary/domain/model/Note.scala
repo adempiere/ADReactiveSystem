@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param wfActivityId Wf Activity ID
   * @param textMsg Text Msg
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class Note(noteId: Int,
@@ -57,7 +57,7 @@ case class Note(noteId: Int,
                 description: Option[String],
                 wfActivityId: Option[Int],
                 textMsg: Option[String],
-                uuId: Option[String]
+                uuid: Option[String]
                ) extends DomainModel
 
   with ActiveEnabled
@@ -92,7 +92,7 @@ object Note {
              description: String,
              wfActivityId: Int,
              textMsg: String,
-             uuId: String) = Note(noteId, isActive, created, createdBy, updated, updatedBy, None, messageId,
+             uuid: String) = Note(noteId, isActive, created, createdBy, updated, updatedBy, None, messageId,
     None, None, None, processed, None, None, None, None, None)
 }
 

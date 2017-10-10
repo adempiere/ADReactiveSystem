@@ -51,7 +51,7 @@ import org.joda.time.DateTime
   * @param logoId Logo ID
   * @param logoReportId Logo Report ID
   * @param logoWebId Logo Web ID
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class TenantInfo(tenantId: Int,
@@ -82,7 +82,7 @@ case class TenantInfo(tenantId: Int,
                       logoId: Option[Int],
                       logoReportId: Option[Int],
                       logoWebId: Option[Int],
-                      uuId: Option[String]
+                      uuid: Option[String]
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -128,7 +128,7 @@ object TenantInfo  {
              logoId: Int,
              logoReportId: Int,
              logoWebId: Int,
-             uuId: String) = TenantInfo(tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = TenantInfo(tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     isDiscountLineAmt, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
     None, None, None, None, None, None)
 }

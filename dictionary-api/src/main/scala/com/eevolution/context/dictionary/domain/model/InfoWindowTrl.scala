@@ -22,7 +22,6 @@ import org.joda.time.DateTime
 
 /**
   * Info Window Trl Entity
-  * @param infoWindowTrlId Info Window Trl ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -33,11 +32,10 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param help Help
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
-case class InfoWindowTrl (infoWindowTrlId: Int,
-                          language: String,
+case class InfoWindowTrl (language: String,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now,
                           createdBy: Int,
@@ -47,7 +45,7 @@ case class InfoWindowTrl (infoWindowTrlId: Int,
                           name: String,
                           description: Option[String],
                           help: Option[String],
-                          uuId: Option[String]
+                          uuid: Option[String]
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -57,16 +55,15 @@ case class InfoWindowTrl (infoWindowTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = infoWindowTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_InfoWindowTrl"
-  override val identifier: String = "AD_InfoWindowTrl_ID"
+  override val entityName: String = "AD_InfoWindow_Trl"
+  override val identifier: String = null
 }
 
 object InfoWindowTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoWindowTrl]
-  def create(infoWindowTrlId: Int,
-             language: String,
+  def create(language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -76,7 +73,7 @@ object InfoWindowTrl  {
              name: String,
              description: String,
              help: String,
-             uuId: String) = InfoWindowTrl(infoWindowTrlId, language, isActive, created, createdBy, updated, updatedBy,
+             uuid: String) = InfoWindowTrl(language, isActive, created, createdBy, updated, updatedBy,
     isTranslated, name, None, None, None)
 }
 

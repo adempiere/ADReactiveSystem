@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param printName Print Name
   * @param isTranslated Is Translated
   * @param printNameSuffix Print Name Suffix
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 case class PrintFormatItemTrl (printFormatItemTrlId: Int,
                                language: String,
@@ -46,7 +46,7 @@ case class PrintFormatItemTrl (printFormatItemTrlId: Int,
                                printName: Option[String],
                                isTranslated : Boolean = false,
                                printNameSuffix: Option[String],
-                               uuId: Option[String]
+                               uuid: Option[String]
                               ) extends DomainModel
 
   with ActiveEnabled
@@ -76,6 +76,6 @@ object PrintFormatItemTrl {
              printName: String,
              isTranslated : Boolean,
              printNameSuffix: String,
-             uuId: String) = PrintFormatItemTrl(printFormatItemTrlId, language, tenantId, organizationId, isActive,
+             uuid: String) = PrintFormatItemTrl(printFormatItemTrlId, language, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, None, isTranslated, None, None)
 }

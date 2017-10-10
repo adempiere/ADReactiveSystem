@@ -22,7 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Browse Field Trl Entity
-  * @param browseFieldTrlId Browse Field Trl ID
+  * @param browseFieldId Browse Field ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -36,11 +36,13 @@ import org.joda.time.DateTime
   * @param uuid  UUID
   */
 
-case class BrowseFieldTrl(browseFieldTrlId: Int,
-                          created: DateTime =  DateTime.now(),
+case class BrowseFieldTrl(browseFieldId: Int,
+                          tenantId: Int,
+                          organizationId: Int,
+                          created: DateTime =  DateTime.now,
                           createdBy: Int,
                           isActive: Boolean = true,
-                          updated: DateTime =  DateTime.now(),
+                          updated: DateTime =  DateTime.now,
                           updatedBy: Int,
                           language: String,
                           description: Option[String],
@@ -57,15 +59,17 @@ case class BrowseFieldTrl(browseFieldTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = browseFieldTrlId
+  override def Id: Int = browseFieldId
 
-  override val entityName: String = "AD_BrowseFieldTrl"
-  override val identifier: String = "AD_BrowseFieldTrl_ID"
+  override val entityName: String = "AD_Browse_Field_Trl"
+  override val identifier: String = "AD_Browse_Field_ID"
 }
 
 object BrowseFieldTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[BrowseFieldTrl]
-  def create(browseFieldTrlId: Int,
+  def create(browseFieldId: Int,
+             tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -76,6 +80,6 @@ object BrowseFieldTrl  {
              help: String,
              isTranslated: Boolean,
              name: String,
-             uuid: String) = BrowseFieldTrl(browseFieldTrlId,created, createdBy, isActive, updated,
-    updatedBy, language, None, None, isTranslated, name, None)
+             uuid: String) = BrowseFieldTrl(browseFieldId, tenantId, organizationId, created, createdBy, isActive,
+    updated, updatedBy, language, None, None, isTranslated, name, None)
 }

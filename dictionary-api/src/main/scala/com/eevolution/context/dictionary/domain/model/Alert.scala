@@ -41,6 +41,8 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   */
 
 case class Alert(alertId: Int,
+                 tenantId: Int,
+                 organizationId: Int,
                  isActive: Boolean = true,
                  created: DateTime = DateTime.now,
                  createdBy: Int,
@@ -74,6 +76,8 @@ with Traceable {
   object Alert  {
     implicit lazy val jsonFormat = Jsonx.formatCaseClass[Alert]
     def create(alertId: Int,
+               tenantId: Int,
+               organizationId: Int,
                isActive: Boolean,
                created: DateTime,
                createdBy: Int,
@@ -88,7 +92,8 @@ with Traceable {
                enforceRoleSecurity: Boolean,
                alertProcessorId: Int,
                isValid: Boolean,
-               uuid: String) = Alert(alertId, isActive, created, createdBy, updated, updatedBy, name,
-      None, None, alertSubject, alertMessage, enforceClientSecurity, enforceRoleSecurity, alertProcessorId, isValid, None)
+               uuid: String) = Alert(alertId, tenantId, organizationId, isActive, created, createdBy, updated,
+      updatedBy, name, None, None, alertSubject, alertMessage, enforceClientSecurity, enforceRoleSecurity,
+      alertProcessorId, isValid, None)
   }
 

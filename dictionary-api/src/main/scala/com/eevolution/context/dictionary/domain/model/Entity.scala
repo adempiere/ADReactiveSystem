@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.model
 
+
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api._
 import com.eevolution.context.dictionary.domain.model.EntityType.Dictionary
@@ -51,12 +52,14 @@ import org.joda.time.DateTime
   * @param acTriggerLength
   * @param isDocument
   * @param isIgnoreMigration
+  * @param attributes
   */
+
 case class Entity(entityId: Int,
                   isActive: Boolean = true,
-                  created: DateTime = new DateTime,
+                  created: DateTime =  DateTime.now(),
                   createdBy: Int,
-                  updated: DateTime = new DateTime,
+                  updated: DateTime =  DateTime.now(),
                   updatedBy: Int,
                   name: String,
                   description: Option[String],

@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.model
 
+
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
@@ -21,9 +22,9 @@ import org.joda.time.DateTime
 case class EntityType(entityTypeId: Int,
                       entityType: String = EntityType.Dictionary,
                       isActive: Boolean = true,
-                      created: DateTime = new DateTime,
+                      created: DateTime =  DateTime.now,
                       createdBy: Int,
-                      updated: DateTime = new DateTime,
+                      updated: DateTime =  DateTime.now,
                       updatedBy: Int ,
                       name: String,
                       description: Option[String],
@@ -42,8 +43,8 @@ case class EntityType(entityTypeId: Int,
 
   override def Id: Int = entityTypeId
 
-  override val entityName: String = "AD_Table"
-  override val identifier: String = "AD_Table_ID"
+  override val entityName: String = "AD_EntityType"
+  override val identifier: String = "AD_EntityType_ID"
 }
 
 object EntityType {

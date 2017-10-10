@@ -35,6 +35,8 @@ import org.joda.time.DateTime
   */
 
 case class Error(errorId: Int,
+                 tenantId: Int,
+                 organizationId: Int,
                  isActive:Boolean=true,
                  created:DateTime = DateTime.now,
                  createdBy: Int,
@@ -62,6 +64,8 @@ case class Error(errorId: Int,
 object Error {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Error]
   def create(errorId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              createdBy: Int,
@@ -70,6 +74,6 @@ object Error {
              name: String,
              code: String,
              language: String,
-             uuid: String) = Error(errorId, isActive, created, createdBy, updated, updatedBy, name,
-  None, None, None)
+             uuid: String) = Error(errorId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, None)
 }

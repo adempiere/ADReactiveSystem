@@ -43,10 +43,12 @@ import org.joda.time.DateTime
   */
 
 case class AlertRule(alertRuleId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive: Boolean = true,
-                     created: DateTime = DateTime.now(),
+                     created: DateTime = DateTime.now,
                      createdBy: Int,
-                     updated: DateTime = DateTime.now(),
+                     updated: DateTime = DateTime.now,
                      updatedBy: Int,
                      name: String,
                      alertId: Int,
@@ -78,6 +80,8 @@ case class AlertRule(alertRuleId: Int,
 object AlertRule  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AlertRule]
   def create(alertRuleId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -94,8 +98,8 @@ object AlertRule  {
              isValid: Boolean,
              errorMsg:String,
              otherClause: String,
-             uuid: String) = AlertRule(alertId, isActive, created, createdBy, updated, updatedBy, name,
-    alertId, selectClause, fromClause, None, None, None, None, isValid, None, None, None)
+             uuid: String) = AlertRule(alertId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, alertId, selectClause, fromClause, None, None, None, None, isValid, None, None, None)
 }
 
 

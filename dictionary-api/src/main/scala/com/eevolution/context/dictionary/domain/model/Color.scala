@@ -49,10 +49,12 @@ import org.joda.time.DateTime
   */
 
 case class Color(colorId: Int,
+                 tenantId: Int,
+                 organizationId: Int,
                  isActive: Boolean = true,
-                 created: DateTime =  DateTime.now(),
+                 created: DateTime =  DateTime.now,
                  createdBy: Int,
-                 updated: DateTime =  DateTime.now(),
+                 updated: DateTime =  DateTime.now,
                  updatedBy: Int,
                  name: String,
                  isDefault: Boolean=false,
@@ -91,6 +93,8 @@ case class Color(colorId: Int,
 object Color {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Color]
   def create(colorId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -113,7 +117,7 @@ object Color {
              lineDistance: Int,
              startPoint: Int,
              repeatDistance: Int,
-             uuid: String) = Color(colorId, isActive, created, createdBy, updated,
+             uuid: String) = Color(colorId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, colorType, red, green, blue, alpha, None, imageAlpha, None,
     None, None, None, None, None, None, None, None)
 }

@@ -22,7 +22,6 @@ import org.joda.time.DateTime
 
 /**
   * Browse Trl Entity
-  * @param browseTrlId Browse Trl ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -36,12 +35,14 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class BrowseTrl(browseTrlId: Int,
-                     created: DateTime =  DateTime.now(),
+case class BrowseTrl(tenantId: Int,
+                     organizationId: Int,
+                     created: DateTime =  DateTime.now,
                      createdBy: Int,
                      isActive: Boolean = true,
-                     updated: DateTime =  DateTime.now(),
+                     updated: DateTime =  DateTime.now,
                      updatedBy: Int,
+                     browseId: Int,
                      language: String,
                      description: Option[String],
                      help: Option[String],
@@ -57,26 +58,28 @@ case class BrowseTrl(browseTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = browseTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_BrowseTrl"
-  override val identifier: String = "AD_BrowseTrl_ID"
+  override val entityName: String = "AD_Browse_Trl"
+  override val identifier: String = null
 }
 
 object BrowseTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[BrowseTrl]
-  def create(browseTrlId: Int,
+  def create(tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
+             browseId: Int,
              language: String,
              description: String,
              help: String,
              isTranslated: Boolean,
              name: String,
-             uuid: String) = BrowseTrl(browseTrlId,created, createdBy, isActive, updated,
-    updatedBy, language, None, None, isTranslated, name, None)
+             uuid: String) = BrowseTrl(tenantId, organizationId, created, createdBy, isActive, updated,
+    updatedBy, browseId, language, None, None, isTranslated, name, None)
 }
 

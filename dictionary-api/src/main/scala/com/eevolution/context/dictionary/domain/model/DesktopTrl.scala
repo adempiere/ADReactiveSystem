@@ -22,7 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Desktop Trl Entity
-  * @param desktopTrlId Desktop Trl ID
+  * @param desktopId Desktop ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -36,8 +36,10 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class DesktopTrl(desktopTrlId: Int,
+case class DesktopTrl(desktopId: Int,
                       language: Int,
+                      tenantId: Int,
+                      organizationId: Int,
                       isActive:Boolean=true,
                       created:DateTime = DateTime.now,
                       createdBy: Int,
@@ -57,16 +59,18 @@ case class DesktopTrl(desktopTrlId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = desktopTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_DesktopTrl"
-  override val identifier: String = "AD_DesktopTrl_ID"
+  override val entityName: String = "AD_Desktop_Trl"
+  override val identifier: String = null
 }
 
 object DesktopTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[DesktopTrl]
-  def create(desktopTrlId: Int,
+  def create(desktopId: Int,
              language: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              createdBy: Int,
@@ -76,6 +80,6 @@ object DesktopTrl {
              description:String,
              help: String,
              isTranslated: Boolean,
-             uuid:String) = DesktopTrl(desktopTrlId, language, isActive,created, createdBy, updated,
-    updatedBy, name, None, None, isTranslated, None)
+             uuid:String) = DesktopTrl(desktopId, language, tenantId, organizationId, isActive,created, createdBy,
+    updated, updatedBy, name, None, None, isTranslated, None)
 }

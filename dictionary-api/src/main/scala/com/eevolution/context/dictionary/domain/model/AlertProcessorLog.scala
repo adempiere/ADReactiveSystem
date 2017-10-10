@@ -40,6 +40,8 @@ import org.joda.time.DateTime
 
 case class AlertProcessorLog(alertProcessorLogId: Int,
                              alertProcessorId: Int,
+                             tenantId: Int,
+                             organizationId: Int,
                              isActive: Boolean = true,
                              created: DateTime = DateTime.now(),
                              createdBy: Int,
@@ -71,6 +73,8 @@ object AlertProcessorLog  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AlertProcessorLog]
   def create(alertProcessorLogId: Int,
              alertProcessorId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -82,8 +86,8 @@ object AlertProcessorLog  {
              description: String,
              textMsg:String,
              binaryData: String,
-             uuid: String) = AlertProcessorLog(alertProcessorLogId, alertProcessorId,  isActive, created, createdBy, updated,
-    updatedBy, isError, None, None, None, None, None, None)
+             uuid: String) = AlertProcessorLog(alertProcessorLogId, alertProcessorId, tenantId, organizationId,
+    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
 }
 
 

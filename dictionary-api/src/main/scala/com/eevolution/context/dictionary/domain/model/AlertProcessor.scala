@@ -41,10 +41,12 @@ import org.joda.time.DateTime
   */
 
 case class AlertProcessor(alertProcessorId: Int,
+                          tenantId: Int,
+                          organizationId: Int,
                           isActive: Boolean = true,
-                          created: DateTime = DateTime.now(),
+                          created: DateTime = DateTime.now,
                           createdBy: Int,
-                          updated: DateTime = DateTime.now(),
+                          updated: DateTime = DateTime.now,
                           updatedBy: Int,
                           name: String,
                           description: Option[String],
@@ -74,6 +76,8 @@ case class AlertProcessor(alertProcessorId: Int,
 object AlertProcessor  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AlertProcessor]
   def create(alertProcessorId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -88,6 +92,7 @@ object AlertProcessor  {
              supervisorId: Int,
              keepLogDays: Int,
              processing: Boolean,
-             uuid: String) = AlertProcessor(alertProcessorId, isActive, created, createdBy, updated, updatedBy, name,
-    None, frequencyType, frequency, dateLastRun, dateNextRun,supervisorId, keepLogDays, None, None)
+             uuid: String) = AlertProcessor(alertProcessorId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, frequencyType, frequency, dateLastRun, dateNextRun,
+    supervisorId, keepLogDays, None, None)
 }

@@ -70,6 +70,8 @@ import org.joda.time.DateTime
   */
 
 case class Attribute(attributeId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive : Boolean = true,
                      created : DateTime= DateTime.now,
                      createdBy : Int ,
@@ -129,6 +131,8 @@ case class Attribute(attributeId: Int,
 object Attribute {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Attribute]
   def create(attributeId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive : Boolean ,
              created : DateTime ,
              createdBy : Int ,
@@ -171,10 +175,11 @@ object Attribute {
              isAllowLogging : Boolean = true,
              formatPattern : String ,
              chartId : Int,
-             isRange : Boolean) = Attribute(attributeId,isActive,created,createdBy,updated, updatedBy , name , None , None ,
-    version, entityType , columnName , elementId , referenceId, None , None , fieldLength , None , isKey ,
-    isParent , isMandatory , isUpdateAble , None , isIdentifier , None , isTranslated , isEncrypted , None , None ,
-    None , None , isSelectionColumn , elementId , processId , isSyncDatabase , isAlwaysUpdateAble , None , None ,
-    None, isAutoComplete , isAllowLogging , None , None , isRange)
+             isRange : Boolean) = Attribute(attributeId, tenantId, organizationId, isActive,created,createdBy,updated,
+    updatedBy , name , None , None , version, entityType , columnName , elementId , referenceId, None , None ,
+    fieldLength , None , isKey , isParent , isMandatory , isUpdateAble , None , isIdentifier , None ,
+    isTranslated , isEncrypted , None , None , None , None , isSelectionColumn , elementId ,
+    processId , isSyncDatabase , isAlwaysUpdateAble , None , None , None, isAutoComplete ,
+    isAllowLogging , None , None , isRange)
 }
 

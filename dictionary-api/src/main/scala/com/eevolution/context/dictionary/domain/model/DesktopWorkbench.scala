@@ -35,6 +35,8 @@ import org.joda.time.DateTime
   */
 
 case class DesktopWorkbench(desktopWorkbenchId: Int,
+                            tenantId: Int,
+                            organizationId: Int,
                             isActive:Boolean=true,
                             created:DateTime = DateTime.now,
                             createdBy: Int,
@@ -62,6 +64,8 @@ case class DesktopWorkbench(desktopWorkbenchId: Int,
 object DesktopWorkbench {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[DesktopWorkbench]
   def create(desktopWorkbenchId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              createdBy: Int,
@@ -70,6 +74,6 @@ object DesktopWorkbench {
              workbenchId: Int,
              desktopId: Int,
              seqNo: Int,
-             uuid: String) = DesktopWorkbench(desktopWorkbenchId, isActive,created, createdBy, updated,
-    updatedBy, workbenchId, desktopId, seqNo, None)
+             uuid: String) = DesktopWorkbench(desktopWorkbenchId, tenantId, organizationId, isActive,created,
+    createdBy, updated, updatedBy, workbenchId, desktopId, seqNo, None)
 }

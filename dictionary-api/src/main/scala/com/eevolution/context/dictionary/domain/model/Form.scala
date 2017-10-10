@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,41 +18,85 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 10/10/17.
   */
 
 /**
   * Form Entity
-  * @param formId
-  * @param attributeId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param help
-  * @param accessLevel
-  * @param className
-  * @param entityType
-  * @param isBetaFunctionality
-  * @param jspUrl
+  * @param formId Form ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param accessLevel Access Level
+  * @param className Class Name
+  * @param entityType Entity Type
+  * @param isBetaFunctionality Is Beta Functionality
+  * @param jspUrl JSP URL
+  * @param uuid UUID
   */
-case class Form (formId: Int,
-                  attributeId : Int ,
-                  isActive : Boolean = true,
-                  created : DateTime = DateTime.now(),
-                  createdBy : Int ,
-                  updated :Int ,
-                  updatedBy : DateTime = DateTime.now(),
-                  name : String,
-                  description: Option[String],
-                  help: Option[String],
-                  accessLevel : String,
-                  className : Option[String] ,
-                  entityType: String = EntityType.Dictionary,
-                  isBetaFunctionality : Boolean = false ,
-                  jspUrl : Option[String]) {
 
-  def Identity = "AD_Form_ID"
+case class Form (formId: Int,
+                 tenantId: Int,
+                 organizationId: Int,
+                 isActive : Boolean = true,
+                 created : DateTime = DateTime.now,
+                 createdBy : Int ,
+                 updated :Int ,
+                 updatedBy : DateTime = DateTime.now,
+                 name : String,
+                 description: Option[String],
+                 help: Option[String],
+                 accessLevel : String,
+                 className : Option[String] ,
+                 entityType: String = EntityType.Dictionary,
+                 isBetaFunctionality : Boolean = false ,
+                 jspUrl : Option[String],
+                 uuid: Option[String]
+                 ) extends DomainModel
+
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
+  override def Id: Int = formId
+
+  override val entityName: String = "AD_Form"
+  override val identifier: String = "AD_Form_ID"
 }
+
+object Form  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Form]
+  def create(formId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive : Boolean ,
+             created : DateTime ,
+             createdBy : Int ,
+             updated :Int ,
+             updatedBy : DateTime,
+             name : String,
+             description: String,
+             help: String,
+             accessLevel : String,
+             className : String ,
+             entityType: String,
+             isBetaFunctionality : Boolean ,
+             jspUrl : String,
+             uuid: String) = Form(formId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    name, None, None, accessLevel, None, entityType, isBetaFunctionality, None, None)
+}
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 package com.eevolution.context.dictionary.domain.model
 
-
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
@@ -22,8 +21,9 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Image Entity
-  * @param imageId Image ID
+  * Form TRL entity
+  * @param formId Form ID
+  * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -32,28 +32,27 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param imageUrl Image URL
-  * @param binaryData Binary Data
-  * @param entityType Entity Type
   * @param description Description
+  * @param help Help
+  * @param isTranslated Is Translated
   * @param uuid UUID
   */
 
-case class Image (imageId: Int,
-                  tenantId : Int ,
-                  organizationId : Int,
-                  isActive: Boolean = true,
-                  created: DateTime =  DateTime.now,
-                  createdBy: Int,
-                  updated: DateTime =  DateTime.now,
-                  updatedBy: Int,
-                  name: String,
-                  imageUrl: Option[String],
-                  binaryData: String,
-                  entityType: String,
-                  description: Option[String],
-                  uuid: Option[String]
-                  )extends DomainModel
+case class FormTrl(formId: Int,
+                   language: String,
+                   tenantId : Int ,
+                   organizationId : Int,
+                   isActive: Boolean = true,
+                   created: DateTime = DateTime.now,
+                   createdBy: Int,
+                   updated: DateTime = DateTime.now,
+                   updatedBy: Int,
+                   name: String,
+                   description: Option[String],
+                   help: Option[String],
+                   isTranslated: Boolean = false,
+                   uuid: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -62,15 +61,16 @@ case class Image (imageId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = imageId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_Browse"
-  override val identifier: String = "AD_Browse_ID"
+  override val entityName: String = "AD_Form_Trl"
+  override val identifier: String = null
 }
 
-object Image {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Image]
-  def create(imageId: Int,
+object FormTrl {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[FormTrl]
+  def create(formId: Int,
+             language: String,
              tenantId : Int ,
              organizationId : Int,
              isActive: Boolean,
@@ -79,10 +79,9 @@ object Image {
              updated: DateTime,
              updatedBy: Int,
              name: String,
-             imageUrl: String,
-             binaryData: String,
-             entityType: String,
              description: String,
-             uuid: String) = Image(imageId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, binaryData, entityType, None, None)
+             help: String,
+             isTranslated: Boolean,
+             uuid: String) = FormTrl(formId, language, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, None, isTranslated, None)
 }

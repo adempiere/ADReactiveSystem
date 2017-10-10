@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Info Column Entity
   * @param infoColumnId Info Column ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -43,6 +45,8 @@ import org.joda.time.DateTime
   */
 
 case class InformationColumn(infoColumnId: Int,
+                             tenantId : Int ,
+                             organizationId : Int,
                              isActive: Boolean = true,
                              created: DateTime = DateTime.now,
                              createdBy: Int,
@@ -78,6 +82,8 @@ case class InformationColumn(infoColumnId: Int,
 object InformationColumn  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[InformationColumn]
   def create(infoColumnId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -94,8 +100,8 @@ object InformationColumn  {
              isQueryCriteria: Boolean,
              elementId: Int,
              referenceId: Int,
-             uuid: String) = InformationColumn(infoColumnId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, infoWindowId, entityType, selectClause, seqNo,
+             uuid: String) = InformationColumn(infoColumnId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, infoWindowId, entityType, selectClause, seqNo,
     isDisplayed, isQueryCriteria, None, referenceId, None)
 }
 

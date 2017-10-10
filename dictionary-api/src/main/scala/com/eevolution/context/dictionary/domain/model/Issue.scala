@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Issue Entity
   * @param issueId Issue ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -73,6 +75,8 @@ import org.joda.time.DateTime
   */
 
 case class Issue(issueId: Int,
+                 tenantId : Int ,
+                 organizationId : Int,
                  isActive: Boolean,
                  created: DateTime = DateTime.now,
                  createdBy: Int,
@@ -138,6 +142,8 @@ case class Issue(issueId: Int,
 object Issue  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Issue]
   def create(issueId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -184,9 +190,9 @@ object Issue  {
              windowId: Int,
              processId: Int,
              formId: Int,
-             uuid: String) = Issue(issueId, isActive, created, createdBy, updated, updatedBy, releaseNo,
-    version, name, username, None, None, None, None, None, None, None, None, None, issueSummary, None, None, None,
-    None, lineNo, None, None, None, None, None, None, None, None, processed, isVanillaSystem, isReproducible,
+             uuid: String) = Issue(issueId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    releaseNo, version, name, username, None, None, None, None, None, None, None, None, None, issueSummary, None, None,
+    None, None, lineNo, None, None, None, None, None, None, None, None, processed, isVanillaSystem, isReproducible,
     None, None, None, systemStatus, None, None, None, None, None, None, None, None)
 }
 

@@ -22,9 +22,11 @@ import org.joda.time.DateTime
 
 /**
   * Migration Data Entity
+  * @param tenantId Tenant ID
+  * @param attributeId Attribute ID
   * @param migrationDataId Migration Data ID
-  * @param columnId Column ID
   * @param migrationStep Migration Step
+  * @param organizationId Organization ID
   * @param backupValue Backup Value
   * @param created Created
   * @param createdBy Created By
@@ -39,9 +41,11 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class MigrationData (migrationDataId: Int,
-                          columnId: Int,
+case class MigrationData (tenantId : Int ,
+                          attributeId: Int,
+                          migrationDataId: Int,
                           migrationStep: Int,
+                          organizationId : Int,
                           backupValue: Option[String],
                           created: DateTime =  DateTime.now,
                           createdBy: Int,
@@ -71,9 +75,11 @@ case class MigrationData (migrationDataId: Int,
 
 object MigrationData  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[MigrationData]
-  def create(migrationDataId: Int,
-             columnId: Int,
+  def create(tenantId: Int,
+             attributeId: Int,
+             migrationDataId: Int,
              migrationStep: Int,
+             organizationId: Int,
              backupValue: String,
              created: DateTime,
              createdBy: Int,
@@ -85,7 +91,7 @@ object MigrationData  {
              oldValue: String,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = MigrationData(migrationDataId, columnId, migrationStep, None, created,
-    createdBy, isActive, None, None, None, None, None, updated, updatedBy, None)
+             uuid: String) = MigrationData(tenantId, attributeId, migrationDataId, migrationStep, organizationId,
+    None, created, createdBy, isActive, None, None, None, None, None, updated, updatedBy, None)
 }
 

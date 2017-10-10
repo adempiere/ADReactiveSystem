@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Memo Entity
   * @param memoId Memo ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param tableId Table ID
   * @param created Created
   * @param createdBy Created By
@@ -42,6 +44,8 @@ import org.joda.time.DateTime
   */
 
 case class Memo(memoId: Int,
+                tenantId : Int ,
+                organizationId : Int,
                 tableId: Int,
                 created: DateTime = DateTime.now,
                 createdBy: Int,
@@ -76,6 +80,8 @@ case class Memo(memoId: Int,
 object Memo {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Memo]
   def create(memoId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              tableId: Int,
              created: DateTime,
              createdBy: Int,
@@ -91,6 +97,6 @@ object Memo {
              projectId: Int,
              productId: Int,
              isAlert: Boolean,
-             uuid: String) = Memo(memoId, tableId, created, createdBy, isActive, recordId, updated, updatedBy,
-    None, None, None, None, None, None, None, None, None)
+             uuid: String) = Memo(memoId, tenantId, organizationId, tableId, created, createdBy, isActive, recordId,
+    updated, updatedBy,None, None, None, None, None, None, None, None, None)
 }

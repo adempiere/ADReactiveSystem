@@ -22,8 +22,10 @@ import org.joda.time.DateTime
 
 /**
   * Info Column Trl Entity
-  * @param infoColumnTrlId Info Column Trl ID
+  * @param infoColumnId Info Column ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -36,17 +38,20 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class InfoColumnTrl(language: String,
-                    isActive: Boolean = true,
-                    created: DateTime = DateTime.now,
-                    createdBy: Int,
-                    updated: DateTime = DateTime.now,
-                    updatedBy: Int,
-                    isTranslated: Boolean = false,
-                    name: String,
-                    description: Option[String],
-                    help: Option[String],
-                    uuid: Option[String]
+case class InfoColumnTrl(infoColumnId: Int,
+                         language: String,
+                         tenantId : Int ,
+                         organizationId : Int,
+                         isActive: Boolean = true,
+                         created: DateTime = DateTime.now,
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now,
+                         updatedBy: Int,
+                         isTranslated: Boolean = false,
+                         name: String,
+                         description: Option[String],
+                         help: Option[String],
+                         uuid: Option[String]
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -64,7 +69,10 @@ case class InfoColumnTrl(language: String,
 
 object InfoColumnTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[InfoColumnTrl]
-  def create(language: String,
+  def create(infoColumnId: Int,
+             tenantId : Int ,
+             organizationId : Int,
+             language: String,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -74,6 +82,6 @@ object InfoColumnTrl  {
              name: String,
              description: String,
              help: String,
-             uuid: String) = InfoColumnTrl(language, isActive, created, createdBy,
-    updated, updatedBy, isTranslated, name, None, None, None)
+             uuid: String) = InfoColumnTrl(infoColumnId,language, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, isTranslated, name, None, None, None)
 }

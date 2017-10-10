@@ -24,6 +24,8 @@ import org.joda.time.DateTime
 /**
   * Language Entity
   * @param languageId Language ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -43,6 +45,8 @@ import org.joda.time.DateTime
   */
 
 case class Language(languageId: Int,
+                    tenantId : Int ,
+                    organizationId : Int,
                     isActive: Boolean = true,
                     created: DateTime =  DateTime.now,
                     createdBy: Int,
@@ -77,6 +81,8 @@ case class Language(languageId: Int,
 object Language {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Language]
   def create(languageId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -92,7 +98,7 @@ object Language {
              isDecimalPoint: Boolean,
              datePattern: String,
              timePattern: String,
-             uuid: String) = Language(languageId,isActive, created, createdBy, updated,
+             uuid: String) = Language(languageId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, isBaseLanguage, isSystemLanguage, None, language, isDecimalPoint, None, None, None)
 }
 

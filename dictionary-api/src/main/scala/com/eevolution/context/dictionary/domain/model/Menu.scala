@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Menu Entity
   * @param menuId Menu ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -47,28 +49,30 @@ import org.joda.time.DateTime
   */
 
 case class Menu(menuId: Int,
-           isActive: Boolean = true,
-           created: DateTime =  DateTime.now,
-           createdBy: Int,
-           updated: DateTime =  DateTime.now,
-           name: String,
-           updatedBy: Int,
-           description: Option[String],
-           isSummary: Boolean = false,
-           isSoTrx: Boolean = true,
-           isReadOnly: Boolean = false,
-           action: Option[Boolean],
-           windowId: Option[Int],
-           workFlowId: Option[Int],
-           taskId: Option[Int],
-           processId: Option[Int],
-           formId: Option[Int],
-           workbenchId: Option[Int],
-           entityType: String = "D",
-           isCentrallyMaintained: Boolean = true,
-           browseId: Option[Int],
-           uuid: Option[String]
-          ) extends DomainModel
+                tenantId : Int ,
+                organizationId : Int,
+                isActive: Boolean = true,
+                created: DateTime =  DateTime.now,
+                createdBy: Int,
+                updated: DateTime =  DateTime.now,
+                name: String,
+                updatedBy: Int,
+                description: Option[String],
+                isSummary: Boolean = false,
+                isSoTrx: Boolean = true,
+                isReadOnly: Boolean = false,
+                action: Option[Boolean],
+                windowId: Option[Int],
+                workFlowId: Option[Int],
+                taskId: Option[Int],
+                processId: Option[Int],
+                formId: Option[Int],
+                workbenchId: Option[Int],
+                entityType: String = "D",
+                isCentrallyMaintained: Boolean = true,
+                browseId: Option[Int],
+                uuid: Option[String]
+               ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -86,6 +90,8 @@ case class Menu(menuId: Int,
 object Menu {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Menu]
   def create(menuId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -106,7 +112,7 @@ object Menu {
              entityType: String,
              isCentrallyMaintained: Boolean,
              browseId: Int,
-             uuid: String) = Menu (menuId,isActive, created, createdBy, updated,
-    name, updatedBy,None, isSummary, isSoTrx, isReadOnly,
-    None, None, None, None, None, None, None, entityType, isCentrallyMaintained, None, None)
+             uuid: String) = Menu (menuId, tenantId, organizationId, isActive, created, createdBy, updated,
+    name, updatedBy,None, isSummary, isSoTrx, isReadOnly, None, None, None, None, None, None,
+    None, entityType, isCentrallyMaintained, None, None)
 }

@@ -24,6 +24,8 @@ import org.joda.time.DateTime
   * Ldap Processor Log Entity
   * @param ldapProcessorLogId Ldap Processor Log ID
   * @param ldapProcessorId Ldap Processor ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -39,19 +41,21 @@ import org.joda.time.DateTime
   */
 
 case class LdapProcessorLog(ldapProcessorLogId: Int,
-                       ldapProcessorId: Int,
-                       isActive: Boolean = true,
-                       created: DateTime = DateTime.now,
-                       createdBy: Int,
-                       updated: DateTime = DateTime.now,
-                       updatedBy: Int,
-                       summary: Option[String],
-                       isError: Boolean = false,
-                       reference: Option[String],
-                       description: Option[String],
-                       textMsg: Option[String],
-                       binaryData: String,
-                       uuid: Option[String]
+                            ldapProcessorId: Int,
+                            tenantId : Int ,
+                            organizationId : Int,
+                            isActive: Boolean = true,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            summary: Option[String],
+                            isError: Boolean = false,
+                            reference: Option[String],
+                            description: Option[String],
+                            textMsg: Option[String],
+                            binaryData: String,
+                            uuid: Option[String]
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -71,6 +75,8 @@ object LdapProcessorLog  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[LdapProcessorLog]
   def create(ldapProcessorLogId: Int,
              ldapProcessorId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -82,7 +88,7 @@ object LdapProcessorLog  {
              description: String,
              textMsg: String,
              binaryData: String,
-             uuid: String) = LdapProcessorLog(ldapProcessorLogId, ldapProcessorId, isActive, created,
-    createdBy, updated, updatedBy, None, isError, None, None, None, binaryData, None)
+             uuid: String) = LdapProcessorLog(ldapProcessorLogId, ldapProcessorId, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, None, isError, None, None, None, binaryData, None)
 }
 

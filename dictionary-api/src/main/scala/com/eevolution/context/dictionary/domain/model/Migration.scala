@@ -24,6 +24,8 @@ import org.joda.time.DateTime
 /**
   * Migration Entity
   * @param migrationId Migration ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param apply Apply
   * @param comments Comments
   * @param created Created
@@ -43,6 +45,8 @@ import org.joda.time.DateTime
   */
 
 case class Migration(migrationId: Int,
+                     tenantId : Int ,
+                     organizationId : Int,
                      apply: Option[Boolean],
                      comments: Option[String],
                      created: DateTime =  DateTime.now,
@@ -77,6 +81,8 @@ case class Migration(migrationId: Int,
 object Migration  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Migration]
   def create(migrationId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              apply: Boolean,
              comments: String,
              created: DateTime,
@@ -92,6 +98,6 @@ object Migration  {
              updatedBy: Int,
              processing: Boolean,
              processed: Boolean,
-             uuid: String) = Migration(migrationId,None, None, created, createdBy, entityType, None,
-    isActive, name, None, seqNo, None, updated, updatedBy, None, processed, None)
+             uuid: String) = Migration(migrationId, tenantId, organizationId, None, None, created, createdBy,
+    entityType, None, isActive, name, None, seqNo, None, updated, updatedBy, None, processed, None)
 }

@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,47 +18,56 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 11/10/2017.
   */
 
 /**
   * Process Entity
-  * @param processId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param value
-  * @param name
-  * @param description
-  * @param help
-  * @param accessLevel
-  * @param entityType
-  * @param procedureName
-  * @param isReport
-  * @param isDirectPrint
-  * @param reportViewId
-  * @param className
-  * @param statisticCount
-  * @param statisticSeconds
-  * @param printFormatId
-  * @param workflowValue
-  * @param workflowId
-  * @param isBetaFunctionality
-  * @param isServerProcess
-  * @param isShowHelp
-  * @param jasperReport
-  * @param formId
-  * @param copyFromProcess
-  * @param browseId
-  * @param generateClass
+  * @param processId Process ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value Value
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param accessLevel Access Level
+  * @param entityType Entity Type
+  * @param procedureName Procedure Name
+  * @param isReport Is Report
+  * @param isDirectPrint Is Direct Print
+  * @param reportViewId Report View ID
+  * @param className Class Name
+  * @param statisticCount Statistic Count
+  * @param statisticSeconds Statistic Seconds
+  * @param printFormatId Print Format ID
+  * @param workflowValue Workflow Value
+  * @param workflowId Workflow ID
+  * @param isBetaFunctionality Is Beta Functionality
+  * @param isServerProcess Is Server Process
+  * @param isShowHelp Is Show Help
+  * @param jasperReport Jasper Report
+  * @param formId Form ID
+  * @param copyFromProcess Copy From Process
+  * @param browseId Browse ID
+  * @param generateClass Generate Class
+  * @param uuid UUID
   */
+
+
+
 case class Process(processId: Int,
+                   tenantId: Int,
+                   organizationId: Int,
                    isActive : Boolean = true,
-                   created : DateTime = DateTime.now(),
+                   created : DateTime = DateTime.now,
                    createdBy : Int ,
                    updated :Int ,
-                   updatedBy : DateTime = DateTime.now(),
+                   updatedBy : DateTime = DateTime.now,
                    value : String ,
                    name : String,
                    description: Option[String],
@@ -80,8 +91,59 @@ case class Process(processId: Int,
                    formId : Option[Int],
                    copyFromProcess : Option[String],
                    browseId : Option[Int] ,
-                   generateClass : Option[String]) {
+                   generateClass : Option[String],
+                   uuid: Option[String]
+                  ) extends DomainModel
 
-  def Identity = "AD_Process_ID"
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
 
+  override def Id: Int = processId
+
+  override val entityName: String = "AD_Process"
+  override val identifier: String = "AD_Process_ID"
+}
+
+object Process {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Process]
+  def create(processId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated :Int ,
+             updatedBy : DateTime,
+             value : String ,
+             name : String,
+             description: String,
+             help: String,
+             accessLevel : String,
+             entityType: String,
+             procedureName : String ,
+             isReport : Boolean,
+             isDirectPrint : Boolean,
+             reportViewId : Int,
+             className  : String,
+             statisticCount : BigDecimal,
+             statisticSeconds : BigDecimal,
+             printFormatId : Int,
+             workflowValue : String,
+             workflowId : Int,
+             isBetaFunctionality : Boolean,
+             isServerProcess : Boolean,
+             isShowHelp : Boolean,
+             jasperReport : String,
+             formId : Int,
+             copyFromProcess : String,
+             browseId : Int ,
+             generateClass : String,
+             uuid: String) = Process(processId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, value, name, None, None, accessLevel, entityType, procedureName, isReport, isDirectPrint,
+    None, None, None, None, None, None, None, isBetaFunctionality, isServerProcess, isShowHelp, None, None, None,
+    None, None, None)
 }

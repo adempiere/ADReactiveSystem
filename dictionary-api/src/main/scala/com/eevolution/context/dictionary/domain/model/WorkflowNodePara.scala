@@ -61,8 +61,8 @@ case class WorkflowNodePara(workflowNodeParaId: Int,
 
   override def Id: Int = workflowNodeParaId
 
-  override val entityName: String = "AD_WfNodePara"
-  override val identifier: String = "AD_WfNodePara_ID"
+  override val entityName: String = "AD_Wf_Node_Para"
+  override val identifier: String = "AD_Wf_Node_Para_ID"
 }
 
 

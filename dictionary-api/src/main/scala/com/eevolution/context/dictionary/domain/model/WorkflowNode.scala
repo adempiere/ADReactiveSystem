@@ -151,8 +151,8 @@ case class WorkflowNode(workflowNodeId: Int,
 
   override def Id: Int = workflowNodeId
 
-  override val entityName: String = "AD_WfNode"
-  override val identifier: String = "AD_WfNode_ID"
+  override val entityName: String = "AD_Wf_Node"
+  override val identifier: String = "AD_Wf_Node_ID"
 }
 
 object WorkflowNode  {

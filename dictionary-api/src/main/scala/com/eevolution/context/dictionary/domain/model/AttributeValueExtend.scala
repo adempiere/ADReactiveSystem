@@ -51,8 +51,8 @@ case class AttributeValueExtend(attributeValueExtendId: Int,
 
   override def Id: Int = attributeValueExtendId
 
-  override val entityName: String = "AD_AttributeValue"
-  override val identifier: String = "AD_AttributeValue_ID"
+  override val entityName: String = "AD_Attribute_Value"
+  override val identifier: String = "AD_Attribute_Value_ID"
 
 }
 

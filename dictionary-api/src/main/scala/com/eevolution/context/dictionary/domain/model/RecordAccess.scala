@@ -59,8 +59,8 @@ case class RecordAccess(recordAccessId: Int,
 
   override def Id: Int = recordAccessId
 
-  override val entityName: String = "AD_RecordAccess"
-  override val identifier: String = "AD_RecordAccess_ID"
+  override val entityName: String = "AD_Record_Access"
+  override val identifier: String = "AD_Record_Access_ID"
 }
 
 object RecordAccess  {

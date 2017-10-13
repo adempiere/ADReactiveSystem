@@ -65,8 +65,8 @@ case class WorkflowNextCondition(workflowNextConditionId: Int,
 
   override def Id: Int = workflowNextConditionId
 
-  override val entityName: String = "AD_WfNextCondition"
-  override val identifier: String = "AD_WfNextCondition_ID"
+  override val entityName: String = "AD_Wf_NextCondition"
+  override val identifier: String = "AD_Wf_NextCondition_ID"
 }
 
 object WorkflowNextCondition  {

@@ -63,8 +63,8 @@ case class TreeFavoriteNode(treeFavoriteNodeId: Int,
 
   override def Id: Int = treeFavoriteNodeId
 
-  override val entityName: String = "AD_TreeFavoriteNode"
-  override val identifier: String = "AD_TreeFavoriteNode_ID"
+  override val entityName: String = "AD_Tree_Favorite_Node"
+  override val identifier: String = "AD_Tree_Favorite_Node_ID"
 }
 
 object TreeFavoriteNode  {

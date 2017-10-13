@@ -71,8 +71,8 @@ case class WorkflowProcess(workflowProcessId: Int,
 
   override def Id: Int = workflowProcessId
 
-  override val entityName: String = "AD_WfProcess"
-  override val identifier: String = "AD_WfProcess_ID"
+  override val entityName: String = "AD_Wf_Process"
+  override val identifier: String = "AD_WfP_rocess_ID"
 }
 
 

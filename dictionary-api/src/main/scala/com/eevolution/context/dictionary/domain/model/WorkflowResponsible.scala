@@ -61,8 +61,8 @@ case class WorkflowResponsible(workflowResponsibleId: Int,
 
   override def Id: Int = workflowResponsibleId
 
-  override val entityName: String = "AD_WfResponsible"
-  override val identifier: String = "AD_WfResponsible_ID"
+  override val entityName: String = "AD_Wf_Responsible"
+  override val identifier: String = "AD_Wf_Responsible_ID"
 }
 
 object WorkflowResponsible {

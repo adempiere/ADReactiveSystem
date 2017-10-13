@@ -77,8 +77,8 @@ case class WorkflowEventAudit(workflowEventAuditId: Int,
 
   override def Id: Int = workflowEventAuditId
 
-  override val entityName: String = "AD_WfEventAudit"
-  override val identifier: String = "AD_WfEventAudit_ID"
+  override val entityName: String = "AD_Wf_EventAudit"
+  override val identifier: String = "AD_Wf_EventAudit_ID"
 }
 
 object WorkflowEventAudit  {

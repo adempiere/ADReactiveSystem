@@ -55,7 +55,7 @@ case class UserOrganizationAccess(userId: Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_UserOrgAccess"
+  override val entityName: String = "AD_User_OrgAccess"
   override val identifier: String = null
 }
 

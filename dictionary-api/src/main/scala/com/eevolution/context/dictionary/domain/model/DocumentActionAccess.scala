@@ -55,7 +55,7 @@ case class DocumentActionAccess(tenantId: Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_Document_Access_Action"
+  override val entityName: String = "AD_Document_Action_ Access"
   override val identifier: String = null
 }
 

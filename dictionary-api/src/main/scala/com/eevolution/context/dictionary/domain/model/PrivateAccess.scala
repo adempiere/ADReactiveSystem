@@ -55,8 +55,8 @@ case class PrivateAccess(privateAccessId: Int,
 
   override def Id: Int = privateAccessId
 
-  override val entityName: String = "AD_PrivateAccess"
-  override val identifier: String = "AD_PrivateAccess_ID"
+  override val entityName: String = "AD_Private_Access"
+  override val identifier: String = "AD_Private_Access_ID"
 }
 
 object PrivateAccess  {

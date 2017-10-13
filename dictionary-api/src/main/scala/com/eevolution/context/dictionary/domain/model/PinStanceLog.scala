@@ -60,8 +60,8 @@ case class PinStanceLog(pinStanceLogId: Int,
 
   override def Id: Int = pinStanceLogId
 
-  override val entityName: String = "AD_PinStanceLog"
-  override val identifier: String = "AD_PinStanceLog_ID"
+  override val entityName: String = "AD_PinStance_Log"
+  override val identifier: String = "AD_PinStance_Log_ID"
 }
 
 object PinStanceLog  {

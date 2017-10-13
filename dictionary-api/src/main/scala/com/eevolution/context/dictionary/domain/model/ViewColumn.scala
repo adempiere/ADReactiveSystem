@@ -67,8 +67,8 @@ case class ViewColumn(viewColumnId: Int,
 
   override def Id: Int = viewColumnId
 
-  override val entityName: String = "AD_ViewColumn"
-  override val identifier: String = "AD_ViewColumn_ID"
+  override val entityName: String = "AD_View_Column"
+  override val identifier: String = "AD_View_Column_ID"
 }
 
 object ViewColumn  {

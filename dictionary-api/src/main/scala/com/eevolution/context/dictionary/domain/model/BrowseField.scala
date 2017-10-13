@@ -122,8 +122,8 @@ case class BrowseField(browseFieldId: Int,
 
   override def Id: Int = browseFieldId
 
-  override val entityName: String = "AD_BrowseField"
-  override val identifier: String = "AD_BrowseField_ID"
+  override val entityName: String = "AD_Browse_Field"
+  override val identifier: String = "AD_Browse_Field_ID"
 }
 
 object BrowseField  {

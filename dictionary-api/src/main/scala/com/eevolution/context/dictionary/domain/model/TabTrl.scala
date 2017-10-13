@@ -17,37 +17,44 @@ import org.joda.time.DateTime
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 13/10/2017.
   */
 
 /**
-  * Workflow Activity Result Entity
-  * @param workflowActivityResultId Wf Activity Result ID
+  * Tab Trl
+  * @param tabId Tab ID
+  * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param workflowActivityId Wf Activity ID
-  * @param attributeName Attribute Name
-  * @param attributeValue Attribute Value
+  * @param name  Name
   * @param description Description
   * @param help Help
+  * @param commitWarning Commit Warning
+  * @param isTranslated Is Translated
   * @param uuid UUID
   */
-case class WorkflowActivityResult(workflowActivityResultId: Int,
-                                  isActive: Boolean = true,
-                                  created: DateTime = DateTime.now,
-                                  createdBy: Int,
-                                  updated: DateTime = DateTime.now,
-                                  updatedBy: Int,
-                                  workflowActivityId: Int,
-                                  attributeName: String,
-                                  attributeValue: Option[String],
-                                  description: Option[String],
-                                  help: Option[String],
-                                  uuid: Option[String]
-                           ) extends DomainModel
+
+case class TabTrl(tabId: Int,
+                  language: String,
+                  tenantId: Int,
+                  organizationId: Int,
+                  isActive: Boolean = true,
+                  created: DateTime = DateTime.now,
+                  createdBy: Int,
+                  updated: DateTime = DateTime.now,
+                  updatedBy: Int,
+                  name: String,
+                  description: Option[String],
+                  help: Option[String],
+                  commitWarning: Option[String],
+                  isTranslated: Boolean = false,
+                  uuid: Option[String]
+                 ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -56,27 +63,29 @@ case class WorkflowActivityResult(workflowActivityResultId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = workflowActivityResultId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_Wf_ActivityResult"
-  override val identifier: String = "AD_Wf_ActivityResult_ID"
+  override val entityName: String = "AD_Tab_Trl"
+  override val identifier: String = null
 }
 
-object WorkflowActivityResult  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowActivityResult]
-  def create(workflowActivityResultId: Int,
+object TabTrl {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TabTrl]
+  def create(tabId: Int,
+             language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             workflowActivityId: Int,
-             attributeName: String,
-             attributeValue: String,
+             name: String,
              description: String,
              help: String,
-             uuid: String) = WorkflowActivityResult(workflowActivityResultId, isActive, created, createdBy, updated, updatedBy,
-    workflowActivityId, attributeName, None, None, None, None)
+             commitWarning: String,
+             isTranslated: Boolean,
+             uuid: String) = TabTrl(tabId, language, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, None, isTranslated, None)
 }
-
 

@@ -61,8 +61,8 @@ case class ViewDefinition(viewDefinitionId: Int,
 
   override def Id: Int = viewDefinitionId
 
-  override val entityName: String = "AD_ViewDefinition"
-  override val identifier: String = "AD_ViewDefinition_ID"
+  override val entityName: String = "AD_View_Definition"
+  override val identifier: String = "AD_View_Definition_ID"
 }
 
 object ViewDefinition  {

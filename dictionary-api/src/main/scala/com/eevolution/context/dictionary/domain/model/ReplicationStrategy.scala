@@ -18,6 +18,7 @@ import org.joda.time.DateTime
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
+
 /**
   * Replication strategy Entity
   * @param replicationStrategyId Replication Strategy ID

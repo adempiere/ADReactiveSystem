@@ -71,7 +71,7 @@ case class PackageImportDetail(packageImpDetailId: Int,
   override type Traceable = this.type
   override def Id: Int = packageImpDetailId
 
-  override val entityName: String = "AD_Package_ImpDetail"
+  override val entityName: String = "AD_Package_Imp_Detail"
   override val identifier: String = "AD_Package_Imp_Detail_ID"
 
 }

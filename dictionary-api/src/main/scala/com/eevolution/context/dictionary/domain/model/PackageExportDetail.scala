@@ -88,7 +88,7 @@ case class PackageExportDetail(packageExportDetailId: Int,
                                destinationDirectory: Option[String],
                                description: String,
                                dbType: Option[String],
-                               typePackage: String, // Cambiamos Type a TypePackage
+                               typePackage: String, //  Type = TypePackage
                                targetDirectory: Option[String],
                                sqlStatement: Option[String],
                                releaseNo: Option[String],

@@ -54,7 +54,7 @@ case class TaskAccess (taskId: Int,
   override type Traceable = this.type
   override def Id: Int = 0
 
-  override val entityName: String = "AD_Package_ImpDetail"
+  override val entityName: String = "AD_Task_Access"
   override val identifier: String = null
 
 }

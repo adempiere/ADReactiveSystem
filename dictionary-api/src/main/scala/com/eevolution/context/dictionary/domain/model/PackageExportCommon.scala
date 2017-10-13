@@ -77,7 +77,7 @@ case class PackageExportCommon(packageExportCommonId: Int,
                                fileName: Option[String],
                                destinationDirectory: Option[String],
                                description: Option[String],
-                               typePackage: Option[String], // Cambiamos Type a TypePackage
+                               typePackage: Option[String], //  Type = TypePackage
                                targetDirectory: Option[String],
                                sqlStatement: Option[String],
                                processing: Option[Boolean],

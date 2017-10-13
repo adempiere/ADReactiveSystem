@@ -18,6 +18,7 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 12/10/17.
   */
 
 /**
@@ -44,8 +45,8 @@ case class Message(messageId: Int,
                    isActive : Boolean = true,
                    created : DateTime = DateTime.now,
                    createdBy : Int ,
-                   updated :Int ,
-                   updatedBy : DateTime = DateTime.now,
+                   updated :DateTime = DateTime.now ,
+                   updatedBy : Int,
                    value : String,
                    msgText : Option[String],
                    msgTip : Option[String],
@@ -75,8 +76,8 @@ object Message  {
              isActive : Boolean,
              created : DateTime,
              createdBy : Int ,
-             updated :Int ,
-             updatedBy : DateTime,
+             updated : DateTime ,
+             updatedBy : Int,
              value : String,
              msgText : String,
              msgTip : String,

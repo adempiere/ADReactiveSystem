@@ -16,7 +16,8 @@ import org.joda.time.DateTime
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 12/10/17.
   */
 /**
   * Search Definition Entity
@@ -46,15 +47,15 @@ case class SearchDefinition (searchDefinitionId: Int,
                              organizationId: Int,
                              entityId: Int,
                              windowId: Int,
-                             created: Option[DateTime],
-                             createdBy: Option[Int],
+                             created: DateTime = DateTime.now,
+                             createdBy: Int,
                              isActive: Boolean = true,
                              name: Option[String],
                              query: Option[String],
                              searchType: Boolean,
                              transactionCode: Option[String],
-                             updated: DateTime,
-                             updatedBy: Int,
+                             updated : DateTime = DateTime.now ,
+                             updatedBy : Int,
                              poWindowId:Option[Int],
                              isDefault: Boolean = false,
                              uuId: Option[String]
@@ -89,10 +90,10 @@ object SearchDefinition {
              query: String,
              searchType: Boolean,
              transactionCode: String,
-             updated: DateTime,
-             updatedBy: Int,
+             updated :DateTime,
+             updatedBy : Int,
              poWindowId:Int,
              isDefault: Boolean,
              uuId: String) = SearchDefinition(searchDefinitionId, tenantId, None, organizationId, entityId, windowId,
-    None, None, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, None)
+    updated, updatedBy, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, None)
 }

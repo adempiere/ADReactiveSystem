@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,52 +18,57 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 12/10/2017.
+  */
+/**
+  * Process Parameter ID
+  * @param processParameterId Process Parameter ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param accessLevel Access Level
+  * @param processId Process ID
+  * @param seqNo Seq No
+  * @param referenceId Reference ID
+  * @param referenceValueId Reference Value ID
+  * @param validationRuleId Validation Rule ID
+  * @param columnName Column Name
+  * @param isCentrallyMaintained Is Centrally Maintained
+  * @param fieldLength Field Length
+  * @param isMandatory Is Mandatory
+  * @param isRange Is Range
+  * @param defaultValue Default Value
+  * @param defaultValue2 Default Value 2
+  * @param vFormat V Format
+  * @param valueMin Value Min
+  * @param valueMax Value Max
+  * @param elementId Element ID
+  * @param entityType Entity Type
+  * @param readOnlyLogic Read Only Logic
+  * @param displayLogic Display Logic
+  * @param isInfoOnly Is Info Only
+  * @param uuid UUID
   */
 
-/**
-  * Process Parameter Entity
-  * @param processParameterId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param help
-  * @param accessLevel
-  * @param entityType
-  * @param processId
-  * @param seqNo
-  * @param referenceId
-  * @param referenceValueId
-  * @param validationRuleId
-  * @param columnName
-  * @param isCentrallyMaintained
-  * @param fieldLength
-  * @param isMandatory
-  * @param isRange
-  * @param defaultValue
-  * @param defaultValue2
-  * @param vFormat
-  * @param valueMin
-  * @param valueMax
-  * @param elementId
-  * @param readOnlyLogic
-  * @param displayLogic
-  * @param isInfoOnly
-  */
 case class ProcessParameter (processParameterId: Int,
+                             tenantId: Int,
+                             organizationId: Int,
                              isActive : Boolean = true,
-                             created : DateTime = DateTime.now(),
+                             created : DateTime = DateTime.now,
                              createdBy : Int ,
-                             updated :Int ,
-                             updatedBy : DateTime = DateTime.now(),
+                             updated : DateTime = DateTime.now,
+                             updatedBy : Int,
                              name : String,
                              description: Option[String],
                              help: Option[String],
                              accessLevel : String = "3",
-                             entityType: String = EntityType.Dictionary,
                              processId : Option[Int],
                              seqNo : Int = 0 ,
                              referenceId : Option[Int] ,
@@ -78,10 +85,63 @@ case class ProcessParameter (processParameterId: Int,
                              valueMin : Option[String],
                              valueMax : Option[String],
                              elementId : Option[Int],
+                             entityType: String = EntityType.Dictionary,
                              readOnlyLogic : Option[String],
                              displayLogic : Option[String],
-                             isInfoOnly : Boolean = false) {
+                             isInfoOnly : Boolean = false,
+                             uuid: Option[String]
+                            ) extends DomainModel
 
-  def Identity = "AD_Process_Para_ID"
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
 
+  override def Id: Int = processParameterId
+
+  override val entityName: String = "AD_Process_Para"
+  override val identifier: String = "AD_Process_Para_ID"
 }
+
+object ProcessParameter  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ProcessParameter]
+  def create(processParameterId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated : DateTime,
+             updatedBy : Int,
+             name : String,
+             description: String,
+             help: String,
+             accessLevel : String,
+             processId : Int,
+             seqNo : Int,
+             referenceId : Int,
+             referenceValueId  : Int,
+             validationRuleId : Int,
+             columnName : String,
+             isCentrallyMaintained : Boolean,
+             fieldLength : Int,
+             isMandatory : Boolean,
+             isRange :  Boolean,
+             defaultValue : String,
+             defaultValue2 : String,
+             vFormat : String,
+             valueMin : String,
+             valueMax : String,
+             elementId : Int,
+             entityType: String,
+             readOnlyLogic : String,
+             displayLogic : String,
+             isInfoOnly : Boolean,
+             uuid: String) = ProcessParameter(processParameterId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, None, accessLevel, None, seqNo, None, None, None, columnName,
+    isCentrallyMaintained, None, isMandatory, isRange, None, None, None, None, None, None, entityType, None,
+    None, isInfoOnly, None)
+}
+

@@ -16,14 +16,14 @@ import org.joda.time.DateTime
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
-  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 12/10/2017.
+  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 12/10/2017.
   */
+
 /**
-  * Process Access Entity
+  * Process Trl Entity
   * @param processId Process ID
-  * @param roleId Role ID
+  * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -31,24 +31,28 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param isReadWrite Is Read Write
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param isTranslated Is Translated
   * @param uuid UUID
   */
 
-case class ProcessAccess(processId : Int,
-                         roleId : Int,
-                         tenantId : Int ,
-                         organizationId : Int ,
-                         isActive : Boolean = true,
-                         created : DateTime = DateTime.now,
-                         createdBy : Int ,
-                         updated : DateTime = DateTime.now,
-                         updatedBy : Int,
-                         isReadWrite : Boolean = true,
-                         uuid: Option[String]
-                        ) extends DomainModel
-
-
+case class ProcessTrl(processId: Int,
+                      language: String,
+                      tenantId: Int,
+                      organizationId: Int,
+                      isActive : Boolean = true,
+                      created : DateTime = DateTime.now,
+                      createdBy : Int ,
+                      updated : DateTime = DateTime.now,
+                      updatedBy : Int,
+                      name : String,
+                      description: Option[String],
+                      help: Option[String],
+                      isTranslated: Boolean = false,
+                      uuid: Option[String]
+                     ) extends DomainModel
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -58,23 +62,25 @@ case class ProcessAccess(processId : Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_Process_Access"
+  override val entityName: String = "AD_Process_Trl"
   override val identifier: String = null
 }
 
-object ProcessAccess {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ProcessAccess]
-  def create(processId : Int,
-             roleId : Int,
-             tenantId : Int ,
-             organizationId : Int ,
+object ProcessTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ProcessTrl]
+  def create(processId: Int,
+             language: String,
+             tenantId: Int,
+             organizationId: Int,
              isActive : Boolean,
              created : DateTime,
              createdBy : Int ,
              updated : DateTime,
              updatedBy : Int,
-             isReadWrite : Boolean,
-             uuid: String) = ProcessAccess(processId, roleId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, isReadWrite, None)
+             name : String,
+             description: String,
+             help: String,
+             isTranslated: Boolean,
+             uuid: String) = ProcessTrl(processId, language, tenantId, organizationId,
+    isActive, created, createdBy, updated, updatedBy, name, None, None, isTranslated, None)
 }
-

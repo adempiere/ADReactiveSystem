@@ -63,8 +63,8 @@ case class ReferenceList(referenceListId: Int,
 
   override def Id: Int = referenceListId
 
-  override val entityName: String = "AD_RefList"
-  override val identifier: String = "AD_RefList_ID"
+  override val entityName: String = "AD_Ref_List"
+  override val identifier: String = "AD_Ref_List_ID"
 }
 
 object ReferenceList  {

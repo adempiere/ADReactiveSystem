@@ -17,12 +17,12 @@ import org.joda.time.DateTime
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com.
+  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 12/10/2017.
   */
 
 /**
-  * Message Trl Entity
-  * @param messageId Message ID
+  * Process Parameter Trl Entity
+  * @param processParameterId Process Parameter ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -31,27 +31,28 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param msgText MSG Text
-  * @param msgTip MSG Tip
+  * @param name Name
+  * @param description Description
+  * @param help Help
   * @param isTranslated Is Translated
   * @param uuid UUID
   */
 
-case class MessageTrl(messageId: Int,
-                      language: String,
-                      tenantId : Int ,
-                      organizationId : Int,
-                      isActive : Boolean = true,
-                      created : DateTime = DateTime.now,
-                      createdBy : Int ,
-                      updated :DateTime = DateTime.now ,
-                      updatedBy : Int,
-                      msgText: String,
-                      msgTip: Option[String],
-                      isTranslated: Boolean = false,
-                      uuid: Option[String]
-                     ) extends DomainModel
-
+case class ProcessParameterTrl(processParameterId: Int,
+                               language: String,
+                               tenantId: Int,
+                               organizationId: Int,
+                               isActive : Boolean = true,
+                               created : DateTime = DateTime.now,
+                               createdBy : Int ,
+                               updated : DateTime = DateTime.now,
+                               updatedBy : Int,
+                               name : String,
+                               description: Option[String],
+                               help: Option[String],
+                               isTranslated: Boolean = false,
+                               uuid: Option[String]
+                              ) extends DomainModel
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -61,25 +62,25 @@ case class MessageTrl(messageId: Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_MessageTrl"
+  override val entityName: String = "AD_Process_Para_Trl"
   override val identifier: String = null
 }
 
-object MessageTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[MessageTrl]
-  def create(messageId: Int,
+object ProcessParameterTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ProcessParameterTrl]
+  def create(processParameterId: Int,
              language: String,
-             tenantId : Int ,
-             organizationId : Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive : Boolean,
              created : DateTime,
              createdBy : Int ,
-             updated :DateTime,
+             updated : DateTime,
              updatedBy : Int,
-             msgText: String,
-             msgTip: String,
+             name : String,
+             description: String,
+             help: String,
              isTranslated: Boolean,
-             uuid: String) = MessageTrl(messageId, language, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, msgText, None, isTranslated, None)
+             uuid: String) = ProcessParameterTrl(processParameterId, language, tenantId, organizationId,
+    isActive, created, createdBy, updated, updatedBy, name, None, None, isTranslated, None)
 }
-

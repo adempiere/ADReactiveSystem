@@ -21,10 +21,12 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Column Process Entity
-  * @param columnProcessId Column Process ID
-  * @param columnId Column ID
+  * Attribute Process Entity
+  * @param attributeProcessId Attribute Process ID
+  * @param attributeId Attribute ID
   * @param processId Process ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -34,16 +36,18 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class ColumnProcess(columnProcessId: Int,
-                         columnId: Option[Int],
-                         processId: Option[Int],
-                         created: DateTime =  DateTime.now,
-                         createdBy: Int,
-                         isActive: Boolean = true,
-                         name: String,
-                         updated: DateTime =  DateTime.now,
-                         updatedBy: Int,
-                         uuid: Option[String]
+case class AttributeProcess(attributeProcessId: Int,
+                            attributeId: Option[Int],
+                            processId: Option[Int],
+                            tenantId: Int,
+                            organizationId: Int,
+                            created: DateTime =  DateTime.now,
+                            createdBy: Int,
+                            isActive: Boolean = true,
+                            name: String,
+                            updated: DateTime =  DateTime.now,
+                            updatedBy: Int,
+                            uuid: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -53,25 +57,27 @@ case class ColumnProcess(columnProcessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = columnProcessId
+  override def Id: Int = attributeProcessId
 
   override val entityName: String = "AD_ColumnProcess"
   override val identifier: String = "AD_ColumnProcess_ID"
 }
 
-object ColumnProcess  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ColumnProcess]
-  def create(columnProcessId: Int,
-             columnId: Int,
+object AttributeProcess  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[AttributeProcess]
+  def create(attributeProcessId: Int,
+             attributeId: Int,
              processId: Int,
+             tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
              name: String,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = ColumnProcess(columnProcessId, None, None, created, createdBy, isActive,
-    name, updated, updatedBy, None)
+             uuid: String) = AttributeProcess(attributeProcessId, None, None, tenantId, organizationId, created,
+    createdBy, isActive, name, updated, updatedBy, None)
 }
 
 

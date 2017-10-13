@@ -57,7 +57,7 @@ case class SchedulerPara (schedulerId: Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_SchedulerPara"
+  override val entityName: String = "AD_Scheduler_Para"
   override val identifier: String = null
 
 }
@@ -75,6 +75,6 @@ object SchedulerPara {
              updatedBy: Int,
              parameterDefault: String,
              description: String,
-             uuid: String) = SchedulerPara(schedulerId, processParaId, tenantId,
-    organizationId, isActive, created, createdBy, updated, updatedBy, None, None, None)
+             uuid: String) = SchedulerPara(schedulerId, processParaId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None)
 }

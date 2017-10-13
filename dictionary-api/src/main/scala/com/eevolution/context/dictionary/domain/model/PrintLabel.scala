@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param printerName Printer Name
   * @param isLandscape Is LandsCape
   * @param labelHeight Label Height
@@ -49,7 +49,7 @@ case class PrintLabel (printLabelId: Int,
                        updatedBy: Int,
                        name: String,
                        description: Option[String],
-                       tableId: Int,
+                       entityId: Int,
                        printerName: Option[String],
                        isLandscape: Boolean = true,
                        labelHeight: Int,
@@ -83,12 +83,12 @@ object PrintLabel {
              updatedBy: Int,
              name: String,
              description: String,
-             tableId: Int,
+             entityId: Int,
              printerName: String,
              isLandscape: Boolean,
              labelHeight: Int,
              labelWidth: Int,
              labelPrinterId: Int,
              uuid: String) = PrintLabel(printLabelId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, tableId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
+    updatedBy, name, None, entityId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
 }

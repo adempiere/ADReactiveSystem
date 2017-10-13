@@ -55,7 +55,7 @@ case class SequenceNo (sequenceId: Int,
 
   override def Id: Int = 0
 
-  override val entityName: String = "AD_SequenceNo"
+  override val entityName: String = "AD_Sequence_No"
   override val identifier: String = null
 
 }

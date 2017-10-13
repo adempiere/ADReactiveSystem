@@ -57,7 +57,7 @@ case class PrintFormatItemTrl (printFormatItemId: Int,
   override type Traceable = this.type
   override def Id: Int = 0
 
-  override val entityName: String = "AD_PrintFormatItemTrlId"
+  override val entityName: String = "AD_PrintFormatItem_Trl"
   override val identifier: String = null
 
 }

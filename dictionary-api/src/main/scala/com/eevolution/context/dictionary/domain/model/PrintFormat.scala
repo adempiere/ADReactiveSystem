@@ -30,9 +30,9 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param isTableBased Is Table Based
+  * @param isEntityBased Is Entity Based
   * @param isForm Is Form
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param printPaperId Print Paper ID
   * @param printColorId Print Color ID
   * @param printFontId Print Font ID
@@ -41,7 +41,7 @@ import org.joda.time.DateTime
   * @param footerMargin Footer Margin
   * @param createCopy Create Copy
   * @param reportViewId Report View ID
-  * @param printTableFormatId Print Table Format ID
+  * @param printEntityFormatId Print Entity Format ID
   * @param printerName Print Name
   * @param isDefault Is Default
   * @param jasperProcessId Jasper Process ID
@@ -61,9 +61,9 @@ case class PrintFormat (printFormatId: Int,
                         updatedBy: Int,
                         name: String,
                         description: Option[String],
-                        isTableBased: Boolean = true,
+                        isEntityBased: Boolean = true,
                         isForm: Boolean = false,
-                        tableId: Int,
+                        entityId: Int,
                         printPaperId: Int,
                         printColorId: Int,
                         printFontId: Int,
@@ -72,7 +72,7 @@ case class PrintFormat (printFormatId: Int,
                         footerMargin: Int,
                         createCopy: Option[Boolean],
                         reportViewId: Option[Int],
-                        printTableFormatId: Option[Int],
+                        printEntityFormatId: Option[Int],
                         printerName: Option[String],
                         isDefault: Boolean = false,
                         jasperProcessId: Option[Int],
@@ -108,9 +108,9 @@ object PrintFormat {
              updatedBy: Int,
              name: String,
              description: String,
-             isTableBased: Boolean,
+             isEntityBased: Boolean,
              isForm: Boolean,
-             tableId: Int,
+             entityId: Int,
              printPaperId: Int,
              printColorId: Int,
              printFontId: Int,
@@ -119,7 +119,7 @@ object PrintFormat {
              footerMargin: Int,
              createCopy: Boolean,
              reportViewId: Int,
-             printTableFormatId: Int,
+             printEntityFormatId: Int,
              printerName: String,
              isDefault: Boolean,
              jasperProcessId: Int,
@@ -128,7 +128,7 @@ object PrintFormat {
              isSummary: Boolean,
              isPrintParameters: Boolean,
              uuid: String) = PrintFormat(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, isTableBased, isForm, tableId, printPaperId, printColorId, printFontId,
+    updatedBy, name, None, isEntityBased, isForm, entityId, printPaperId, printColorId, printFontId,
     isStandardHeaderFooter, headerMargin, footerMargin, None, None, None, None, isDefault, None, None, None, isSummary,
     isPrintParameters, None)
 }

@@ -24,23 +24,23 @@ import org.joda.time.DateTime
   * @param chartId Chart ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param tableId Table ID
-  * @param categoryColumn Category Column
+  * @param entityId Entity ID
+  * @param categoryAttribute Category Attribute
   * @param created Created
   * @param createdBy Created By
-  * @param dateColumn Date Column
+  * @param dateAttribute Date Attribute
   * @param description Description
   * @param entityType Entity Type
   * @param fromClause From Clause
   * @param isActive Is Active
-  * @param keyColumn Key Column
+  * @param keyAttribute Key Attribute
   * @param Name Name
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param valueColumn Value Column
+  * @param valueAttribute Value Attribute
   * @param whereClause Where Clause
   * @param timeOffSet Time Off Set
-  * @param seriesColumn Series Column
+  * @param seriesAttribute Series Attribute
   * @param uuid UUID
   */
 
@@ -48,23 +48,23 @@ case class ChartDataSource (chartDataSourceId: Int,
                             chartId: Int,
                             tenantId: Int,
                             organizationId: Int,
-                            tableId: Option[Int],
-                            categoryColumn: Option[String],
+                            entityId: Option[Int],
+                            categoryAttribute: Option[String],
                             created: DateTime = DateTime.now,
                             createdBy: Int,
-                            dateColumn: Option[String],
+                            dateAttribute: Option[String],
                             description: Option[String],
                             entityType: String = "D",
                             fromClause: String,
                             isActive: Boolean = true,
-                            keyColumn: Option[String],
+                            keyAttribute: Option[String],
                             Name: String,
                             updated: DateTime = DateTime.now,
                             updatedBy: Int,
-                            valueColumn: String,
+                            valueAttribute: String,
                             whereClause: String,
                             timeOffSet: Option[Int],
-                            seriesColumn: Option[String],
+                            seriesAttribute: Option[String],
                             uuid: Option[String]
                            ) extends DomainModel
 
@@ -87,23 +87,24 @@ object ChartDataSource {
              chartId: Int,
              tenantId: Int,
              organizationId: Int,
-             tableId: Int,
-             categoryColumn: String,
+             entityId: Int,
+             categoryAttribute: String,
              created:  DateTime,
              createdBy: Int,
-             dateColumn: String,
+             dateAttribute: String,
              description: String,
              entityType: String,
              fromClause: String,
              isActive: Boolean,
-             keyColumn: String,
+             keyAttribute: String,
              Name: String,
              updated:  DateTime,
              updatedBy: Int,
-             valueColumn: String,
+             valueAttribute: String,
              whereClause: String,
              timeOffSet:Int,
-             seriesColumn: String,
-             uuid: String) = ChartDataSource(chartDataSourceId, chartId, tenantId, organizationId, None, None, created, createdBy, None,
-    None, entityType, fromClause, isActive, None, Name, updated, updatedBy, valueColumn, whereClause, None, None, None)
+             seriesAttribute: String,
+             uuid: String) = ChartDataSource(chartDataSourceId, chartId, tenantId, organizationId, None, None, created,
+    createdBy, None, None, entityType, fromClause, isActive, None, Name, updated, updatedBy, valueAttribute, whereClause,
+    None, None, None)
 }

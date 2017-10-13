@@ -31,8 +31,8 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param packageImportId Package Import ID
   * @param packageImportDetailId Package Import Detail ID
-  * @param tableId Table ID
-  * @param column Column
+  * @param entityId Entity ID
+  * @param attributeId Attribute ID
   * @param referenceId Reference ID
   * @param packageImportBckDir Package Import Bck Dir
   * @param packageImportOrgDir Package Import Org Dir
@@ -51,8 +51,8 @@ case class PackageImportBackup(packageImportBackupId: Int,
                                updatedBy: Int,
                                packageImportId: Int,
                                packageImportDetailId: Int,
-                               tableId: Option[Int],
-                               column: Option[Int],
+                               entityId: Option[Int],
+                               attributeId: Option[Int],
                                referenceId: Option[Int],
                                packageImportBckDir: Option[String],
                                packageImportOrgDir: Option[String],
@@ -70,8 +70,8 @@ case class PackageImportBackup(packageImportBackupId: Int,
   override type Traceable = this.type
   override def Id: Int = packageImportBackupId
 
-  override val entityName: String = "AD_PackageImpBackupId"
-  override val identifier: String = "AD_PackageImpBackupId_ID"
+  override val entityName: String = "AD_Package_Imp_Backup"
+  override val identifier: String = "AD_Package_Imp_Backup_ID"
 
 }
 
@@ -87,13 +87,14 @@ object PackageImportBackup {
              updatedBy: Int,
              packageImportId: Int,
              packageImportDetailId: Int,
-             tableId: Int,
-             column: Int,
+             entityId: Int,
+             attributeId: Int,
              referenceId: Int,
              packageImportBckDir: String,
              packageImportOrgDir: String,
              colValue: String,
              uninstall: Boolean,
              uuid: String) = PackageImportBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, packageImportId, packageImportDetailId, None, None, None, None, None, None, None, None)
+    createdBy, updated, updatedBy, packageImportId, packageImportDetailId, None, None, None, None, None, None, None,
+    None)
 }

@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param formId Form ID
   * @param importFormatId Imp Format ID
   * @param reportViewId Report View ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param workbenchId Workbench ID
   * @param dbType DB Type
   * @param processed Processed
@@ -66,7 +66,7 @@ case class PackageExportCommon(packageExportCommonId: Int,
                                formId: Int,
                                importFormatId: Option[Int],
                                reportViewId: Option[Int],
-                               tableId: Option[Int],
+                               entityId: Option[Int],
                                workbenchId: Option[Int],
                                dbType: Option[String],
                                processed: Option[Boolean],
@@ -115,7 +115,7 @@ object PackageExportCommon {
              formId: Int,
              impFormatId: Int,
              reportViewId: Int,
-             tableId: Int,
+             entityId: Int,
              workbenchId: Int,
              dbType: String,
              processed: Boolean,

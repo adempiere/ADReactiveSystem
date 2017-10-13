@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param printAreaType Print Area Type
   * @param seqNo Seq No
   * @param printFormatType Print Format Type
-  * @param columnId Column ID
+  * @param attributeId Attribute ID
   * @param printFormatChildIs Print Format Child Is
   * @param isRelativePosition Is Relative Position
   * @param isNextLine Is Next Line
@@ -61,7 +61,7 @@ import org.joda.time.DateTime
   * @param isCounted Is Counted
   * @param isSetNlPosition Is Set N L Position
   * @param isSuppressNull Is Suppress Null
-  * @param belowColumn Below Column
+  * @param belowAttribute Below Attribute
   * @param printGraphId Print Graph ID
   * @param isFixedWidth Is Fixed Width
   * @param isNextPage Is Next Page
@@ -101,7 +101,7 @@ case class PrintFormatItem (printFormatItemId: Int,
                             printAreaType: Boolean,
                             seqNo: Int,
                             printFormatType: Boolean,
-                            columnId: Option[Int],
+                            attributeId: Option[Int],
                             printFormatChildIs: Option[Int],
                             isRelativePosition: Boolean = true,
                             isNextLine: Boolean = true,
@@ -127,7 +127,7 @@ case class PrintFormatItem (printFormatItemId: Int,
                             isCounted: Boolean = false,
                             isSetNlPosition: Boolean = false,
                             isSuppressNull: Boolean = false,
-                            belowColumn: Option[Int],
+                            belowAttribute: Option[Int],
                             printGraphId: Option[Int],
                             isFixedWidth: Boolean = false,
                             isNextPage: Boolean = false,
@@ -183,7 +183,7 @@ object PrintFormatItem {
              printAreaType: Boolean,
              seqNo: Int,
              printFormatType: Boolean,
-             columnId: Int,
+             attributeId: Int,
              printFormatChildIs: Int,
              isRelativePosition: Boolean,
              isNextLine: Boolean,
@@ -209,7 +209,7 @@ object PrintFormatItem {
              isCounted: Boolean,
              isSetNlPosition: Boolean,
              isSuppressNull: Boolean,
-             belowColumn: Int,
+             belowAttribute: Int,
              printGraphId: Int,
              isFixedWidth: Boolean,
              isNextPage: Boolean,

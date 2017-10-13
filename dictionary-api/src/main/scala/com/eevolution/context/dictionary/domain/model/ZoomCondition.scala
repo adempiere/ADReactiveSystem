@@ -23,7 +23,7 @@ import org.joda.time.DateTime
   * @param zoomConditionId Zoom Confition ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param windowId Window ID
   * @param created Created
   * @param createdBy Created By
@@ -41,7 +41,7 @@ import org.joda.time.DateTime
 case class ZoomCondition (zoomConditionId: Int,
                           tenantId: Int,
                           organizationId: Int,
-                          tableId: Option[Int],
+                          entityId: Option[Int],
                           windowId: Option[Int],
                           created: DateTime = DateTime.now,
                           createdBy: Int,
@@ -74,7 +74,7 @@ object ZoomCondition {
   def create(zoomConditionId: Int,
              tenantId: Int,
              organizationId: Int,
-             tableId: Int,
+             entityId: Int,
              windowId: Int,
              created: DateTime,
              createdBy: Int,

@@ -57,7 +57,7 @@ case class WorkflowTrl(workflowId: Int,
   override type Traceable = this.type
   override def Id: Int = 0
 
-  override val entityName: String = "AD_WorkflowTrl"
+  override val entityName: String = "AD_Workflow_Trl"
   override val identifier: String = null
 
 }

@@ -50,7 +50,7 @@ import org.joda.time.DateTime
   * @param workflowProcessorId Work Flow Processor ID
   * @param value Value
   * @param isDefault Is Default
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param validateWorkflow Validate Workflow
   * @param workflowType Work Flow Type
   * @param docValueLogic Doc Value Logic
@@ -100,7 +100,7 @@ case class Workflow(workflowId: Int,
                     workflowProcessorId: Option[Int],
                     value: String,
                     isDefault: Boolean = false,
-                    tableId: Option[Int],
+                    entityId: Option[Int],
                     validateWorkflow: Option[Int],
                     workflowType: String = "G",
                     docValueLogic: Option[String],
@@ -164,7 +164,7 @@ object Workflow {
              workflowProcessorId: Int,
              value: String,
              isDefault: Boolean,
-             tableId: Int,
+             entityId: Int,
              validateWorkflow: Int,
              workflowType: String,
              docValueLogic: String,

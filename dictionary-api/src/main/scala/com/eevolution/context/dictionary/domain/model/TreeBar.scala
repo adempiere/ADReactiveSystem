@@ -22,7 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Tree Bar Entity
-  * @param treeBarId Tree Bar ID
+  * @param treeId Tree Bar ID
   * @param userId User ID
   * @param nodeId Node ID
   * @param isActive Is Active
@@ -33,16 +33,18 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class TreeBar(treeBarId: Int,
-              userId: Int,
-              nodeId: Int,
-              isActive: Boolean = true,
-              created: DateTime = DateTime.now,
-              createdBy: Int,
-              updated: DateTime = DateTime.now,
-              updatedBy: Int,
-              uuid: Option[String]
-             ) extends DomainModel
+case class TreeBar(treeId: Int,
+                   tenantId: Int,
+                   organizationId: Int,
+                   userId: Int,
+                   nodeId: Int,
+                   isActive: Boolean = true,
+                   created: DateTime = DateTime.now,
+                   createdBy: Int,
+                   updated: DateTime = DateTime.now,
+                   updatedBy: Int,
+                   uuid: Option[String]
+                  ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -51,15 +53,17 @@ case class TreeBar(treeBarId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeBarId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_TreeBar"
-  override val identifier: String = "AD_TreeBar_ID"
+  override val identifier: String = null
 }
 
 object TreeBar  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeBar]
-  def create(treeBarId: Int,
+  def create(treeId: Int,
+             tenantId: Int,
+             organizationId: Int,
              userId: Int,
              nodeId: Int,
              isActive: Boolean,
@@ -67,6 +71,6 @@ object TreeBar  {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = TreeBar(treeBarId, userId, nodeId, isActive, created, createdBy, updated,
-    updatedBy, None)
+             uuid: String) = TreeBar(treeId, userId, tenantId, organizationId, nodeId, isActive, created,
+    createdBy, updated, updatedBy, None)
 }

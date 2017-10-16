@@ -86,7 +86,7 @@ case class PackageImport(packageImportId: Int,
 
 object PackageImport {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImport]
-  def create(packageImpportId: Int,
+  def create(packageImportId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -108,7 +108,7 @@ object PackageImport {
              createdDate: String,
              updatedDate: String,
              uninstall: Boolean,
-             uuid: String) = PackageImport(packageImpportId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PackageImport(packageImportId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, None, None, description, None, processed, processing, None, None, None, None, None,
     None)
 }

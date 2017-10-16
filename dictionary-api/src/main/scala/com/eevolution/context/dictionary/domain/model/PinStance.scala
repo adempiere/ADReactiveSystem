@@ -41,6 +41,8 @@ import org.joda.time.DateTime
   */
 
 case class PinStance(pinStanceId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      processId: Int,
                      recordId: Int,
                      isProcessing: Boolean = false,
@@ -74,6 +76,8 @@ case class PinStance(pinStanceId: Int,
 object PinStance  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PinStance]
   def create(pinStanceId: Int,
+             tenantId: Int,
+             organizationId: Int,
              processId: Int,
              recordId: Int,
              isProcessing: Boolean,
@@ -88,7 +92,7 @@ object PinStance  {
              name: String,
              reportType: String,
              printFormatId: Int,
-             uuid: String) = PinStance(pinStanceId, processId, recordId, isProcessing, created, None,
-    updated, None, None, createdBy, updatedBy, isActive, name, reportType, None, None)
+             uuid: String) = PinStance(pinStanceId, tenantId, organizationId, processId, recordId, isProcessing,
+    created, None, updated, None, None, createdBy, updatedBy, isActive, name, reportType, None, None)
 }
 

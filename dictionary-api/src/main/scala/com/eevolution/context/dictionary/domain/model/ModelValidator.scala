@@ -22,19 +22,22 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Entity for Model Validator
-  * @param modelValidatorId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param help
-  * @param entityType
-  * @param modelValidationClass
-  * @param seqNo
+  * Model Validator Entity
+  * @param modelValidatorId Model Validator ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isActive Is Active
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param entityType Entity Type
+  * @param modelValidationClass Model Validation Class
+  * @param seqNo Seq No
+  * @param uuid UUID
   */
 
 case class ModelValidator (modelValidatorId: Int,

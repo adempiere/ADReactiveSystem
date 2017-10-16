@@ -24,7 +24,7 @@ import org.joda.time.DateTime
   * Migration Step Entity
   * @param migrationStepId Migration Step ID
   * @param migrationId Migration ID
-  * @param tableId Table ID
+  * @param entityId Table ID
   * @param action Action
   * @param apply Apply
   * @param comments Comments
@@ -46,8 +46,10 @@ import org.joda.time.DateTime
   */
 
 case class MigrationStep(migrationStepId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
                          migrationId: Int,
-                         tableId: Option[Int],
+                         entityId: Option[Int],
                          action: Option[Boolean],
                          apply: Option[Boolean],
                          comments: Option[String],
@@ -84,26 +86,29 @@ case class MigrationStep(migrationStepId: Int,
 object MigrationStep  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[MigrationStep]
   def create(migrationStepId: Int,
+             tenantId: Int,
+             organizationId: Int,
              migrationId: Int,
-             tableId: Option[Int],
-             action: Option[Boolean],
-             apply: Option[Boolean],
-             comments: Option[String],
-             created: DateTime =  DateTime.now(),
+             tableId: Int,
+             action: Boolean,
+             apply: Boolean,
+             comments: String,
+             created: DateTime,
              createdBy: Int,
-             dbType: String = "ALL",
-             errorMsg: Option[String],
-             isActive: Boolean = true,
-             recordId: Option[Int],
+             dbType: String,
+             errorMsg: String,
+             isActive: Boolean,
+             recordId: Int,
              seqNo: Int,
-             statusCode: Option[Boolean],
+             statusCode: Boolean,
              stepType: String,
-             updated: DateTime =  DateTime.now(),
+             updated: DateTime,
              updatedBy: Int,
-             parse: Boolean = true,
-             sqlStatement: Option[String],
-             rollBackStatement: Option[String],
-             uuid: Option[String]) = MigrationStep(migrationStepId, migrationId, None, None, None, None, created,
-    createdBy, dbType, None, isActive, None, seqNo, None, stepType, updated, updatedBy, parse, None, None, None)
+             parse: Boolean,
+             sqlStatement: String,
+             rollBackStatement: String,
+             uuid: String) = MigrationStep(migrationStepId, tenantId, organizationId, migrationId, None,
+    None, None, None, created, createdBy, dbType, None, isActive, None, seqNo, None, stepType, updated,
+    updatedBy, parse, None, None, None)
 }
 

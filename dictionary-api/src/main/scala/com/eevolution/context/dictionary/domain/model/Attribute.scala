@@ -70,6 +70,8 @@ import org.joda.time.DateTime
   */
 
 case class Attribute(attributeId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive:Boolean=true,
                      created:DateTime = DateTime.now,
                      updated: DateTime = DateTime.now,
@@ -133,6 +135,8 @@ case class Attribute(attributeId: Int,
 object Attribute {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Attribute]
   def create(attributeId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              updated: DateTime,
@@ -176,7 +180,7 @@ object Attribute {
              chartId: Int,
              isRange: Boolean,
              isAllowCopy: Boolean,
-             uuid: String) = Attribute(attributeId, isActive,created, updated, createdBy,
+             uuid: String) = Attribute(attributeId, tenantId, organizationId, isActive,created, updated, createdBy,
     updatedBy, name, None, None, version, entityType, attributeName, entityId, referenceId, None, None, None,
     None, isKey, isParent, isMandatory, isUpdateAble, None, isIdentifier, None, isTranslated,isEncrypted, None,
     None, None, None, isSelectionAttribute, None, None, isSyncDatabase, isAlwaysUpdateAble, None, None, None, isAutoComplete,

@@ -38,6 +38,8 @@ import org.joda.time.DateTime
   */
 
 case class Tree(treeId: Int,
+                tenantId: Int,
+                organizationId: Int,
                 created: DateTime = DateTime.now,
                 createdBy: Int,
                 updated: DateTime = DateTime.now,
@@ -68,6 +70,8 @@ case class Tree(treeId: Int,
 object Tree  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Tree]
   def create(treeId: Int,
+             tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
@@ -79,7 +83,7 @@ object Tree  {
              isAllNodes: Boolean,
              processing: Boolean,
              isDefault: Boolean,
-             uuid: String) = Tree(treeId, created, createdBy, updated, updatedBy, isActive, name, None,
-    treeType, isAllNodes, None, isDefault, None)
+             uuid: String) = Tree(treeId, tenantId, organizationId, created, createdBy, updated, updatedBy, isActive,
+    name, None, treeType, isAllNodes, None, isDefault, None)
 }
 

@@ -20,8 +20,9 @@ import org.joda.time.DateTime
   */
 /**
   * Workbench Window Entity
-  * @param workbenchWindowId Work Bench Window ID
   * @param isActive Is Active
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
@@ -37,8 +38,9 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkbenchWindow(workbenchWindowId: Int,
-                           isActive: Boolean = true,
+case class WorkbenchWindow(isActive: Boolean = true,
+                           tenantId: Int,
+                           organizationId : Int ,
                            created: DateTime = DateTime.now,
                            createdBy: Int,
                            updated: DateTime = DateTime.now,
@@ -60,17 +62,18 @@ case class WorkbenchWindow(workbenchWindowId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workbenchWindowId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_WorkbenchWindow"
-  override val identifier: String = "AD_WorkbenchWindow_ID"
+  override val identifier: String = null
 
 }
 
 object WorkbenchWindow {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkbenchWindow]
-  def create(workbenchWindowId: Int,
-             isActive: Boolean,
+  def create(isActive: Boolean,
+             tenantId: Int,
+             organizationId : Int ,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
@@ -83,6 +86,6 @@ object WorkbenchWindow {
              processId: Int,
              taskId: Int,
              entityType: String,
-             uuid: String) = WorkbenchWindow(workbenchWindowId, isActive, created, createdBy, updated,
+             uuid: String) = WorkbenchWindow(isActive, tenantId, organizationId, created, createdBy, updated,
     updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, None)
 }

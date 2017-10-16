@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Node Entity
   * @param workflowNodeId Wf Node ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -83,6 +85,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowNode(workflowNodeId: Int,
+                        tenantId: Int,
+                        organizationId : Int ,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -158,6 +162,8 @@ case class WorkflowNode(workflowNodeId: Int,
 object WorkflowNode  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNode]
   def create(workflowNodeId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -214,9 +220,9 @@ object WorkflowNode  {
              yieldData: Int,
              viewId: Int,
              browseId: Int,
-             uuid: String) = WorkflowNode(workflowNodeId, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, workFlowId, isCentrallyMaintained, action, None, None, None, None, None,
-    entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
+             uuid: String) = WorkflowNode(workflowNodeId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, workFlowId, isCentrallyMaintained, action, None, None, None, None,
+    None, entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
     None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,
     None, None, None, None, isMilestone, isSubContracting, unitsCycles, None, None, None,
     None, None, None, None, yieldData, None, None, None)

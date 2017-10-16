@@ -66,14 +66,14 @@ object ReplicationOrganizationAccess  {
   def create(replicationOrganizationAccessId: Int,
              tenantId: Int,
              organizationId: Int,
-             replicationStrategyId: Option[Int],
+             replicationStrategyId: Int,
              created : DateTime = DateTime.now,
              createdBy : Int ,
-             isActive : Boolean = true,
-             isReadOnly: Option[Boolean],
-             updated : DateTime = DateTime.now,
+             isActive : Boolean,
+             isReadOnly: Boolean,
+             updated : DateTime,
              updatedBy : Int,
-             uuid: Option[String]) = ReplicationOrganizationAccess(replicationOrganizationAccessId, tenantId,
+             uuid: String) = ReplicationOrganizationAccess(replicationOrganizationAccessId, tenantId,
     organizationId, None, created, createdBy, isActive, None, updated, updatedBy, None)
 }
 

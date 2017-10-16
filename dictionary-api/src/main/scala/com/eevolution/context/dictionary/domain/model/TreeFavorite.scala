@@ -34,15 +34,17 @@ import org.joda.time.DateTime
   */
 
 case class TreeFavorite(treeFavoriteId: Int,
-                   roleId: Int,
-                   userId: Int,
-                   created: DateTime = DateTime.now,
-                   createdBy: Int,
-                   isActive: Boolean = true,
-                   updated: DateTime = DateTime.now,
-                   updatedBy: Int,
-                   uuid: Option[String]
-                  ) extends DomainModel
+                        tenantId: Int,
+                        organizationId: Int,
+                        roleId: Int,
+                        userId: Int,
+                        created: DateTime = DateTime.now,
+                        createdBy: Int,
+                        isActive: Boolean = true,
+                        updated: DateTime = DateTime.now,
+                        updatedBy: Int,
+                        uuid: Option[String]
+                       ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -61,6 +63,8 @@ case class TreeFavorite(treeFavoriteId: Int,
 object TreeFavorite  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeFavorite]
   def create(treeFavoriteId: Int,
+             tenantId: Int,
+             organizationId: Int,
              roleId: Int,
              userId: Int,
              created: DateTime,
@@ -68,6 +72,6 @@ object TreeFavorite  {
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = TreeFavorite(treeFavoriteId, roleId, userId, created, createdBy, isActive,
-    updated, updatedBy, None)
+             uuid: String) = TreeFavorite(treeFavoriteId, tenantId, organizationId, roleId, userId, created,
+    createdBy, isActive, updated, updatedBy, None)
 }

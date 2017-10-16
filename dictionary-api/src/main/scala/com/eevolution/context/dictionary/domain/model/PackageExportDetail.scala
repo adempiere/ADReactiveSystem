@@ -151,7 +151,7 @@ object PackageExportDetail {
              destinationDirectory: String,
              description: String,
              dbType: String,
-             typePackage: String, // Cambiamos Type a TypePackage
+             typePackage: String, // Type = TypePackage
              targetDirectory: String,
              sqlStatement: String,
              releaseNo: String,

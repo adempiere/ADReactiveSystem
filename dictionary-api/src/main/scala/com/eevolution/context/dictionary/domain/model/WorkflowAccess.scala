@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Workflow Access Entity
   * @param workflowId Work Flow ID
   * @param roleId Role Id
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -33,6 +35,8 @@ import org.joda.time.DateTime
 
 case class WorkflowAccess(workflowId: Int,
                           roleId: Int,
+                          tenantId: Int,
+                          organizationId : Int ,
                           isActive: Boolean = true,
                           created: DateTime = DateTime.now,
                           createdBy: Int,
@@ -59,12 +63,14 @@ object WorkflowAccess {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowAccess]
   def create(workflowId: Int,
              roleId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuid: String) = WorkflowAccess(workflowId, roleId, isActive, created, createdBy,
+             uuid: String) = WorkflowAccess(workflowId, roleId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, isReadWrite, None)
 }

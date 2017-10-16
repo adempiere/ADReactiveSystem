@@ -24,6 +24,8 @@ import org.joda.time.DateTime
   * Workflow Processor Log Entity
   * @param workflowProcessorLogId Work Flow Processor Log ID
   * @param workflowProcessorId Work Flow Processor ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -40,6 +42,8 @@ import org.joda.time.DateTime
 
 case class WorkflowProcessorLog(workflowProcessorLogId: Int,
                                 workflowProcessorId: Int,
+                                tenantId: Int,
+                                organizationId : Int ,
                                 isActive: Boolean = true,
                                 created: DateTime = DateTime.now,
                                 createdBy: Int,
@@ -71,6 +75,8 @@ object WorkflowProcessorLog {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessorLog]
   def create(workflowProcessorLogId: Int,
              workflowProcessorId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -82,6 +88,6 @@ object WorkflowProcessorLog {
              description: String,
              textMsg: String,
              binaryDate: String,
-             uuid: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, isActive, created, createdBy, updated,
-    updatedBy, isError, None, None, None, None, None, None)
+             uuid: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, tenantId, organizationId,
+    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
 }

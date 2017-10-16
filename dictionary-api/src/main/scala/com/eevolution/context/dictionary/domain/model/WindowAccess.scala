@@ -22,8 +22,10 @@ import org.joda.time.DateTime
 
 /**
   * Window Access Entity
-  * @param windowAccessId Window Access ID
+  * @param windowId Window ID
   * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -33,8 +35,10 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WindowAccess(windowAccessId: Int,
+case class WindowAccess(windowId: Int,
                         roleId: Int,
+                        tenantId: Int,
+                        organizationId : Int ,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -51,22 +55,24 @@ case class WindowAccess(windowAccessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = windowAccessId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_WindowAccess"
-  override val identifier: String = "AD_WindowAccess_ID"
+  override val identifier: String = null
 }
 
 object WindowAccess {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WindowAccess]
-  def create(windowAccessId: Int,
+  def create(windowId: Int,
              roleId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuid: String) = WindowAccess(windowAccessId, roleId, isActive, created, createdBy, updated,
-    updatedBy, isReadWrite, None)
+             uuid: String) = WindowAccess(windowId, roleId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, isReadWrite, None)
 }

@@ -23,7 +23,7 @@ import org.joda.time.DateTime
 
 /**
   * User Def Win Entity
-  * @param userDefiendWindowId User Def Win ID
+  * @param userDefinedWindowId User Def Win ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -40,11 +40,11 @@ import org.joda.time.DateTime
   * @param language Language
   * @param isDefault Is Default
   * @param isReadOnly Is Read Only
-  * @param isUserUpdateable is User Updated Able
+  * @param isUserUpdateAble is User Updated Able
   * @param uuid UUID
   */
 
-case class UserDefiendWindow(userDefiendWindowId : Int,
+case class UserDefinedWindow(userDefinedWindowId : Int,
                              tenantId: Int,
                              organizationId : Int = 0,
                              isActive : Boolean = true,
@@ -61,7 +61,7 @@ case class UserDefiendWindow(userDefiendWindowId : Int,
                              language: Option[String],
                              isDefault: Boolean = false,
                              isReadOnly: Boolean = false,
-                             isUserUpdateable: Boolean = true,
+                             isUserUpdateAble: Boolean = true,
                              uuid: Option[String]
                      ) extends DomainModel
 
@@ -72,14 +72,14 @@ case class UserDefiendWindow(userDefiendWindowId : Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = userDefiendWindowId
+  override def Id: Int = userDefinedWindowId
 
   override val entityName: String = "AD_UserDef_Win"
   override val identifier: String = "AD_UserDef_Win_ID"
 }
 
-object UserDefiendWindow  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefiendWindow]
+object UserDefinedWindow  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserDefinedWindow]
   def create(userDefinedWindowId : Int,
              tenantId: Int,
              organizationId : Int,
@@ -97,10 +97,10 @@ object UserDefiendWindow  {
              language: String,
              isDefault: Boolean,
              isReadOnly: Boolean,
-             isUserUpdateable: Boolean,
-             uuid: String) = UserDefiendWindow(userDefinedWindowId, tenantId, organizationId, isActive, created, createdBy,
+             isUserUpdateAble: Boolean,
+             uuid: String) = UserDefinedWindow(userDefinedWindowId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, windowId, name, None, None, None, isDefault,
-    isReadOnly, isUserUpdateable, None)
+    isReadOnly, isUserUpdateAble, None)
 }
 
 

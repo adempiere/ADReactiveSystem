@@ -39,6 +39,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 case class ReferenceList(referenceListId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
                          isActive: Boolean = true,
                          created: DateTime = DateTime.now,
                          createdBy: Int,
@@ -70,6 +72,8 @@ case class ReferenceList(referenceListId: Int,
 object ReferenceList  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ReferenceList]
   def create(referenceListId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -82,8 +86,8 @@ object ReferenceList  {
              validFrom: DateTime,
              validTo: DateTime,
              entityType: String,
-             uuid: String) = ReferenceList(referenceListId, isActive, created, createdBy, updated, updatedBy, value,
-    name, None, referenceId, None, None, entityType, None)
+             uuid: String) = ReferenceList(referenceListId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, value, name, None, referenceId, None, None, entityType, None)
 }
 
 

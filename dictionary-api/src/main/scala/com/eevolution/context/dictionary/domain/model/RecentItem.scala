@@ -25,7 +25,7 @@ import org.joda.time.DateTime
   * @param recentItemId Recent Item ID
   * @param roleId Role ID
   * @param tabId Tab ID
-  * @param tableId Table ID
+  * @param entityId Table ID
   * @param userId User ID
   * @param windowId Window ID
   * @param created Created
@@ -39,9 +39,11 @@ import org.joda.time.DateTime
   */
 
 case class RecentItem(recentItemId: Int,
+                      tenantId: Int,
+                      organizationId: Int,
                       roleId: Int,
                       tabId: Option[Int],
-                      tableId: Option[Int],
+                      entityId: Option[Int],
                       userId: Option[Int],
                       windowId: Option[Int],
                       created: DateTime = DateTime.now,
@@ -70,9 +72,11 @@ case class RecentItem(recentItemId: Int,
 object RecentItem {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[RecentItem]
   def create(recentItemId: Int,
+             tenantId: Int,
+             organizationId: Int,
              roleId: Int,
              tabId: Int,
-             tableId: Int,
+             entityId: Int,
              userId: Int,
              windowId: Int,
              created: DateTime,
@@ -82,7 +86,7 @@ object RecentItem {
              updated: DateTime,
              updatedBy: Int,
              menuId: Int,
-             uuid: String) = RecentItem(recentItemId, roleId, None, None, None, None, created, createdBy, isActive,
-    None, updated, updatedBy, None, None)
+             uuid: String) = RecentItem(recentItemId, tenantId, organizationId, roleId, None, None, None,
+    None, created, createdBy, isActive, None, updated, updatedBy, None, None)
 }
 

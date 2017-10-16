@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Window Trl Entity
   * @param windowId Window Trl ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param language Language
   * @param isActive Is Active
   * @param created Created
@@ -37,6 +39,8 @@ import org.joda.time.DateTime
   */
 
 case class WindowTrl(windowId: Int,
+                     tenantId: Int,
+                     organizationId : Int ,
                      language: String,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,
@@ -66,6 +70,8 @@ case class WindowTrl(windowId: Int,
 object WindowTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WindowTrl]
   def create(windowId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              language: String,
              isActive: Boolean,
              created: DateTime,
@@ -76,6 +82,6 @@ object WindowTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WindowTrl(windowId, language, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, isTranslated, None)
+             uuid: String) = WindowTrl(windowId, tenantId, organizationId, language, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, isTranslated, None)
 }

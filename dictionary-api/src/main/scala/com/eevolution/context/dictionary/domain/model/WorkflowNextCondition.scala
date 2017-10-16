@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Next Condition Entity
   * @param workflowNextConditionId Wf Next Condition ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -40,6 +42,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowNextCondition(workflowNextConditionId: Int,
+                                 tenantId: Int,
+                                 organizationId : Int ,
                                  isActive: Boolean = true,
                                  created: DateTime = DateTime.now,
                                  createdBy: Int,
@@ -72,6 +76,8 @@ case class WorkflowNextCondition(workflowNextConditionId: Int,
 object WorkflowNextCondition  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNextCondition]
   def create(workflowNextConditionId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -85,8 +91,9 @@ object WorkflowNextCondition  {
              operation: String,
              value: String,
              value2: String,
-             uuid: String) = WorkflowNextCondition(workflowNextConditionId, isActive, created, createdBy, updated, updatedBy,
-    workflowNodeNextId, seqNo, entityType, andOr, columnId, operation, value, None, None)
+             uuid: String) = WorkflowNextCondition(workflowNextConditionId, tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, workflowNodeNextId, seqNo, entityType, andOr, columnId, operation,
+    value, None, None)
 }
 
 

@@ -56,7 +56,7 @@ case class PackageImportDetail(packageImpDetailId: Int,
                                backupId: Option[Int],
                                action: Option[String],
                                success: Option[String],
-                               typePackage: Option[String], //Cambiamos type por typePackage
+                               typePackage: Option[String], //type = typePackage
                                tableName: Option[String],
                                entityId: Option[Int],
                                uninstall: Option[Boolean],
@@ -92,7 +92,7 @@ object PackageImportDetail {
              backupId: Int,
              action: String,
              success: String,
-             typePackage: String, //Cambiamos type por typePackage
+             typePackage: String,
              tableName: String,
              entityId: Int,
              uninstall: Boolean,

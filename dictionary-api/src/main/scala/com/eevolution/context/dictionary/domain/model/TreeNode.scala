@@ -22,8 +22,10 @@ import org.joda.time.DateTime
 
 /**
   * Tree Node Entity
-  * @param treeNodeId Tree Node ID
+  * @param treeId Tree ID
   * @param nodeId Node ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,7 +36,9 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class TreeNode(treeNodeId: Int,
+case class TreeNode(treeId: Int,
+                    tenantId: Int,
+                    organizationId: Int,
                     nodeId: Int,
                     isActive: Boolean = true,
                     created: DateTime = DateTime.now,
@@ -53,15 +57,17 @@ case class TreeNode(treeNodeId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = treeNodeId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_TreeNode"
-  override val identifier: String = "AD_TreeNode_ID"
+  override val identifier: String = null
 }
 
 object TreeNode  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[TreeNode]
-  def create(treeNodeId: Int,
+  def create(treeId: Int,
+             tenantId: Int,
+             organizationId: Int,
              nodeId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -70,6 +76,6 @@ object TreeNode  {
              updatedBy: Int,
              parentId: Int,
              seqNo: Int,
-             uuid: String) = TreeNode(treeNodeId, nodeId, isActive, created, createdBy, updated, updatedBy,
-    None, None, None)
+             uuid: String) = TreeNode(treeId, tenantId, organizationId, nodeId, isActive, created, createdBy,
+    updated, updatedBy, None, None, None)
 }

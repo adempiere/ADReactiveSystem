@@ -22,6 +22,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Processor Entity
   * @param workflowProcessorId Work Flow Processor ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -43,6 +45,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowProcessor(workflowProcessorId: Int,
+                             tenantId: Int,
+                             organizationId : Int ,
                              isActive: Boolean = true,
                              created: DateTime = DateTime.now,
                              createdBy: Int,
@@ -79,6 +83,8 @@ case class WorkflowProcessor(workflowProcessorId: Int,
 object WorkflowProcessor {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessor]
   def create(workflowProcessorId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -96,6 +102,7 @@ object WorkflowProcessor {
              inactivityAlertDays: Int,
              remindDays: Int,
              alertOverPriority: Int,
-             uuid: String) = WorkflowProcessor(workflowProcessorId, isActive, created, createdBy, updated,
-    updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, None, None, None)
+             uuid: String) = WorkflowProcessor(workflowProcessorId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays,
+    None, None, None, None, None)
 }

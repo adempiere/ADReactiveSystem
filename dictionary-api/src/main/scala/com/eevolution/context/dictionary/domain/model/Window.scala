@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Window Entity
   * @param windowId Window ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -45,6 +47,8 @@ import org.joda.time.DateTime
   */
 
 case class Window(windowId: Int,
+                  tenantId: Int,
+                  organizationId : Int ,
                   isActive: Boolean = true,
                   created: DateTime = DateTime.now,
                   createdBy: Int,
@@ -82,6 +86,8 @@ case class Window(windowId: Int,
 object Window {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Window]
   def create(windowId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -100,7 +106,7 @@ object Window {
              winHeight: Int,
              winWidth: Int,
              isBetaFunctionality: Boolean,
-             uuid: String) = Window(windowId, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, None, isSotRx, entityType, None, None, None, isDefault,
+             uuid: String) = Window(windowId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, None, None, isSotRx, entityType, None, None, None, isDefault,
     None, None, isBetaFunctionality, None)
 }

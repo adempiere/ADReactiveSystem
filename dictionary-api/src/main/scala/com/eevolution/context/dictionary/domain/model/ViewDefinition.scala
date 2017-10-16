@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * View Definition Entity
   * @param viewDefinitionId View Definition ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class ViewDefinition(viewDefinitionId: Int,
+                          tenantId: Int,
+                          organizationId : Int ,
                           created: DateTime = DateTime.now,
                           createdBy: Int,
                           isActive: Boolean,
@@ -68,6 +72,8 @@ case class ViewDefinition(viewDefinitionId: Int,
 object ViewDefinition  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewDefinition]
   def create(viewDefinitionId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -79,6 +85,6 @@ object ViewDefinition  {
              tableAlias: String,
              joinClause: String,
              processing: Boolean,
-             uuid: String) = ViewDefinition(viewDefinitionId, created, createdBy, isActive, updated, updatedBy,
-    None, None, None, tableAlias, None, None, None)
+             uuid: String) = ViewDefinition(viewDefinitionId, tenantId, organizationId, created, createdBy,
+    isActive, updated, updatedBy, None, None, None, tableAlias, None, None, None)
 }

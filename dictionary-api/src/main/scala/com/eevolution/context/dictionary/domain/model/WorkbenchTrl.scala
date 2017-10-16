@@ -22,6 +22,8 @@ import org.joda.time.DateTime
   * Workbench Trl Entity
   * @param workbenchId Work Bench ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -36,6 +38,8 @@ import org.joda.time.DateTime
 
 case class WorkbenchTrl(workbenchId: Int,
                         language: String,
+                        tenantId: Int,
+                        organizationId : Int ,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -65,6 +69,8 @@ object WorkbenchTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkbenchTrl]
   def create(workbenchId: Int,
              language: String,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -74,6 +80,6 @@ object WorkbenchTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WorkbenchTrl(workbenchId, language, isActive, created, createdBy,
+             uuid: String) = WorkbenchTrl(workbenchId, language, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

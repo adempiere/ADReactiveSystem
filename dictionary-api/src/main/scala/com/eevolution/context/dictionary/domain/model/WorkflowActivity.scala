@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Activity Entity
   * @param workflowActivityId Wf Activity ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -48,6 +50,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowActivity(workflowActivityId: Int,
+                            tenantId: Int,
+                            organizationId : Int ,
                             isActive: Boolean = true,
                             created: DateTime = DateTime.now,
                             createdBy: Int,
@@ -88,6 +92,8 @@ case class WorkflowActivity(workflowActivityId: Int,
 object WorkflowActivity {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowActivity]
   def create(workflowActivityId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -109,9 +115,9 @@ object WorkflowActivity {
              endWaitTime: DateTime,
              dateLastAlert: DateTime,
              dynPriorityStart: Int,
-             uuid: String) = WorkflowActivity(workflowActivityId, isActive, created, createdBy, updated, updatedBy,
-    workflowProcessId, workflowNodeId, None, None, workflowState, None, None, processed, None, workFlowId, tableId, recordId,
-    None, None, None, None, None)
+             uuid: String) = WorkflowActivity(workflowActivityId, tenantId, organizationId,  isActive, created,
+    createdBy, updated, updatedBy, workflowProcessId, workflowNodeId, None, None, workflowState, None, None,
+    processed, None, workFlowId, tableId, recordId, None, None, None, None, None)
 
 }
 

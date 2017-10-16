@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Node Next Entity
   * @param workflowNodeNextId Wf Node Next ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -39,6 +41,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowNodeNext(workflowNodeNextId: Int,
+                            tenantId: Int,
+                            organizationId : Int ,
                             isActive: Boolean = true,
                             created: DateTime = DateTime.now,
                             createdBy: Int,
@@ -70,6 +74,8 @@ case class WorkflowNodeNext(workflowNodeNextId: Int,
 object WorkflowNodeNext {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeNext]
   def create(workflowNodeNextId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -82,7 +88,8 @@ object WorkflowNodeNext {
              entityType: String,
              transitionCode: String,
              isStdUserWorkFlow: Boolean,
-             uuid: String) = WorkflowNodeNext(workflowNodeNextId, isActive, created, createdBy, updated, updatedBy,
-    workflowNodeId, workflowNextId, None, seqNo, entityType, None, isStdUserWorkFlow, None)
+             uuid: String) = WorkflowNodeNext(workflowNodeNextId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, workflowNodeId, workflowNextId, None, seqNo, entityType,
+    None, isStdUserWorkFlow, None)
 
 }

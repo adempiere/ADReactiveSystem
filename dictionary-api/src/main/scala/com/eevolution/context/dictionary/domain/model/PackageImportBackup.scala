@@ -61,7 +61,6 @@ case class PackageImportBackup(packageImportBackupId: Int,
                                uuid: Option[String]
                             ) extends DomainModel
 
-
   with ActiveEnabled
   with Identifiable
   with Traceable {

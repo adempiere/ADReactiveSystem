@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.api.repository
 
+import com.eevolution.context.dictionary._
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -16,5 +17,5 @@ package com.eevolution.context.dictionary.domain.api.repository
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
-trait AttachmentRepository [Attachment , Int] extends Repostory [Attachment, Int] {
+trait AttachmentRepository [Attachment , Int] extends api.Repostory [Attachment, Int] {
 }

@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.api.service
 
+import com.eevolution.context.dictionary._
 import com.eevolution.context.dictionary.domain.model.Element
 
 /**
@@ -21,6 +22,6 @@ import com.eevolution.context.dictionary.domain.model.Element
 /**
   * Element Service
   */
-trait ElementService extends Service[Element, Int] {
+trait ElementService extends api.Service[Element, Int] {
 
 }

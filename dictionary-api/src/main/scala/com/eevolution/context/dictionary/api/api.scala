@@ -1,7 +1,12 @@
 package com.eevolution.context.dictionary.api
 
+import java.util.UUID
+
 import com.eevolution.context.dictionary.domain.model.{Organization, Tenant}
+import com.eevolution.utils.PaginatedSequence
 import org.joda.time.DateTime
+
+import scala.concurrent.Future
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -97,5 +102,45 @@ abstract trait Traceable {
   def getUpdatedBy: Int = updatedBy
 
   def getUpdated: DateTime = updated
+
+}
+
+
+/**
+  * Generic Service trait
+  * @tparam DomainModel
+  * @tparam idType
+  */
+trait Repostory [DomainModel , idType] {
+
+  type Repositiry
+
+  def getById(id: idType): Future[DomainModel]
+
+  def getByUUID(uuid: UUID): Future[DomainModel]
+
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[DomainModel]]
+
+  def getAll() : Future[List[DomainModel]]
+}
+
+
+/**
+  * Generic Service trait
+  *
+  * @tparam DomainModel
+  * @tparam idType
+  */
+trait Service[DomainModel, idType] {
+
+  type Service
+
+  def getById(id: idType): Object
+
+  def getByUUID(uuid: UUID): Object
+
+  def getAll(): Object
+
+  def getAllByPage(page: Option[Int], pageSize: Option[Int]): Object
 
 }

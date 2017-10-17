@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.api.service
 
+import com.eevolution.context.dictionary._
 import com.eevolution.context.dictionary.domain.model.Entity
 
 
@@ -22,6 +23,6 @@ import com.eevolution.context.dictionary.domain.model.Entity
 /**
   * Entity Service
   */
-trait EntityService extends Service[Entity, Int] {
+trait EntityService extends api.Service[Entity, Int] {
   def getAttributes(id: Int) : Object
 }

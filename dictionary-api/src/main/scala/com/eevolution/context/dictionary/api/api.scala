@@ -111,7 +111,19 @@ trait Repostory [DomainModel , idType] {
 
   def getByUUID(uuid: UUID): Future[DomainModel]
 
-  def getAll(page: Int, pageSize: Int): Future[PaginatedSequence[DomainModel]]
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[DomainModel]]
 
   def getAll() : Future[List[DomainModel]]
+}
+
+trait Service [DomainModel , idType] {
+
+  def getById(id: idType): Object
+
+  def getByUUID(uuid: UUID): Object
+
+  def getAll() : Object
+
+  def getAllByPage(page: Option[Int], pageSize: Option[Int]): Object
+
 }

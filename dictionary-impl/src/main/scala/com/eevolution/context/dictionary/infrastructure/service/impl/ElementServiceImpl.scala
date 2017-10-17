@@ -32,9 +32,11 @@ class ElementServiceImpl (registry: PersistentEntityRegistry, elementRepository:
 
   private val DefaultPageSize = 10
 
-  override def getElements(page : Option[Int], pageSize : Option[Int]) =  ServiceCall{_ => elementRepository.getAll(page.getOrElse(0) , pageSize.getOrElse(DefaultPageSize))}
+  override def getAll() = ServiceCall {_ => elementRepository.getAll()}
 
-  override def getElementById(id: Int) = ServiceCall { _ => elementRepository.getById(id)}
+  override def getAllByPage(page : Option[Int], pageSize : Option[Int]) =  ServiceCall{_ => elementRepository.getAllByPage(page.getOrElse(0) , pageSize.getOrElse(DefaultPageSize))}
 
-  override def getElementByUUID(uuid: UUID) = ServiceCall { _ => elementRepository.getByUUID(uuid)}
+  override def getById(id: Int) = ServiceCall { _ => elementRepository.getById(id)}
+
+  override def getByUUID(uuid: UUID) = ServiceCall { _ => elementRepository.getByUUID(uuid)}
 }

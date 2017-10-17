@@ -29,16 +29,18 @@ import com.eevolution.utils.PaginatedSequence
   */
 trait ElementService extends Service with api.ElementService {
 
-  override def getElementById(id: Int): ServiceCall[NotUsed, Element]
-  override def getElementByUUID(uuid :UUID): ServiceCall[NotUsed, Element]
-  override def getElements(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Element]]
+  override def getAll() :  ServiceCall[NotUsed, List[Element]]
+  override def getById(id: Int): ServiceCall[NotUsed, Element]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Element]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Element]]
 
  def descriptor = {
     import Service._
     named("element").withCalls(
-      pathCall("/api/v1_0_0/element/:id", getElementById _),
-      pathCall("/api/v1_0_0/element/:uuid", getElementByUUID _) ,
-      pathCall("/api/v1_0_0/element?pageNo&pageSize", getElements _)
+      pathCall("/api/v1_0_0/element/all", getAll _) ,
+      pathCall("/api/v1_0_0/element/:id", getById _),
+      pathCall("/api/v1_0_0/element/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/element?pageNo&pageSize", getAllByPage _)
     )
   }
 }

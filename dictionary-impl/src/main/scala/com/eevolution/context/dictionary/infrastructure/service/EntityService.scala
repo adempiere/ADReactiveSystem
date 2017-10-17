@@ -30,19 +30,19 @@ import com.eevolution.utils.PaginatedSequence
 trait EntityService extends Service with api.EntityService {
 
   override def getAll() :  ServiceCall[NotUsed, List[Entity]]
-  override def getEntityById(id: Int): ServiceCall[NotUsed, Entity]
+  override def getById(id: Int): ServiceCall[NotUsed, Entity]
   override def getAttributes(id: Int): ServiceCall[NotUsed, List[Attribute]]
-  override def getEntityByUUID(uuid :UUID): ServiceCall[NotUsed, Entity]
-  override def getEntities(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Entity]]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Entity]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Entity]]
 
   def descriptor = {
     import Service._
     named("entity").withCalls(
       pathCall("/api/v1_0_0/entity/all", getAll _) ,
-      pathCall("/api/v1_0_0/entity/:id", getEntityById _),
+      pathCall("/api/v1_0_0/entity/:id", getById _),
       pathCall("/api/v1_0_0/entity/:id/attributes", getAttributes _),
-      pathCall("/api/v1_0_0/entity/:uuid", getEntityByUUID _) ,
-      pathCall("/api/v1_0_0/entity?pageNo&pageSize", getEntities _)
+      pathCall("/api/v1_0_0/entity/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/entity?pageNo&pageSize", getAllByPage _)
     )
   }
 }

@@ -1,6 +1,7 @@
 package com.eevolution.service.api
 
-import java.util.UUID
+import com.eevolution.context.dictionary._
+import com.eevolution.context.dictionary.domain.model.{Element}
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -21,8 +22,6 @@ import java.util.UUID
 /**
   * Element Service
   */
-trait ElementService {
-  def getElements(pageNo: Option[Int], pageSize: Option[Int]) : Object
-  def getElementById(id: Int)  : Object
-  def getElementByUUID(uuid :UUID)  : Object
+trait ElementService extends api.Service[Element, Int] {
+
 }

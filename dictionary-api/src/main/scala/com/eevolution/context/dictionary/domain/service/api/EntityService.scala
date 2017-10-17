@@ -1,6 +1,9 @@
 package com.eevolution.service.api
 
-import java.util.UUID
+import com.eevolution.context.dictionary._
+
+import com.eevolution.context.dictionary.domain.model.Entity
+
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -21,10 +24,6 @@ import java.util.UUID
 /**
   * Entity Service
   */
-trait EntityService {
-  def getAll() : Object
-  def getEntities(pageNo: Option[Int], pageSize: Option[Int]) : Object
-  def getEntityById(id: Int)  : Object
+trait EntityService extends api.Service[Entity, Int] {
   def getAttributes(id: Int) : Object
-  def getEntityByUUID(uuid :UUID)  : Object
 }

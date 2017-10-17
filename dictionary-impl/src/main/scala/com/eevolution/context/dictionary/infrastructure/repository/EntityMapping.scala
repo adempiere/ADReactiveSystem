@@ -45,13 +45,13 @@ trait EntityMapping {
       _.isSecurityEnabled -> "IsSecurityEnabled",
       _.isDeleteable -> "IsDeleteable",
       _.isHighVolume -> "IsHighVolume",
-      _.isImporttable -> "Importtable",
+      _.isImporttable -> "ImportTable",
       _.isChangeLog -> "IsChangeLog" ,
       _.replicationType -> "ReplicationType",
       _.copyColumnsFromTable -> "CopyColumnsFromTable",
       _.isCentrallyMaintained -> "IsCentrallyMaintained",
       _.acTriggerLength -> "AcTriggerLength" ,
-      _.isDocument -> "isDocument",
-      _.isIgnoreMigration -> "isIgnoreMigration")
+      _.isDocument -> "IsDocument",
+      _.isIgnoreMigration -> "IsIgnoreMigration")
   }
 }

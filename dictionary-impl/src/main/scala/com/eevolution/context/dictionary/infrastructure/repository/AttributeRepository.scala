@@ -30,7 +30,7 @@ class AttributeRepository (session: JdbcSession)(implicit executionContext: Exec
     Future(run(queryAttribute))
   }
 
-  def getAll(page: Int, pageSize: Int): Future[PaginatedSequence[Attribute]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Attribute]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {

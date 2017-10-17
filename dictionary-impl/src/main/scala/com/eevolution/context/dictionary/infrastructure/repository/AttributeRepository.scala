@@ -1,10 +1,9 @@
 package com.eevolution.context.dictionary.infrastructure.repository
-import com.eevolution.context.dictionary.infrastructure.db.DbContext._
-
 import java.util.UUID
 
-import com.eevolution.context.dictionary.api.Repostory
-import com.eevolution.context.dictionary.domain.model.{Attribute}
+import com.eevolution.context.dictionary.domain.api
+import com.eevolution.context.dictionary.domain.model.Attribute
+import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 
@@ -13,7 +12,10 @@ import scala.concurrent.{ExecutionContext, Future}
 /**
   * Created by e-Evolution on 11/03/17.
   */
-class AttributeRepository (session: JdbcSession)(implicit executionContext: ExecutionContext) extends Repostory[Attribute , Int] with AttributeMapping {
+class AttributeRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.AttributeRepository[Attribute , Int]
+    with AttributeMapping {
+
   def getById(id: Int): Future[Attribute] = {
     Future(run(queryAttribute.filter(_.attributeId == lift(id))).headOption.get)
   }

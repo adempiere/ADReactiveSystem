@@ -1,11 +1,4 @@
-package com.eevolution.context.dictionary.domain.repository.api
-
-import java.util.UUID
-
-import com.eevolution.context.dictionary.domain.model.AlertProcessor
-import com.eevolution.utils.PaginatedSequence
-
-import scala.concurrent.Future
+package com.eevolution.context.dictionary.domain.api.repository
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -19,18 +12,8 @@ import scala.concurrent.Future
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by victor.perez@e-evolution.com , www.e-evolution.com
   */
-
-trait AlertProcessorRepository {
-
-  def getAll() : Future[List[AlertProcessor]]
-
-  def getAlertProcessorById(id: Int): Future[AlertProcessor]
-
-  def getAlertProcessorByUUID(uuid: UUID): Future[AlertProcessor]
-
-  def getAlertProcessors(page: Int, pageSize: Int): Future[PaginatedSequence[AlertProcessor]]
-
+trait AttributeRepository [Attribute , Int] extends Repostory [Attribute , Int] {
 }

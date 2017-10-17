@@ -1,11 +1,4 @@
-package com.eevolution.context.dictionary.domain.repository.api
-
-import java.util.UUID
-
-import com.eevolution.context.dictionary.domain.model.Attachment
-import com.eevolution.utils.PaginatedSequence
-
-import scala.concurrent.Future
+package com.eevolution.context.dictionary.domain.api.repository
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -23,13 +16,5 @@ import scala.concurrent.Future
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
-trait AttachmentRepository {
-
-  def getAll() : Future[List[Attachment]]
-
-  def getAttachmentById(id: Int): Future[Attachment]
-
-  def getAttachmentByUUID(uuid: UUID): Future[Attachment]
-
-  def getAttachments(page: Int, pageSize: Int): Future[PaginatedSequence[Attachment]]
+trait AttachmentNoteRepository [AttachmentNote , Int] extends Repostory[AttachmentNote, Int]{
 }

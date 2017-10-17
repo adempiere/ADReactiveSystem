@@ -2,7 +2,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 
 import java.util.UUID
 
-import com.eevolution.context.dictionary._
+import com.eevolution.context.dictionary.domain._
 import com.eevolution.context.dictionary.domain.model.Element
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
@@ -31,7 +31,9 @@ import scala.concurrent.{ExecutionContext, Future}
   * @param session
   * @param executionContext
   */
-class ElementRepository(session: JdbcSession)(implicit executionContext: ExecutionContext) extends api.Repostory[Element , Int] with ElementMapping {
+class ElementRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.ElementRepository[Element , Int]
+    with ElementMapping {
 
   def getById(id: Int): Future[Element] = {
     Future(run(queryElement.filter(_.elementId == lift(id))).headOption.get)

@@ -1,7 +1,8 @@
 package com.eevolution.context.dictionary.infrastructure.repository
 
-import com.eevolution.context.dictionary.domain.model.{Entity}
+import com.eevolution.context.dictionary.domain.model.Entity
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
+import org.joda.time.DateTime
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -26,6 +27,8 @@ trait EntityMapping {
   val queryEntity = quote {
     querySchema[Entity]("AD_Table",
       _.entityId -> "AD_Table_ID",
+      _.tenantId -> "AD_Client_ID",
+      _.organizationId -> "AD_Org_ID",
       _.isActive -> "IsActive",
       _.created -> "Created",
       _.createdBy -> "CreatedBy" ,
@@ -45,7 +48,7 @@ trait EntityMapping {
       _.isSecurityEnabled -> "IsSecurityEnabled",
       _.isDeleteable -> "IsDeleteable",
       _.isHighVolume -> "IsHighVolume",
-      _.isImporttable -> "ImportTable",
+      _.isImportTable -> "ImportTable",
       _.isChangeLog -> "IsChangeLog" ,
       _.replicationType -> "ReplicationType",
       _.copyColumnsFromTable -> "CopyColumnsFromTable",

@@ -44,7 +44,7 @@ import org.joda.time.DateTime
   * @param valueRuleId Value Rule ID
   * @param loadSeq Load Seq
   * @param isSecurityEnabled Is Security Enabled
-  * @param isDeleteAble Is Delete Able
+  * @param isDeleteable Is Delete Able
   * @param isHighVolume Is High Volume
   * @param isImportTable Is Import Table
   * @param isChangeLog Is Change Log
@@ -77,7 +77,7 @@ case class Entity(entityId: Int,
                   valueRuleId: Option[Int],
                   loadSeq: Option[Int],
                   isSecurityEnabled: Boolean = false,
-                  isDeleteAble: Boolean = false,
+                  isDeleteable: Boolean = false,
                   isHighVolume: Boolean = false,
                   isImportTable: Boolean = false,
                   isChangeLog: Boolean = false,
@@ -127,19 +127,19 @@ object Entity  {
              valueRuleId: Int,
              loadSeq: Int,
              isSecurityEnabled: Boolean,
-             isDeleteAble: Boolean,
+             isDeleteable: Boolean,
              isHighVolume: Boolean,
              isImportTable: Boolean,
-             isChangeLog: Boolean ,
+             isChangeLog: Boolean,
              replicationType: String,
-             copyColumnsFromTable: String ,
+             copyColumnsFromTable: String,
              isCentrallyMaintained: Boolean,
              acTriggerLength: Int,
-             isDocument: Boolean ,
+             isDocument: Boolean,
              isIgnoreMigration: Boolean,
              uuid: String) = Entity(entityId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, tableName, isView, accessLevel, entityType, None, None, None,
-    None, isSecurityEnabled, isDeleteAble, isHighVolume, isImportTable, isChangeLog , replicationType ,
+    None, isSecurityEnabled, isDeleteable, isHighVolume, isImportTable, isChangeLog , replicationType ,
     None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration, None)
 
 }

@@ -26,6 +26,13 @@ trait ElementMapping {
   val queryElement = quote {
     querySchema[Element]("AD_Element",
       _.elementId -> "AD_Element_ID",
+      _.tenantId -> "AD_Client_ID",
+      _.organizationId -> "AD_Org_ID",
+      _.isActive -> "IsActive",
+      _.created -> "Created",
+      _.createdBy -> "CreatedBy" ,
+      _.updated -> "Updated",
+      _.updatedBy -> "UpdatedBy",
       _.columnName -> "ColumnName",
       _.name -> "Name",
       _.description -> "Description",

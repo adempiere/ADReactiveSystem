@@ -1,11 +1,4 @@
-package com.eevolution.context.dictionary.domain.repository.api
-
-import java.util.UUID
-
-import com.eevolution.context.dictionary.domain.model.AttachmentNote
-import com.eevolution.utils.PaginatedSequence
-
-import scala.concurrent.Future
+package com.eevolution.context.dictionary.domain.api.repository
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -23,13 +16,6 @@ import scala.concurrent.Future
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
-trait AttachmentNoteRepository {
+trait AlertProcessorRepository [AlertProcessor, Int] extends Repostory[AlertProcessor, Int]{
 
-  def getAll() : Future[List[AttachmentNote]]
-
-  def getAttachmentNoteById(id: Int): Future[AttachmentNote]
-
-  def getAttachmentNoteByUUID(uuid: UUID): Future[AttachmentNote]
-
-  def getAttachmentNotes(page: Int, pageSize: Int): Future[PaginatedSequence[AttachmentNote]]
 }

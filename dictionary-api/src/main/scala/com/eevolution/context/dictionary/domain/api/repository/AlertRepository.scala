@@ -1,11 +1,4 @@
-package com.eevolution.context.dictionary.domain.repository.api
-
-import java.util.UUID
-
-import com.eevolution.context.dictionary.domain.model.AlertProcessorLog
-import com.eevolution.utils.PaginatedSequence
-
-import scala.concurrent.Future
+package com.eevolution.context.dictionary.domain.api.repository
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -23,13 +16,6 @@ import scala.concurrent.Future
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
   */
 
-trait AlertProcessorLogRepository {
+trait AlertRepository [Alert , Int] extends Repostory [Alert , Int] {
 
-  def getAll() : Future[List[AlertProcessorLog]]
-
-  def getAlertProcessorLogById(id: Int): Future[AlertProcessorLog]
-
-  def getAlertProcessorLogByUUID(uuid: UUID): Future[AlertProcessorLog]
-
-  def getAlertProcessorLogs(page: Int, pageSize: Int): Future[PaginatedSequence[AlertProcessorLog]]
 }

@@ -49,7 +49,7 @@ import org.joda.time.DateTime
   * @param seqNo Seq No
   * @param isTranslated Is Translated
   * @param isEncrypted Is Encrypted
-  * @param callOut Call Out
+  * @param callout Call Out
   * @param vFormat V Format
   * @param valueMin Value Min
   * @param valueMax Value Max
@@ -57,12 +57,12 @@ import org.joda.time.DateTime
   * @param elementId Element ID
   * @param processId Process ID
   * @param isSyncDatabase Is Sync Database
-  * @param isAlwaysUpdateAble Is Always Update Able
+  * @param isAlwaysUpdateable Is Always Update Able
   * @param attributeSql Attribute SQL
   * @param mandatoryLogic Mandatory Logic
   * @param infoFactoryClass Info Factory Class
   * @param isAutoComplete Is Auto Complete
-  * @param forMatPattern For Hat Pattern
+  * @param formatPattern For Hat Pattern
   * @param chartId Chart ID
   * @param isRange Is Range
   * @param isAllowCopy Is Allow Copy
@@ -98,7 +98,7 @@ case class Attribute(attributeId: Int,
                      seqNo: Option[Int],
                      isTranslated: Boolean = false,
                      isEncrypted: Boolean = false,
-                     callOut: Option[String],
+                     callout: Option[String],
                      vFormat: Option[String],
                      valueMin: Option[String],
                      valueMax: Option[String],
@@ -106,12 +106,13 @@ case class Attribute(attributeId: Int,
                      elementId: Option[Int],
                      processId: Option[Int],
                      isSyncDatabase: Boolean = false,
-                     isAlwaysUpdateAble: Boolean = false,
+                     isAlwaysUpdateable: Boolean = false,
                      attributeSql: Option[String],
                      mandatoryLogic: Option[String],
                      infoFactoryClass: Option[String],
                      isAutoComplete: Boolean = false,
-                     forMatPattern: Option[String],
+                     isAllowLogging : Boolean = true,
+                     formatPattern: Option[String],
                      chartId: Option[Int],
                      isRange: Boolean = false,
                      isAllowCopy: Boolean = true,
@@ -171,18 +172,19 @@ object Attribute {
              elementId: Int,
              processId: Int,
              isSyncDatabase: Boolean,
-             isAlwaysUpdateAble: Boolean,
+             isAlwaysUpdateable: Boolean,
              attributeSql: String,
              mandatoryLogic: String,
              infoFactoryClass: String,
              isAutoComplete: Boolean,
-             forMatPattern: String,
+             isAllowLogging : Boolean = true,
+             formatPattern: String,
              chartId: Int,
              isRange: Boolean,
              isAllowCopy: Boolean,
              uuid: String) = Attribute(attributeId, tenantId, organizationId, isActive,created, updated, createdBy,
     updatedBy, name, None, None, version, entityType, attributeName, entityId, referenceId, None, None, None,
     None, isKey, isParent, isMandatory, isUpdateAble, None, isIdentifier, None, isTranslated,isEncrypted, None,
-    None, None, None, isSelectionAttribute, None, None, isSyncDatabase, isAlwaysUpdateAble, None, None, None, isAutoComplete,
+    None, None, None, isSelectionAttribute, None, None, isSyncDatabase, isAlwaysUpdateable, None, None, None, isAutoComplete, isAllowLogging ,
     None, None, isRange, isAllowCopy, None)
 }

@@ -1,12 +1,6 @@
-package com.eevolution.context.dictionary.infrastructure.service
+package com.eevolution.context.dictionary.domain.api.service
 
-import java.util.UUID
-
-import akka.NotUsed
-import com.eevolution.context.dictionary.domain._
 import com.eevolution.context.dictionary.domain.model.Element
-import com.eevolution.utils.PaginatedSequence
-import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -27,20 +21,6 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 /**
   * Element Service
   */
-trait ElementService extends Service with api.service.ElementService {
+trait ElementService extends Service[Element, Int] {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Element]]
-  override def getById(id: Int): ServiceCall[NotUsed, Element]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Element]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Element]]
-
- def descriptor = {
-    import Service._
-    named("element").withCalls(
-      pathCall("/api/v1_0_0/element/all", getAll _) ,
-      pathCall("/api/v1_0_0/element/:id", getById _),
-      pathCall("/api/v1_0_0/element/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/element?pageNo&pageSize", getAllByPage _)
-    )
-  }
 }

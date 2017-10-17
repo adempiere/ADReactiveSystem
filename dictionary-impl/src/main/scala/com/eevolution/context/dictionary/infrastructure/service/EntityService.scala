@@ -3,10 +3,10 @@ package com.eevolution.context.dictionary.infrastructure.service
 import java.util.UUID
 
 import akka.NotUsed
+import com.eevolution.context.dictionary.domain._
 import com.eevolution.context.dictionary.domain.model.{Attribute, Entity}
-import com.eevolution.service.api
-import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 import com.eevolution.utils.PaginatedSequence
+import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -27,7 +27,7 @@ import com.eevolution.utils.PaginatedSequence
 /**
   * Entity Service
   */
-trait EntityService extends Service with api.EntityService {
+trait EntityService extends Service with api.service.EntityService {
 
   override def getAll() :  ServiceCall[NotUsed, List[Entity]]
   override def getById(id: Int): ServiceCall[NotUsed, Entity]

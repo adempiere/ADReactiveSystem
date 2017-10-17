@@ -1,9 +1,6 @@
-package com.eevolution.service.api
+package com.eevolution.context.dictionary.domain.api.service
 
-import com.eevolution.context.dictionary._
-
-import com.eevolution.context.dictionary.domain.model.Entity
-
+import java.util.UUID
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -18,12 +15,23 @@ import com.eevolution.context.dictionary.domain.model.Entity
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by victor.perez@e-evolution.com , www.e-evolution.com
+  * Created by e-Evolution on 17/10/17.
   */
 
 /**
-  * Entity Service
+  * Generic Service trait
+  *
+  * @tparam DomainModel
+  * @tparam idType
   */
-trait EntityService extends api.Service[Entity, Int] {
-  def getAttributes(id: Int) : Object
+trait Service[DomainModel, idType] {
+
+  def getById(id: idType): Object
+
+  def getByUUID(uuid: UUID): Object
+
+  def getAll(): Object
+
+  def getAllByPage(page: Option[Int], pageSize: Option[Int]): Object
+
 }

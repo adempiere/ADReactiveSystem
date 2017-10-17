@@ -1,7 +1,7 @@
-package com.eevolution.service.api
+package com.eevolution.context.dictionary.domain.api.service
 
-import com.eevolution.context.dictionary._
-import com.eevolution.context.dictionary.domain.model.{Element}
+import com.eevolution.context.dictionary.domain.model.Entity
+
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -20,8 +20,8 @@ import com.eevolution.context.dictionary.domain.model.{Element}
   */
 
 /**
-  * Element Service
+  * Entity Service
   */
-trait ElementService extends api.Service[Element, Int] {
-
+trait EntityService extends Service[Entity, Int] {
+  def getAttributes(id: Int) : Object
 }

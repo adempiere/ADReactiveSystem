@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * House Keeping Entity
   * @param houseKeepingId House Keeping Id
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param tableId Table ID
   * @param backupFolder Backup Folder
   * @param created Created
@@ -44,6 +46,8 @@ import org.joda.time.DateTime
   */
 
 case class HouseKeeping (houseKeepingId: Int,
+                         tenantId : Int ,
+                         organizationId : Int ,
                          tableId: Int,
                          backupFolder: Option[String],
                          created: DateTime = DateTime.now,
@@ -80,6 +84,8 @@ case class HouseKeeping (houseKeepingId: Int,
 object HouseKeeping  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[HouseKeeping]
   def create(houseKeepingId: Int,
+             tenantId : Int ,
+             organizationId : Int ,
              tableId: Int,
              backupFolder: String,
              created: DateTime,
@@ -97,7 +103,7 @@ object HouseKeeping  {
              updatedBy: Int,
              value: String,
              whereClause: String,
-             uuid: String) = HouseKeeping(houseKeepingId, tableId, None, created, createdBy, None, None,
-    isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, None)
+             uuid: String) = HouseKeeping(houseKeepingId, tenantId, organizationId, tableId, None, created, createdBy,
+    None, None, isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, None)
 }
 

@@ -20,7 +20,7 @@ import org.joda.time.DateTime
   */
 /**
   * Print Format Item Trl Entity
-  * @param printFormatItemTrlId Print Format Item Trl ID
+  * @param printFormatItemId Print Format Item ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param printNameSuffix Print Name Suffix
   * @param uuid UUID
   */
-case class PrintFormatItemTrl (printFormatItemTrlId: Int,
+case class PrintFormatItemTrl (printFormatItemId: Int,
                                language: String,
                                tenantId: Int,
                                organizationId: Int,
@@ -55,16 +55,16 @@ case class PrintFormatItemTrl (printFormatItemTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = printFormatItemTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_PrintFormatItemTrlId"
-  override val identifier: String = "AD_PrintFormatItemTrlId_ID"
+  override val entityName: String = "AD_PrintFormatItem_Trl"
+  override val identifier: String = null
 
 }
 
 object PrintFormatItemTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintFormatItemTrl]
-  def create(printFormatItemTrlId: Int,
+  def create(printFormatItemId: Int,
              language: String,
              tenantId: Int,
              organizationId: Int,
@@ -76,6 +76,6 @@ object PrintFormatItemTrl {
              printName: String,
              isTranslated : Boolean,
              printNameSuffix: String,
-             uuid: String) = PrintFormatItemTrl(printFormatItemTrlId, language, tenantId, organizationId, isActive,
+             uuid: String) = PrintFormatItemTrl(printFormatItemId, language, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, None, isTranslated, None, None)
 }

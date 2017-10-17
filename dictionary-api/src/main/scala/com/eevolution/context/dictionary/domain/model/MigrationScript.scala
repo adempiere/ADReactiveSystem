@@ -22,7 +22,9 @@ import org.joda.time.DateTime
 
 /**
   * Migration Script Entity
+  * @param tenantId Tenant ID
   * @param migrationScriptId Migration Script ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param description Description
@@ -43,26 +45,28 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class MigrationScript(migrationScriptId: Int,
-                      created: DateTime =  DateTime.now,
-                      createdBy: Int,
-                      description: Option[String],
-                      developerName: Option[String],
-                      isActive: Boolean = true,
-                      name: String,
-                      projectName: String,
-                      reference: Option[String],
-                      releaseNo: String,
-                      scriptRoll: Option[Boolean],
-                      status: String,
-                      url: Option[String],
-                      updated: DateTime =  DateTime.now,
-                      updatedBy: Int,
-                      isApply: Boolean,
-                      filename: String,
-                      script: String,
-                      uuid: Option [String]
-                     ) extends DomainModel
+case class MigrationScript(tenantId: Int,
+                           migrationScriptId: Int,
+                           organizationId: Int,
+                           created: DateTime =  DateTime.now,
+                           createdBy: Int,
+                           description: Option[String],
+                           developerName: Option[String],
+                           isActive: Boolean = true,
+                           name: String,
+                           projectName: String,
+                           reference: Option[String],
+                           releaseNo: String,
+                           scriptRoll: Option[Boolean],
+                           status: String,
+                           url: Option[String],
+                           updated: DateTime =  DateTime.now,
+                           updatedBy: Int,
+                           isApply: Boolean,
+                           filename: String,
+                           script: String,
+                           uuid: Option [String]
+                          ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -79,7 +83,9 @@ case class MigrationScript(migrationScriptId: Int,
 
 object MigrationScript {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[MigrationScript]
-  def create(migrationScriptId: Int,
+  def create(tenantId: Int,
+             migrationScriptId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              description: String,
@@ -97,8 +103,9 @@ object MigrationScript {
              isApply: Boolean,
              filename: String,
              script: String,
-             uuid: String) = MigrationScript(migrationScriptId, created, createdBy, None, None, isActive, name,
-    projectName, None, releaseNo, None, status, None, updated, updatedBy, isApply, filename, script, None)
+             uuid: String) = MigrationScript(tenantId, migrationScriptId, organizationId, created, createdBy, None,
+    None, isActive, name, projectName, None, releaseNo, None, status, None, updated, updatedBy, isApply, filename,
+    script, None)
 }
 
 

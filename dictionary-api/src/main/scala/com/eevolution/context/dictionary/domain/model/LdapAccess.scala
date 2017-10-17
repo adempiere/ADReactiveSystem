@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Ldap Access Entity
   * @param ldapAccessId Ldap Access ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class LdapAccess(ldapAccessId: Int,
+                      tenantId : Int ,
+                      organizationId : Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,
                       createdBy: Int,
@@ -68,6 +72,8 @@ case class LdapAccess(ldapAccessId: Int,
 object LdapAccess  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[LdapAccess]
   def create(ldapAccessId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -79,7 +85,7 @@ object LdapAccess  {
              isError: Boolean,
              summary: String,
              description: String,
-             uuid: String) = LdapAccess(ldapAccessId, isActive, created, createdBy, updated, updatedBy,
-    ldapProcessorId, None, None, isError, None, None, None)
+             uuid: String) = LdapAccess(ldapAccessId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, ldapProcessorId, None, None, isError, None, None, None)
 }
 

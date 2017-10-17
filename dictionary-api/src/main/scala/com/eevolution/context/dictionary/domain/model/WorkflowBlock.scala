@@ -55,8 +55,8 @@ case class WorkflowBlock(workflowBlockId: Int,
 
   override def Id: Int = workflowBlockId
 
-  override val entityName: String = "AD_WfBlock"
-  override val identifier: String = "AD_WfBlock_ID"
+  override val entityName: String = "AD_Wf_Block"
+  override val identifier: String = "AD_Wf_Block_ID"
 }
 
 object WorkflowBlock {

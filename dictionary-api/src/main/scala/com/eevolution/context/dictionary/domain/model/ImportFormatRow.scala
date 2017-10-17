@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param decimalPoint Decimal Point
   * @param divideBy100 Divide By 100
   * @param constantValue Constant Value
-  * @param callout Call Out
+  * @param callOut Call Out
   * @param script Script
   * @param defaultValue Default Value
   * @param uuid UUID
@@ -64,7 +64,7 @@ case class ImportFormatRow(importFormatRowId: Int,
                            decimalPoint: Boolean,
                            divideBy100: Boolean = false,
                            constantValue: Option[String],
-                           callout: Option[String],
+                           callOut: Option[String],
                            script: Option[String],
                            defaultValue: Option[String],
                            uuid: Option[String]
@@ -79,8 +79,8 @@ case class ImportFormatRow(importFormatRowId: Int,
   override type Traceable = this.type
   override def Id: Int = importFormatRowId
 
-  override val entityName: String = "AD_ImpFormatRow"
-  override val identifier: String = "AD_ImpFormatRow_ID"
+  override val entityName: String = "AD_ImpFormat_Row"
+  override val identifier: String = "AD_ImpFormat_Row_ID"
 
 }
 
@@ -106,10 +106,10 @@ object ImportFormatRow {
              decimalPoint: Boolean,
              divideBy100: Boolean,
              constantValue: String,
-             callout: String,
+             callOut: String,
              script: String,
              defaultValue: String,
              uuid: String) = ImportFormatRow(impportFormatRowId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, importFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100, None,
-    None, None, None, None)
+    updated, updatedBy, importFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100,
+    None, None, None, None, None)
 }

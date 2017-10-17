@@ -34,10 +34,12 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 case class AlertRecipient(alertRecipientId: Int,
+                          tenantId: Int,
+                          organizationId: Int,
                           isActive: Boolean = true,
-                          created: DateTime = DateTime.now(),
+                          created: DateTime = DateTime.now,
                           createdBy: Int,
-                          updated: DateTime = DateTime.now(),
+                          updated: DateTime = DateTime.now,
                           updatedBy: Int,
                           alertId: Int,
                           userId: Option[Int],
@@ -61,6 +63,8 @@ case class AlertRecipient(alertRecipientId: Int,
 object AlertRecipient  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AlertRecipient]
   def create(alertRecipientId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -69,6 +73,6 @@ object AlertRecipient  {
              alertId: Int,
              userId: Int,
              roleId: Int,
-             uuid: String) = AlertRecipient(alertRecipientId, isActive, created, createdBy, updated, updatedBy, alertId,
-    None, None, None )
+             uuid: String) = AlertRecipient(alertRecipientId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, alertId, None, None, None )
 }

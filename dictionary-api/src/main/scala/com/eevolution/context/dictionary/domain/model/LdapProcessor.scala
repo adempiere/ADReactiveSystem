@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Ldap Processor Entity
   * @param ldapProcessorId Ldap Processor ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
@@ -40,6 +42,8 @@ import org.joda.time.DateTime
   */
 
 case class LdapProcessor(ldapProcessorId: Int,
+                         tenantId : Int ,
+                         organizationId : Int,
                          created: DateTime = DateTime.now,
                          createdBy: Int,
                          updated: DateTime = DateTime.now,
@@ -73,6 +77,8 @@ case class LdapProcessor(ldapProcessorId: Int,
 object LdapProcessor  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[LdapProcessor]
   def create(ldapProcessorId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
@@ -86,7 +92,8 @@ object LdapProcessor  {
              supervisorId: Int,
              keepLogDays: Int,
              processing: Boolean,
-             uuid: String) = LdapProcessor(ldapProcessorId, created, createdBy, updated, updatedBy, isActive,
-    name, None, ldapPort, dateLastRun, dateNextRun,supervisorId, keepLogDays, None, None )
+             uuid: String) = LdapProcessor(ldapProcessorId, tenantId, organizationId, created, createdBy,
+    updated, updatedBy, isActive, name, None, ldapPort, dateLastRun, dateNextRun,supervisorId,
+    keepLogDays, None, None )
 }
 

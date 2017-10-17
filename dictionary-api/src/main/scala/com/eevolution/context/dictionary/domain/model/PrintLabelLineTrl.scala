@@ -20,7 +20,7 @@ import org.joda.time.DateTime
   */
 /**
   * Print Label Line Trl Entity
-  * @param printLabelLineTrlId Print Label Linel Trl ID
+  * @param printLabelLineId Print Label Line ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PrintLabelLineTrl (printLabelLineTrlId: Int,
+case class PrintLabelLineTrl (printLabelLineId: Int,
                               language: String,
                               tenantId: Int,
                               organizationId: Int,
@@ -54,16 +54,16 @@ case class PrintLabelLineTrl (printLabelLineTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = printLabelLineTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_PrintLabelLineTrl"
-  override val identifier: String = "AD_PrintLabelLineTrl_ID"
+  override val entityName: String = "AD_PrintLabelLine_Trl"
+  override val identifier: String = null
 
 }
 
 object PrintLabelLineTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintLabelLineTrl]
-  def create(printLabelLineTrlId: Int,
+  def create(printLabelLineId: Int,
              language: String,
              tenantId: Int,
              organizationId: Int,
@@ -74,6 +74,6 @@ object PrintLabelLineTrl {
              updatedBy: Int,
              printName: String,
              isTranslated: Boolean,
-             uuid: String) = PrintLabelLineTrl(printLabelLineTrlId, language, tenantId, organizationId, isActive,
+             uuid: String) = PrintLabelLineTrl(printLabelLineId, language, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, None, isTranslated, None)
 }

@@ -43,24 +43,26 @@ import org.joda.time.DateTime
   */
 
 case class EmailConfig(emailConfigId: Int,
-                  authMechanism: String = "L",
-                  connectionTimeOut: Int = 0,
-                  created: DateTime = DateTime.now,
-                  createdBy: Int,
-                  description: Option[String],
-                  encryptionType: Boolean = false,
-                  isActive: Boolean = true,
-                  isSmTpAuthorization: Boolean = false,
-                  ldapDomain: Option[String],
-                  name: String,
-                  port: Int,
-                  protocol: Boolean,
-                  smTpHost: String,
-                  timeOut: Int = 0,
-                  updated: DateTime = DateTime.now,
-                  updatedBy: Int,
-                  uuid: Option[String]
-                 ) extends DomainModel
+                       tenantId: Int,
+                       organizationId: Int,
+                       authMechanism: String = "L",
+                       connectionTimeOut: Int = 0,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       description: Option[String],
+                       encryptionType: Boolean = false,
+                       isActive: Boolean = true,
+                       isSmTpAuthorization: Boolean = false,
+                       ldapDomain: Option[String],
+                       name: String,
+                       port: Int,
+                       protocol: Boolean,
+                       smTpHost: String,
+                       timeOut: Int = 0,
+                       updated: DateTime = DateTime.now,
+                       updatedBy: Int,
+                       uuid: Option[String]
+                      ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -78,6 +80,8 @@ case class EmailConfig(emailConfigId: Int,
 object EmailConfig {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[EmailConfig]
   def create(emailConfigId: Int,
+             tenantId: Int,
+             organizationId: Int,
              authMechanism: String,
              connectionTimeOut: Int,
              created: DateTime,
@@ -94,8 +98,8 @@ object EmailConfig {
              timeOut: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = EmailConfig(emailConfigId, authMechanism, connectionTimeOut, created, createdBy,
-    None, encryptionType, isActive, isSmTpAuthorization, None, name, port, protocol, smTpHost, timeOut,
-    updated, updatedBy, None)
+             uuid: String) = EmailConfig(emailConfigId, tenantId, organizationId, authMechanism, connectionTimeOut,
+    created, createdBy, None, encryptionType, isActive, isSmTpAuthorization, None, name, port, protocol, smTpHost,
+    timeOut, updated, updatedBy, None)
 }
 

@@ -21,32 +21,32 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Column Access Entity
-  * @param columnId Column ID
-  * @param roleId Role ID
+  * Attribute Trl Entity
+  * @param attributeTrlId Attribute Trl ID
+  * @param language Language
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param isReadOnly Is Read Only
-  * @param isExclude Is Exclude
-  * @param tableId Table ID
+  * @param name Name
+  * @param isTranslated Is Translated
   * @param uuid UUID
   */
 
-case class ColumnAccess(columnId: Int,
-                        roleId: Int,
-                        isActive:Boolean=true,
-                        created:DateTime = DateTime.now,
+case class AttributeTrl(attributeTrlId: Int,
+                        language: String,
+                        tenantId: Int,
+                        organizationId: Int,
+                        isActive: Boolean = true,
+                        created: DateTime =  DateTime.now,
                         createdBy: Int,
-                        updated: DateTime = DateTime.now,
+                        updated: DateTime =  DateTime.now,
                         updatedBy: Int,
-                        isReadOnly: Boolean = false,
-                        isExclude: Boolean = true,
-                        tableId: Option[Int],
+                        name: String,
+                        isTranslated: Boolean = false,
                         uuid: Option[String]
-                       ) extends DomainModel
+                    ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -55,24 +55,25 @@ case class ColumnAccess(columnId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = columnId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_ColumnAccess"
-  override val identifier: String = "AD_ColumnAccess_ID"
+  override val entityName: String = "AD_Column_Trl"
+  override val identifier: String = null
 }
 
-object ColumnAccess {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ColumnAccess]
-  def create(columnId: Int,
-             roleId: Int,
-             isActive:Boolean,
-             created:DateTime,
+object AttributeTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[AttributeTrl]
+  def create(attributeTrlId: Int,
+             language: String,
+             tenantId: Int,
+             organizationId: Int,
+             isActive: Boolean,
+             created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             isReadOnly: Boolean,
-             isExclude: Boolean,
-             tableId: Int,
-             uuid: String) = ColumnAccess (columnId, roleId,  isActive,created, createdBy, updated,
-    updatedBy, isReadOnly, isExclude, None, None)
+             name: String,
+             isTranslated: Boolean,
+             uuid: String) = AttributeTrl(attributeTrlId, language, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, isTranslated, None)
 }

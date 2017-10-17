@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param help Help
   * @param isCentrallyMaintained Is Centrally Maintained
   * @param tabId Tab ID
-  * @param columnId Column ID
+  * @param attributeId Attribute ID
   * @param fieldGroup Field Group
   * @param isDisplayed Is Displayed
   * @param displayLogic Displayed Logic
@@ -75,7 +75,7 @@ case class Field (fieldId: Int,
                   help: Option[String],
                   isCentrallyMaintained: Boolean = true,
                   tabId: Int,
-                  columnId: Option[Int],
+                  attributeId: Option[Int],
                   fieldGroup: Option[Int],
                   isDisplayed: Boolean = true,
                   displayLogic: Option[String],
@@ -131,7 +131,7 @@ object Field {
              help: String,
              isCentrallyMaintained: Boolean,
              tabId: Int,
-             columnId: Int,
+             attributeId: Int,
              fieldGroup: Int,
              isDisplayed: Boolean,
              displayLogic: String,

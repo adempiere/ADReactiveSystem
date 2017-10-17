@@ -22,7 +22,6 @@ import org.joda.time.DateTime
 
 /**
   * Document Action Entity
-  * @param documentActionAccessId Document Action Access ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,7 +33,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class DocumentActionAccess(documentActionAccessId: Int,
+case class DocumentActionAccess(tenantId: Int,
+                                organizationId: Int,
                                 isActive:Boolean=true,
                                 created:DateTime = DateTime.now,
                                 createdBy: Int,
@@ -53,15 +53,16 @@ case class DocumentActionAccess(documentActionAccessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = documentActionAccessId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_DocumentAccessAction"
-  override val identifier: String = "AD_DocumentAccessAction_ID"
+  override val entityName: String = "AD_Document_Action_ Access"
+  override val identifier: String = null
 }
 
 object DocumentActionAccess {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[DocumentActionAccess]
-  def create(documentActionAccessId: Int,
+  def create(tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              createdBy: Int,
@@ -70,6 +71,6 @@ object DocumentActionAccess {
              doctypeId: Int,
              roleId: Int,
              refListId: Int,
-             uuid: String) = DocumentActionAccess(documentActionAccessId, isActive, created, createdBy, updated,
+             uuid: String) = DocumentActionAccess(tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, doctypeId, roleId, refListId, None)
 }

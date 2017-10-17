@@ -23,6 +23,7 @@ import org.joda.time.DateTime
 /**
   * Browse Field Entity
   * @param browseFieldId Browse Field ID
+  *
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -67,10 +68,12 @@ import org.joda.time.DateTime
   */
 
 case class BrowseField(browseFieldId: Int,
-                       created: DateTime =  DateTime.now(),
+                       tenantId: Int,
+                       organizationId: Int,
+                       created: DateTime =  DateTime.now,
                        createdBy: Int,
                        isActive: Boolean = true,
-                       updated: DateTime =  DateTime.now(),
+                       updated: DateTime =  DateTime.now,
                        updatedBy: Int,
                        elementId: Int,
                        referenceId: Int,
@@ -119,13 +122,15 @@ case class BrowseField(browseFieldId: Int,
 
   override def Id: Int = browseFieldId
 
-  override val entityName: String = "AD_BrowseField"
-  override val identifier: String = "AD_BrowseField_ID"
+  override val entityName: String = "AD_Browse_Field"
+  override val identifier: String = "AD_Browse_Field_ID"
 }
 
 object BrowseField  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[BrowseField]
   def create(browseFieldId: Int,
+             tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -166,8 +171,9 @@ object BrowseField  {
              infoFactoryClass: String,
              seqNoGrid: Int,
              isInfoOnly: Boolean,
-             uuid: String) = BrowseField(browseFieldId,created, createdBy, isActive, updated, updatedBy,
-    elementId, referenceId, viewColumnId, None,entityType, None, isCentrallyMaintained, isDisplayed, None, None,
-    isQueryCriteria, None, name, None, browseId, None, isMandatory, None, None, isReadOnly, None, isOrderBy, None,
-    None, None, None, None, None, None, None, None, None, None, seqNoGrid, isInfoOnly, None)
+             uuid: String) = BrowseField(browseFieldId, tenantId, organizationId, created, createdBy, isActive,
+    updated, updatedBy, elementId, referenceId, viewColumnId, None,entityType, None, isCentrallyMaintained,
+    isDisplayed, None, None, isQueryCriteria, None, name, None, browseId, None, isMandatory, None, None,
+    isReadOnly, None, isOrderBy, None, None, None, None, None, None, None, None, None, None, None,
+    seqNoGrid, isInfoOnly, None)
 }

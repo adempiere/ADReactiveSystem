@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param seqNo Seq No
   * @param labelFormatType Label Format Type
   * @param printName Print Name
-  * @param columnId Column ID
+  * @param attributeId Attribute ID
   * @param labelPrinterFunctionId Label Printer Function ID
   * @param xPosition X Position
   * @param yPosition Y Position
@@ -53,7 +53,7 @@ case class PrintLabelLine (printLabelLineId: Int,
                            seqNo: Int,
                            labelFormatType: Boolean,
                            printName: Option[String],
-                           columnId: Int,
+                           attributeId: Int,
                            labelPrinterFunctionId: Int,
                            xPosition: Int,
                            yPosition: Int,
@@ -88,11 +88,11 @@ object PrintLabelLine {
              seqNo: Int,
              labelFormatType: Boolean,
              printName: String,
-             columnId: Int,
+             attributeId: Int,
              labelPrinterFunctionId: Int,
              xPosition: Int,
              yPosition: Int,
              uuid: String) = PrintLabelLine(printLabelLineId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, printLabelId, name, seqNo, labelFormatType, None, columnId, labelPrinterFunctionId, xPosition,
+    updated, updatedBy, printLabelId, name, seqNo, labelFormatType, None, attributeId, labelPrinterFunctionId, xPosition,
     yPosition, None)
 }

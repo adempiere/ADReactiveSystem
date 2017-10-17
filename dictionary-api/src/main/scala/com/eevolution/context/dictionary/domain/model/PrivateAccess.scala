@@ -24,7 +24,7 @@ import org.joda.time.DateTime
   * Private Access Entity
   * @param privateAccessId Private Access ID
   * @param userId User ID
-  * @param tableId Table ID
+  * @param entityId Table ID
   * @param recordId Record ID
   * @param isActive Is Active
   * @param created Created
@@ -35,8 +35,10 @@ import org.joda.time.DateTime
   */
 
 case class PrivateAccess(privateAccessId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
                          userId: Int,
-                         tableId: Int,
+                         entityId: Int,
                          recordId: Int,
                          isActive: Boolean = true,
                          created: DateTime = DateTime.now,
@@ -55,21 +57,23 @@ case class PrivateAccess(privateAccessId: Int,
 
   override def Id: Int = privateAccessId
 
-  override val entityName: String = "AD_PrivateAccess"
-  override val identifier: String = "AD_PrivateAccess_ID"
+  override val entityName: String = "AD_Private_Access"
+  override val identifier: String = "AD_Private_Access_ID"
 }
 
 object PrivateAccess  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrivateAccess]
   def create(privateAccessId: Int,
+             tenantId: Int,
+             organizationId: Int,
              userId: Int,
-             tableId: Int,
+             entityId: Int,
              recordId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = PrivateAccess(privateAccessId, userId, tableId, recordId, isActive, created, createdBy,
-    updated, updatedBy, None)
+             uuid: String) = PrivateAccess(privateAccessId, tenantId, organizationId, userId, entityId, recordId,
+    isActive, created, createdBy, updated, updatedBy, None)
 }

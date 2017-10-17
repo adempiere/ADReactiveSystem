@@ -21,9 +21,11 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Column Process Para Entity
-  * @param columnProcessParaId Column Process Para ID
-  * @param columnProcessId Column Process ID
+  * Attribute Process Parameter Entity
+  * @param attributeProcessParaId Attribute Process Para ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param attributeProcessId Attribute Process ID
   * @param processParaId Process Para ID
   * @param created Created
   * @param createdBy Created By
@@ -34,16 +36,18 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class ColumnProcessPara(columnProcessParaId: Int,
-                             columnProcessId: Option[Int],
-                             processParaId: Option[Int],
-                             created: DateTime = DateTime.now,
-                             createdBy: Int,
-                             defaultValue: Option[String],
-                             isActive: Boolean,
-                             updated: DateTime = DateTime.now,
-                             updatedBy: Int,
-                             uuid: Option [String]
+case class AttributeProcessPara(attributeProcessParaId: Int,
+                                tenantId: Int,
+                                organizationId: Int,
+                                attributeProcessId: Option[Int],
+                                processParaId: Option[Int],
+                                created: DateTime = DateTime.now,
+                                createdBy: Int,
+                                defaultValue: Option[String],
+                                isActive: Boolean,
+                                updated: DateTime = DateTime.now,
+                                updatedBy: Int,
+                                uuid: Option [String]
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -53,16 +57,18 @@ case class ColumnProcessPara(columnProcessParaId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = columnProcessParaId
+  override def Id: Int = attributeProcessParaId
 
   override val entityName: String = "AD_ColumnProcessPara"
   override val identifier: String = "AD_ColumnProcessPara_ID"
 }
 
-object ColumnProcessPara {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ColumnProcessPara]
-  def create(columnProcessParaId: Int,
-             columnProcessId: Int,
+object AttributeProcessPara {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[AttributeProcessPara]
+  def create(attributeProcessParaId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             attributeProcessId: Int,
              processParaId: Int,
              created: DateTime,
              createdBy: Int,
@@ -70,7 +76,7 @@ object ColumnProcessPara {
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = ColumnProcessPara(columnProcessParaId, None, None, created, createdBy, None,
-    isActive, updated, updatedBy, None)
+             uuid: String) = AttributeProcessPara(attributeProcessParaId, tenantId, organizationId, None, None,
+    created, createdBy, None, isActive, updated, updatedBy, None)
 }
 

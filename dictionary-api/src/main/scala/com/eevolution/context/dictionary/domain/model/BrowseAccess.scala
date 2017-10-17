@@ -22,23 +22,26 @@ import org.joda.time.DateTime
 
 /**
   * Browse Access Entity
-  * @param browseAccessId Browse Access ID
+  *
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
+  * @param browseId Browse ID
   * @param roleId Role ID
   * @param isReadWrite Is Read Write
   * @param uuid UUID
   */
 
-case class BrowseAccess(browseAccessId: Int,
-                        created: DateTime =  DateTime.now(),
+case class BrowseAccess(tenantId: Int,
+                        organizationId: Int,
+                        created: DateTime =  DateTime.now,
                         createdBy: Int,
                         isActive: Boolean = true,
-                        updated: DateTime =  DateTime.now(),
+                        updated: DateTime =  DateTime.now,
                         updatedBy: Int,
+                        browseId: Int,
                         roleId: Int,
                         isReadWrite: Boolean = true,
                         uuid: Option[String]
@@ -51,22 +54,24 @@ case class BrowseAccess(browseAccessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = browseAccessId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_BrowseAccess"
-  override val identifier: String = "AD_BrowseAccess_ID"
+  override val entityName: String = "AD_Browse_Access"
+  override val identifier: String = null
 }
 
 object BrowseAccess  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[BrowseAccess]
-  def create(browseAccessId: Int,
+  def create(tenantId: Int,
+             organizationId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
+             browseId: Int,
              roleId: Int,
              isReadWrite: Boolean,
-             uuid: String) = BrowseAccess(browseAccessId,created, createdBy, isActive, updated,
-    updatedBy, roleId, isReadWrite, None)
+             uuid: String) = BrowseAccess(tenantId, organizationId, created, createdBy, isActive, updated,
+    updatedBy, browseId, roleId, isReadWrite, None)
 }

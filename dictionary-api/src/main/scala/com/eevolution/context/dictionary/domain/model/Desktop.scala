@@ -38,10 +38,12 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
   */
 
 case class Desktop(desktopId: Int,
+                   tenantId: Int,
+                   organizationId: Int,
                    isActive:Boolean=true,
-                   created:DateTime = DateTime.now(),
+                   created:DateTime = DateTime.now,
                    createdBy: Int,
-                   updated: DateTime = DateTime.now(),
+                   updated: DateTime = DateTime.now,
                    updatedBy: Int,
                    name: String,
                    description: Option[String],
@@ -67,6 +69,8 @@ case class Desktop(desktopId: Int,
   object Desktop {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Desktop]
   def create(desktopId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive:Boolean,
              created:DateTime,
              createdBy: Int,
@@ -77,6 +81,6 @@ case class Desktop(desktopId: Int,
              help: String,
              imageId: Int,
              colorId:Int,
-             uuid:String) = Desktop(desktopId, isActive,created, createdBy, updated,
+             uuid:String) = Desktop(desktopId, tenantId, organizationId, isActive,created, createdBy, updated,
     updatedBy, name, None, None, None, None, None)
 }

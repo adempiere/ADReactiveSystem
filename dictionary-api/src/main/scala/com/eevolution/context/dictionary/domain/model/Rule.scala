@@ -1,4 +1,6 @@
 package com.eevolution.context.dictionary.domain.model
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -15,45 +17,84 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 13/10/2017.
   */
 
 /**
   * Rule Entity
-  * @param ruleId
-  * @param tenantId
-  * @param organizationId
-  * @param accessLevel
-  * @param value
-  * @param name
-  * @param description
-  * @param help
-  * @param entityType
-  * @param eventType
-  * @param ruleType
-  * @param script
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
+  * @param ruleId Rule ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param accessLevel Access Level
+  * @param created Created
+  * @param createdBy Created By
+  * @param description Description
+  * @param entityType Entity Type
+  * @param eventType Event Type
+  * @param help  Help
+  * @param isActive Is Active
+  * @param name Name
+  * @param ruleType Rule Type
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param value  Value
+  * @param script Script
+  * @param uuid UUID
   */
+
 case class Rule (ruleId: Int,
                  tenantId : Int,
                  organizationId : Int,
                  accessLevel : Option[String] ,
-                 value : String ,
-                 name: String,
-                 description: Option[String],
-                 help: Option[String],
-                 entityType: String =  EntityType.Dictionary ,
-                 eventType : String ,
-                 ruleType : String ,
-                 script : String ,
-                 isActive : Boolean = true,
                  created : DateTime = DateTime.now(),
                  createdBy : Int ,
-                 updated :Int ,
-                 updatedBy : DateTime = DateTime.now()) {
+                 description: Option[String],
+                 entityType: String =  EntityType.Dictionary ,
+                 eventType : String ,
+                 help: Option[String],
+                 isActive : Boolean = true,
+                 name: String,
+                 ruleType : String ,
+                 updated : DateTime = DateTime.now,
+                 updatedBy :Int,
+                 value: String,
+                 script : Option[String],
+                 uuid: Option[String]
+                ) extends DomainModel
 
-  def Identity = "AD_Rule_ID"
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
+
+  override def Id: Int = ruleId
+
+  override val entityName: String = "AD_Rule"
+  override val identifier: String = "AD_Rule_ID"
 }
+
+object Rule  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Rule]
+  def create(ruleId: Int,
+             tenantId : Int,
+             organizationId : Int,
+             accessLevel : String,
+             created : DateTime,
+             createdBy : Int ,
+             description: String,
+             entityType: String,
+             eventType : String ,
+             help: String,
+             isActive : Boolean,
+             name: String,
+             ruleType : String,
+             updated : DateTime = DateTime.now,
+             updatedBy :Int,
+             value: String,
+             script : String,
+             uuid: String) = Rule(ruleId, tenantId, organizationId, None, created, createdBy, None,
+    entityType, eventType, None, isActive, name,ruleType, updated, updatedBy, value, None, None)
+}
+

@@ -17,8 +17,8 @@ import play.api.libs.json.{Format, Json}
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by victor.perez@e-evolution.com , www.e-evolution.com
-  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Created by victor.perez@e-evolution.com , www.e-evolution.com.
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 13/10/17.
   */
 
 /**

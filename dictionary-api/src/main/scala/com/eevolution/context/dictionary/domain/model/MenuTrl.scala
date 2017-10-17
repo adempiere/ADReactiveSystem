@@ -23,7 +23,10 @@ import org.joda.time.DateTime
 
 /**
   * Menu Trl Entity
+  * @param menuId Menu ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -35,7 +38,10 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class MenuTrl(language: String,
+case class MenuTrl(menuId: Int,
+                   language: String,
+                   tenantId : Int ,
+                   organizationId : Int,
                    isActive: Boolean = true,
                    created: DateTime = DateTime.now,
                    createdBy: Int,
@@ -63,7 +69,10 @@ case class MenuTrl(language: String,
 
 object MenuTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[MenuTrl]
-  def create(language: String,
+  def create(menuId: Int,
+             language: String,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -72,7 +81,7 @@ object MenuTrl  {
              name: String,
              description: String,
              isTranslated: Boolean,
-             uuid: String) = MenuTrl(language, isActive, created, createdBy, updated, updatedBy,
-    name, None, isTranslated, None)
+             uuid: String) = MenuTrl(menuId, language, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, isTranslated, None)
 }
 

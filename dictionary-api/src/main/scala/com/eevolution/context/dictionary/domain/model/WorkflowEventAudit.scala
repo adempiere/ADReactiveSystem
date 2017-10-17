@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Event Audit Entity
   * @param workflowEventAuditId Wf Event Audit ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -46,6 +48,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowEventAudit(workflowEventAuditId: Int,
+                              tenantId: Int,
+                              organizationId : Int ,
                               isActive: Boolean = true,
                               created: DateTime = DateTime.now,
                               createdBy: Int,
@@ -77,13 +81,15 @@ case class WorkflowEventAudit(workflowEventAuditId: Int,
 
   override def Id: Int = workflowEventAuditId
 
-  override val entityName: String = "AD_WfEventAudit"
-  override val identifier: String = "AD_WfEventAudit_ID"
+  override val entityName: String = "AD_Wf_EventAudit"
+  override val identifier: String = "AD_Wf_EventAudit_ID"
 }
 
 object WorkflowEventAudit  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowEventAudit]
   def create(workflowEventAuditId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -103,9 +109,9 @@ object WorkflowEventAudit  {
              newValue: String,
              description: String,
              textMsg: String,
-             uuid: String) = WorkflowEventAudit(workflowEventAuditId, isActive, created, createdBy, updated, updatedBy,
-    eventType, workflowState, workflowProcessId, nodeId, tableId, recordId, workflowResponsibleId, None, elapsedTimeMs,
-    None, None, None, None, None, None)
+             uuid: String) = WorkflowEventAudit(workflowEventAuditId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, eventType, workflowState, workflowProcessId, nodeId, tableId, recordId,
+    workflowResponsibleId, None, elapsedTimeMs, None, None, None, None, None, None)
 }
 
 

@@ -38,6 +38,8 @@ import org.joda.time.DateTime
   */
 
 case class Modification(modificationId: Int,
+                        tenantId: Int,
+                        organizationId: Int,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -68,6 +70,8 @@ case class Modification(modificationId: Int,
 object Modification  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Modification]
   def create(modificationId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -79,8 +83,8 @@ object Modification  {
              help: String,
              entityType: String,
              version: String,
-             uuid: String) = Modification(modificationId, isActive, created, createdBy, updated, updatedBy,
-    seqNo, name, None, None, entityType, None, None)
+             uuid: String) = Modification(modificationId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, seqNo, name, None, None, entityType, None, None)
 }
 
 

@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param success Success
   * @param typePackage Type Package
   * @param tableName Table Name
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param uninstall Uninstall
   * @param uuid UUID
   */
@@ -56,9 +56,9 @@ case class PackageImportDetail(packageImpDetailId: Int,
                                backupId: Option[Int],
                                action: Option[String],
                                success: Option[String],
-                               typePackage: Option[String], //Cambiamos type por typePackage
+                               typePackage: Option[String], //type = typePackage
                                tableName: Option[String],
-                               tableId: Option[Int],
+                               entityId: Option[Int],
                                uninstall: Option[Boolean],
                                uuid: Option[String]
                             ) extends DomainModel
@@ -71,8 +71,8 @@ case class PackageImportDetail(packageImpDetailId: Int,
   override type Traceable = this.type
   override def Id: Int = packageImpDetailId
 
-  override val entityName: String = "AD_PackageImpDetail"
-  override val identifier: String = "AD_PackageImpDetail_ID"
+  override val entityName: String = "AD_Package_Imp_Detail"
+  override val identifier: String = "AD_Package_Imp_Detail_ID"
 
 }
 
@@ -92,9 +92,9 @@ object PackageImportDetail {
              backupId: Int,
              action: String,
              success: String,
-             typePackage: String, //Cambiamos type por typePackage
+             typePackage: String,
              tableName: String,
-             tableId: Int,
+             entityId: Int,
              uninstall: Boolean,
              uuid: String) = PackageImportDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, packageImportId, originalId, None, None, None, None, None, None, None, None)

@@ -20,7 +20,6 @@ import org.joda.time.DateTime
   */
 /**
   * Scheduler Para Entity
-  * @param schedulerParaId Scheduler Para ID
   * @param schedulerId Scheduler ID
   * @param processParaId Process Para ID
   * @param tenantId Tenant ID
@@ -35,8 +34,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class SchedulerPara (schedulerParaId: Int,
-                          schedulerId: Int,
+case class SchedulerPara (schedulerId: Int,
                           processParaId: Int,
                           tenantId: Int,
                           organizationId: Int,
@@ -57,17 +55,16 @@ case class SchedulerPara (schedulerParaId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = schedulerParaId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_SchedulerPara"
-  override val identifier: String = "AD_SchedulerPara_ID"
+  override val entityName: String = "AD_Scheduler_Para"
+  override val identifier: String = null
 
 }
 
 object SchedulerPara {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerPara]
-  def create(schedulerParaId: Int,
-             schedulerId: Int,
+  def create(schedulerId: Int,
              processParaId: Int,
              tenantId: Int,
              organizationId: Int,
@@ -78,6 +75,6 @@ object SchedulerPara {
              updatedBy: Int,
              parameterDefault: String,
              description: String,
-             uuid: String) = SchedulerPara(schedulerParaId, schedulerId, processParaId, tenantId,
-    organizationId, isActive, created, createdBy, updated, updatedBy, None, None, None)
+             uuid: String) = SchedulerPara(schedulerId, processParaId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None)
 }

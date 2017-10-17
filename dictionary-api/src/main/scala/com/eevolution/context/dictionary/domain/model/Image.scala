@@ -24,6 +24,8 @@ import org.joda.time.DateTime
 /**
   * Image Entity
   * @param imageId Image ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class Image (imageId: Int,
+                  tenantId : Int ,
+                  organizationId : Int,
                   isActive: Boolean = true,
                   created: DateTime =  DateTime.now,
                   createdBy: Int,
@@ -50,6 +54,7 @@ case class Image (imageId: Int,
                   description: Option[String],
                   uuid: Option[String]
                   )extends DomainModel
+
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -66,6 +71,8 @@ case class Image (imageId: Int,
 object Image {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Image]
   def create(imageId: Int,
+             tenantId : Int ,
+             organizationId : Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -76,6 +83,6 @@ object Image {
              binaryData: String,
              entityType: String,
              description: String,
-             uuid: String) = Image(imageId,isActive, created, createdBy, updated,
+             uuid: String) = Image(imageId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, binaryData, entityType, None, None)
 }

@@ -1,5 +1,6 @@
 package com.eevolution.context.dictionary.domain.model
 
+
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api._
 import com.eevolution.context.dictionary.domain.model.EntityType.Dictionary
@@ -23,40 +24,46 @@ import org.joda.time.DateTime
 
 /**
   * Entity for Application Dictionary
-  * @param entityId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param help
-  * @param tableName
-  * @param isView
-  * @param accessLevel
-  * @param entityType
-  * @param windowId
-  * @param windowPOId
-  * @param valueRuleId
-  * @param loadSeq
-  * @param isSecurityEnabled
-  * @param isDeleteable
-  * @param isHighVolume
-  * @param isImporttable
-  * @param isChangeLog
-  * @param replicationType
-  * @param copyColumnsFromTable
-  * @param isCentrallyMaintained
-  * @param acTriggerLength
-  * @param isDocument
-  * @param isIgnoreMigration
+  * @param entityId Entity ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param tableName Table Name
+  * @param isView Is View
+  * @param accessLevel Access Level
+  * @param entityType Entity Type
+  * @param windowId Window ID
+  * @param windowPOId Window PO ID
+  * @param valueRuleId Value Rule ID
+  * @param loadSeq Load Seq
+  * @param isSecurityEnabled Is Security Enabled
+  * @param isDeleteAble Is Delete Able
+  * @param isHighVolume Is High Volume
+  * @param isImportTable Is Import Table
+  * @param isChangeLog Is Change Log
+  * @param replicationType Replication Type
+  * @param copyColumnsFromTable Copy Columns From Table
+  * @param isCentrallyMaintained Is Centrally Maintained
+  * @param acTriggerLength AC Trigger Length
+  * @param isDocument Is Document
+  * @param isIgnoreMigration Is Ignore Migration
+  * @param uuid UUID
   */
+
 case class Entity(entityId: Int,
+                  tenantId: Int,
+                  organizationId: Int,
                   isActive: Boolean = true,
-                  created: DateTime = new DateTime,
+                  created: DateTime =  DateTime.now,
                   createdBy: Int,
-                  updated: DateTime = new DateTime,
+                  updated: DateTime =  DateTime.now,
                   updatedBy: Int,
                   name: String,
                   description: Option[String],
@@ -70,17 +77,19 @@ case class Entity(entityId: Int,
                   valueRuleId: Option[Int],
                   loadSeq: Option[Int],
                   isSecurityEnabled: Boolean = false,
-                  isDeleteable: Boolean = false,
+                  isDeleteAble: Boolean = false,
                   isHighVolume: Boolean = false,
-                  isImporttable: Boolean = false,
+                  isImportTable: Boolean = false,
                   isChangeLog: Boolean = false,
                   replicationType: String = "L",
                   copyColumnsFromTable: Option[String],
                   isCentrallyMaintained: Boolean = true,
                   acTriggerLength: Int,
                   isDocument: Boolean = false,
-                  isIgnoreMigration: Boolean = false
-) extends DomainModel
+                  isIgnoreMigration: Boolean = false,
+                  uuid: Option[String]
+                 ) extends DomainModel
+
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -99,6 +108,8 @@ case class Entity(entityId: Int,
 object Entity  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Entity]
   def create(entityId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -116,18 +127,19 @@ object Entity  {
              valueRuleId: Int,
              loadSeq: Int,
              isSecurityEnabled: Boolean,
-             isDeleteable: Boolean,
+             isDeleteAble: Boolean,
              isHighVolume: Boolean,
-             isImporttable: Boolean,
+             isImportTable: Boolean,
              isChangeLog: Boolean ,
              replicationType: String,
              copyColumnsFromTable: String ,
              isCentrallyMaintained: Boolean,
              acTriggerLength: Int,
              isDocument: Boolean ,
-             isIgnoreMigration: Boolean) = Entity(entityId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, tableName, isView, accessLevel, entityType, None, None, None,
-    None, isSecurityEnabled, isDeleteable, isHighVolume, isImporttable, isChangeLog ,
-    replicationType , None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration)
+             isIgnoreMigration: Boolean,
+             uuid: String) = Entity(entityId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, tableName, isView, accessLevel, entityType, None, None, None,
+    None, isSecurityEnabled, isDeleteAble, isHighVolume, isImportTable, isChangeLog , replicationType ,
+    None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration, None)
 
 }

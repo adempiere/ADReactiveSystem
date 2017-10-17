@@ -50,6 +50,8 @@ import org.joda.time.DateTime
   */
 
 case class Browse(browseId: Int,
+                  tenantId: Int,
+                  organizationId: Int,
                   created: DateTime =  DateTime.now,
                   createdBy: Int,
                   isActive: Boolean = true,
@@ -92,6 +94,8 @@ case class Browse(browseId: Int,
   object Browse  {
     implicit lazy val jsonFormat = Jsonx.formatCaseClass[Browse]
     def create(browseId: Int,
+               tenantId: Int,
+               organizationId: Int,
                created: DateTime,
                createdBy: Int,
                isActive: Boolean,
@@ -115,7 +119,7 @@ case class Browse(browseId: Int,
                isExecutedQueryByDefault: Boolean,
                windowId: Int,
                isShowTotal: Boolean,
-               uuid: String) = Browse(browseId,created, createdBy, isActive, updated,
+               uuid: String) = Browse(browseId, tenantId, organizationId, created, createdBy, isActive, updated,
       updatedBy, None, entityType, None , name, None, viewId, None, None,
       None, isBetaFunctionality, accessLevel, None, isDeleteAble, isCollapsibleByDefault,
       isSelectedByDefault, isExecutedQueryByDefault, None, isShowTotal, None)

@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Node Para Entity
   * @param workflowNodeParaId Wf Node Para ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowNodePara(workflowNodeParaId: Int,
+                            tenantId: Int,
+                            organizationId : Int ,
                             isActive: Boolean = true,
                             created: DateTime = DateTime.now,
                             createdBy: Int,
@@ -61,14 +65,16 @@ case class WorkflowNodePara(workflowNodeParaId: Int,
 
   override def Id: Int = workflowNodeParaId
 
-  override val entityName: String = "AD_WfNodePara"
-  override val identifier: String = "AD_WfNodePara_ID"
+  override val entityName: String = "AD_Wf_Node_Para"
+  override val identifier: String = "AD_Wf_Node_Para_ID"
 }
 
 
 object WorkflowNodePara {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodePara]
   def create(workflowNodeParaId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -80,8 +86,8 @@ object WorkflowNodePara {
              description: String,
              attributeValue: String,
              entityType: String,
-             uuid: String) = WorkflowNodePara(workflowNodeParaId, isActive, created, createdBy, updated, updatedBy,
-    workflowNodeId, None, None, None, None, entityType, None)
+             uuid: String) = WorkflowNodePara(workflowNodeParaId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, workflowNodeId, None, None, None, None, entityType, None)
 
 }
 

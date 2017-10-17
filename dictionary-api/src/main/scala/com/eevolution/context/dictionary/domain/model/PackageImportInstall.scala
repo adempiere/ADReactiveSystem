@@ -78,8 +78,8 @@ case class PackageImportInstall(packageImportInstallId: Int,
   override type Traceable = this.type
   override def Id: Int = packageImportInstallId
 
-  override val entityName: String = "AD_PackageImpInst"
-  override val identifier: String = "AD_PackageImpInst_ID"
+  override val entityName: String = "AD_Package_Imp_Inst"
+  override val identifier: String = "AD_Package_Imp_Inst_ID"
 
 }
 
@@ -107,6 +107,7 @@ object PackageImportInstall {
              createdDate: String,
              updateDate: String,
              uninstall: Boolean,
-             uuid: String) = PackageImportInstall(packageImportInstallId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, None, None, None, None, None, None, None, processed, processing, None, None, None, None, None, None)
+             uuid: String) = PackageImportInstall(packageImportInstallId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None, None, None, None, None, processed, processing, None, None, None,
+    None, None, None)
 }

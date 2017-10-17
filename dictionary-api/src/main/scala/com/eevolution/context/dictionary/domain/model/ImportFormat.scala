@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param formatType Format Type
   * @param processing Processing
   * @param separatorCharacter Separator Character
@@ -49,7 +49,7 @@ case class ImportFormat(importFormatId: Int,
                         updatedBy: Int,
                         name: String,
                         description: Option[String],
-                        tableId: Int,
+                        entityId: Int,
                         formatType: Boolean,
                         processing: Boolean,
                         separatorCharacter: Option[String],
@@ -71,7 +71,7 @@ case class ImportFormat(importFormatId: Int,
 
 object ImportFormat {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImportFormat]
-  def create(impportFormatId: Int,
+  def create(importFormatId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -81,12 +81,12 @@ object ImportFormat {
              updatedBy: Int,
              name: String,
              description: String,
-             tableId: Int,
+             entityId: Int,
              formatType: Boolean,
              processing: Boolean,
-             separatorChararcter: String,
-             uuid: String) = ImportFormat(impportFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, tableId, formatType, processing, None, None)
+             separatorCharacter: String,
+             uuid: String) = ImportFormat(importFormatId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, entityId, formatType, processing, None, None)
 }
 
 

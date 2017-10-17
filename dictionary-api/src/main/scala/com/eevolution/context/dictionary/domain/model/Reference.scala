@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,38 +18,78 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 11/10/2017.
   */
 
 /**
   * Reference Entity
-  * @param referenceId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param name
-  * @param description
-  * @param help
-  * @param validationType
-  * @param vFormat
-  * @param entityType
-  * @param isOrderByValue
+  * @param referenceId Reference ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param validationType Validation Type
+  * @param vFormat V Format
+  * @param entityType Entity Type
+  * @param isOrderByValue Is Order By Value
+  * @param uuid UUID
   */
+
 case class Reference(referenceId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive : Boolean = true,
-                     created : DateTime = DateTime.now(),
+                     created : DateTime = DateTime.now,
                      createdBy : Int ,
-                     updated :Int ,
-                     updatedBy : DateTime = DateTime.now(),
+                     updated : DateTime = DateTime.now,
+                     updatedBy :Int,
                      name : String,
                      description: Option[String],
                      help: Option[String],
                      validationType : Option[String],
                      vFormat : Option[String] ,
                      entityType :  String = EntityType.Dictionary,
-                     isOrderByValue : Boolean = false) {
+                     isOrderByValue : Boolean = false,
+                     uuid: Option[String]
+                    ) extends DomainModel
 
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
 
-  def Identity = "AD_Reference_ID"
+  override def Id: Int = referenceId
+
+  override val entityName: String = "AD_Reference"
+  override val identifier: String = "AD_Reference_ID"
 }
+
+object Reference  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[Reference]
+  def create(referenceId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated : DateTime = DateTime.now,
+             updatedBy :Int,
+             name : String,
+             description: String,
+             help: String,
+             validationType : String,
+             vFormat : String ,
+             entityType :  String,
+             isOrderByValue : Boolean,
+             uuid: String) = Reference(referenceId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, None, None, entityType, isOrderByValue, None)
+}
+

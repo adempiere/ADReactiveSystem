@@ -51,12 +51,12 @@ import org.joda.time.DateTime
   * @param name2 Name 2
   * @param line Line
   * @param workbenchId Work Bench ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param reportViewId Report View ID
   * @param packageExportId Package Exp ID
   * @param packageCodeNew Package Code New
   * @param packageCodeOld Package Code Old
-  * @param dinamicValidationRuleId Val Rule ID
+  * @param dynamicValidationRuleId Val Rule ID
   * @param messageId Message ID
   * @param printFormatId Print Format ID
   * @param referenceId Reference ID
@@ -88,7 +88,7 @@ case class PackageExportDetail(packageExportDetailId: Int,
                                destinationDirectory: Option[String],
                                description: String,
                                dbType: Option[String],
-                               typePackage: String, // Cambiamos Type a TypePackage
+                               typePackage: String, //  Type = TypePackage
                                targetDirectory: Option[String],
                                sqlStatement: Option[String],
                                releaseNo: Option[String],
@@ -97,12 +97,12 @@ case class PackageExportDetail(packageExportDetailId: Int,
                                name2: Option[String],
                                line: Option[Int],
                                workbenchId: Option[Int],
-                               tableId: Option[Int],
+                               entityId: Option[Int],
                                reportViewId: Option[Int],
                                packageExportId: Int,
                                packageCodeNew: Option[String],
                                packageCodeOld: Option[String],
-                               dinamicValidationRuleId: Option[Int],
+                               dynamicValidationRuleId: Option[Int],
                                messageId: Option[Int],
                                printFormatId: Option[Int],
                                referenceId: Option[Int],
@@ -151,7 +151,7 @@ object PackageExportDetail {
              destinationDirectory: String,
              description: String,
              dbType: String,
-             typePackage: String, // Cambiamos Type a TypePackage
+             typePackage: String, // Type = TypePackage
              targetDirectory: String,
              sqlStatement: String,
              releaseNo: String,
@@ -160,12 +160,12 @@ object PackageExportDetail {
              name2: String,
              line: Int,
              workbenchId: Int,
-             tableId: Int,
+             entityId: Int,
              reportViewId: Int,
              packageExpId: Int,
              packageCodeNew: String,
              packageCodeOld: String,
-             dinamicValidationRuleId: Int,
+             dynamicValidationRuleId: Int,
              messageId: Int,
              printFormatId: Int,
              referenceId: Int,

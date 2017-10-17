@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param isDisplayed Is Displayed
   * @param isReadOnly Is Read Only
   * @param isSameLine Is Same Line
-  * @param isUpdateable Is Update Able
+  * @param isUpdateAble Is Update Able
   * @param displayLength Display Length
   * @param displayLogic Display Logic
   * @param defaultValue Default Value
@@ -64,7 +64,7 @@ case class UserDefinedField(userDefinedFieldId: Int,
                             isDisplayed: Boolean = true,
                             isReadOnly: Boolean = false,
                             isSameLine: Boolean = false,
-                            isUpdateable: Boolean = true,
+                            isUpdateAble: Boolean = true,
                             displayLength: Int = 0,
                             displayLogic: String,
                             defaultValue: String,
@@ -80,10 +80,10 @@ case class UserDefinedField(userDefinedFieldId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = userDefinedFieldId
 
   override val entityName: String = "AD_UserDef_Field"
-  override val identifier: String = null
+  override val identifier: String = "AD_UserDef_Field_ID"
 }
 
 object UserDefinedField  {

@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workbench Entity
   * @param workbenchId Workbench ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -39,6 +41,8 @@ import org.joda.time.DateTime
   */
 
 case class Workbench(workbenchId: Int,
+                     tenantId: Int,
+                     organizationId : Int ,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,
                      createdBy: Int,
@@ -71,6 +75,8 @@ case class Workbench(workbenchId: Int,
 object Workbench {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Workbench]
   def create(workbenchId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -83,6 +89,6 @@ object Workbench {
              imageId: Int,
              colorId: Int,
              entityType: String,
-             uuid: String) = Workbench(workbenchId, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, columnId, None, None, entityType, None)
+             uuid: String) = Workbench(workbenchId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, columnId, None, None, entityType, None)
 }

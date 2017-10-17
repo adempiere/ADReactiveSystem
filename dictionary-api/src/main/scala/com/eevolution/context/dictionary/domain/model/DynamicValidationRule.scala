@@ -36,6 +36,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 case class DynamicValidationRule(dynamicValidationRuleId: Int,
+                                 tenantId: Int,
+                                 organizationId: Int,
                                  isActive: Boolean = true,
                                  created: DateTime = DateTime.now,
                                  createdBy: Int,
@@ -58,13 +60,15 @@ case class DynamicValidationRule(dynamicValidationRuleId: Int,
 
   override def Id: Int = dynamicValidationRuleId
 
-  override val entityName: String = "AD_ValRule"
-  override val identifier: String = "AD_ValRule_ID"
+  override val entityName: String = "AD_Val_Rule"
+  override val identifier: String = "AD_Val_Rule_ID"
 }
 
 object DynamicValidationRule  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[DynamicValidationRule]
   def create(dynamicValidationRuleId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -75,7 +79,7 @@ object DynamicValidationRule  {
              typePackage: Boolean,
              code: String,
              entityType: String,
-             uuid: String) = DynamicValidationRule(dynamicValidationRuleId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, None, entityType, None)
+             uuid: String) = DynamicValidationRule(dynamicValidationRuleId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, name, None, None, None, entityType, None)
 }
 

@@ -1,5 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
+import ai.x.play.json.Jsonx
+import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
 /**
@@ -16,30 +18,63 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com on 18/02/17.
+  * Modified by emeris.hernandez@e-evolution.com, www.e-evolution.com on 12/10/2017.
   */
-
 /**
   * Process Access Entity
-  * @param processId
-  * @param roleId
-  * @param tenantId
-  * @param organizationId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param isReadWrite
+  * @param processId Process ID
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isReadWrite Is Read Write
+  * @param uuid UUID
   */
+
 case class ProcessAccess(processId : Int,
                          roleId : Int,
                          tenantId : Int ,
                          organizationId : Int ,
                          isActive : Boolean = true,
-                         created : DateTime = DateTime.now(),
+                         created : DateTime = DateTime.now,
                          createdBy : Int ,
-                         updated :Int ,
-                         updatedBy : DateTime = DateTime.now(),
-                         isReadWrite : Boolean = true) {
+                         updated : DateTime = DateTime.now,
+                         updatedBy : Int,
+                         isReadWrite : Boolean = true,
+                         uuid: Option[String]
+                        ) extends DomainModel
 
+
+  with ActiveEnabled
+  with Identifiable
+  with Traceable {
+  override type ActiveEnabled = this.type
+  override type Identifiable = this.type
+  override type Traceable = this.type
+
+  override def Id: Int = 0
+
+  override val entityName: String = "AD_Process_Access"
+  override val identifier: String = null
 }
+
+object ProcessAccess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ProcessAccess]
+  def create(processId : Int,
+             roleId : Int,
+             tenantId : Int ,
+             organizationId : Int ,
+             isActive : Boolean,
+             created : DateTime,
+             createdBy : Int ,
+             updated : DateTime,
+             updatedBy : Int,
+             isReadWrite : Boolean,
+             uuid: String) = ProcessAccess(processId, roleId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, isReadWrite, None)
+}
+

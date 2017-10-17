@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Workflow Process Data Entity
   * @param workflowProcessDataId Wf Process Data ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -35,6 +37,8 @@ import org.joda.time.DateTime
   */
 
 case class WorkflowProcessData(workflowProcessDataId: Int,
+                               tenantId: Int,
+                               organizationId : Int ,
                                isActive: Boolean = true,
                                created: DateTime = DateTime.now,
                                createdBy: Int,
@@ -55,13 +59,15 @@ case class WorkflowProcessData(workflowProcessDataId: Int,
 
   override def Id: Int = workflowProcessDataId
 
-  override val entityName: String = "AD_WfProcessData"
-  override val identifier: String = "AD_WfProcessData_ID"
+  override val entityName: String = "AD_Wf_ProcessData"
+  override val identifier: String = "AD_Wf_ProcessData_ID"
 }
 
 object WorkflowProcessData {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowProcessData]
   def create(workflowProcessDataId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -70,8 +76,8 @@ object WorkflowProcessData {
              workflowProcessId: Int,
              attributeName: String,
              attributeValue: String,
-             uuid: String) = WorkflowProcessData(workflowProcessDataId, isActive, created, createdBy, updated, updatedBy,
-    workflowProcessId, attributeName, None, None)
+             uuid: String) = WorkflowProcessData(workflowProcessDataId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, workflowProcessId, attributeName, None, None)
 
 }
 

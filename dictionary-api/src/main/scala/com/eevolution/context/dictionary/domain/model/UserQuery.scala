@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * User Query Entity
   * @param userQueryId User Query ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -38,6 +40,8 @@ import org.joda.time.DateTime
   */
 
 case class UserQuery(userQueryId: Int,
+                     tenantId: Int,
+                     organizationId: Int,
                      isActive: Boolean = true,
                      created: DateTime = DateTime.now,
                      createdBy: Int,
@@ -68,6 +72,8 @@ case class UserQuery(userQueryId: Int,
 object UserQuery  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserQuery]
   def create(userQueryId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -79,6 +85,6 @@ object UserQuery  {
              tableId: Int,
              code: String,
              tabId: Int,
-             uuid: String) = UserQuery(userQueryId, isActive, created, createdBy, updated, updatedBy, name,
-    None, None, tableId, None, None, None)
+             uuid: String) = UserQuery(userQueryId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, tableId, None, None, None)
 }

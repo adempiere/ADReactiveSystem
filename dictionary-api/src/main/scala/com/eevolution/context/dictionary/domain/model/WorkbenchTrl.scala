@@ -20,8 +20,10 @@ import org.joda.time.DateTime
   */
 /**
   * Workbench Trl Entity
-  * @param workbenchTrlId Work Bench Trl ID
+  * @param workbenchId Work Bench ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
@@ -34,8 +36,10 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkbenchTrl(workbenchTrlId: Int,
+case class WorkbenchTrl(workbenchId: Int,
                         language: String,
+                        tenantId: Int,
+                        organizationId : Int ,
                         isActive: Boolean = true,
                         created: DateTime = DateTime.now,
                         createdBy: Int,
@@ -54,17 +58,19 @@ case class WorkbenchTrl(workbenchTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = workbenchTrlId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_WorkbenchTrl"
-  override val identifier: String = "AD_WorkbenchTrl_ID"
+  override val entityName: String = "AD_Workbench_Trl"
+  override val identifier: String = null
 
 }
 
 object WorkbenchTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkbenchTrl]
-  def create(workbenchTrlId: Int,
+  def create(workbenchId: Int,
              language: String,
+             tenantId: Int,
+             organizationId : Int ,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -74,6 +80,6 @@ object WorkbenchTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WorkbenchTrl(workbenchTrlId, language, isActive, created, createdBy,
+             uuid: String) = WorkbenchTrl(workbenchId, language, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, None)
 }

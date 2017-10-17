@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * View Column Entity
   * @param viewColumnId View Column ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -41,6 +43,8 @@ import org.joda.time.DateTime
   */
 
 case class ViewColumn(viewColumnId: Int,
+                      tenantId: Int,
+                      organizationId : Int ,
                       created: DateTime = DateTime.now,
                       createdBy: Int,
                       isActive: Boolean,
@@ -67,13 +71,15 @@ case class ViewColumn(viewColumnId: Int,
 
   override def Id: Int = viewColumnId
 
-  override val entityName: String = "AD_ViewColumn"
-  override val identifier: String = "AD_ViewColumn_ID"
+  override val entityName: String = "AD_View_Column"
+  override val identifier: String = "AD_View_Column_ID"
 }
 
 object ViewColumn  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewColumn]
   def create(viewColumnId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -88,7 +94,7 @@ object ViewColumn  {
              columnName: String,
              viewId: Int,
              columnId: Int,
-             uuid: String) = ViewColumn(viewColumnId, created, createdBy, isActive, updated, updatedBy,
-    None, None, entityType, None, name, None, None, None, None, None)
+             uuid: String) = ViewColumn(viewColumnId,  tenantId, organizationId, created, createdBy,
+    isActive, updated, updatedBy, None, None, entityType, None, name, None, None, None, None, None)
 }
 

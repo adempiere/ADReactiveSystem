@@ -36,6 +36,8 @@ import org.joda.time.DateTime
   */
 
 case class Attachment(attachmentId: Int,
+                      tenantId: Int,
+                      organizationId: Int,
                       isActive: Boolean = true,
                       created: DateTime = DateTime.now,
                       createdBy: Int,
@@ -65,6 +67,8 @@ case class Attachment(attachmentId: Int,
 object Attachment {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Attachment]
   def create(attachmentId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -75,7 +79,7 @@ object Attachment {
              title: String,
              binaryData: String,
              textMsg: String,
-             uuid: String) = Attachment(attachmentId, isActive,created, createdBy, updated,
+             uuid: String) = Attachment(attachmentId, tenantId, organizationId,  isActive,created, createdBy, updated,
     updatedBy,tableId, recordId, title, binaryData, None, None)
 
 }

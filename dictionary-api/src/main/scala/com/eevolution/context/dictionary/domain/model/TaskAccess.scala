@@ -3,7 +3,6 @@ package com.eevolution.context.dictionary.domain.model
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
-
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -16,35 +15,36 @@ import org.joda.time.DateTime
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
-
 /**
-  * Column Trl Entity
-  * @param columnTrlId Column Trl ID
-  * @param language Language
+  * Task Entity
+  * @param taskId Task ID
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
-  * @param isTranslated Is Translated
-  * @param uuid UUID
+  * @param isReadWrite Is Read Write
+  * @param uuId UUID
   */
 
-case class ColumnTrl(columnTrlId: Int,
-                     language: String,
-                     isActive: Boolean = true,
-                     created: DateTime =  DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime =  DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     isTranslated: Boolean = false,
-                     uuid: Option[String]
-                    ) extends DomainModel
+case class TaskAccess (taskId: Int,
+                       roleId: Int,
+                       tenantId: Int,
+                       organizationId: Int,
+                       isActive: Boolean = true,
+                       created: DateTime = DateTime.now,
+                       createdBy: Int,
+                       updated: DateTime = DateTime.now,
+                       updatedBy: Int,
+                       isReadWrite: Boolean = true,
+                       uuId: Option[String]
+                      ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -52,24 +52,25 @@ case class ColumnTrl(columnTrlId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+  override def Id: Int = 0
 
-  override def Id: Int = columnTrlId
+  override val entityName: String = "AD_Task_Access"
+  override val identifier: String = null
 
-  override val entityName: String = "AD_ColumnTrl"
-  override val identifier: String = "AD_ColumnTrl_ID"
 }
 
-object ColumnTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ColumnTrl]
-  def create(columnTrlId: Int,
-             language: String,
+object TaskAccess {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TaskAccess]
+  def create(taskId: Int,
+             roleId: Int,
+             tenantId: Int,
+             organizationId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
-             isTranslated: Boolean,
-             uuid: String) = ColumnTrl(columnTrlId, language, isActive, created, createdBy, updated,
-    updatedBy, name, isTranslated, None)
+             isReadWrite: Boolean,
+             uuId: String) = TaskAccess(taskId, roleId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, isReadWrite, None)
 }

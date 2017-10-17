@@ -3,7 +3,6 @@ package com.eevolution.context.dictionary.domain.model
 import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
-
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -16,34 +15,33 @@ import org.joda.time.DateTime
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com
+  * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
-
 /**
-  * Column Process Entity
-  * @param columnProcessId Column Process ID
-  * @param columnId Column ID
-  * @param processId Process ID
+  * Task Instance Entity
+  * @param taskInstanceId Task Instance ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
-  * @param isActive Is Active
-  * @param name Name
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuid UUID
+  * @param taskId Task ID
+  * @param uuId UUID
   */
 
-case class ColumnProcess(columnProcessId: Int,
-                         columnId: Option[Int],
-                         processId: Option[Int],
-                         created: DateTime =  DateTime.now,
-                         createdBy: Int,
+case class TaskInstance (taskInstanceId: Int,
+                         tenantId: Int,
+                         organizationId: Int,
                          isActive: Boolean = true,
-                         name: String,
-                         updated: DateTime =  DateTime.now,
+                         created: DateTime = DateTime.now(),
+                         createdBy: Int,
+                         updated: DateTime = DateTime.now(),
                          updatedBy: Int,
-                         uuid: Option[String]
+                         taskId: Int,
+                         uuId: Option[String]
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -52,26 +50,25 @@ case class ColumnProcess(columnProcessId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+  override def Id: Int = taskInstanceId
 
-  override def Id: Int = columnProcessId
+  override val entityName: String = "AD_TaskInstance"
+  override val identifier: String = "AD_TaskInstance_ID"
 
-  override val entityName: String = "AD_ColumnProcess"
-  override val identifier: String = "AD_ColumnProcess_ID"
 }
 
-object ColumnProcess  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ColumnProcess]
-  def create(columnProcessId: Int,
-             columnId: Int,
-             processId: Int,
+object TaskInstance {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[TaskInstance]
+
+  def create(taskInstanceId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             isActive: Boolean,
              created: DateTime,
              createdBy: Int,
-             isActive: Boolean,
-             name: String,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = ColumnProcess(columnProcessId, None, None, created, createdBy, isActive,
-    name, updated, updatedBy, None)
+             taskId: Int,
+             uuId: String) = TaskInstance(taskInstanceId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, taskId, None)
 }
-
-

@@ -44,7 +44,7 @@ import org.joda.time.DateTime
   * @param valueRuleId Value Rule ID
   * @param loadSeq Load Seq
   * @param isSecurityEnabled Is Security Enabled
-  * @param isDeleteable Is Delete Able
+  * @param isDeleteable Is Deleteable
   * @param isHighVolume Is High Volume
   * @param isImportTable Is Import Table
   * @param isChangeLog Is Change Log

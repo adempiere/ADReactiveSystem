@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param decimalPoint Decimal Point
   * @param divideBy100 Divide By 100
   * @param constantValue Constant Value
-  * @param callOut Call Out
+  * @param callout Call Out
   * @param script Script
   * @param defaultValue Default Value
   * @param uuid UUID
@@ -64,7 +64,7 @@ case class ImportFormatRow(importFormatRowId: Int,
                            decimalPoint: Boolean,
                            divideBy100: Boolean = false,
                            constantValue: Option[String],
-                           callOut: Option[String],
+                           callout: Option[String],
                            script: Option[String],
                            defaultValue: Option[String],
                            uuid: Option[String]
@@ -106,7 +106,7 @@ object ImportFormatRow {
              decimalPoint: Boolean,
              divideBy100: Boolean,
              constantValue: String,
-             callOut: String,
+             callout: String,
              script: String,
              defaultValue: String,
              uuid: String) = ImportFormatRow(impportFormatRowId, tenantId, organizationId, isActive, created, createdBy,

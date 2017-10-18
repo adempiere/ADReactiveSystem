@@ -60,7 +60,7 @@ import org.joda.time.DateTime
   * @param vFormat V Format
   * @param valueMax Value Max
   * @param valueMin Value Min
-  * @param callOut Call Out
+  * @param callout Call Out
   * @param infoFactoryClass Info Factory Class
   * @param seqNoGrid Seq No Grid
   * @param isInfoOnly Is Info Only
@@ -106,7 +106,7 @@ case class BrowseField(browseFieldId: Int,
                        vFormat: Option[String],
                        valueMax: Option[String],
                        valueMin: Option[String],
-                       callOut: Option[String],
+                       callout: Option[String],
                        infoFactoryClass: Option[String],
                        seqNoGrid: Int = 0,
                        isInfoOnly: Boolean = false,
@@ -167,7 +167,7 @@ object BrowseField  {
              vFormat: String,
              valueMax: String,
              valueMin: String,
-             callOut: String,
+             callout: String,
              infoFactoryClass: String,
              seqNoGrid: Int,
              isInfoOnly: Boolean,

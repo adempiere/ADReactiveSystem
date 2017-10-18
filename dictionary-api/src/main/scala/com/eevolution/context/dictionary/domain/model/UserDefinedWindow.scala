@@ -40,7 +40,7 @@ import org.joda.time.DateTime
   * @param language Language
   * @param isDefault Is Default
   * @param isReadOnly Is Read Only
-  * @param isUserUpdateAble is User Updated Able
+  * @param isUserUpdateable is User Updated Able
   * @param uuid UUID
   */
 
@@ -61,7 +61,7 @@ case class UserDefinedWindow(userDefinedWindowId : Int,
                              language: Option[String],
                              isDefault: Boolean = false,
                              isReadOnly: Boolean = false,
-                             isUserUpdateAble: Boolean = true,
+                             isUserUpdateable: Boolean = true,
                              uuid: Option[String]
                      ) extends DomainModel
 
@@ -97,10 +97,10 @@ object UserDefinedWindow  {
              language: String,
              isDefault: Boolean,
              isReadOnly: Boolean,
-             isUserUpdateAble: Boolean,
+             isUserUpdateable: Boolean,
              uuid: String) = UserDefinedWindow(userDefinedWindowId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, windowId, name, None, None, None, isDefault,
-    isReadOnly, isUserUpdateAble, None)
+    isReadOnly, isUserUpdateable, None)
 }
 
 

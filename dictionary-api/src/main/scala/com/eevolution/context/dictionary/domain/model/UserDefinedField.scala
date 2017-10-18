@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   * @param isDisplayed Is Displayed
   * @param isReadOnly Is Read Only
   * @param isSameLine Is Same Line
-  * @param isUpdateAble Is Update Able
+  * @param isUpdateable Is Update Able
   * @param displayLength Display Length
   * @param displayLogic Display Logic
   * @param defaultValue Default Value
@@ -64,7 +64,7 @@ case class UserDefinedField(userDefinedFieldId: Int,
                             isDisplayed: Boolean = true,
                             isReadOnly: Boolean = false,
                             isSameLine: Boolean = false,
-                            isUpdateAble: Boolean = true,
+                            isUpdateable: Boolean = true,
                             displayLength: Int = 0,
                             displayLogic: String,
                             defaultValue: String,
@@ -104,13 +104,13 @@ object UserDefinedField  {
              isDisplayed: Boolean,
              isReadOnly: Boolean,
              isSameLine: Boolean,
-             isUpdateAble: Boolean,
+             isUpdateable: Boolean,
              displayLength: Int,
              displayLogic: String,
              defaultValue: String,
              sortNo: Int,
              seqNo: Int,
              uuid: String) = UserDefinedField(userDefinedFieldId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, userDefinedTabId, fieldId, name, None, None, isDisplayed, isReadOnly, isSameLine, isUpdateAble,
+    updated, updatedBy, userDefinedTabId, fieldId, name, None, None, isDisplayed, isReadOnly, isSameLine, isUpdateable,
     displayLength, displayLogic, defaultValue, sortNo, seqNo, None)
 }

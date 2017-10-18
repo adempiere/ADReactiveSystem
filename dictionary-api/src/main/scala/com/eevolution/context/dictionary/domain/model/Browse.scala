@@ -40,7 +40,7 @@ import org.joda.time.DateTime
   * @param isBetaFunctionality Is Beta Functionality
   * @param accessLevel Access Level
   * @param copyFrom Copy From
-  * @param isDeleteAble Is Delete Able
+  * @param isDeleteable Is Deleteable
   * @param isCollapsibleByDefault Is Collapsible By Default
   * @param isSelectedByDefault Is Selected By Default
   * @param isExecutedQueryByDefault Is Executed Query By Default
@@ -69,7 +69,7 @@ case class Browse(browseId: Int,
                   isBetaFunctionality: Boolean=false,
                   accessLevel: Int=4,
                   copyFrom: Option[Boolean],
-                  isDeleteAble: Boolean=false,
+                  isDeleteable: Boolean=false,
                   isCollapsibleByDefault: Boolean = false,
                   isSelectedByDefault: Boolean = false,
                   isExecutedQueryByDefault: Boolean = false,
@@ -113,7 +113,7 @@ case class Browse(browseId: Int,
                isBetaFunctionality: Boolean,
                accessLevel: Int,
                copyFrom: Boolean,
-               isDeleteAble: Boolean,
+               isDeleteable: Boolean,
                isCollapsibleByDefault: Boolean,
                isSelectedByDefault: Boolean,
                isExecutedQueryByDefault: Boolean,
@@ -121,7 +121,7 @@ case class Browse(browseId: Int,
                isShowTotal: Boolean,
                uuid: String) = Browse(browseId, tenantId, organizationId, created, createdBy, isActive, updated,
       updatedBy, None, entityType, None , name, None, viewId, None, None,
-      None, isBetaFunctionality, accessLevel, None, isDeleteAble, isCollapsibleByDefault,
+      None, isBetaFunctionality, accessLevel, None, isDeleteable, isCollapsibleByDefault,
       isSelectedByDefault, isExecutedQueryByDefault, None, isShowTotal, None)
   }
 

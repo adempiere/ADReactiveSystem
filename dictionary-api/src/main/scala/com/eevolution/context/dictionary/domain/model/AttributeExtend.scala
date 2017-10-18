@@ -38,12 +38,12 @@ import org.joda.time.DateTime
   * @param referenceId Reference ID
   * @param referenceValueId Reference Value ID
   * @param validationRuleId Validation Rule ID
-  * @param callOut Call Out
+  * @param callout Call Out
   * @param valueMin Value Min
   * @param valueMax Value Max
   * @param defaultValue Default Value
   * @param isReadOnly Is Read Only
-  * @param isUpdateAble Is Update Able
+  * @param isUpdateable Is Update Able
   * @param isMandatory Is Mandatory
   * @param isEncrypted Is Encrypted
   * @param fieldLength Field Length
@@ -73,12 +73,12 @@ case class AttributeExtend(attributeExtendId: Int,
                            referenceId: Int,
                            referenceValueId: Option[Int],
                            validationRuleId: Option[Int],
-                           callOut: Option[String],
+                           callout: Option[String],
                            valueMin: Option[String],
                            valueMax: Option[String],
                            defaultValue: Option[String],
                            isReadOnly: Boolean = false,
-                           isUpdateAble: Boolean =true,
+                           isUpdateable: Boolean =true,
                            isMandatory: Boolean = false,
                            isEncrypted: Boolean = false,
                            fieldLength: Option[Int],
@@ -120,12 +120,12 @@ object AttributeExtend {
              referenceId: Int,
              referenceValueId: Int,
              validationRuleId: Int,
-             callOut: String,
+             callout: String,
              valueMin: String,
              valueMax: String,
              defaultValue: String,
              isReadOnly: Boolean,
-             isUpdateAble: Boolean,
+             isUpdateable: Boolean,
              isMandatory: Boolean,
              isEncrypted: Boolean,
              fieldLength: Int,
@@ -138,7 +138,7 @@ object AttributeExtend {
              seqNo: Int,
              uuid: String) = AttributeExtend(attributeExtendId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, None, entityId, referenceId, None, None, None, None, None,
-    None, isReadOnly, isUpdateAble, isMandatory, isEncrypted, None, None, None, None, isSameLine, isHeading,
+    None, isReadOnly, isUpdateable, isMandatory, isEncrypted, None, None, None, None, isSameLine, isHeading,
     isFieldOnly, None, None)
 }
 

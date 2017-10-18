@@ -43,7 +43,7 @@ import org.joda.time.DateTime
   * @param isKey Is Key
   * @param isParent Is Parent
   * @param isMandatory Is Mandatory
-  * @param isUpdateAble Is Update Able
+  * @param isUpdateable Is Update Able
   * @param readOnlyLogic Read Only Logic
   * @param isIdentifier Is Identifier
   * @param seqNo Seq No
@@ -92,7 +92,7 @@ case class Attribute(attributeId: Int,
                      isKey: Boolean=false,
                      isParent: Boolean = false,
                      isMandatory: Boolean= false,
-                     isUpdateAble: Boolean = true,
+                     isUpdateable: Boolean = true,
                      readOnlyLogic: Option[String],
                      isIdentifier: Boolean = false,
                      seqNo: Option[Int],
@@ -158,13 +158,13 @@ object Attribute {
              isKey: Boolean,
              isParent: Boolean,
              isMandatory: Boolean,
-             isUpdateAble: Boolean,
+             isUpdateable: Boolean,
              readOnlyLogic: String,
              isIdentifier: Boolean,
              seqNo: Int,
              isTranslated: Boolean,
              isEncrypted: Boolean,
-             callOut: String,
+             callout: String,
              vFormat: String,
              valueMin: String,
              valueMax: String,
@@ -184,7 +184,7 @@ object Attribute {
              isAllowCopy: Boolean,
              uuid: String) = Attribute(attributeId, tenantId, organizationId, isActive,created, updated, createdBy,
     updatedBy, name, None, None, version, entityType, attributeName, entityId, referenceId, None, None, None,
-    None, isKey, isParent, isMandatory, isUpdateAble, None, isIdentifier, None, isTranslated,isEncrypted, None,
+    None, isKey, isParent, isMandatory, isUpdateable, None, isIdentifier, None, isTranslated,isEncrypted, None,
     None, None, None, isSelectionAttribute, None, None, isSyncDatabase, isAlwaysUpdateable, None, None, None, isAutoComplete, isAllowLogging ,
     None, None, isRange, isAllowCopy, None)
 }

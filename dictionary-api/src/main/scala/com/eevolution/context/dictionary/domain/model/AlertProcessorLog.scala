@@ -24,6 +24,8 @@ import org.joda.time.DateTime
   * Alert Processor Log Entity
   * @param alertProcessorLogId Alert Processor Log ID
   * @param alertProcessorId Alert Processor ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

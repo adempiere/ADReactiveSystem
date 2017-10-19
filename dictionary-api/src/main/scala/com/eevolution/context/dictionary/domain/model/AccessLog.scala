@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Access Log Entity
   * @param accessLogId Access Log
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

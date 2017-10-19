@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Val Rule Entity
   * @param dynamicValidationRuleId Val Rule ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

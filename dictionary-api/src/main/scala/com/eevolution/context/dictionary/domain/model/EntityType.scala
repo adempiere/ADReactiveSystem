@@ -1,6 +1,7 @@
 package com.eevolution.context.dictionary.domain.model
 
 
+import ai.x.play.json.Jsonx
 import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identifiable, Traceable}
 import org.joda.time.DateTime
 
@@ -18,7 +19,28 @@ import org.joda.time.DateTime
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com.
-  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 13/10/17.
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 19/10/17.
+  */
+
+/**
+  * Entity for Entity Type
+  * @param entityTypeId Entity Type ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param entityType Entity Type
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param name Name
+  * @param description Description
+  * @param help Help
+  * @param version Version
+  * @param modelPackage Model Package
+  * @param classPath Class Path
+  * @param processing Processing
+  * @param uuid UUID
   */
 case class EntityType(entityTypeId: Int,
                       tenantId: Int,
@@ -35,8 +57,10 @@ case class EntityType(entityTypeId: Int,
                       version: Option[String],
                       modelPackage: Option[String],
                       classPath: Option[String],
-                      processing: Boolean = false
+                      processing: Boolean = false,
+                      uuid: Option[String]
                      ) extends DomainModel
+
   with ActiveEnabled
   with Identifiable
   with Traceable {
@@ -51,5 +75,26 @@ case class EntityType(entityTypeId: Int,
 }
 
 object EntityType {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[EntityType]
   def Dictionary: String = "D"
+  def create(entityTypeId: Int,
+             tenantId: Int,
+             organizationId: Int,
+             entityType: String,
+             isActive: Boolean,
+             created: DateTime,
+             createdBy: Int,
+             updated: DateTime,
+             updatedBy: Int ,
+             name: String,
+             description: String,
+             help: String,
+             version: String,
+             modelPackage: String,
+             classPath: String,
+             processing: Boolean,
+             uuid: String) = EntityType(entityTypeId, tenantId, organizationId, entityType, isActive, created,
+    createdBy, updated, updatedBy, name, None, None, None, None, None, processing, None)
 }
+
+

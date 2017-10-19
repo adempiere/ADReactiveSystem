@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Alert Rule Entity
   * @param alertRuleId Alert Rule ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

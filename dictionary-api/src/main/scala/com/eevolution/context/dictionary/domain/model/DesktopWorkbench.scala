@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Desktop Workbench Entity
   * @param desktopWorkbenchId Desktop Workbench ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

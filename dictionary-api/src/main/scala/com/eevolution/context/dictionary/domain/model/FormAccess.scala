@@ -23,16 +23,16 @@ import org.joda.time.DateTime
 
 /**
   * Form Access Entity
-  * @param formId
-  * @param roleId
-  * @param tenantId
-  * @param organizationId
-  * @param isActive
-  * @param created
-  * @param createdBy
-  * @param updated
-  * @param updatedBy
-  * @param isReadWrite
+  * @param formId Form ID
+  * @param roleId Role ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
+  * @param isReadWrite Is Read Write
   */
 case class FormAccess(formId : Int,
                       roleId : Int,

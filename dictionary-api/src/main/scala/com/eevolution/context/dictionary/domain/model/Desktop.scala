@@ -24,6 +24,8 @@ import com.eevolution.context.dictionary.api.{ActiveEnabled, DomainModel, Identi
 /**
   * Desktop Entity
   * @param desktopId Desktop ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

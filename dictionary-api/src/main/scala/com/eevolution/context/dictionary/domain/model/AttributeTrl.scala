@@ -24,6 +24,8 @@ import org.joda.time.DateTime
   * Attribute Trl Entity
   * @param attributeTrlId Attribute Trl ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

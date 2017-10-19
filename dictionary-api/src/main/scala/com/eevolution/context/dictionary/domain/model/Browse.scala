@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Browse Entity
   * @param browseId Browse ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active

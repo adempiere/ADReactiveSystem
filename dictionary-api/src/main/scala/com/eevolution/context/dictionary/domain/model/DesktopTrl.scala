@@ -24,6 +24,8 @@ import org.joda.time.DateTime
   * Desktop Trl Entity
   * @param desktopId Desktop ID
   * @param language Language
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

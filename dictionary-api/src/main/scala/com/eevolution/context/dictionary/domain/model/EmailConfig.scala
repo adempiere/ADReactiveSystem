@@ -23,6 +23,8 @@ import org.joda.time.DateTime
 /**
   * Email Config Entity
   * @param emailConfigId Email Config ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param authMechanism Auth Mechanism
   * @param connectionTimeOut Connection Time Out
   * @param created Created

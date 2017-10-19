@@ -22,6 +22,8 @@ import org.joda.time.DateTime
 /**
   * Attachment Entity
   * @param attachmentId Attachment ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

@@ -22,6 +22,8 @@ import org.joda.time.DateTime
 
 /**
   * Document Action Entity
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By

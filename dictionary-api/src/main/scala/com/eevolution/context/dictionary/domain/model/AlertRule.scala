@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param selectClause Select Clause
   * @param fromClause From Clause
   * @param whereClause Where Clause
-  * @param tableId Table ID
+  * @param entityId Table ID
   * @param preProcessing Pre Processing
   * @param postProcessing Post Processing
   * @param isValid Is Valid
@@ -57,7 +57,7 @@ case class AlertRule(alertRuleId: Int,
                      selectClause: String,
                      fromClause: String,
                      whereClause: Option[String],
-                     tableId: Option[Int],
+                     entityId: Option[Int],
                      preProcessing: Option[String],
                      postProcessing: Option[String],
                      isValid: Boolean = true,
@@ -94,7 +94,7 @@ object AlertRule  {
              selectClause: String,
              fromClause: String,
              whereClause: String,
-             tableId: Int,
+             entityId: Int,
              preProcessing: String,
              postProcessing: String,
              isValid: Boolean,

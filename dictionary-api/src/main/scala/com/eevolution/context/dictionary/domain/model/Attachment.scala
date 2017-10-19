@@ -29,7 +29,7 @@ import org.joda.time.DateTime
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param tableId Table ID
+  * @param entityId Table ID
   * @param recordId Record ID
   * @param title Title
   * @param binaryData Binary Data
@@ -45,7 +45,7 @@ case class Attachment(attachmentId: Int,
                       createdBy: Int,
                       updated: DateTime = DateTime.now,
                       updatedBy: Int,
-                      tableId: Int,
+                      entityId: Int,
                       recordId: Int,
                       title: String,
                       binaryData: String,
@@ -76,13 +76,13 @@ object Attachment {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             tableId: Int,
+             entityId: Int,
              recordId: Int,
              title: String,
              binaryData: String,
              textMsg: String,
              uuid: String) = Attachment(attachmentId, tenantId, organizationId,  isActive,created, createdBy, updated,
-    updatedBy,tableId, recordId, title, binaryData, None, uuid)
+    updatedBy,entityId, recordId, title, binaryData, None, uuid)
 
 }
 

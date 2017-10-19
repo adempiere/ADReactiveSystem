@@ -21,7 +21,7 @@ class AttributeRepository (session: JdbcSession)(implicit executionContext: Exec
   }
 
   def getByUUID(uuid: UUID): Future[Attribute] = {
-    Future(run(queryAttribute.filter(_.name == lift(uuid.toString))).headOption.get)
+    Future(run(queryAttribute.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
   def getByEntityId(id : Int) : Future[List[Attribute]] = {
@@ -36,20 +36,20 @@ class AttributeRepository (session: JdbcSession)(implicit executionContext: Exec
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countElement()
+      count <- countAttribute()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectElement(offset, limit)
+      else selectAttribute(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countElement() = {
+  private def countAttribute() = {
     Future(run(queryAttribute.size).toInt)
   }
 
 
-  private def selectElement(offset: Int, limit: Int): Future[Seq[Attribute]] = {
+  private def selectAttribute(offset: Int, limit: Int): Future[Seq[Attribute]] = {
     Future(run(queryAttribute).drop(offset).take(limit).toSeq)
   }
 

@@ -45,7 +45,7 @@ class EntityRepository(session: JdbcSession)(implicit executionContext: Executio
   }
 
   def getByUUID(uuid: UUID): Future[Entity] = {
-    Future(run(queryEntity.filter(_.name == lift(uuid.toString))).headOption.get)
+    Future(run(queryEntity.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
   def getAll() : Future[List[Entity]] = {

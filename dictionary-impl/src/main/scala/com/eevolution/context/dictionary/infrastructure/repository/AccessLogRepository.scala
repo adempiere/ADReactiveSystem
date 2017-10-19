@@ -3,12 +3,13 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Element
+import com.eevolution.context.dictionary.domain.model.AccessLog
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 
 import scala.concurrent.{ExecutionContext, Future}
+
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -22,49 +23,49 @@ import scala.concurrent.{ExecutionContext, Future}
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
-  * Created by victor.perez@e-evolution.com , www.e-evolution.com
+  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/EmerisScala
+  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 19/10/17.
   */
 
 /**
-  * Element Repository
+  * Access Log Repository
   * @param session
   * @param executionContext
   */
-class ElementRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ElementRepository[Element , Int]
-    with ElementMapping {
+class AccessLogRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.AccessLogRepository[AccessLog , Int]
+    with AccessLogMapping {
 
-  def getById(id: Int): Future[Element] = {
-    Future(run(queryElement.filter(_.elementId == lift(id))).headOption.get)
+  def getById(id: Int): Future[AccessLog] = {
+    Future(run(queryAccessLog.filter(_.accessLogId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Element] = {
-    Future(run(queryElement.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[AccessLog] = {
+    Future(run(queryAccessLog.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getAll() : Future[List[Element]] = {
-    Future(run(queryElement))
+
+  def getAll() : Future[List[AccessLog]] = {
+    Future(run(queryAccessLog))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Element]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[AccessLog]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countElement()
+      count <- countAccessLog()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectElement(offset, limit)
+      else selectAccessLog(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countElement() = {
-    Future(run(queryElement.size).toInt)
+  private def countAccessLog() = {
+    Future(run(queryAccessLog.size).toInt)
   }
 
-
-  private def selectElement(offset: Int, limit: Int): Future[Seq[Element]] = {
-    Future(run(queryElement).drop(offset).take(limit).toSeq)
+  private def selectAccessLog(offset: Int, limit: Int): Future[Seq[AccessLog]] = {
+    Future(run(queryAccessLog).drop(offset).take(limit).toSeq)
   }
 }

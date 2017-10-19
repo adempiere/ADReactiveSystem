@@ -2,7 +2,6 @@ package com.eevolution.context.dictionary.infrastructure.repository
 
 import com.eevolution.context.dictionary.domain.model.Entity
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
-import org.joda.time.DateTime
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -55,6 +54,7 @@ trait EntityMapping {
       _.isCentrallyMaintained -> "IsCentrallyMaintained",
       _.acTriggerLength -> "AcTriggerLength" ,
       _.isDocument -> "IsDocument",
-      _.isIgnoreMigration -> "IsIgnoreMigration")
+      _.isIgnoreMigration -> "IsIgnoreMigration",
+      _.uuid -> "UUID")
   }
 }

@@ -26,6 +26,8 @@ trait AttributeMapping  {
   val queryAttribute = quote {
     querySchema[Attribute]("AD_Column",
       _.attributeId -> "AD_Column_ID",
+      _.tenantId -> "AD_Client_ID",
+      _.organizationId-> "AD_Org_ID",
       _.isActive -> "IsActive",
       _.created -> "Created",
       _.createdBy -> "CreatedBy",
@@ -46,7 +48,7 @@ trait AttributeMapping  {
       _.isKey -> "IsKey",
       _.isParent -> "IsParent",
       _.isMandatory -> "IsMandatory",
-      _.isUpdateAble -> "IsUpdateable",
+      _.isUpdateable -> "IsUpdateable",
       _.readOnlyLogic -> "ReadOnlyLogic",
       _.isIdentifier -> "IsIdentifier",
       _.seqNo -> "SeqNo",
@@ -68,6 +70,7 @@ trait AttributeMapping  {
       _.isAllowLogging -> "IsAllowLogging",
       _.formatPattern -> "FormatPattern",
       _.chartId -> "AD_Chart_ID",
-      _.isRange -> "IsRange")
+      _.isRange -> "IsRange",
+      _.uuid -> "UUID")
   }
 }

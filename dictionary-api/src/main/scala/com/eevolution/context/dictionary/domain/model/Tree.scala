@@ -51,7 +51,7 @@ case class Tree(treeId: Int,
                 isAllNodes: Boolean = true,
                 processing: Option[Boolean],
                 isDefault: Boolean = false,
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -84,6 +84,6 @@ object Tree  {
              processing: Boolean,
              isDefault: Boolean,
              uuid: String) = Tree(treeId, tenantId, organizationId, created, createdBy, updated, updatedBy, isActive,
-    name, None, treeType, isAllNodes, None, isDefault, None)
+    name, None, treeType, isAllNodes, None, isDefault, uuid)
 }
 

@@ -61,7 +61,7 @@ case class Memo(memoId: Int,
                 projectId: Option[Int],
                 productId: Option[Int],
                 isAlert: Option[Boolean],
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -98,5 +98,5 @@ object Memo {
              productId: Int,
              isAlert: Boolean,
              uuid: String) = Memo(memoId, tenantId, organizationId, tableId, created, createdBy, isActive, recordId,
-    updated, updatedBy,None, None, None, None, None, None, None, None, None)
+    updated, updatedBy,None, None, None, None, None, None, None, None, uuid)
 }

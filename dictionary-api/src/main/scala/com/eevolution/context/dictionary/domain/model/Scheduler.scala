@@ -71,7 +71,7 @@ case class Scheduler (schedulerId: Int,
                       cronPattern: Option[String],
                       entityId: Option[Int],
                       recordId: Option[Int],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -117,5 +117,5 @@ object Scheduler {
              recordId: Int,
              uuid: String) = Scheduler(schedulerId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, name,
     None, processId, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, scheduleType,
-    None, isIgnoreProcessingTime, None, None, None, None)
+    None, isIgnoreProcessingTime, None, None, None, uuid)
 }

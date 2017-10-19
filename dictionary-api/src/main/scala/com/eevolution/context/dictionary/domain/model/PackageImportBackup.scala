@@ -58,7 +58,7 @@ case class PackageImportBackup(packageImportBackupId: Int,
                                packageImportOrgDir: Option[String],
                                colValue: Option[String],
                                uninstall: Option[Boolean],
-                               uuid: Option[String]
+                               uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -95,5 +95,5 @@ object PackageImportBackup {
              uninstall: Boolean,
              uuid: String) = PackageImportBackup(packageImpBackupId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, packageImportId, packageImportDetailId, None, None, None, None, None, None, None,
-    None)
+    uuid)
 }

@@ -53,7 +53,7 @@ case class ZoomCondition (zoomConditionId: Int,
                           updatedBy: Int,
                           whereClause: Option[String],
                           zoomLogic: Option[String],
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -87,5 +87,5 @@ object ZoomCondition {
              whereClause: String,
              zoomLogic: String,
              uuid: String) = ZoomCondition(zoomConditionId, tenantId, organizationId, None, None, created, createdBy,
-    None, isActive, None, None, updated, updatedBy, None, None, None)
+    None, isActive, None, None, updated, updatedBy, None, None, uuid)
 }

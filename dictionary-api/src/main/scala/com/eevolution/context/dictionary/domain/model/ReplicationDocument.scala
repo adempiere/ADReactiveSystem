@@ -51,7 +51,7 @@ case class ReplicationDocument(replicationDocumentId: Int,
                                docTypeId: Int,
                                replicationType: Boolean,
                                entityId: Int,
-                               uuid: Option[String]
+                               uuid: String
                               ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object ReplicationDocument  {
              docTypeId: Int,
              replicationType: Boolean,
              entityId: Int,
-             uuid: Option[String]) = ReplicationDocument(replicationDocumentId, replicationStrategyId, tenantId,
+             uuid: String) = ReplicationDocument(replicationDocumentId, replicationStrategyId, tenantId,
     organizationId, isActive, created, createdBy, updated, updatedBy, None, docTypeId, replicationType,
-    entityId, None)
+    entityId, uuid)
 }

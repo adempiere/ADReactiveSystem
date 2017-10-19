@@ -57,7 +57,7 @@ case class PinStance(pinStanceId: Int,
                      name: String,
                      reportType: String = "P",
                      printFormatId: Option[Int],
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -93,6 +93,6 @@ object PinStance  {
              reportType: String,
              printFormatId: Int,
              uuid: String) = PinStance(pinStanceId, tenantId, organizationId, processId, recordId, isProcessing,
-    created, None, updated, None, None, createdBy, updatedBy, isActive, name, reportType, None, None)
+    created, None, updated, None, None, createdBy, updatedBy, isActive, name, reportType, None, uuid)
 }
 

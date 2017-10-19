@@ -62,7 +62,7 @@ case class Migration(migrationId: Int,
                      updatedBy: Int,
                      processing: Option[Boolean],
                      processed: Boolean = false,
-                     uuid: Option [String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -99,5 +99,5 @@ object Migration  {
              processing: Boolean,
              processed: Boolean,
              uuid: String) = Migration(migrationId, tenantId, organizationId, None, None, created, createdBy,
-    entityType, None, isActive, name, None, seqNo, None, updated, updatedBy, None, processed, None)
+    entityType, None, isActive, name, None, seqNo, None, updated, updatedBy, None, processed, uuid)
 }

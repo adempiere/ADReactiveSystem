@@ -57,7 +57,7 @@ case class PrintLabelLine (printLabelLineId: Int,
                            labelPrinterFunctionId: Int,
                            xPosition: Int,
                            yPosition: Int,
-                           uuid: Option[String]
+                           uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -94,5 +94,5 @@ object PrintLabelLine {
              yPosition: Int,
              uuid: String) = PrintLabelLine(printLabelLineId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, printLabelId, name, seqNo, labelFormatType, None, attributeId, labelPrinterFunctionId, xPosition,
-    yPosition, None)
+    yPosition, uuid)
 }

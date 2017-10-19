@@ -123,7 +123,7 @@ case class Issue(issueId: Int,
                  windowId: Option[Int],
                  processId: Option[Int],
                  formId: Option[Int],
-                 uuid: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -193,7 +193,7 @@ object Issue  {
              uuid: String) = Issue(issueId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     releaseNo, version, name, username, None, None, None, None, None, None, None, None, None, issueSummary, None, None,
     None, None, lineNo, None, None, None, None, None, None, None, None, processed, isVanillaSystem, isReproducible,
-    None, None, None, systemStatus, None, None, None, None, None, None, None, None)
+    None, None, None, systemStatus, None, None, None, None, None, None, None, uuid)
 }
 
 

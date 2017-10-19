@@ -43,7 +43,7 @@ case class TreeBar(treeId: Int,
                    createdBy: Int,
                    updated: DateTime = DateTime.now,
                    updatedBy: Int,
-                   uuid: Option[String]
+                   uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -72,5 +72,5 @@ object TreeBar  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = TreeBar(treeId, userId, tenantId, organizationId, nodeId, isActive, created,
-    createdBy, updated, updatedBy, None)
+    createdBy, updated, updatedBy, uuid)
 }

@@ -57,7 +57,7 @@ case class LdapProcessor(ldapProcessorId: Int,
                          supervisorId: Int,
                          keepLogDays: Int = 0,
                          processing: Option[Boolean],
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -94,6 +94,6 @@ object LdapProcessor  {
              processing: Boolean,
              uuid: String) = LdapProcessor(ldapProcessorId, tenantId, organizationId, created, createdBy,
     updated, updatedBy, isActive, name, None, ldapPort, dateLastRun, dateNextRun,supervisorId,
-    keepLogDays, None, None )
+    keepLogDays, None, uuid)
 }
 

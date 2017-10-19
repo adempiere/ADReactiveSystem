@@ -59,7 +59,7 @@ case class AlertProcessor(alertProcessorId: Int,
                           supervisorId: Int,
                           keepLogDays: Int,
                           processing: Option[Boolean],
-                          uuid: Option[String]
+                          uuid: String
                          )extends DomainModel
 
   with ActiveEnabled
@@ -96,5 +96,5 @@ object AlertProcessor  {
              processing: Boolean,
              uuid: String) = AlertProcessor(alertProcessorId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, frequencyType, frequency, dateLastRun, dateNextRun,
-    supervisorId, keepLogDays, None, None)
+    supervisorId, keepLogDays, None, uuid)
 }

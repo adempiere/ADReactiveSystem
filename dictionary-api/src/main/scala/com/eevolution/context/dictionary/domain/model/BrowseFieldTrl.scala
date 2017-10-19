@@ -51,7 +51,7 @@ case class BrowseFieldTrl(browseFieldId: Int,
                           help: Option[String],
                           isTranslated: Boolean,
                           name: String,
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -83,5 +83,5 @@ object BrowseFieldTrl  {
              isTranslated: Boolean,
              name: String,
              uuid: String) = BrowseFieldTrl(browseFieldId, tenantId, organizationId, created, createdBy, isActive,
-    updated, updatedBy, language, None, None, isTranslated, name, None)
+    updated, updatedBy, language, None, None, isTranslated, name, uuid)
 }

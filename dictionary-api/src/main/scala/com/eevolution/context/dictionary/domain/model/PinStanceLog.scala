@@ -47,7 +47,7 @@ case class PinStanceLog(pinStanceLogId: Int,
                         updatedBy: Int,
                         updated: DateTime = DateTime.now,
                         isActive: Boolean = true,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
 
@@ -78,5 +78,5 @@ object PinStanceLog  {
              updated: DateTime,
              isActive: Boolean,
              uuid: String) = PinStanceLog(pinStanceLogId, pinStanceId, date, None, None, None, createdBy,
-    created, updatedBy, updated, isActive, None)
+    created, updatedBy, updated, isActive, uuid)
 }

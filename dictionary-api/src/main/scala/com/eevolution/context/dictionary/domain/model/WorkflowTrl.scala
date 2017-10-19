@@ -50,7 +50,7 @@ case class WorkflowTrl(workflowId: Int,
                        description: Option[String],
                        help: Option[String],
                        isTranslated: Boolean = false,
-                       uuid: Option[String]
+                       uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -81,5 +81,5 @@ object WorkflowTrl {
              help: String,
              isTranslated: Boolean,
              uuid: String) = WorkflowTrl(workflowId, language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+    updated, updatedBy, name, None, None, isTranslated, uuid)
 }

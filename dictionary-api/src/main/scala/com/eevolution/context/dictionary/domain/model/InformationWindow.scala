@@ -57,7 +57,7 @@ case class InformationWindow(infoWindowId: Int,
                              fromClause: String,
                              otherClause: Option[String],
                              processing: Option[Boolean],
-                             uuid: Option[String]
+                             uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -92,6 +92,6 @@ object InformationWindow  {
              otherClause: String,
              processing: Boolean,
              uuid: String) = InformationWindow(infoWindowId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, tableId, entityType, fromClause, None, None, None)
+    createdBy, updated, updatedBy, name, None, None, tableId, entityType, fromClause, None, None, uuid)
 }
 

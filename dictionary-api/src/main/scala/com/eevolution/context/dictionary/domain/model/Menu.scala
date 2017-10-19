@@ -71,7 +71,7 @@ case class Menu(menuId: Int,
                 entityType: String = "D",
                 isCentrallyMaintained: Boolean = true,
                 browseId: Option[Int],
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -114,5 +114,5 @@ object Menu {
              browseId: Int,
              uuid: String) = Menu (menuId, tenantId, organizationId, isActive, created, createdBy, updated,
     name, updatedBy,None, isSummary, isSoTrx, isReadOnly, None, None, None, None, None, None,
-    None, entityType, isCentrallyMaintained, None, None)
+    None, entityType, isCentrallyMaintained, None, uuid)
 }

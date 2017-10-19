@@ -47,7 +47,7 @@ case class AttributeProcessPara(attributeProcessParaId: Int,
                                 isActive: Boolean,
                                 updated: DateTime = DateTime.now,
                                 updatedBy: Int,
-                                uuid: Option [String]
+                                uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -77,6 +77,6 @@ object AttributeProcessPara {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = AttributeProcessPara(attributeProcessParaId, tenantId, organizationId, None, None,
-    created, createdBy, None, isActive, updated, updatedBy, None)
+    created, createdBy, None, isActive, updated, updatedBy, uuid)
 }
 

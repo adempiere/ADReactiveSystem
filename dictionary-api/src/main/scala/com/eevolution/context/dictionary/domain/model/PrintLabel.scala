@@ -55,7 +55,7 @@ case class PrintLabel (printLabelId: Int,
                        labelHeight: Int,
                        labelWidth: Int,
                        labelPrinterId: Int,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -90,5 +90,5 @@ object PrintLabel {
              labelWidth: Int,
              labelPrinterId: Int,
              uuid: String) = PrintLabel(printLabelId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, entityId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, None)
+    updatedBy, name, None, entityId, None, isLandscape, labelHeight, labelWidth, labelPrinterId, uuid)
 }

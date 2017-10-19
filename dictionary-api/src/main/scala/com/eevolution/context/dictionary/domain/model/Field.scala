@@ -101,7 +101,7 @@ case class Field (fieldId: Int,
                   isDisplayedGrid: Boolean = true,
                   seqNoGrid: Option[Int],
                   isAllowCopy: Boolean = true,
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -160,5 +160,5 @@ object Field {
              uuid: String) = Field(fieldId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, isCentrallyMaintained, tabId, None, None, isDisplayed, None, None, isReadOnly, None, None,
     isSameLine, isHeading, isFieldOnly, isEncrypted, entityType, None, None, None, None, None, None, None, None,
-    isEmbedded, None, isDisplayedGrid, None, isAllowCopy, None)
+    isEmbedded, None, isDisplayedGrid, None, isAllowCopy, uuid)
 }

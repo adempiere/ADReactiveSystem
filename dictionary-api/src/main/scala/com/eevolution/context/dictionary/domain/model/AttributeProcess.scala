@@ -47,7 +47,7 @@ case class AttributeProcess(attributeProcessId: Int,
                             name: String,
                             updated: DateTime =  DateTime.now,
                             updatedBy: Int,
-                            uuid: Option[String]
+                            uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -77,7 +77,7 @@ object AttributeProcess  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = AttributeProcess(attributeProcessId, None, None, tenantId, organizationId, created,
-    createdBy, isActive, name, updated, updatedBy, None)
+    createdBy, isActive, name, updated, updatedBy, uuid)
 }
 
 

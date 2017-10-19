@@ -29,19 +29,19 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param taskId Task ID
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class TaskInstance (taskInstanceId: Int,
                          tenantId: Int,
                          organizationId: Int,
                          isActive: Boolean = true,
-                         created: DateTime = DateTime.now(),
+                         created: DateTime = DateTime.now,
                          createdBy: Int,
-                         updated: DateTime = DateTime.now(),
+                         updated: DateTime = DateTime.now,
                          updatedBy: Int,
                          taskId: Int,
-                         uuId: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -69,6 +69,6 @@ object TaskInstance {
              updated: DateTime,
              updatedBy: Int,
              taskId: Int,
-             uuId: String) = TaskInstance(taskInstanceId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, taskId, None)
+             uuid: String) = TaskInstance(taskInstanceId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, taskId, uuid)
 }

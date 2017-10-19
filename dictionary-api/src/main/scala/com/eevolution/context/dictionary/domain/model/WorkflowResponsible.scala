@@ -53,7 +53,7 @@ case class WorkflowResponsible(workflowResponsibleId: Int,
                                userId: Option[Int],
                                roleId: Option[Int],
                                entityType: String = "D",
-                               uuid: Option[String]
+                               uuid: String
                               ) extends DomainModel
 
   with ActiveEnabled
@@ -86,6 +86,6 @@ object WorkflowResponsible {
              roleId: Int,
              entityType: String,
              uuid: String) = WorkflowResponsible(workflowResponsibleId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, responsibleType, None, None, entityType, None)
+    createdBy, updated, updatedBy, name, None, responsibleType, None, None, entityType, uuid)
 }
 

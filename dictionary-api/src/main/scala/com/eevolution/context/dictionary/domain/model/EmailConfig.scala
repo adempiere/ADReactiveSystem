@@ -63,7 +63,7 @@ case class EmailConfig(emailConfigId: Int,
                        timeOut: Int = 0,
                        updated: DateTime = DateTime.now,
                        updatedBy: Int,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -102,6 +102,6 @@ object EmailConfig {
              updatedBy: Int,
              uuid: String) = EmailConfig(emailConfigId, tenantId, organizationId, authMechanism, connectionTimeOut,
     created, createdBy, None, encryptionType, isActive, isSmTpAuthorization, None, name, port, protocol, smTpHost,
-    timeOut, updated, updatedBy, None)
+    timeOut, updated, updatedBy, uuid)
 }
 

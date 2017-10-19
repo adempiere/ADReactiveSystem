@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param schedulerId Scheduler ID
   * @param userId User ID
   * @param roleId Role ID
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class SchedulerRecipient (schedulerRecipientId: Int,
@@ -45,7 +45,7 @@ case class SchedulerRecipient (schedulerRecipientId: Int,
                                schedulerId: Int,
                                userId: Option[Int],
                                roleId: Option[Int],
-                               uuId: Option[String]
+                               uuid: String
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -75,6 +75,6 @@ object SchedulerRecipient {
              schedulerId: Int,
              userId: Int,
              roleId: Int,
-             uuId: String) = SchedulerRecipient(schedulerRecipientId, tenantId, organizationId, isActive,
-    created,  createdBy, updated, updatedBy, schedulerId, None, None, None)
+             uuid: String) = SchedulerRecipient(schedulerRecipientId, tenantId, organizationId, isActive,
+    created,  createdBy, updated, updatedBy, schedulerId, None, None, uuid)
 }

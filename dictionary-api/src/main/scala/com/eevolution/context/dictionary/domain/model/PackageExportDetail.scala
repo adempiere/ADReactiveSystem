@@ -110,7 +110,7 @@ case class PackageExportDetail(packageExportDetailId: Int,
                                entityTypeId: Option[Int],
                                viewId: Option[Int],
                                browseId: Option[Int],
-                               uuid: Option[String]
+                               uuid: String
                             ) extends DomainModel
 
 
@@ -176,5 +176,5 @@ object PackageExportDetail {
              uuid: String) = PackageExportDetail(packageExportDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, None, None, description, None,
     typePackage, None, None, None, processing, None, None, None, None, None, None, packageExpId, None, None, None, None,
-    None, None, None, None, None, None, None)
+    None, None, None, None, None, None, uuid)
 }

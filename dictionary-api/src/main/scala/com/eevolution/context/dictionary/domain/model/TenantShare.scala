@@ -50,7 +50,7 @@ case class TenantShare(tenantShareId: Int,
                        description: Option[String],
                        tableId: Int,
                        shareType: Boolean,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -81,7 +81,7 @@ object TenantShare  {
              tableId: Int,
              shareType: Boolean,
              uuid: String) = TenantShare(tenantShareId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
-    name, None, tableId, shareType, None)
+    name, None, tableId, shareType, uuid)
 }
 
 

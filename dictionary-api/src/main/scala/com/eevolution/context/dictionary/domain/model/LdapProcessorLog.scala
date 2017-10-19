@@ -55,7 +55,7 @@ case class LdapProcessorLog(ldapProcessorLogId: Int,
                             description: Option[String],
                             textMsg: Option[String],
                             binaryData: String,
-                            uuid: Option[String]
+                            uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -89,6 +89,6 @@ object LdapProcessorLog  {
              textMsg: String,
              binaryData: String,
              uuid: String) = LdapProcessorLog(ldapProcessorLogId, ldapProcessorId, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, None, isError, None, None, None, binaryData, None)
+    created, createdBy, updated, updatedBy, None, isError, None, None, None, binaryData, uuid)
 }
 

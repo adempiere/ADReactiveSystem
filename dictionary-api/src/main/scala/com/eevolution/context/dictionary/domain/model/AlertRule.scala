@@ -63,7 +63,7 @@ case class AlertRule(alertRuleId: Int,
                      isValid: Boolean = true,
                      errorMsg: Option[String],
                      otherClause: Option[String],
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -101,7 +101,7 @@ object AlertRule  {
              errorMsg:String,
              otherClause: String,
              uuid: String) = AlertRule(alertId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, alertId, selectClause, fromClause, None, None, None, None, isValid, None, None, None)
+    updatedBy, name, alertId, selectClause, fromClause, None, None, None, None, isValid, None, None, uuid)
 }
 
 

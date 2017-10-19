@@ -53,7 +53,7 @@ case class WorkflowNodePara(workflowNodeParaId: Int,
                             description: Option[String],
                             attributeValue: Option[String],
                             entityType: String ="D",
-                            uuid: Option[String]
+                            uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -87,7 +87,7 @@ object WorkflowNodePara {
              attributeValue: String,
              entityType: String,
              uuid: String) = WorkflowNodePara(workflowNodeParaId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, workflowNodeId, None, None, None, None, entityType, None)
+    createdBy, updated, updatedBy, workflowNodeId, None, None, None, None, entityType, uuid)
 
 }
 

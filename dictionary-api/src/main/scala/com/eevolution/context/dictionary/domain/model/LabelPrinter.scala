@@ -43,7 +43,7 @@ case class LabelPrinter (labelPrinterId: Int,
                          updatedBy: Int,
                          name: String,
                          description: Option[String],
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -73,5 +73,5 @@ object LabelPrinter{
              name: String,
              description: String,
              uuid: String) = LabelPrinter(labelPrinterId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None)
+    updated, updatedBy, name, None, uuid)
 }

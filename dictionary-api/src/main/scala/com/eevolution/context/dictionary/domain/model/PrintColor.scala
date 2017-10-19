@@ -45,7 +45,7 @@ case class PrintColor (printColorId: Int,
                        name: String,
                        isDefault: Boolean = false,
                        code: String,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -75,5 +75,5 @@ object PrintColor {
              isDefault: Boolean,
              code: String,
              uuid: String) = PrintColor(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, isDefault, code, None)
+    updatedBy, name, isDefault, code, uuid)
 }

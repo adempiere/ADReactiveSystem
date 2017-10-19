@@ -49,7 +49,7 @@ case class RecordAccess(recordAccessId: Int,
                         isReadOnly: Boolean = false,
                         isExclude: Boolean = true,
                         isDependentEntities: Boolean = false,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -81,7 +81,7 @@ object RecordAccess  {
              isExclude: Boolean,
              isDependentEntities: Boolean,
              uuid: String) = RecordAccess(recordAccessId, roleId, tenantId, organizationId, entityId, isActive,
-    created, createdBy, updated, updatedBy, isReadOnly, isExclude, isDependentEntities, None)
+    created, createdBy, updated, updatedBy, isReadOnly, isExclude, isDependentEntities, uuid)
 }
 
 

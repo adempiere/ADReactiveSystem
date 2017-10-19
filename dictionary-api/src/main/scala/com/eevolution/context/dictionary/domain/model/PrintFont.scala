@@ -44,7 +44,7 @@ case class PrintFont (printFontId: Int,
                       name: String,
                       isDefault: Boolean = false,
                       code: String,
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -74,5 +74,5 @@ object PrintFont {
              isDefault: Boolean,
              code: String,
              uuid: String) = PrintFont(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, isDefault, code, None)
+    updatedBy, name, isDefault, code, uuid)
 }

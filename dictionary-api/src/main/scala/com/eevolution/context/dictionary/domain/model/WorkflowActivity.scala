@@ -73,7 +73,7 @@ case class WorkflowActivity(workflowActivityId: Int,
                             endWaitTime: Option[DateTime],
                             dateLastAlert: Option[DateTime],
                             dynPriorityStart: Option[Int],
-                            uuid: Option[String]
+                            uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -117,7 +117,7 @@ object WorkflowActivity {
              dynPriorityStart: Int,
              uuid: String) = WorkflowActivity(workflowActivityId, tenantId, organizationId,  isActive, created,
     createdBy, updated, updatedBy, workflowProcessId, workflowNodeId, None, None, workflowState, None, None,
-    processed, None, workFlowId, tableId, recordId, None, None, None, None, None)
+    processed, None, workFlowId, tableId, recordId, None, None, None, None, uuid)
 
 }
 

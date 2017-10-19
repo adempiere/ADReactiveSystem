@@ -53,7 +53,7 @@ case class View(viewId: Int,
                 entityType: String = "D",
                 help: Option[String],
                 copyFrom: Option[Boolean],
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -86,5 +86,5 @@ object View  {
              help: String,
              copyFrom: Boolean,
              uuid: String) = View(viewId, tenantId, organizationId, created, createdBy, isActive, updated,
-    updatedBy, None, name, None, entityType, None, None, None)
+    updatedBy, None, name, None, entityType, None, None, uuid)
 }

@@ -68,7 +68,7 @@ case class PrintForm (printFormId: Int,
                       manufOrderPrintFormatId: Option[Int],
                       distribOrderMailTextId: Option[Int],
                       distribOrderPrintFormatId: Option[Int],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -110,5 +110,5 @@ object PrintForm {
              distribOrderMailTextId: Int,
              distribOrderPrintFormatId: Int,
              uuid: String) = PrintForm(printFormId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+    updatedBy, name, None, None, None, None, None, None, None, None, None, None, None, None, None, None, uuid)
 }

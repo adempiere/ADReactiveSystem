@@ -45,7 +45,7 @@ case class PrintLabelLineTrl (printLabelLineId: Int,
                               updatedBy: Int,
                               printName: Option[String],
                               isTranslated: Boolean = false,
-                              uuid: Option[String]
+                              uuid: String
                              ) extends DomainModel
 
   with ActiveEnabled
@@ -75,5 +75,5 @@ object PrintLabelLineTrl {
              printName: String,
              isTranslated: Boolean,
              uuid: String) = PrintLabelLineTrl(printLabelLineId, language, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, None, isTranslated, None)
+    created, createdBy, updated, updatedBy, None, isTranslated, uuid)
 }

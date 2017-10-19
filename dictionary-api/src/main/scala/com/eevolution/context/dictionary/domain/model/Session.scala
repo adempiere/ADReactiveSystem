@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param roleId Role ID
   * @param loginDate Login Date
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class Session (sessionId: Int,
@@ -53,7 +53,7 @@ case class Session (sessionId: Int,
                     description: Option[String],
                     roleId: Option[Int],
                     loginDate: Option[DateTime],
-                    uuId: Option[String]
+                    uuid: String
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -87,6 +87,6 @@ object Session {
              description: String,
              roleId: Int,
              loginDate: DateTime,
-             uuId: String) = Session(sessionId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, None, None, None, processed, None, None, None, None)
+             uuid: String) = Session(sessionId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, None, None, None, processed, None, None, None, uuid)
 }

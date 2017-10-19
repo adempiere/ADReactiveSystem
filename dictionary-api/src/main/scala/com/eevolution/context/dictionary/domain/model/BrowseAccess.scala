@@ -45,7 +45,7 @@ case class BrowseAccess(tenantId: Int,
                         browseId: Int,
                         roleId: Int,
                         isReadWrite: Boolean = true,
-                        uuid: Option[String]
+                        uuid: String
                        )extends DomainModel
 
   with ActiveEnabled
@@ -74,5 +74,5 @@ object BrowseAccess  {
              roleId: Int,
              isReadWrite: Boolean,
              uuid: String) = BrowseAccess(tenantId, organizationId, created, createdBy, isActive, updated,
-    updatedBy, browseId, roleId, isReadWrite, None)
+    updatedBy, browseId, roleId, isReadWrite, uuid)
 }

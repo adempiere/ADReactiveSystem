@@ -63,7 +63,7 @@ case class InformationColumn(infoColumnId: Int,
                              isQueryCriteria: Boolean = false,
                              elementId: Option[Int],
                              referenceId: Int,
-                             uuid: Option[String]
+                             uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -102,7 +102,7 @@ object InformationColumn  {
              referenceId: Int,
              uuid: String) = InformationColumn(infoColumnId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, infoWindowId, entityType, selectClause, seqNo,
-    isDisplayed, isQueryCriteria, None, referenceId, None)
+    isDisplayed, isQueryCriteria, None, referenceId, uuid)
 }
 
 

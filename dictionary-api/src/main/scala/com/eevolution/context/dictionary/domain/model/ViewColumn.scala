@@ -59,7 +59,7 @@ case class ViewColumn(viewColumnId: Int,
                       columnName: Option[String],
                       viewId: Option[Int],
                       columnId: Option[Int],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -95,6 +95,6 @@ object ViewColumn  {
              viewId: Int,
              columnId: Int,
              uuid: String) = ViewColumn(viewColumnId,  tenantId, organizationId, created, createdBy,
-    isActive, updated, updatedBy, None, None, entityType, None, name, None, None, None, None, None)
+    isActive, updated, updatedBy, None, None, entityType, None, name, None, None, None, None, uuid)
 }
 

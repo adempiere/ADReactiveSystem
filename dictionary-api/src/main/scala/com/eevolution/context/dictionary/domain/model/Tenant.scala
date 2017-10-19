@@ -100,7 +100,7 @@ case class Tenant(tenantId: Int,
                   isUseASP : Boolean =  false ,
                   replicationStrategyId : Option[Int],
                   emailConfigId : Option[Int],
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -159,5 +159,5 @@ object Tenant  {
     name, None, None, None, None, None, None, None, isMultilingualDocument, isSmTpAuthorization,
     isUseBetaFunctions, None, None, autoArchive, mmPolicy, None, isServerEmail, None,
     isPostImmediate, isCostImmediate, storeAttachmentSonFileSystem, None, None,
-    storeArchiveOnFileSystem, None, None, isUseAsp, None, None, None)
+    storeArchiveOnFileSystem, None, None, isUseAsp, None, None, uuid)
 }

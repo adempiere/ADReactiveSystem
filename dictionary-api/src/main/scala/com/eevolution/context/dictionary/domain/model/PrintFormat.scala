@@ -80,7 +80,7 @@ case class PrintFormat (printFormatId: Int,
                         args: Option[String],
                         isSummary: Boolean = false,
                         isPrintParameters: Boolean = true,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -130,5 +130,5 @@ object PrintFormat {
              uuid: String) = PrintFormat(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, isEntityBased, isForm, entityId, printPaperId, printColorId, printFontId,
     isStandardHeaderFooter, headerMargin, footerMargin, None, None, None, None, isDefault, None, None, None, isSummary,
-    isPrintParameters, None)
+    isPrintParameters, uuid)
 }

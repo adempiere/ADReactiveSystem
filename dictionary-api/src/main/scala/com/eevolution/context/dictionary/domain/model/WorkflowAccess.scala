@@ -43,7 +43,7 @@ case class WorkflowAccess(workflowId: Int,
                           updated: DateTime = DateTime.now,
                           updatedBy: Int,
                           isReadWrite: Boolean = true,
-                          uuid: Option[String]
+                          uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -72,5 +72,5 @@ object WorkflowAccess {
              updatedBy: Int,
              isReadWrite: Boolean,
              uuid: String) = WorkflowAccess(workflowId, roleId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, isReadWrite, None)
+    updated, updatedBy, isReadWrite, uuid)
 }

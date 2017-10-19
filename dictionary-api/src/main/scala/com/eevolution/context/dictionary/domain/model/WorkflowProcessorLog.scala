@@ -55,7 +55,7 @@ case class WorkflowProcessorLog(workflowProcessorLogId: Int,
                                 description: Option[String],
                                 textMsg: Option[String],
                                 binaryDate: Option[String],
-                                uuid: Option[String]
+                                uuid: String
                                 ) extends DomainModel
 
   with ActiveEnabled
@@ -89,5 +89,5 @@ object WorkflowProcessorLog {
              textMsg: String,
              binaryDate: String,
              uuid: String) = WorkflowProcessorLog(workflowProcessorLogId, workflowProcessorId, tenantId, organizationId,
-    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
+    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, uuid)
 }

@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param expProcessorId Exp Processor ID
   * @param value  Value
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class ReplicationStrategy (replicationStrategyId: Int,
@@ -52,7 +52,7 @@ case class ReplicationStrategy (replicationStrategyId: Int,
                                 entityType: String = "D",
                                 expProcessorId: Option[Int],
                                 value: Option[Int],
-                                uuId: Option[String]
+                                uuid: String
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -84,6 +84,6 @@ object ReplicationStrategy  {
              entityType: String = "D",
              expProcessorId: Option[Int],
              value: Option[Int],
-             uuId: Option[String]) = ReplicationStrategy(replicationStrategyId,tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, name, None, None, entityType, None, None, None)
+             uuid: String) = ReplicationStrategy(replicationStrategyId,tenantId, organizationId, isActive,
+    created, createdBy, updated, updatedBy, name, None, None, entityType, None, None, uuid)
 }

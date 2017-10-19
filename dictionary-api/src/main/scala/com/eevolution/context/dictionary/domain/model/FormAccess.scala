@@ -44,7 +44,7 @@ case class FormAccess(formId : Int,
                       updated : DateTime = DateTime.now,
                       updatedBy : Int ,
                       isReadWrite : Boolean = true,
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
 
@@ -74,7 +74,7 @@ object FormAccess  {
              updatedBy : Int,
              isReadWrite : Boolean,
              uuid: String) = FormAccess(formId, roleId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, isReadWrite, None)
+    updated, updatedBy, isReadWrite, uuid)
 }
 
 

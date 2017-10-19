@@ -65,7 +65,7 @@ case class MigrationScript(tenantId: Int,
                            isApply: Boolean,
                            filename: String,
                            script: String,
-                           uuid: Option [String]
+                           uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -105,7 +105,7 @@ object MigrationScript {
              script: String,
              uuid: String) = MigrationScript(tenantId, migrationScriptId, organizationId, created, createdBy, None,
     None, isActive, name, projectName, None, releaseNo, None, status, None, updated, updatedBy, isApply, filename,
-    script, None)
+    script, uuid)
 }
 
 

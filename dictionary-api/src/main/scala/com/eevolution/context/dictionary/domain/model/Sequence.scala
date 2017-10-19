@@ -43,7 +43,7 @@ import org.joda.time.DateTime
   * @param startNewYear Start New Year
   * @param dateAttribute Date Attribute
   * @param decimalPattern Decimal Pattern
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class Sequence (sequenceId: Int,
@@ -69,7 +69,7 @@ case class Sequence (sequenceId: Int,
                      startNewYear: Boolean = false,
                      dateAttribute: Option[String],
                      decimalPattern: Option[String],
-                     uuId: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -111,7 +111,7 @@ object Sequence {
              startNewYear: Boolean,
              dateAttribute: String,
              decimalPattern: String,
-             uuId: String) = Sequence(sequenceId, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = Sequence(sequenceId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isAutoSequence, incrementNo, startNo, currentNext, currentNextSys, isAudited,
-    isEntityId, None, None, startNewYear, None, None, None)
+    isEntityId, None, None, startNewYear, None, None, uuid)
 }

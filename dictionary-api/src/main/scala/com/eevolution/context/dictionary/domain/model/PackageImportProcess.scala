@@ -49,7 +49,7 @@ case class PackageImportProcess(packageImportProcessId: Int,
                                 packageSource: Option[String],
                                 packageSourceType: String,
                                 processing: Option[Boolean],
-                                uuid: Option[String]
+                                uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object PackageImportProcess {
              packageSource: String,
              packageSourceType: String,
              processing: Boolean,
-             uuid: String) = PackageImportProcess(packageImportProcessId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, None, None, None, packageSourceType, None, None)
+             uuid: String) = PackageImportProcess(packageImportProcessId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, None, None, None, packageSourceType, None, uuid)
 }

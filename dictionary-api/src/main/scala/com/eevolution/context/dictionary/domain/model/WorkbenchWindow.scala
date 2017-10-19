@@ -53,7 +53,7 @@ case class WorkbenchWindow(isActive: Boolean = true,
                            processId: Option[Int],
                            taskId: Option[Int],
                            entityType: String = "D",
-                           uuid: Option[String]
+                           uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -87,5 +87,5 @@ object WorkbenchWindow {
              taskId: Int,
              entityType: String,
              uuid: String) = WorkbenchWindow(isActive, tenantId, organizationId, created, createdBy, updated,
-    updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, None)
+    updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, uuid)
 }

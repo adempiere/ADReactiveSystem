@@ -150,7 +150,7 @@ case class PrintFormatItem (printFormatItemId: Int,
                             isDesc: Boolean = false,
                             isPrintBarcodeText: Boolean = true,
                             displayLogic: Option[String],
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -238,5 +238,5 @@ object PrintFormatItem {
     fieldAlignmentType, lineAlignmentType, None, None, isOrderBy, sortNo,isGroupBy, isPageBrake, isSummarized,
     imageIsAttached, None, isAveraged, isCounted, isSetNlPosition, isSuppressNull, None, None, isFixedWidth, isNextPage,
     None, isMinCalc, isMaxCalc, isRunningTotal, None, isVarianceCalc, isDeviationCalc, isFilledRectangle, None, None,
-    None, isCentrallyMaintained, isImageField, None, None, isSuppressRepeats, isDesc, isPrintBarcodeText, None, None)
+    None, isCentrallyMaintained, isImageField, None, None, isSuppressRepeats, isDesc, isPrintBarcodeText, None, uuid)
 }

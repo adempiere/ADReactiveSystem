@@ -53,7 +53,7 @@ case class LdapAccess(ldapAccessId: Int,
                       isError: Boolean = false,
                       summary: Option[String],
                       description: Option[String],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -86,6 +86,6 @@ object LdapAccess  {
              summary: String,
              description: String,
              uuid: String) = LdapAccess(ldapAccessId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, ldapProcessorId, None, None, isError, None, None, None)
+    updated, updatedBy, ldapProcessorId, None, None, isError, None, None, uuid)
 }
 

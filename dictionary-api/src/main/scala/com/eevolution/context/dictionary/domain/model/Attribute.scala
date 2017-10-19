@@ -118,7 +118,7 @@ case class Attribute(attributeId: Int,
                      chartId: Option[Int],
                      isRange: Boolean = false,
                      isAllowCopy: Boolean = true,
-                     uuid: Option[String]
+                     uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -188,5 +188,5 @@ object Attribute {
     updatedBy, name, None, None, version, entityType, attributeName, entityId, referenceId, None, None, None,
     None, isKey, isParent, isMandatory, isUpdateable, None, isIdentifier, None, isTranslated,isEncrypted, None,
     None, None, None, isSelectionAttribute, None, None, isSyncDatabase, isAlwaysUpdateable, None, None, None, isAutoComplete, isAllowLogging ,
-    None, None, isRange, isAllowCopy, None)
+    None, None, isRange, isAllowCopy, uuid)
 }

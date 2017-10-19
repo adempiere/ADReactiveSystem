@@ -46,7 +46,7 @@ case class AlertRecipient(alertRecipientId: Int,
                           alertId: Int,
                           userId: Option[Int],
                           roleId: Option[Int],
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -76,5 +76,5 @@ object AlertRecipient  {
              userId: Int,
              roleId: Int,
              uuid: String) = AlertRecipient(alertRecipientId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, alertId, None, None, None )
+    createdBy, updated, updatedBy, alertId, None, None, uuid)
 }

@@ -45,7 +45,7 @@ case class PrivateAccess(privateAccessId: Int,
                          createdBy: Int,
                          updated: DateTime = DateTime.now,
                          updatedBy: Int,
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -75,5 +75,5 @@ object PrivateAccess  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = PrivateAccess(privateAccessId, tenantId, organizationId, userId, entityId, recordId,
-    isActive, created, createdBy, updated, updatedBy, None)
+    isActive, created, createdBy, updated, updatedBy, uuid)
 }

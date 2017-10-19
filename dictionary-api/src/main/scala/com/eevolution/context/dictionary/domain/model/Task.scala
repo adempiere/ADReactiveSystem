@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param osCommand OS Command
   * @param entityType Entity Type
   * @param isServerProcess Is Server Process
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class Task (taskId: Int,
@@ -53,7 +53,7 @@ case class Task (taskId: Int,
                  osCommand: String,
                  entityType: String = "D",
                  isServerProcess: Boolean = false,
-                 uuId: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -86,6 +86,6 @@ object Task {
              osCommand: String,
              entityType: String,
              isServerProcess: Boolean,
-             uuId: String) = Task(taskId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, None, accessLevel, osCommand, entityType, isServerProcess, None)
+             uuid: String) = Task(taskId, tenantId, organizationId, isActive, created, createdBy, updated,
+    updatedBy, name, None, None, accessLevel, osCommand, entityType, isServerProcess, uuid)
 }

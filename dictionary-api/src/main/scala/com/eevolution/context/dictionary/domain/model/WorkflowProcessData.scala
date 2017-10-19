@@ -47,7 +47,7 @@ case class WorkflowProcessData(workflowProcessDataId: Int,
                                workflowProcessId: Int,
                                attributeName: String,
                                attributeValue: Option[String],
-                               uuid: Option[String]
+                               uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -77,7 +77,7 @@ object WorkflowProcessData {
              attributeName: String,
              attributeValue: String,
              uuid: String) = WorkflowProcessData(workflowProcessDataId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, workflowProcessId, attributeName, None, None)
+    createdBy, updated, updatedBy, workflowProcessId, attributeName, None, uuid)
 
 }
 

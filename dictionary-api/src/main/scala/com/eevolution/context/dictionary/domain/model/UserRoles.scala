@@ -44,7 +44,7 @@ case class UserRoles(userId : Int ,
                      createdBy : Int ,
                      updated : DateTime = DateTime.now,
                      updatedBy : Int ,
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -72,6 +72,6 @@ object UserRoles  {
              updated : DateTime ,
              updatedBy : Int,
              uuid: String) = UserRoles(userId, roleId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, None)
+    updated, updatedBy, uuid)
 }
 

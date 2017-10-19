@@ -64,7 +64,7 @@ case class WorkflowProcessor(workflowProcessorId: Int,
                              inactivityAlertDays: Option[Int],
                              remindDays: Option[Int],
                              alertOverPriority: Option[Int],
-                             uuid: Option[String]
+                             uuid: String
                              ) extends DomainModel
 
   with ActiveEnabled
@@ -104,5 +104,5 @@ object WorkflowProcessor {
              alertOverPriority: Int,
              uuid: String) = WorkflowProcessor(workflowProcessorId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays,
-    None, None, None, None, None)
+    None, None, None, None, uuid)
 }

@@ -62,7 +62,7 @@ case class ElementTrl(elementId: Int,
                       descriptionPO: Option[String],
                       helpPO: Option[String],
                       isTranslated: Boolean =false,
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -100,5 +100,5 @@ object ElementTrl {
              helpPO: String,
              isTranslated: Boolean,
              uuid: String) = ElementTrl(elementId, languageId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, None, None, None, None, None, isTranslated, None)
+    createdBy, updated, updatedBy, name, None, None, None, None, None, None, None, isTranslated, uuid)
 }

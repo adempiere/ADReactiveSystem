@@ -63,7 +63,7 @@ case class WorkflowProcess(workflowProcessId: Int,
                            tableId: Int,
                            recordId: Int,
                            priority: Option[Int],
-                           uuid: Option[String]
+                           uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -103,6 +103,6 @@ object WorkflowProcess {
              priority: Int,
              uuid: String) = WorkflowProcess(workflowProcessId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, workFlowId, workflowResponsiveId, None, workflowState, None, None,
-    processed, None, tableId, recordId, None, None)
+    processed, None, tableId, recordId, None, uuid)
 
 }

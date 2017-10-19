@@ -126,7 +126,7 @@ case class Role(roleId: Int,
                 allowHTMLView: Boolean = true,
                 allowXLSView: Boolean = true,
                 isCanLoad: Boolean = true,
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -201,7 +201,7 @@ object Role  {
     allowInfoAccount, allowInfoAsset, allowInfoBPartner, allowInfoCashJournal, allowInfoInOut, allowInfoInvoice,
     allowInfoOrder, allowInfoPayment, allowInfoProduct, allowInfoResource, allowInfoSchedule,
     None, allowInfoMRP, allowInfoCRP, isDiscountUpToLimitPrice, isDiscountAllowedOnTotal, allowHTMLView,
-    allowXLSView, isCanLoad, None)
+    allowXLSView, isCanLoad, uuid)
 }
 
 

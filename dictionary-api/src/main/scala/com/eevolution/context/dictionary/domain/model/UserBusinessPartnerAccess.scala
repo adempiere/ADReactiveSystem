@@ -50,7 +50,7 @@ case class UserBusinessPartnerAccess(userBusinessPartnerAccessId : Int,
                                      businessPartnerAccessType: Boolean,
                                      requestType: Option[Int],
                                      documentBaseType: Option[String],
-                                     uuid: Option[String]
+                                     uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object UserBusinessPartnerAccess {
              businessPartnerAccessType: Boolean,
              requestType: Int,
              documentBaseType: String,
-             uuId: String) = UserBusinessPartnerAccess(userBusinessPartnerAccessId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, userId, businessPartnerAccessType, None, None, None)
+             uuid: String) = UserBusinessPartnerAccess(userBusinessPartnerAccessId, tenantId, organizationId,
+    isActive, created, createdBy, updated, updatedBy, userId, businessPartnerAccessType, None, None, uuid)
 }

@@ -75,7 +75,7 @@ case class OrganizationInfo(organizationId: Int,
                             phone2: Option[String],
                             fax: Option[String],
                             email: Option[String],
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -118,6 +118,6 @@ object OrganizationInfo{
              email: String,
              uuid: String) = OrganizationInfo(organizationId, tenantId, isActive, created, createdBy,
     updated, updatedBy, None, duns, taxId, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None)
+    None, None, None, None, None, uuid)
 }
 

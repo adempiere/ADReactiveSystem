@@ -52,7 +52,7 @@ case class Image (imageId: Int,
                   binaryData: String,
                   entityType: String,
                   description: Option[String],
-                  uuid: Option[String]
+                  uuid: String
                   )extends DomainModel
 
   with ActiveEnabled
@@ -84,5 +84,5 @@ object Image {
              entityType: String,
              description: String,
              uuid: String) = Image(imageId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, binaryData, entityType, None, None)
+    updatedBy, name, None, binaryData, entityType, None, uuid)
 }

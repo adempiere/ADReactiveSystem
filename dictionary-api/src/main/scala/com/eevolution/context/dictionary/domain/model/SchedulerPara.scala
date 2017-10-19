@@ -45,7 +45,7 @@ case class SchedulerPara (schedulerId: Int,
                           updatedBy: Int,
                           parameterDefault: Option[String],
                           description: Option[String],
-                          uuid: Option[String]
+                          uuid: String
                          )extends DomainModel
 
   with ActiveEnabled
@@ -76,5 +76,5 @@ object SchedulerPara {
              parameterDefault: String,
              description: String,
              uuid: String) = SchedulerPara(schedulerId, processParaId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, None, None, None)
+    createdBy, updated, updatedBy, None, None, uuid)
 }

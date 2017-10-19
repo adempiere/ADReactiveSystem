@@ -50,7 +50,7 @@ case class WorkflowActivityResult(workflowActivityResultId: Int,
                                   attributeValue: Option[String],
                                   description: Option[String],
                                   help: Option[String],
-                                  uuid: Option[String]
+                                  uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object WorkflowActivityResult  {
              description: String,
              help: String,
              uuid: String) = WorkflowActivityResult(workflowActivityResultId, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, workflowActivityId, attributeName, None, None, None, None)
+    created, createdBy, updated, updatedBy, workflowActivityId, attributeName, None, None, None, uuid)
 }
 
 

@@ -51,7 +51,7 @@ case class Find(findId: Int,
                 operation: String,
                 value: String,
                 value2: Option[String],
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -83,7 +83,7 @@ object Find  {
              value: String,
              value2: String,
              uuid: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, andOr, columnId,
-    operation, value, None, None)
+    operation, value, None, uuid)
 }
 
 

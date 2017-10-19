@@ -59,7 +59,7 @@ case class Note(noteId: Int,
                 description: Option[String],
                 wfActivityId: Option[Int],
                 textMsg: Option[String],
-                uuid: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -97,7 +97,7 @@ object Note {
              wfActivityId: Int,
              textMsg: String,
              uuid: String) = Note(noteId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, None, messageId, None, None, None, processed, None, None, None, None, None)
+    updatedBy, None, messageId, None, None, None, processed, None, None, None, None, uuid)
 }
 
 

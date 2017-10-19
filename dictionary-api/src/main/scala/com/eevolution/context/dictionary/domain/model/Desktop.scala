@@ -52,7 +52,7 @@ case class Desktop(desktopId: Int,
                    help: Option[String],
                    imageId: Option[Int],
                    colorId:Option[Int],
-                   uuid: Option[String]
+                   uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -84,5 +84,5 @@ case class Desktop(desktopId: Int,
              imageId: Int,
              colorId:Int,
              uuid:String) = Desktop(desktopId, tenantId, organizationId, isActive,created, createdBy, updated,
-    updatedBy, name, None, None, None, None, None)
+    updatedBy, name, None, None, None, None, uuid)
 }

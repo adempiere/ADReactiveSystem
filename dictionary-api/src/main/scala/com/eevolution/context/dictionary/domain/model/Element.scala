@@ -68,7 +68,7 @@ case class Element(elementId: Int,
                    referenceId: Option[Int],
                    fieldLength: Option[Int],
                    referenceValueId: Option[Int],
-                   uuid: Option[String]
+                   uuid: String
                    ) extends DomainModel
 with ActiveEnabled
 with Identifiable
@@ -108,5 +108,5 @@ object Element {
              referenceValueId: Int,
              uuid: String) = Element(elementId, tenantId, organizationId, isActive , created , createdBy ,
     updated , updatedBy , columnName, entityType, name, None, None, None, None, None, None, None, None, None, None,
-    None)
+    uuid)
 }

@@ -53,7 +53,7 @@ case class LabelPrinterFunction (labelPrinterFunctionId: Int,
                                  functionSuffix: Option[String],
                                  isXYPosition: Boolean = false,
                                  xYSeparator: Option[String],
-                                 uuid: Option[String]
+                                 uuid: String
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -88,5 +88,5 @@ object LabelPrinterFunction{
              isXYPosition: Boolean,
              xYSeparator: String,
              uuid: String) = LabelPrinterFunction(labelPrinterFunctionId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, labelPrinterId, None, None, isXYPosition, None, None)
+    createdBy, updated, updatedBy, name, None, labelPrinterId, None, None, isXYPosition, None, uuid)
 }

@@ -61,7 +61,7 @@ import org.joda.time.DateTime
   * @param isFailOnMissingModelValidator Is Fail On Missing Model Validator
   * @param lastBuiltInfo Last Built Info
   * @param isFailOnBuildDiffer Is Fail On Build Differ
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class System (systemId: Int,
@@ -105,7 +105,7 @@ case class System (systemId: Int,
                    isFailOnMissingModelValidator: Boolean = true,
                    lastBuiltInfo: Option[String],
                    isFailOnBuildDiffer: Boolean = false,
-                   uuId: Option[String]
+                   uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -165,8 +165,8 @@ object System {
              isFailOnMissingModelValidator: Boolean,
              lastBuiltInfo: String,
              isFailOnBuildDiffer: Boolean,
-             uuId: String) = System(systemId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = System(systemId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, username, None, None, None, None, None, replicationType, None, None, None, None, isJustMigrate,
     None, None, None, None, None, None, isAutoErrorReport, None, None, None, None, isAllowStatistics, None, None, None,
-    None, systemStatus, isFailOnMissingModelValidator, None, isFailOnBuildDiffer, None)
+    None, systemStatus, isFailOnMissingModelValidator, None, isFailOnBuildDiffer, uuid)
 }

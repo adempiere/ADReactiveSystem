@@ -69,7 +69,7 @@ case class WorkflowEventAudit(workflowEventAuditId: Int,
                               newValue: Option[String],
                               description: Option[String],
                               textMsg: Option[String],
-                              uuid: Option[String]
+                              uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -111,7 +111,7 @@ object WorkflowEventAudit  {
              textMsg: String,
              uuid: String) = WorkflowEventAudit(workflowEventAuditId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, eventType, workflowState, workflowProcessId, nodeId, tableId, recordId,
-    workflowResponsibleId, None, elapsedTimeMs, None, None, None, None, None, None)
+    workflowResponsibleId, None, elapsedTimeMs, None, None, None, None, None, uuid)
 }
 
 

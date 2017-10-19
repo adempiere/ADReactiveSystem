@@ -53,7 +53,7 @@ case class TabTrl(tabId: Int,
                   help: Option[String],
                   commitWarning: Option[String],
                   isTranslated: Boolean = false,
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -86,6 +86,6 @@ object TabTrl {
              commitWarning: String,
              isTranslated: Boolean,
              uuid: String) = TabTrl(tabId, language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, None, isTranslated, None)
+    updated, updatedBy, name, None, None, None, isTranslated, uuid)
 }
 

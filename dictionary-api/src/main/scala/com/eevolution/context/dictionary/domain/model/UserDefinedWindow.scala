@@ -62,7 +62,7 @@ case class UserDefinedWindow(userDefinedWindowId : Int,
                              isDefault: Boolean = false,
                              isReadOnly: Boolean = false,
                              isUserUpdateable: Boolean = true,
-                             uuid: Option[String]
+                             uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -100,7 +100,7 @@ object UserDefinedWindow  {
              isUserUpdateable: Boolean,
              uuid: String) = UserDefinedWindow(userDefinedWindowId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, None, None, windowId, name, None, None, None, isDefault,
-    isReadOnly, isUserUpdateable, None)
+    isReadOnly, isUserUpdateable, uuid)
 }
 
 

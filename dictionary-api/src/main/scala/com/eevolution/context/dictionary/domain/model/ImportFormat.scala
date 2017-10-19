@@ -53,7 +53,7 @@ case class ImportFormat(importFormatId: Int,
                         formatType: Boolean,
                         processing: Boolean,
                         separatorCharacter: Option[String],
-                        uuid: Option[String]
+                        uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -86,7 +86,7 @@ object ImportFormat {
              processing: Boolean,
              separatorCharacter: String,
              uuid: String) = ImportFormat(importFormatId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, entityId, formatType, processing, None, None)
+    updated, updatedBy, name, None, entityId, formatType, processing, None, uuid)
 }
 
 

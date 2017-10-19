@@ -77,7 +77,7 @@ case class Browse(browseId: Int,
                   isExecutedQueryByDefault: Boolean = false,
                   windowId: Option[Int],
                   isShowTotal: Boolean = false,
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -124,6 +124,6 @@ case class Browse(browseId: Int,
                uuid: String) = Browse(browseId, tenantId, organizationId, created, createdBy, isActive, updated,
       updatedBy, None, entityType, None , name, None, viewId, None, None,
       None, isBetaFunctionality, accessLevel, None, isDeleteable, isCollapsibleByDefault,
-      isSelectedByDefault, isExecutedQueryByDefault, None, isShowTotal, None)
+      isSelectedByDefault, isExecutedQueryByDefault, None, isShowTotal, uuid)
   }
 

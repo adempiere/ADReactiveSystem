@@ -47,7 +47,7 @@ case class Error(errorId: Int,
                  name: String,
                  code: Option[String],
                  language: Option[String],
-                 uuid: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -77,5 +77,5 @@ object Error {
              code: String,
              language: String,
              uuid: String) = Error(errorId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, None)
+    name, None, None, uuid)
 }

@@ -51,7 +51,7 @@ case class InformationWindowTrl(infoWindowId: Int,
                                 name: String,
                                 description: Option[String],
                                 help: Option[String],
-                                uuid: Option[String]
+                                uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -83,7 +83,7 @@ object InformationWindowTrl  {
              description: String,
              help: String,
              uuid: String) = InformationWindowTrl(infoWindowId, language, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, isTranslated, name, None, None, None)
+    createdBy, updated, updatedBy, isTranslated, name, None, None, uuid)
 }
 
 

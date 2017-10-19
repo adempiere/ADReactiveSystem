@@ -57,7 +57,7 @@ case class AccessLog(accessLogId: Int,
                      description:Option [String],
                      textMsg: Option[String],
                      reply: Option[String],
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -92,5 +92,5 @@ object AccessLog  {
              textMsg: String,
              reply: String,
              uuid: String) = AccessLog(accessLogId, tenantId , organizationId, isActive, created, createdBy, updated,
-    updatedBy, None, None, None, None, None, None, None, None, None)
+    updatedBy, None, None, None, None, None, None, None, None, uuid)
 }

@@ -65,7 +65,7 @@ case class ChartDataSource (chartDataSourceId: Int,
                             whereClause: String,
                             timeOffSet: Option[Int],
                             seriesAttribute: Option[String],
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -106,5 +106,5 @@ object ChartDataSource {
              seriesAttribute: String,
              uuid: String) = ChartDataSource(chartDataSourceId, chartId, tenantId, organizationId, None, None, created,
     createdBy, None, None, entityType, fromClause, isActive, None, Name, updated, updatedBy, valueAttribute, whereClause,
-    None, None, None)
+    None, None, uuid)
 }

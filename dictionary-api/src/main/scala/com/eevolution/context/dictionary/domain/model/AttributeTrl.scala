@@ -47,7 +47,7 @@ case class AttributeTrl(attributeTrlId: Int,
                         updatedBy: Int,
                         name: String,
                         isTranslated: Boolean = false,
-                        uuid: Option[String]
+                        uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -77,5 +77,5 @@ object AttributeTrl  {
              name: String,
              isTranslated: Boolean,
              uuid: String) = AttributeTrl(attributeTrlId, language, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, isTranslated, None)
+    createdBy, updated, updatedBy, name, isTranslated, uuid)
 }

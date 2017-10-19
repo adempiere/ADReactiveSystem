@@ -99,7 +99,7 @@ case class PrintTableFormat (printTableFormatId: Int,
                              isPaintHeaderLines: Boolean = true,
                              imageId: Option[Int],
                              isMultiLineHeader: Boolean = false,
-                             uuid: Option[String]
+                             uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -158,6 +158,6 @@ object PrintTableFormat {
              uuid: String) = PrintTableFormat(printTableFormatId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, None, None, None, None, None, None, None, isPaintBoundaryLines,
     isPaintHLines, isPaintVLines, isPrintFunctionSymbols, name, isDefault, None, None, None, None, None, None, None,
-    imageIsAttached, None, None, None, None, isPaintHeaderLines, None,isMultiLineHeader, None)
+    imageIsAttached, None, None, None, None, isPaintHeaderLines, None,isMultiLineHeader, uuid)
 }
 

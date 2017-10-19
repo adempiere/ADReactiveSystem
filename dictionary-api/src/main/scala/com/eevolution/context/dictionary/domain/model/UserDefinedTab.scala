@@ -58,7 +58,7 @@ case class UserDefinedTab(userDefinedTabId : Int,
                           help: Option[String],
                           isReadOnly: Boolean = false,
                           isSingleRow: Boolean = false,
-                          uuid: Option[String]
+                          uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -92,8 +92,9 @@ object UserDefinedTab  {
              help: String,
              isReadOnly: Boolean,
              isSingleRow: Boolean,
-             uuid: String) = UserDefinedTab(userDefinedTabId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, userDefiendWindowId, tabId, isMultiRowOnly, name, None, None, isReadOnly, isSingleRow, None)
+             uuid: String) = UserDefinedTab(userDefinedTabId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, userDefiendWindowId, tabId, isMultiRowOnly, name, None, None, isReadOnly,
+    isSingleRow, uuid)
 }
 
 

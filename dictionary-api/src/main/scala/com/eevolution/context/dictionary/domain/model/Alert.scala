@@ -59,7 +59,7 @@ case class Alert(alertId: Int,
                  enforceRoleSecurity: Boolean = true,
                  alertProcessorId: Int,
                  isValid: Boolean = true,
-                 uuid: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
 with ActiveEnabled
@@ -96,6 +96,6 @@ with Traceable {
                isValid: Boolean,
                uuid: String) = Alert(alertId, tenantId, organizationId, isActive, created, createdBy, updated,
       updatedBy, name, None, None, alertSubject, alertMessage, enforceClientSecurity, enforceRoleSecurity,
-      alertProcessorId, isValid, None)
+      alertProcessorId, isValid, uuid)
   }
 

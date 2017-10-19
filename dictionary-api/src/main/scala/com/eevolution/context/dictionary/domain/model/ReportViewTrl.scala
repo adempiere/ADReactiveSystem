@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param printName Print Name
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class ReportViewTrl (tenantId: Int,
@@ -49,7 +49,7 @@ case class ReportViewTrl (tenantId: Int,
                           printName: Option[String],
                           updated : DateTime = DateTime.now,
                           updatedBy : Int,
-                          uuId: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object ReportViewTrl  {
              printName: String,
              updated : DateTime,
              updatedBy : Int,
-             uuId: String) = ReportViewTrl(tenantId, language, organizationId, reportViewId, created, createdBy,
-    None, isActive, isTranslated, name, None, updated, updatedBy, None)
+             uuid: String) = ReportViewTrl(tenantId, language, organizationId, reportViewId, created, createdBy,
+    None, isActive, isTranslated, name, None, updated, updatedBy, uuid)
 }

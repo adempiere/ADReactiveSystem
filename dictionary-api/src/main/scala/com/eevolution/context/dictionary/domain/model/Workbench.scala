@@ -55,7 +55,7 @@ case class Workbench(workbenchId: Int,
                      imageId: Option[Int],
                      colorId: Option[Int],
                      entityType: String = "D",
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -90,5 +90,5 @@ object Workbench {
              colorId: Int,
              entityType: String,
              uuid: String) = Workbench(workbenchId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, columnId, None, None, entityType, None)
+    updated, updatedBy, name, None, None, columnId, None, None, entityType, uuid)
 }

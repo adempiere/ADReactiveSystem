@@ -75,7 +75,7 @@ case class Color(colorId: Int,
                  lineDistance: Option[Int],
                  startPoint: Option[Int],
                  repeatDistance: Option[Int],
-                 uuid: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -121,5 +121,5 @@ object Color {
              repeatDistance: Int,
              uuid: String) = Color(colorId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, colorType, red, green, blue, alpha, None, imageAlpha, None,
-    None, None, None, None, None, None, None, None)
+    None, None, None, None, None, None, None, uuid)
 }

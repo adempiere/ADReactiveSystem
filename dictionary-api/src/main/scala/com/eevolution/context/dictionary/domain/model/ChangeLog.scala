@@ -23,15 +23,16 @@ import org.joda.time.DateTime
 
 /**
   * Change Log Entity
-  * @param changeLogId Change log Id
-  * @param entityId Entity Id
-  * @param attributeId Attribute Id
-  * @param tenantId Tenant Id
-  * @param organizationId Organization Id
+  * @param changeLogId Change Log ID
+  * @param sessionId Session ID
+  * @param entityId Entity ID
+  * @param attributeId Attribute ID
+  * @param tenantId Tenant ID
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
-  * @param createdBy Create By
-  * @param updated Update
+  * @param createdBy Created By
+  * @param updated Updated
   * @param updatedBy Updated By
   * @param recordId Record ID
   * @param oldValue Old Value
@@ -39,9 +40,10 @@ import org.joda.time.DateTime
   * @param undo Undo
   * @param redo Redo
   * @param isCustomization Is Customization
-  * @param trxName Trx Name
+  * @param trxName TRX Name
   * @param description Description
   * @param eventChangeLog Event Change Log
+  * @param uuid UUID
   */
 case class ChangeLog(changeLogId: Int,
                      sessionId: Int,
@@ -63,7 +65,7 @@ case class ChangeLog(changeLogId: Int,
                      trxName : String,
                      description: Option[String],
                      eventChangeLog : String,
-                     uuId: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -101,8 +103,8 @@ object ChangeLog  {
              trxName : String,
              description: String,
              eventChangeLog : String,
-             uuId: String) = ChangeLog(changeLogId, sessionId, entityId, attributeId, tenantId, organizationId,
+             uuid: String) = ChangeLog(changeLogId, sessionId, entityId, attributeId, tenantId, organizationId,
     isActive, created, createdBy, updated, updatedBy, recordId, oldValue, newValue, undo, redo, isCustomization,
-    trxName, None, eventChangeLog, None)
+    trxName, None, eventChangeLog, uuid)
 }
 

@@ -62,7 +62,7 @@ case class Chart (chartId: Int,
                   timeScope: Option[Int],
                   domainLabel: Option[String],
                   rageLabel: Option[String],
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -99,6 +99,7 @@ object Chart {
              timeScope: Int,
              domainLabel: String,
              rageLabel: String,
-             uuid: String) = Chart(chartId, chartType, tenantId, organizationId, created, createdBy, description, isActive, name, updated,
-    updatedBy, None, isDisplayLegend, chartOrientation, isTimeSeries, None, None, None, None, None)
+             uuid: String) = Chart(chartId, chartType, tenantId, organizationId, created, createdBy, description,
+    isActive, name, updated, updatedBy, None, isDisplayLegend, chartOrientation, isTimeSeries,
+    None, None, None, None, uuid)
 }

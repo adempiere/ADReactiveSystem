@@ -87,7 +87,7 @@ case class Entity(entityId: Int,
                   acTriggerLength: Int,
                   isDocument: Boolean = false,
                   isIgnoreMigration: Boolean = false,
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -140,6 +140,6 @@ object Entity  {
              uuid: String) = Entity(entityId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, tableName, isView, accessLevel, entityType, None, None, None,
     None, isSecurityEnabled, isDeleteable, isHighVolume, isImportTable, isChangeLog , replicationType ,
-    None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration, None)
+    None ,  isCentrallyMaintained, acTriggerLength, isDocument, isIgnoreMigration, uuid)
 
 }

@@ -67,7 +67,7 @@ case class ImportFormatRow(importFormatRowId: Int,
                            callout: Option[String],
                            script: Option[String],
                            defaultValue: Option[String],
-                           uuid: Option[String]
+                           uuid: String
                         ) extends DomainModel
 
 
@@ -111,5 +111,5 @@ object ImportFormatRow {
              defaultValue: String,
              uuid: String) = ImportFormatRow(impportFormatRowId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, importFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100,
-    None, None, None, None, None)
+    None, None, None, None, uuid)
 }

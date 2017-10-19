@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isReadWrite Is Read Write
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class TaskAccess (taskId: Int,
@@ -43,7 +43,7 @@ case class TaskAccess (taskId: Int,
                        updated: DateTime = DateTime.now,
                        updatedBy: Int,
                        isReadWrite: Boolean = true,
-                       uuId: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -71,6 +71,6 @@ object TaskAccess {
              updated: DateTime,
              updatedBy: Int,
              isReadWrite: Boolean,
-             uuId: String) = TaskAccess(taskId, roleId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, isReadWrite, None)
+             uuid: String) = TaskAccess(taskId, roleId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, isReadWrite, uuid)
 }

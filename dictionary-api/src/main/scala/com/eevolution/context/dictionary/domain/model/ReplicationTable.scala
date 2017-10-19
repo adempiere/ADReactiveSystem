@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param replicationType Replication Type
   * @param entityType Entity Type
   * @param description Description
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class ReplicationTable (replicationTableId: Int,
@@ -49,7 +49,7 @@ case class ReplicationTable (replicationTableId: Int,
                              replicationType: String = "L",
                              entityType: String = "D",
                              description: Option[String],
-                             uuId: Option[String]
+                             uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object ReplicationTable  {
              replicationType: String,
              entityType: String,
              description: String,
-             uuId: String) = ReplicationTable(replicationTableId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, replicationStrategyId, entityId, replicationType, entityType, None, None)
+             uuid: String) = ReplicationTable(replicationTableId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, replicationStrategyId, entityId, replicationType, entityType, None, uuid)
 }

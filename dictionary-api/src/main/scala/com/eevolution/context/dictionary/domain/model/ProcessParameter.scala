@@ -89,7 +89,7 @@ case class ProcessParameter (processParameterId: Int,
                              readOnlyLogic : Option[String],
                              displayLogic : Option[String],
                              isInfoOnly : Boolean = false,
-                             uuid: Option[String]
+                             uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -142,6 +142,6 @@ object ProcessParameter  {
              uuid: String) = ProcessParameter(processParameterId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, None, accessLevel, None, seqNo, None, None, None, columnName,
     isCentrallyMaintained, None, isMandatory, isRange, None, None, None, None, None, None, entityType, None,
-    None, isInfoOnly, None)
+    None, isInfoOnly, uuid)
 }
 

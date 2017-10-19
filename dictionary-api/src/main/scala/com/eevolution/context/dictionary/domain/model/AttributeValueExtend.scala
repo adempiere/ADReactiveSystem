@@ -25,7 +25,7 @@ import org.joda.time.DateTime
   * @param vNumber V Number
   * @param vDate V Date
   * @param vString V String
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class AttributeValueExtend(attributeValueExtendId: Int,
@@ -39,7 +39,7 @@ case class AttributeValueExtend(attributeValueExtendId: Int,
                                 vNumber: Option[Int],
                                 vDate: Option[DateTime],
                                 vString: Option[String],
-                                uuId: Option[String]
+                                uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -69,6 +69,6 @@ object AttributeValueExtend {
              vNumber: Int,
              vDate: DateTime,
              vString: String,
-             uuId: String) = AttributeValueExtend(attributeValueExtendId, attributeId, isActive, created, createdBy,
-    updated, updatedBy, recordId, None, None, None, None)
+             uuid: String) = AttributeValueExtend(attributeValueExtendId, attributeId, isActive, created, createdBy,
+    updated, updatedBy, recordId, None, None, None, uuid)
 }

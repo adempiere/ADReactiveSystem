@@ -67,7 +67,7 @@ case class MigrationStep(migrationStepId: Int,
                          parse: Boolean = true,
                          sqlStatement: Option[String],
                          rollBackStatement: Option[String],
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -109,6 +109,6 @@ object MigrationStep  {
              rollBackStatement: String,
              uuid: String) = MigrationStep(migrationStepId, tenantId, organizationId, migrationId, None,
     None, None, None, created, createdBy, dbType, None, isActive, None, seqNo, None, stepType, updated,
-    updatedBy, parse, None, None, None)
+    updatedBy, parse, None, None, uuid)
 }
 

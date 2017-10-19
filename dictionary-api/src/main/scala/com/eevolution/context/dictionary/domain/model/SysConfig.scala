@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param description Decription
   * @param entityType Entity Type
   * @param configurationLevel Configuration Level
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class SysConfig (sysConfigId: Int,
@@ -49,7 +49,7 @@ case class SysConfig (sysConfigId: Int,
                       description: Option[String],
                       entityType: String = "U",
                       configurationLevel: String = "S",
-                      uuId: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -81,6 +81,6 @@ object SysConfig {
              description: String,
              entityType: String,
              configurationLevel: String,
-             uuId: String) = SysConfig(sysConfigId, tenantId, organizationId, created, createdBy, updated,
-    updatedBy, isActive, name, value, None, entityType, configurationLevel, None)
+             uuid: String) = SysConfig(sysConfigId, tenantId, organizationId, created, createdBy, updated,
+    updatedBy, isActive, name, value, None, entityType, configurationLevel, uuid)
 }

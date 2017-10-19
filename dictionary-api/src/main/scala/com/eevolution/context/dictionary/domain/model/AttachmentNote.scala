@@ -49,7 +49,7 @@ case class AttachmentNote(attachmentNoteId: Int,
                           userId: Int,
                           title: String,
                           textMsg: String,
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -80,7 +80,7 @@ object AttachmentNote {
              title: String,
              textMsg: String,
              uuid: String) = AttachmentNote(attachmentNoteId, tenantId, organizationId, isActive,created,
-    createdBy, updated, updatedBy,attachmentId, userId, title, textMsg, None)
+    createdBy, updated, updatedBy,attachmentId, userId, title, textMsg, uuid)
 
 }
 

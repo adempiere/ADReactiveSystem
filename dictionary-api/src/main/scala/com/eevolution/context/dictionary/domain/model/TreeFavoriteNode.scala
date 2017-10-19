@@ -53,7 +53,7 @@ case class TreeFavoriteNode(treeFavoriteNodeId: Int,
                             updated: DateTime = DateTime.now,
                             updatedBy: Int,
                             isCollapsible: Boolean = false,
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -87,6 +87,6 @@ object TreeFavoriteNode  {
              updatedBy: Int,
              isCollapsible: Boolean,
              uuid: String) = TreeFavoriteNode(treeFavoriteId, tenantId, organizationId, menuId, treeFavoriteId,
-    created, createdBy, isActive, isSummary, None, None, seqNo, updated, updatedBy, isCollapsible, None)
+    created, createdBy, isActive, isSummary, None, None, seqNo, updated, updatedBy, isCollapsible, uuid)
 }
 

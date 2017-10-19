@@ -47,7 +47,7 @@ case class FieldGroup (fieldGroupId: Int,
                        entityType: String = "D",
                        fieldGroupType: Option[Boolean],
                        isCollapsedByDefault: Boolean = false,
-                       uuid: Option[String]
+                       uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -78,5 +78,5 @@ object FieldGroup {
              fieldGroupType: Boolean,
              isCollapsedByDefault: Boolean,
              uuid: String) = FieldGroup(fieldGroupId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy,name, entityType, None, isCollapsedByDefault, None)
+    updatedBy,name, entityType, None, isCollapsedByDefault, uuid)
 }

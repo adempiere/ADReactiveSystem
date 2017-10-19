@@ -57,7 +57,7 @@ case class UserMail (userMailId: Int,
                      isDelivered: Option[Boolean],
                      subject: Option[String],
                      mailText: Option[String],
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -92,5 +92,5 @@ object UserMail  {
              subject: String,
              mailText: String,
              uuid: String) = UserMail(userMailId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, userId, None, None, None, None, None, None, None, None)
+    updated, updatedBy, userId, None, None, None, None, None, None, None, uuid)
 }

@@ -67,7 +67,7 @@ case class Window(windowId: Int,
                   winHeight: Option[Int],
                   winWidth: Option[Int],
                   isBetaFunctionality: Boolean = false,
-                  uuid: Option[String]
+                  uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -108,5 +108,5 @@ object Window {
              isBetaFunctionality: Boolean,
              uuid: String) = Window(windowId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, None, isSotRx, entityType, None, None, None, isDefault,
-    None, None, isBetaFunctionality, None)
+    None, None, isBetaFunctionality, uuid)
 }

@@ -49,7 +49,7 @@ case class MessageTrl(messageId: Int,
                       msgText: String,
                       msgTip: Option[String],
                       isTranslated: Boolean = false,
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object MessageTrl  {
              msgTip: String,
              isTranslated: Boolean,
              uuid: String) = MessageTrl(messageId, language, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, msgText, None, isTranslated, None)
+    createdBy, updated, updatedBy, msgText, None, isTranslated, uuid)
 }
 

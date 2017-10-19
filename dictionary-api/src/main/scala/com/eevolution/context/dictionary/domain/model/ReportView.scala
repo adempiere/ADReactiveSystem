@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param entityType Entity Type
   * @param printName Print Name
   * @param isCentrallyMaintained Is Centrally Maintained
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class ReportView (reportViewId: Int,
@@ -55,7 +55,7 @@ case class ReportView (reportViewId: Int,
                        entityType: String = "D",
                        printName: Option[String],
                        isCentrallyMaintained: Boolean = true,
-                       uuId: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -89,6 +89,6 @@ object ReportView  {
              entityType: String,
              printName: String,
              isCentrallyMaintained: Boolean,
-             uuId: String) = ReportView(reportViewId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, entityId, None, None, entityType, None, isCentrallyMaintained, None)
+             uuid: String) = ReportView(reportViewId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, entityId, None, None, entityType, None, isCentrallyMaintained, uuid)
 }

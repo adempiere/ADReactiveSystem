@@ -58,7 +58,7 @@ case class Form (formId: Int,
                  entityType: String = EntityType.Dictionary,
                  isBetaFunctionality : Boolean = false ,
                  jspUrl : Option[String],
-                 uuid: Option[String]
+                 uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -92,7 +92,7 @@ object Form  {
              isBetaFunctionality : Boolean ,
              jspUrl : String,
              uuid: String) = Form(formId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
-    name, None, None, accessLevel, None, entityType, isBetaFunctionality, None, None)
+    name, None, None, accessLevel, None, entityType, isBetaFunctionality, None, uuid)
 }
 
 

@@ -92,7 +92,7 @@ case class Process(processId: Int,
                    copyFromProcess : Option[String],
                    browseId : Option[Int] ,
                    generateClass : Option[String],
-                   uuid: Option[String]
+                   uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -145,5 +145,5 @@ object Process {
              uuid: String) = Process(processId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, value, name, None, None, accessLevel, entityType, procedureName, isReport, isDirectPrint,
     None, None, None, None, None, None, None, isBetaFunctionality, isServerProcess, isShowHelp, None, None, None,
-    None, None, None)
+    None, None, uuid)
 }

@@ -43,7 +43,7 @@ case class RoleOrganizationAccess(roleId: Int,
                                   updated : DateTime = DateTime.now ,
                                   updatedBy : Int,
                                   isReadOnly: Boolean = false,
-                                  uuid: Option[String]
+                                  uuid: String
                                  ) extends DomainModel
 
   with ActiveEnabled
@@ -71,5 +71,5 @@ object RoleOrganizationAccess  {
              updatedBy : Int,
              isReadOnly: Boolean,
              uuid: String) = RoleOrganizationAccess(roleId, organizationId, tenantId, isActive, created,
-    createdBy, updated, updatedBy, isReadOnly, None)
+    createdBy, updated, updatedBy, isReadOnly, uuid)
 }

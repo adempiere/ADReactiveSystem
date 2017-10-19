@@ -49,7 +49,7 @@ case class ViewColumnTrl(tenantId: Int,
                          description: Option[String],
                          help: Option[String],
                          isTranslated: Boolean,
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -80,6 +80,6 @@ object ViewColumnTrl  {
              help: String,
              isTranslated: Boolean,
              uuid: String) = ViewColumnTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
-    viewColumnId, language, None, None, isTranslated, None)
+    viewColumnId, language, None, None, isTranslated, uuid)
 }
 

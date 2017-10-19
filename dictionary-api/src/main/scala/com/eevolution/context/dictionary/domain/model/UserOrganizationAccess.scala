@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param isReadOnly Is Read Only
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class UserOrganizationAccess(userId: Int,
@@ -43,7 +43,7 @@ case class UserOrganizationAccess(userId: Int,
                                   updated: DateTime = DateTime.now,
                                   updatedBy: Int,
                                   isReadOnly: Boolean = false,
-                                  uuId: Option[String]
+                                  uuid: String
                                  ) extends DomainModel
 
   with ActiveEnabled
@@ -70,8 +70,8 @@ object UserOrganizationAccess  {
              updated: DateTime ,
              updatedBy: Int,
              isReadOnly: Boolean,
-             uuId: String) = UserOrganizationAccess(userId, organizationId, tenantId, isActive, created, createdBy,
-    updated, updatedBy, isReadOnly, None)
+             uuid: String) = UserOrganizationAccess(userId, organizationId, tenantId, isActive, created, createdBy,
+    updated, updatedBy, isReadOnly, uuid)
 }
 
 

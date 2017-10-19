@@ -82,7 +82,7 @@ case class TenantInfo(tenantId: Int,
                       logoId: Option[Int],
                       logoReportId: Option[Int],
                       logoWebId: Option[Int],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -130,6 +130,6 @@ object TenantInfo  {
              logoWebId: Int,
              uuid: String) = TenantInfo(tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     isDiscountLineAmt, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None)
+    None, None, None, None, None, uuid)
 }
 

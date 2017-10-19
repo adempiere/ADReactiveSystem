@@ -54,7 +54,7 @@ case class ModelValidator (modelValidatorId: Int,
                            entityType: String = EntityType.Dictionary,
                            modelValidationClass : Option[String],
                            seqNo : Int,
-                           uuid: Option[String]
+                           uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -87,6 +87,6 @@ object ModelValidator  {
              modelValidationClass : String,
              seqNo : Int,
              uuid: String) = ModelValidator(modelValidatorId, tenantId, organizationId, created, createdBy, updated,
-    updatedBy, isActive, name, None, None, entityType, None, seqNo, None)
+    updatedBy, isActive, name, None, None, entityType, None, seqNo, uuid)
 }
 

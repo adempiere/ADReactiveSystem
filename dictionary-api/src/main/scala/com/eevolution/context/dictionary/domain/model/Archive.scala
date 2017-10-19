@@ -60,7 +60,7 @@ case class Archive(archiveId: Int,
                    binaryData: String,
                    bPartnerId: Option[Int],
                    isReport: Boolean = true,
-                   uuid: Option[String]
+                   uuid: String
                   ) extends DomainModel
 
 
@@ -97,6 +97,6 @@ object Archive {
              bPartnerId: Int,
              isReport: Boolean,
              uuid: String) = Archive(archiveId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, None, None, None, binaryData, None, isReport, None)
+    updated, updatedBy, name, None, None, None, None, None, binaryData, None, isReport, uuid)
 }
 

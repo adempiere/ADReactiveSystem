@@ -63,7 +63,7 @@ case class PackageExport(packageExportId: Int,
                          pkVersion: String,
                          fileDirectory: String,
                          description: String,
-                         uuid: Option[String]
+                         uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -103,5 +103,5 @@ object PackageExport {
              description: String,
              uuid: String) = PackageExport(packageExportId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, None, email, instructions, name, None, releaseNo, version, userName, processing, pkVersion,
-    fileDirectory, description, None)
+    fileDirectory, description, uuid)
 }

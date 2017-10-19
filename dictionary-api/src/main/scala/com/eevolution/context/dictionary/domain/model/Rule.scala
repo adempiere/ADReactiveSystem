@@ -59,7 +59,7 @@ case class Rule (ruleId: Int,
                  updatedBy :Int,
                  value: String,
                  script : Option[String],
-                 uuid: Option[String]
+                 uuid: String
                 ) extends DomainModel
 
   with ActiveEnabled
@@ -95,6 +95,6 @@ object Rule  {
              value: String,
              script : String,
              uuid: String) = Rule(ruleId, tenantId, organizationId, None, created, createdBy, None,
-    entityType, eventType, None, isActive, name,ruleType, updated, updatedBy, value, None, None)
+    entityType, eventType, None, isActive, name,ruleType, updated, updatedBy, value, None, uuid)
 }
 

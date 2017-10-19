@@ -57,7 +57,7 @@ case class WorkflowNextCondition(workflowNextConditionId: Int,
                                  operation: String,
                                  value: String,
                                  value2: Option[String],
-                                 uuid: Option[String]
+                                 uuid: String
                           ) extends DomainModel
 
   with ActiveEnabled
@@ -93,7 +93,7 @@ object WorkflowNextCondition  {
              value2: String,
              uuid: String) = WorkflowNextCondition(workflowNextConditionId, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, workflowNodeNextId, seqNo, entityType, andOr, columnId, operation,
-    value, None, None)
+    value, None, uuid)
 }
 
 

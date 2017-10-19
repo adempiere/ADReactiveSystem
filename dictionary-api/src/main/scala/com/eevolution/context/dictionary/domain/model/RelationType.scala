@@ -56,7 +56,7 @@ case class RelationType(relationTypeId: Int,
                         typePackage: String = "I",
                         updated: DateTime = DateTime.now,
                         updatedBy: Int,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -91,6 +91,6 @@ object RelationType  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = RelationType(relationTypeId, tenantId, organizationId, None, None, created,
-    createdBy, None, isActive, isDirected, name, None, None, typePackage, updated, updatedBy, None)
+    createdBy, None, isActive, isDirected, name, None, None, typePackage, updated, updatedBy, uuid)
 }
 

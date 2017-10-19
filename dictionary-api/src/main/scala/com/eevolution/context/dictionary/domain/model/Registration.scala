@@ -75,7 +75,7 @@ case class Registration(registrationId: Int,
                         processing: Option[Boolean],
                         remoteHost: Option[String],
                         remoteAddress: Option[String],
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -120,7 +120,7 @@ object Registration  {
              remoteAddress: String,
              uuid: String) = Registration(registrationId, tenantId, systemId, organizationId, isActive,
     created, createdBy, updated, updatedBy, isRegistered, None, None, None, isInProduction, startProductionDate,
-    isAllowPublish, isAllowStatistics, None, None, salesVolume, None, numberEmployees, None, None, None, None)
+    isAllowPublish, isAllowStatistics, None, None, salesVolume, None, numberEmployees, None, None, None, uuid)
 }
 
 

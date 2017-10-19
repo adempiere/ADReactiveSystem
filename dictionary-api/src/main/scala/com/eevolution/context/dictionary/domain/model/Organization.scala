@@ -49,7 +49,7 @@ case class Organization(organizationId: Int,
                         description: Option[String],
                         isSummary : Boolean = true ,
                         replicationStrategyId : Option[Int],
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -79,5 +79,5 @@ object Organization{
              isSummary : Boolean,
              replicationStrategyId : Int,
              uuid: String) = Organization(organizationId, tenantId, isActive, created, createdBy, updated,
-    updatedBy, value, name, None, isSummary, None, None)
+    updatedBy, value, name, None, isSummary, None, uuid)
 }

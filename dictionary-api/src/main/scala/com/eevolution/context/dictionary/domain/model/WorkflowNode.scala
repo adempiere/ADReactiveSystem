@@ -143,7 +143,7 @@ case class WorkflowNode(workflowNodeId: Int,
                         yieldData: Int = 100,
                         viewId: Option[Int],
                         browseId: Option[Int],
-                        uuid: Option[String]
+                        uuid: String
                  ) extends DomainModel
 
   with ActiveEnabled
@@ -225,6 +225,6 @@ object WorkflowNode  {
     None, entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
     None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,
     None, None, None, None, isMilestone, isSubContracting, unitsCycles, None, None, None,
-    None, None, None, None, yieldData, None, None, None)
+    None, None, None, None, yieldData, None, None, uuid)
 }
 

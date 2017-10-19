@@ -45,7 +45,7 @@ case class RoleIncluded(includedRoleId: Int,
                         seqNo: Int,
                         updated : DateTime = DateTime.now ,
                         updatedBy : Int,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -74,5 +74,5 @@ object RoleIncluded  {
              updated : DateTime,
              updatedBy : Int,
              uuid: String) = RoleIncluded(includedRoleId, tenantId, organizationId, roleId, created, createdBy, isActive,
-    seqNo, updated, updatedBy, None)
+    seqNo, updated, updatedBy, uuid)
 }

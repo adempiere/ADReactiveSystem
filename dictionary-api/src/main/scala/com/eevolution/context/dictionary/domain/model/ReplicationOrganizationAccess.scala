@@ -45,7 +45,7 @@ case class ReplicationOrganizationAccess(replicationOrganizationAccessId: Int,
                                          isReadOnly: Option[Boolean],
                                          updated : DateTime = DateTime.now,
                                          updatedBy : Int,
-                                         uuid: Option[String]
+                                         uuid: String
                                         ) extends DomainModel
 
   with ActiveEnabled
@@ -74,7 +74,7 @@ object ReplicationOrganizationAccess  {
              updated : DateTime,
              updatedBy : Int,
              uuid: String) = ReplicationOrganizationAccess(replicationOrganizationAccessId, tenantId,
-    organizationId, None, created, createdBy, isActive, None, updated, updatedBy, None)
+    organizationId, None, created, createdBy, isActive, None, updated, updatedBy, uuid)
 }
 
 

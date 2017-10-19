@@ -47,7 +47,7 @@ case class DesktopWorkbench(desktopWorkbenchId: Int,
                             workbenchId: Int,
                             desktopId: Int,
                             seqNo: Int,
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -77,5 +77,5 @@ object DesktopWorkbench {
              desktopId: Int,
              seqNo: Int,
              uuid: String) = DesktopWorkbench(desktopWorkbenchId, tenantId, organizationId, isActive,created,
-    createdBy, updated, updatedBy, workbenchId, desktopId, seqNo, None)
+    createdBy, updated, updatedBy, workbenchId, desktopId, seqNo, uuid)
 }

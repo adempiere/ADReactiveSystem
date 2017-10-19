@@ -86,7 +86,7 @@ case class PackageExportCommon(packageExportCommonId: Int,
                                roleId: Option[Int],
                                processId: Option[Int],
                                menuId: Option[Int],
-                               uuid: Option[String]
+                               uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -137,5 +137,5 @@ object PackageExportCommon {
              menuId: Int,
              uuid: String) = PackageExportCommon(packageExportCommonId, tenantId, organizationId, isActive, created,
     createdBy,updated, updatedBy, formId, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None)
+    None, None, None, None, None, None, None, None, None, None, uuid)
 }

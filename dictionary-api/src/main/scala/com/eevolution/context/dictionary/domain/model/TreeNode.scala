@@ -47,7 +47,7 @@ case class TreeNode(treeId: Int,
                     updatedBy: Int,
                     parentId: Option[Int],
                     seqNo: Option[Int],
-                    uuid: Option[String]
+                    uuid: String
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -77,5 +77,5 @@ object TreeNode  {
              parentId: Int,
              seqNo: Int,
              uuid: String) = TreeNode(treeId, tenantId, organizationId, nodeId, isActive, created, createdBy,
-    updated, updatedBy, None, None, None)
+    updated, updatedBy, None, None, uuid)
 }

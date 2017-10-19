@@ -49,7 +49,7 @@ case class ReferenceListTrl(referenceListId: Int,
                             name : String,
                             description: Option[String],
                             isTranslated: Boolean = false,
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -80,7 +80,7 @@ object ReferenceListTrl  {
              description: String,
              isTranslated: Boolean,
              uuid: String) = ReferenceListTrl(referenceListId, language, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, name, None, isTranslated, None)
+    created, createdBy, updated, updatedBy, name, None, isTranslated, uuid)
 }
 
 

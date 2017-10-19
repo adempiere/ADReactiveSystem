@@ -45,7 +45,7 @@ case class WindowAccess(windowId: Int,
                         updated: DateTime = DateTime.now,
                         updatedBy: Int,
                         isReadWrite: Boolean = true,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -74,5 +74,5 @@ object WindowAccess {
              updatedBy: Int,
              isReadWrite: Boolean,
              uuid: String) = WindowAccess(windowId, roleId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, isReadWrite, None)
+    createdBy, updated, updatedBy, isReadWrite, uuid)
 }

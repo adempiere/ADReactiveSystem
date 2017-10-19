@@ -15,7 +15,7 @@ case class ReplicationRoleAccess(replicationRoleAccessId: Int,
                                  isReadOnly: Option[Boolean],
                                  updated : DateTime = DateTime.now,
                                  updatedBy : Int,
-                                 uuid: Option[String]
+                                 uuid: String
                                 ) extends DomainModel
 
   with ActiveEnabled
@@ -45,7 +45,7 @@ object ReplicationRoleAccess  {
              updated : DateTime,
              updatedBy : Int,
              uuid: String) = ReplicationRoleAccess(replicationRoleAccessId, tenantId, organizationId,
-    None, None, created, createdBy, isActive, None, updated, updatedBy, None)
+    None, None, created, createdBy, isActive, None, updated, updatedBy, uuid)
 }
 
 

@@ -78,7 +78,7 @@ import org.joda.time.DateTime
   * @param isWebStoreUser Is Web Store User
   * @param recentItemsMaxSaved Recent Items Max Saved
   * @param recentItemsMaxShown Recent Items Max Shown
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class User(userId : Int ,
@@ -136,7 +136,7 @@ case class User(userId : Int ,
                 isWebStoreUser: Boolean = false,
                 recentItemsMaxSaved: Int = 50,
                 recentItemsMaxShown: Int = 20,
-                uuId: Option[String]
+                uuid: String
                ) extends DomainModel
 
   with ActiveEnabled
@@ -209,9 +209,9 @@ object User  {
              isWebStoreUser: Boolean,
              recentItemsMaxSaved: Int,
              recentItemsMaxShown: Int,
-             uuId: String) = User(userId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = User(userId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy,name, None, None, None, None, None, processing, None, None, None, None, None, None, None,
     None, None, None, None, None, None, None, None, notificationType, isFullBPAccess, None, None, None,
     None, None, isInPayroll, None, isSalesLead, None, None, None, None, None, None, None, None, None,
-    None, isLogInUser, isInternalUser, isWebStoreUser, recentItemsMaxSaved, recentItemsMaxShown, None)
+    None, isLogInUser, isInternalUser, isWebStoreUser, recentItemsMaxSaved, recentItemsMaxShown, uuid)
 }

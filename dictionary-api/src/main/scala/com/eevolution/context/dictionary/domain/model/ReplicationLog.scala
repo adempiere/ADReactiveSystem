@@ -49,7 +49,7 @@ case class ReplicationLog(replicationLogId: Int,
                           replicationTableId: Option[Int],
                           message: Option[String],
                           isReplication: Boolean = false,
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -80,5 +80,5 @@ object ReplicationLog  {
              message: String,
              isReplication: Boolean,
              uuid: String) = ReplicationLog(replicationLogId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, replicationRunId, None, None, isReplication, None)
+    createdBy, updated, updatedBy, replicationRunId, None, None, isReplication, uuid)
 }

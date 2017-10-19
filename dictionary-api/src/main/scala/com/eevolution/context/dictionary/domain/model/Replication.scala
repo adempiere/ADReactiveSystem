@@ -71,7 +71,7 @@ case class Replication(replicationId: Int,
                        prefix: Option[String],
                        suffix: Option[String],
                        dateLastRun: DateTime = new DateTime,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -114,5 +114,5 @@ object Replication  {
              dateLastRun: DateTime,
              uuid: String) = Replication(replicationId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, hostAddress, hostPort, replicationStrategyId, isRMIOverHTTP, None,
-    None, None, None, None, None, None, dateLastRun, None )
+    None, None, None, None, None, None, dateLastRun, uuid)
 }

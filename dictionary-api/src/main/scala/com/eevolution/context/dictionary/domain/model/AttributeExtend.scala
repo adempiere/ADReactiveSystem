@@ -89,7 +89,7 @@ case class AttributeExtend(attributeExtendId: Int,
                            isHeading: Boolean = false,
                            isFieldOnly: Boolean = false,
                            seqNo: Option[Int],
-                           uuid: Option[String]
+                           uuid: String
                  ) extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -139,6 +139,6 @@ object AttributeExtend {
              uuid: String) = AttributeExtend(attributeExtendId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, None, entityId, referenceId, None, None, None, None, None,
     None, isReadOnly, isUpdateable, isMandatory, isEncrypted, None, None, None, None, isSameLine, isHeading,
-    isFieldOnly, None, None)
+    isFieldOnly, None, uuid)
 }
 

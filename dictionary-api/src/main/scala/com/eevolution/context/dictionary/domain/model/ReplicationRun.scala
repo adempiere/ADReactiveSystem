@@ -48,7 +48,7 @@ case class ReplicationRun(replicationRunId: Int,
                           replicationId: Int,
                           isReplicated: Boolean = false,
                           description: Option[String],
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -79,5 +79,5 @@ object ReplicationRun  {
              isReplicated: Boolean,
              description: String,
              uuid: String) = ReplicationRun(replicationRunId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, replicationId, isReplicated, None, None)
+    createdBy, updated, updatedBy, name, replicationId, isReplicated, None, uuid)
 }

@@ -48,7 +48,7 @@ case class Preference (preferenceId: Int,
                        userId: Option[Int],
                        attribute: String,
                        value: String,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -79,5 +79,5 @@ object Preference {
              attribute: String,
              value: String,
              uuid: String) = Preference(preferenceId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, None, None, attribute, value, None)
+    updatedBy, None, None, attribute, value, uuid)
 }

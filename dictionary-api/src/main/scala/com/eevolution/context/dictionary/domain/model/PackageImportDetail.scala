@@ -60,7 +60,7 @@ case class PackageImportDetail(packageImpDetailId: Int,
                                tableName: Option[String],
                                entityId: Option[Int],
                                uninstall: Option[Boolean],
-                               uuid: Option[String]
+                               uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -97,5 +97,5 @@ object PackageImportDetail {
              entityId: Int,
              uninstall: Boolean,
              uuid: String) = PackageImportDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, None, packageImportId, originalId, None, None, None, None, None, None, None, None)
+    createdBy, updated, updatedBy, None, packageImportId, originalId, None, None, None, None, None, None, None, uuid)
 }

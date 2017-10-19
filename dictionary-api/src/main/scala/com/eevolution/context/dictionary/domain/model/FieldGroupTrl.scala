@@ -44,7 +44,7 @@ case class FieldGroupTrl (language: String,
                           updatedBy: Int,
                           name: String,
                           isTranslated: Boolean = false,
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -73,6 +73,6 @@ object FieldGroupTrl {
              name: String,
              isTranslated: Boolean,
              uuid: String) = FieldGroupTrl(language, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, isTranslated, None)
+    createdBy, updated, updatedBy, name, isTranslated, uuid)
 }
 

@@ -102,7 +102,7 @@ case class Tab(tabId: Int,
                isInsertRecord: Boolean = true,
                isAdvancedTab: Boolean = false,
                parentColumnId: Option[Int],
-               uuid: Option[String]
+               uuid: String
               ) extends DomainModel
 
   with ActiveEnabled
@@ -161,6 +161,6 @@ object Tab  {
              uuid: String ) = Tab(tabId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, entityId, windowId, seqNo, tabLevel, isSingleRow, isInfoTab, isTranslationTab,
     isReadOnly, None, hasTree, None, None, None, None, None, None, None, None, None, isORTTab, entityType,
-    None, None, None, isInsertRecord, isAdvancedTab, None, None)
+    None, None, None, isInsertRecord, isAdvancedTab, None, uuid)
 }
 

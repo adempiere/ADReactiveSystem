@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param isTranslated Is Translated
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class TaskTrl (taskId: Int,
@@ -49,7 +49,7 @@ case class TaskTrl (taskId: Int,
                     description: Option[String],
                     help: Option[String],
                     isTranslated: Boolean = false,
-                    uuId: Option[String]
+                    uuid: String
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -81,6 +81,6 @@ object TaskTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuId: String) = TaskTrl(taskId, language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+             uuid: String) = TaskTrl(taskId, language, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, name, None, None, isTranslated, uuid)
 }

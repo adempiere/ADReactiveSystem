@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param currentNext Current Next
-  * @param uuId UU ID
+  * @param uuid UUID
   */
 
 case class SequenceNo (sequenceId: Int,
@@ -43,7 +43,7 @@ case class SequenceNo (sequenceId: Int,
                        updated: DateTime = DateTime.now,
                        updatedBy: Int,
                        currentNext: Int,
-                       uuId: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -72,6 +72,6 @@ object SequenceNo {
              updated: DateTime,
              updatedBy: Int,
              currentNext: Int,
-             uuId: String) = SequenceNo(sequenceId, calendarYear, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, currentNext, None)
+             uuid: String) = SequenceNo(sequenceId, calendarYear, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, currentNext, uuid)
 }

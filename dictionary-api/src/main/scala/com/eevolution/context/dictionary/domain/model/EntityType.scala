@@ -58,7 +58,7 @@ case class EntityType(entityTypeId: Int,
                       modelPackage: Option[String],
                       classPath: Option[String],
                       processing: Boolean = false,
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -94,7 +94,7 @@ object EntityType {
              classPath: String,
              processing: Boolean,
              uuid: String) = EntityType(entityTypeId, tenantId, organizationId, entityType, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, None, None, None, processing, None)
+    createdBy, updated, updatedBy, name, None, None, None, None, None, processing, uuid)
 }
 
 

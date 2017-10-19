@@ -47,7 +47,7 @@ case class OrganizationType(organizationTypeId: Int,
                             name : String,
                             description: Option[String],
                             printColorId: Option[Int],
-                            uuid: Option[String]
+                            uuid: String
                            ) extends DomainModel
 
   with ActiveEnabled
@@ -76,6 +76,6 @@ object OrganizationType {
              description: String,
              printColorId: Int,
              uuid: String) = OrganizationType(organizationId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, None)
+    createdBy, updated, updatedBy, name, None, None, uuid)
 }
 

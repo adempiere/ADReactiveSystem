@@ -57,7 +57,7 @@ case class MigrationData (tenantId : Int ,
                           oldValue: Option[String],
                           updated: DateTime =  DateTime.now,
                           updatedBy: Int,
-                          uuid: Option [String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -92,6 +92,6 @@ object MigrationData  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = MigrationData(tenantId, attributeId, migrationDataId, migrationStep, organizationId,
-    None, created, createdBy, isActive, None, None, None, None, None, updated, updatedBy, None)
+    None, created, createdBy, isActive, None, None, None, None, None, updated, updatedBy, uuid)
 }
 

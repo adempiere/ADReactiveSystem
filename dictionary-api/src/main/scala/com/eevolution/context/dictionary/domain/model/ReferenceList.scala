@@ -53,7 +53,7 @@ case class ReferenceList(referenceListId: Int,
                          validFrom: Option[DateTime],
                          validTo: Option[DateTime],
                          entityType: String = "D",
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -87,7 +87,7 @@ object ReferenceList  {
              validTo: DateTime,
              entityType: String,
              uuid: String) = ReferenceList(referenceListId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, value, name, None, referenceId, None, None, entityType, None)
+    updated, updatedBy, value, name, None, referenceId, None, None, entityType, uuid)
 }
 
 

@@ -53,7 +53,7 @@ case class ViewDefinition(viewDefinitionId: Int,
                           tableAlias: String,
                           joinClause: Option[String],
                           processing: Option[Boolean],
-                          uuid: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -86,5 +86,5 @@ object ViewDefinition  {
              joinClause: String,
              processing: Boolean,
              uuid: String) = ViewDefinition(viewDefinitionId, tenantId, organizationId, created, createdBy,
-    isActive, updated, updatedBy, None, None, None, tableAlias, None, None, None)
+    isActive, updated, updatedBy, None, None, None, tableAlias, None, None, uuid)
 }

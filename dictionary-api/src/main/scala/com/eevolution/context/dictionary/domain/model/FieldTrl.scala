@@ -47,7 +47,7 @@ case class FieldTrl (language: String,
                      description: Option[String],
                      help: Option[String],
                      isTranslated: Boolean = false,
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -79,5 +79,5 @@ object FieldTrl {
              help: String,
              isTranslated: Boolean,
              uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, isTranslated, None)
+    updated, updatedBy, name, None, None, isTranslated, uuid)
 }

@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param poWindowId Po Window ID
   * @param isDefault Is Default
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class SearchDefinition (searchDefinitionId: Int,
@@ -58,7 +58,7 @@ case class SearchDefinition (searchDefinitionId: Int,
                              updatedBy : Int,
                              poWindowId:Option[Int],
                              isDefault: Boolean = false,
-                             uuId: Option[String]
+                             uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -94,6 +94,6 @@ object SearchDefinition {
              updatedBy : Int,
              poWindowId:Int,
              isDefault: Boolean,
-             uuId: String) = SearchDefinition(searchDefinitionId, tenantId, None, organizationId, entityId, windowId,
-    updated, updatedBy, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, None)
+             uuid: String) = SearchDefinition(searchDefinitionId, tenantId, None, organizationId, entityId, windowId,
+    updated, updatedBy, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, uuid)
 }

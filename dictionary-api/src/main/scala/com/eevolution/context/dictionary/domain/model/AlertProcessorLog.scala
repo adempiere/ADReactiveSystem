@@ -55,7 +55,7 @@ case class AlertProcessorLog(alertProcessorLogId: Int,
                              description: Option[String],
                              textMsg: Option[String],
                              binaryData: Option[String],
-                             uuid: Option[String]
+                             uuid: String
                             ) extends DomainModel
 
   with ActiveEnabled
@@ -89,7 +89,7 @@ object AlertProcessorLog  {
              textMsg:String,
              binaryData: String,
              uuid: String) = AlertProcessorLog(alertProcessorLogId, alertProcessorId, tenantId, organizationId,
-    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, None)
+    isActive, created, createdBy, updated, updatedBy, isError, None, None, None, None, None, uuid)
 }
 
 

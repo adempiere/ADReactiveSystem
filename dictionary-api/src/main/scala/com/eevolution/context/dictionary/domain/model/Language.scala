@@ -62,7 +62,7 @@ case class Language(languageId: Int,
                     isDecimalPoint: Boolean = true,
                     datePattern: Option[String],
                     timePattern: Option[String],
-                    uuid: Option[String]
+                    uuid: String
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -99,7 +99,7 @@ object Language {
              datePattern: String,
              timePattern: String,
              uuid: String) = Language(languageId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, None, isBaseLanguage, isSystemLanguage, None, language, isDecimalPoint, None, None, None)
+    updatedBy, name, None, None, isBaseLanguage, isSystemLanguage, None, language, isDecimalPoint, None, None, uuid)
 }
 
 

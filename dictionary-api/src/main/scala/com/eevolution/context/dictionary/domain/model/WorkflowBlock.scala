@@ -43,7 +43,7 @@ case class WorkflowBlock(workflowBlockId: Int,
                          name: String,
                          description: Option[String],
                          workflowId: Int,
-                         uuid: Option[String]
+                         uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -71,8 +71,7 @@ object WorkflowBlock {
              description: String,
              workflowId: Int,
              uuid: String) = WorkflowBlock(workflowBlockId, isActive, created, createdBy, updated, updatedBy, name,
-    None, workflowId, None)
-
+    None, workflowId, uuid)
 }
 
 

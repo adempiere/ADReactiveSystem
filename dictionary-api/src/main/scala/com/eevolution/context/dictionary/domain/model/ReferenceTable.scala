@@ -64,7 +64,7 @@ case class ReferenceTable (referenceId: Int,
                            isAlert : Boolean =  false ,
                            displaySQL : Option[String],
                            isDisplayIdentifier : Boolean =  false,
-                           uuid: Option[String]
+                           uuid: String
                           ) extends DomainModel
 
 
@@ -102,8 +102,8 @@ object ReferenceTable  {
              isAlert : Boolean =  false ,
              displaySQL : Option[String],
              isDisplayIdentifier : Boolean =  false,
-             uuid: Option[String]) = ReferenceTable(referenceId, tenantId, organizationId, isActive, created,
+             uuid: String) = ReferenceTable(referenceId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, entityId, key, display, isValueDisplayed, None, None, entityType,
-    windowId, isAlert, None, isDisplayIdentifier, None)
+    windowId, isAlert, None, isDisplayIdentifier, uuid)
 }
 

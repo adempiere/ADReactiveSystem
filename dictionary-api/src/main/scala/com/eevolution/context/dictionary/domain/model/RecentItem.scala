@@ -53,7 +53,7 @@ case class RecentItem(recentItemId: Int,
                       updated: DateTime = DateTime.now,
                       updatedBy: Int,
                       menuId: Option[Int],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -87,6 +87,6 @@ object RecentItem {
              updatedBy: Int,
              menuId: Int,
              uuid: String) = RecentItem(recentItemId, tenantId, organizationId, roleId, None, None, None,
-    None, created, createdBy, isActive, None, updated, updatedBy, None, None)
+    None, created, createdBy, isActive, None, updated, updatedBy, None, uuid)
 }
 

@@ -51,7 +51,7 @@ case class ProcessParameterTrl(processParameterId: Int,
                                description: Option[String],
                                help: Option[String],
                                isTranslated: Boolean = false,
-                               uuid: Option[String]
+                               uuid: String
                               ) extends DomainModel
   with ActiveEnabled
   with Identifiable
@@ -82,5 +82,5 @@ object ProcessParameterTrl  {
              help: String,
              isTranslated: Boolean,
              uuid: String) = ProcessParameterTrl(processParameterId, language, tenantId, organizationId,
-    isActive, created, createdBy, updated, updatedBy, name, None, None, isTranslated, None)
+    isActive, created, createdBy, updated, updatedBy, name, None, None, isTranslated, uuid)
 }

@@ -55,7 +55,7 @@ case class WorkflowNodeNext(workflowNodeNextId: Int,
                             entityType: String = "D",
                             transitionCode: Option[String],
                             isStdUserWorkFlow: Boolean = false,
-                            uuid: Option[String]
+                            uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -90,6 +90,6 @@ object WorkflowNodeNext {
              isStdUserWorkFlow: Boolean,
              uuid: String) = WorkflowNodeNext(workflowNodeNextId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, workflowNodeId, workflowNextId, None, seqNo, entityType,
-    None, isStdUserWorkFlow, None)
+    None, isStdUserWorkFlow, uuid)
 
 }

@@ -43,7 +43,7 @@ case class TreeFavorite(treeFavoriteId: Int,
                         isActive: Boolean = true,
                         updated: DateTime = DateTime.now,
                         updatedBy: Int,
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -73,5 +73,5 @@ object TreeFavorite  {
              updated: DateTime,
              updatedBy: Int,
              uuid: String) = TreeFavorite(treeFavoriteId, tenantId, organizationId, roleId, userId, created,
-    createdBy, isActive, updated, updatedBy, None)
+    createdBy, isActive, updated, updatedBy, uuid)
 }

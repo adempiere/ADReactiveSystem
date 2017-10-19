@@ -65,7 +65,7 @@ case class PrintPaper (printPaperId: Int,
                        sizeX: Option[Int],
                        sizeY: Option[Int],
                        dimensionUnits: Option[Boolean],
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -106,5 +106,5 @@ object PrintPaper {
              dimensionUnits: Boolean,
              uuid: String) = PrintPaper(printPaperId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, isDefault, isLandscape, code, marginTop, marginLeft, marginRight, marginBottom, None, None,
-    None, None, None)
+    None, None, uuid)
 }

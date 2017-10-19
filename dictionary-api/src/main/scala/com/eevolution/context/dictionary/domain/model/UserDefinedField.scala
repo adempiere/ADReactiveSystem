@@ -70,7 +70,7 @@ case class UserDefinedField(userDefinedFieldId: Int,
                             defaultValue: String,
                             sortNo: Int = 0,
                             seqNo: Int = 0,
-                            uuid: Option[String]
+                            uuid: String
                        )extends DomainModel
 
   with ActiveEnabled
@@ -112,5 +112,5 @@ object UserDefinedField  {
              seqNo: Int,
              uuid: String) = UserDefinedField(userDefinedFieldId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, userDefinedTabId, fieldId, name, None, None, isDisplayed, isReadOnly, isSameLine, isUpdateable,
-    displayLength, displayLogic, defaultValue, sortNo, seqNo, None)
+    displayLength, displayLogic, defaultValue, sortNo, seqNo, uuid)
 }

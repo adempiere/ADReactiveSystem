@@ -53,7 +53,7 @@ case class UserQuery(userQueryId: Int,
                      tableId: Int,
                      code: Option[String],
                      tabId: Option[Int],
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -86,5 +86,5 @@ object UserQuery  {
              code: String,
              tabId: Int,
              uuid: String) = UserQuery(userQueryId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, tableId, None, None, None)
+    updated, updatedBy, name, None, None, tableId, None, None, uuid)
 }

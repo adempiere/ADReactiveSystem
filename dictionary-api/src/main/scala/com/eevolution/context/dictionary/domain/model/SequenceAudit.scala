@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param entityId Entity ID
   * @param recordId Record ID
-  * @param uuId UU ID
+  * @param uuid UU ID
   */
 
 case class SequenceAudit (sequenceId: Int,
@@ -45,7 +45,7 @@ case class SequenceAudit (sequenceId: Int,
                           updatedBy: Int,
                           entityId: Int,
                           recordId: Int,
-                          uuId: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -75,6 +75,6 @@ object SequenceAudit {
              updatedBy: Int,
              entityId: Int,
              recordId: Int,
-             uuId: String) = SequenceAudit(sequenceId, documentNo, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, entityId, recordId, None)
+             uuid: String) = SequenceAudit(sequenceId, documentNo, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, entityId, recordId, uuid)
 }

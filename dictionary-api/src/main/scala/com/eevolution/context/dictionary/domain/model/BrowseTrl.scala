@@ -50,7 +50,7 @@ case class BrowseTrl(tenantId: Int,
                      help: Option[String],
                      isTranslated: Boolean,
                      name: String,
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -82,6 +82,6 @@ object BrowseTrl  {
              isTranslated: Boolean,
              name: String,
              uuid: String) = BrowseTrl(tenantId, organizationId, created, createdBy, isActive, updated,
-    updatedBy, browseId, language, None, None, isTranslated, name, None)
+    updatedBy, browseId, language, None, None, isTranslated, name, uuid)
 }
 

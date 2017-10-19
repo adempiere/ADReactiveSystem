@@ -59,7 +59,7 @@ case class PinStancePara(pinStanceParaId: Int,
                          updated: DateTime = DateTime.now,
                          updatedBy: Int,
                          isActive: Boolean,
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -96,5 +96,5 @@ object PinStancePara {
              updatedBy: Int,
              isActive: Boolean,
              uuid: String) = PinStancePara(pinStanceParaId, tenantId, organizationId, seqNo, None, None, None,
-    None, None, date, dateTo, None, None, created, createdBy, updated, updatedBy, isActive, None)
+    None, None, date, dateTo, None, None, created, createdBy, updated, updatedBy, isActive, uuid)
 }

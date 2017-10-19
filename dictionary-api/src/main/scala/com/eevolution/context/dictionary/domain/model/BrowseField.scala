@@ -111,7 +111,7 @@ case class BrowseField(browseFieldId: Int,
                        infoFactoryClass: Option[String],
                        seqNoGrid: Int = 0,
                        isInfoOnly: Boolean = false,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -176,5 +176,5 @@ object BrowseField  {
     updated, updatedBy, elementId, referenceId, viewColumnId, None,entityType, None, isCentrallyMaintained,
     isDisplayed, None, None, isQueryCriteria, None, name, None, browseId, None, isMandatory, None, None,
     isReadOnly, None, isOrderBy, None, None, None, None, None, None, None, None, None, None, None,
-    seqNoGrid, isInfoOnly, None)
+    seqNoGrid, isInfoOnly, uuid)
 }

@@ -45,7 +45,7 @@ case class DocumentActionAccess(tenantId: Int,
                                 doctypeId: Int,
                                 roleId: Int,
                                 refListId: Int,
-                                uuid: Option[String]
+                                uuid: String
                                ) extends DomainModel
 
   with ActiveEnabled
@@ -74,5 +74,5 @@ object DocumentActionAccess {
              roleId: Int,
              refListId: Int,
              uuid: String) = DocumentActionAccess(tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, doctypeId, roleId, refListId, None)
+    updatedBy, doctypeId, roleId, refListId, uuid)
 }

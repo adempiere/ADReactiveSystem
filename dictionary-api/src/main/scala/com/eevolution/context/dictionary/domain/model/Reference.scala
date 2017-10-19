@@ -56,7 +56,7 @@ case class Reference(referenceId: Int,
                      vFormat : Option[String] ,
                      entityType :  String = EntityType.Dictionary,
                      isOrderByValue : Boolean = false,
-                     uuid: Option[String]
+                     uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -90,6 +90,6 @@ object Reference  {
              entityType :  String,
              isOrderByValue : Boolean,
              uuid: String) = Reference(referenceId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, None, None, entityType, isOrderByValue, None)
+    updated, updatedBy, name, None, None, None, None, entityType, isOrderByValue, uuid)
 }
 

@@ -51,7 +51,7 @@ case class ViewTrl(tenantId: Int,
                    isTranslated: Boolean,
                    name: String,
                    help : Option[String],
-                   uuid: Option[String]
+                   uuid: String
              ) extends DomainModel
 
   with ActiveEnabled
@@ -83,7 +83,7 @@ object ViewTrl  {
              name: String,
              help : String,
              uuid: String) = ViewTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
-    viewId, language, None, isTranslated, name, None, None)
+    viewId, language, None, isTranslated, name, None, uuid)
 }
 
 

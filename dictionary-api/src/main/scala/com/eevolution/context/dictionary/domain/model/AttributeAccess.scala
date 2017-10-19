@@ -49,7 +49,7 @@ case class AttributeAccess(attributeId: Int,
                            isReadOnly: Boolean = false,
                            isExclude: Boolean = true,
                            tableId: Option[Int],
-                           uuid: Option[String]
+                           uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -80,5 +80,5 @@ object AttributeAccess {
              isExclude: Boolean,
              tableId: Int,
              uuid: String) = AttributeAccess (attributeId, roleId, tenantId, organizationId,isActive,created,
-    createdBy, updated, updatedBy, isReadOnly, isExclude, None, None)
+    createdBy, updated, updatedBy, isReadOnly, isExclude, None, uuid)
 }

@@ -65,7 +65,7 @@ case class HouseKeeping (houseKeepingId: Int,
                          updatedBy: Int,
                          value: String,
                          whereClause: Option[String],
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
   with ActiveEnabled
@@ -104,6 +104,6 @@ object HouseKeeping  {
              value: String,
              whereClause: String,
              uuid: String) = HouseKeeping(houseKeepingId, tenantId, organizationId, tableId, None, created, createdBy,
-    None, None, isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, None)
+    None, None, isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, uuid)
 }
 

@@ -46,7 +46,7 @@ case class PrintFormatItemTrl (printFormatItemId: Int,
                                printName: Option[String],
                                isTranslated : Boolean = false,
                                printNameSuffix: Option[String],
-                               uuid: Option[String]
+                               uuid: String
                               ) extends DomainModel
 
   with ActiveEnabled
@@ -77,5 +77,5 @@ object PrintFormatItemTrl {
              isTranslated : Boolean,
              printNameSuffix: String,
              uuid: String) = PrintFormatItemTrl(printFormatItemId, language, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, None, isTranslated, None, None)
+    created, createdBy, updated, updatedBy, None, isTranslated, None, uuid)
 }

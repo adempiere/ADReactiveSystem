@@ -59,7 +59,7 @@ case class PrintGraph (printGraphId: Int,
                        data3PrintFormatItemID: Option[Int],
                        data4PrintFormatItemID: Option[Int],
                        printFormatId: Int,
-                       uuid: Option[String]
+                       uuid: String
                       ) extends DomainModel
 
   with ActiveEnabled
@@ -97,5 +97,5 @@ object PrintGraph {
              printFormatId: Int,
              uuid: String) = PrintGraph(printFormatId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, graphType, descriptionPrintFormatItemId, dataPrintFormatItemID, None, None, None, None,
-    printFormatId, None)
+    printFormatId, uuid)
 }

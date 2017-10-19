@@ -45,7 +45,7 @@ case class ProcessAccess(processId : Int,
                          updated : DateTime = DateTime.now,
                          updatedBy : Int,
                          isReadWrite : Boolean = true,
-                         uuid: Option[String]
+                         uuid: String
                         ) extends DomainModel
 
 
@@ -75,6 +75,6 @@ object ProcessAccess {
              updatedBy : Int,
              isReadWrite : Boolean,
              uuid: String) = ProcessAccess(processId, roleId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, isReadWrite, None)
+    updated, updatedBy, isReadWrite, uuid)
 }
 

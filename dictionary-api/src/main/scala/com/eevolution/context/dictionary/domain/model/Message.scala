@@ -52,7 +52,7 @@ case class Message(messageId: Int,
                    msgTip : Option[String],
                    msgType : Option[String],
                    entityType: String = EntityType.Dictionary,
-                   uuid: Option[String]
+                   uuid: String
                    ) extends DomainModel
 
   with ActiveEnabled
@@ -84,5 +84,5 @@ object Message  {
              msgType : String,
              entityType: String,
              uuid: String) = Message(messageId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, value, None, None, None, entityType, None)
+    updated, updatedBy, value, None, None, None, entityType, uuid)
 }

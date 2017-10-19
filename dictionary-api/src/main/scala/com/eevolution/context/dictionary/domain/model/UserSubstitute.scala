@@ -37,7 +37,7 @@ import org.joda.time.DateTime
   * @param substituteId Substitute ID
   * @param validFrom Valid From
   * @param validTo Valid To
-  * @param uuId UUID
+  * @param uuid UUID
   */
 
 case class UserSubstitute(userSubstituteId : Int ,
@@ -54,7 +54,7 @@ case class UserSubstitute(userSubstituteId : Int ,
                           substituteId: Int,
                           validFrom: Option[DateTime],
                           validTo: Option[DateTime],
-                          uuId: Option[String]
+                          uuid: String
                          ) extends DomainModel
 
   with ActiveEnabled
@@ -86,8 +86,8 @@ object UserSubstitute  {
              substituteId: Int,
              validFrom: DateTime,
              validTo: DateTime,
-             uuId: String) = UserSubstitute(userSubstituteId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, userId, name, None, substituteId, None, None, None)
+             uuid: String) = UserSubstitute(userSubstituteId, tenantId, organizationId, isActive, created,
+    createdBy, updated, updatedBy, userId, name, None, substituteId, None, None, uuid)
 }
 
 

@@ -50,7 +50,7 @@ case class Attachment(attachmentId: Int,
                       title: String,
                       binaryData: String,
                       textMsg: Option[String],
-                      uuid: Option[String]
+                      uuid: String
                      ) extends DomainModel
 
   with ActiveEnabled
@@ -82,7 +82,7 @@ object Attachment {
              binaryData: String,
              textMsg: String,
              uuid: String) = Attachment(attachmentId, tenantId, organizationId,  isActive,created, createdBy, updated,
-    updatedBy,tableId, recordId, title, binaryData, None, None)
+    updatedBy,tableId, recordId, title, binaryData, None, uuid)
 
 }
 

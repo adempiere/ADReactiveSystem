@@ -50,7 +50,7 @@ case class DynamicValidationRule(dynamicValidationRuleId: Int,
                                  typePackage: Option[Boolean],
                                  code: Option[String],
                                  entityType: String = "D",
-                                 uuid: Option[String]
+                                 uuid: String
                   ) extends DomainModel
 
   with ActiveEnabled
@@ -82,6 +82,6 @@ object DynamicValidationRule  {
              code: String,
              entityType: String,
              uuid: String) = DynamicValidationRule(dynamicValidationRuleId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, None, entityType, None)
+    createdBy, updated, updatedBy, name, None, None, None, entityType, uuid)
 }
 

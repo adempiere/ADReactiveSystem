@@ -51,7 +51,7 @@ case class Modification(modificationId: Int,
                         help: Option[String],
                         entityType: String = "D",
                         version: Option[String],
-                        uuid: Option[String]
+                        uuid: String
                        ) extends DomainModel
 
   with ActiveEnabled
@@ -84,7 +84,7 @@ object Modification  {
              entityType: String,
              version: String,
              uuid: String) = Modification(modificationId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, seqNo, name, None, None, entityType, None, None)
+    updated, updatedBy, seqNo, name, None, None, entityType, None, uuid)
 }
 
 

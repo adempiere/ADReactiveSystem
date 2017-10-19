@@ -116,7 +116,7 @@ case class Workflow(workflowId: Int,
                     yieldData: Option[Int],
                     unitsCycles: Option[Int],
                     overLapUnits: Option[Int],
-                    uuid: Option[String]
+                    uuid: String
                     ) extends DomainModel
 
   with ActiveEnabled
@@ -183,5 +183,5 @@ object Workflow {
              uuid: String) = Workflow(workflowId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration,
     cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workflowType, None,
-    isValid, None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, None)
+    isValid, None, None, None, None, None, None, None, isBetaFunctionality, None, None, None, uuid)
 }

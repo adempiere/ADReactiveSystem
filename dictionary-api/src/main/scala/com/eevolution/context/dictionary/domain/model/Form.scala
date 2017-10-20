@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param className Class Name
   * @param entityType Entity Type
   * @param isBetaFunctionality Is Beta Functionality
-  * @param jspUrl JSP URL
+  * @param jspURL JSP URL
   * @param uuid UUID
   */
 
@@ -57,7 +57,7 @@ case class Form (formId: Int,
                  className : Option[String] ,
                  entityType: String = EntityType.Dictionary,
                  isBetaFunctionality : Boolean = false ,
-                 jspUrl : Option[String],
+                 jspURL : Option[String],
                  uuid: String
                  ) extends DomainModel
 
@@ -90,7 +90,7 @@ object Form  {
              className : String ,
              entityType: String,
              isBetaFunctionality : Boolean ,
-             jspUrl : String,
+             jspURL : String,
              uuid: String) = Form(formId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
     name, None, None, accessLevel, None, entityType, isBetaFunctionality, None, uuid)
 }

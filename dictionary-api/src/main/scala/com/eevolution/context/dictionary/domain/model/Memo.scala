@@ -25,7 +25,7 @@ import org.joda.time.DateTime
   * @param memoId Memo ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param created Created
   * @param createdBy Created By
   * @param isActive Is Active
@@ -46,7 +46,7 @@ import org.joda.time.DateTime
 case class Memo(memoId: Int,
                 tenantId : Int ,
                 organizationId : Int,
-                tableId: Int,
+                entityId: Int,
                 created: DateTime = DateTime.now,
                 createdBy: Int,
                 isActive: Boolean = true,
@@ -82,7 +82,7 @@ object Memo {
   def create(memoId: Int,
              tenantId : Int ,
              organizationId : Int,
-             tableId: Int,
+             entityId: Int,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
@@ -97,6 +97,6 @@ object Memo {
              projectId: Int,
              productId: Int,
              isAlert: Boolean,
-             uuid: String) = Memo(memoId, tenantId, organizationId, tableId, created, createdBy, isActive, recordId,
+             uuid: String) = Memo(memoId, tenantId, organizationId, entityId, created, createdBy, isActive, recordId,
     updated, updatedBy,None, None, None, None, None, None, None, None, uuid)
 }

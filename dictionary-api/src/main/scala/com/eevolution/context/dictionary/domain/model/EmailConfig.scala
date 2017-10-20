@@ -26,19 +26,19 @@ import org.joda.time.DateTime
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param authMechanism Auth Mechanism
-  * @param connectionTimeOut Connection Time Out
+  * @param connectionTimeout Connection Timeout
   * @param created Created
   * @param createdBy Created By
   * @param description Description
   * @param encryptionType Encryption Type
   * @param isActive Is Active
-  * @param isSmTpAuthorization Is Sm Tp Authorization
+  * @param isSmtpAuthorization Is Sm Tp Authorization
   * @param ldapDomain Ldap Domain
   * @param name Name
   * @param port Port
   * @param protocol Protocol
-  * @param smTpHost Sm Tp Host
-  * @param timeOut Time Out
+  * @param smtpHost SMTP Host
+  * @param timeout Timeout
   * @param updated Updated
   * @param updatedBy Updated By
   * @param uuid UUID
@@ -48,19 +48,19 @@ case class EmailConfig(emailConfigId: Int,
                        tenantId: Int,
                        organizationId: Int,
                        authMechanism: String = "L",
-                       connectionTimeOut: Int = 0,
+                       connectionTimeout: Int = 0,
                        created: DateTime = DateTime.now,
                        createdBy: Int,
                        description: Option[String],
                        encryptionType: Boolean = false,
                        isActive: Boolean = true,
-                       isSmTpAuthorization: Boolean = false,
+                       isSmtpAuthorization: Boolean = false,
                        ldapDomain: Option[String],
                        name: String,
                        port: Int,
                        protocol: Boolean,
-                       smTpHost: String,
-                       timeOut: Int = 0,
+                       smtpHost: String,
+                       timeout: Int = 0,
                        updated: DateTime = DateTime.now,
                        updatedBy: Int,
                        uuid: String
@@ -85,23 +85,23 @@ object EmailConfig {
              tenantId: Int,
              organizationId: Int,
              authMechanism: String,
-             connectionTimeOut: Int,
+             connectionTimeout: Int,
              created: DateTime,
              createdBy: Int,
              description: String,
              encryptionType: Boolean,
              isActive: Boolean,
-             isSmTpAuthorization: Boolean,
+             isSmtpAuthorization: Boolean,
              ldapDomain: String,
              name: String,
              port: Int,
              protocol: Boolean,
-             smTpHost: String,
-             timeOut: Int,
+             smtpHost: String,
+             timeout: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = EmailConfig(emailConfigId, tenantId, organizationId, authMechanism, connectionTimeOut,
-    created, createdBy, None, encryptionType, isActive, isSmTpAuthorization, None, name, port, protocol, smTpHost,
-    timeOut, updated, updatedBy, uuid)
+             uuid: String) = EmailConfig(emailConfigId, tenantId, organizationId, authMechanism, connectionTimeout,
+    created, createdBy, None, encryptionType, isActive, isSmtpAuthorization, None, name, port, protocol, smtpHost,
+    timeout, updated, updatedBy, uuid)
 }
 

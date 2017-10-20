@@ -25,14 +25,14 @@ import org.joda.time.DateTime
   * @param houseKeepingId House Keeping Id
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param backupFolder Backup Folder
   * @param created Created
   * @param createdBy Created By
   * @param description Description
   * @param help Help
   * @param isActive Is Active
-  * @param isExportXmlBackup Is Export XML Backup
+  * @param isExportXMLBackup Is Export XML Backup
   * @param isSaveInHistoric Is Save In Historic
   * @param lastDeleted Last Deleted
   * @param lastRun Last Run
@@ -48,14 +48,14 @@ import org.joda.time.DateTime
 case class HouseKeeping (houseKeepingId: Int,
                          tenantId : Int ,
                          organizationId : Int ,
-                         tableId: Int,
+                         entityId: Int,
                          backupFolder: Option[String],
                          created: DateTime = DateTime.now,
                          createdBy: Int,
                          description: Option[String],
                          help: Option[String],
                          isActive: Boolean = true,
-                         isExportXmlBackup: Option[Boolean],
+                         isExportXMLBackup: Option[Boolean],
                          isSaveInHistoric: Option[Boolean],
                          lastDeleted: Option[Int],
                          lastRun: DateTime = new DateTime,
@@ -86,14 +86,14 @@ object HouseKeeping  {
   def create(houseKeepingId: Int,
              tenantId : Int ,
              organizationId : Int ,
-             tableId: Int,
+             entityId: Int,
              backupFolder: String,
              created: DateTime,
              createdBy: Int,
              description: String,
              help: Option[String],
              isActive: Boolean,
-             isExportXmlBackup: Boolean,
+             isExportXMLBackup: Boolean,
              isSaveInHistoric: Boolean,
              lastDeleted: Int,
              lastRun: DateTime,
@@ -103,7 +103,7 @@ object HouseKeeping  {
              updatedBy: Int,
              value: String,
              whereClause: String,
-             uuid: String) = HouseKeeping(houseKeepingId, tenantId, organizationId, tableId, None, created, createdBy,
+             uuid: String) = HouseKeeping(houseKeepingId, tenantId, organizationId, entityId, None, created, createdBy,
     None, None, isActive, None, None, None, lastRun, name, None, updated, updatedBy, value, None, uuid)
 }
 

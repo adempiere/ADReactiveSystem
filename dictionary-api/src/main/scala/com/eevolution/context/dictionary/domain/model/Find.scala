@@ -24,14 +24,14 @@ import org.joda.time.DateTime
   * Find Entity
   * @param findId Find ID
   * @param tenantId Tenant ID
-  * @param organizationId Organization
+  * @param organizationId Organization ID
   * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
   * @param updated Updated
   * @param updatedBy Updated By
   * @param andOr And Or
-  * @param columnId Column ID
+  * @param attributeId Attribute ID
   * @param operation Operation
   * @param value Value
   * @param value2 Value 2
@@ -47,7 +47,7 @@ case class Find(findId: Int,
                 updated: DateTime = DateTime.now,
                 updatedBy: Int,
                 andOr: Boolean,
-                columnId: Int,
+                attributeId: Int,
                 operation: String,
                 value: String,
                 value2: Option[String],
@@ -78,12 +78,12 @@ object Find  {
              updated: DateTime,
              updatedBy: Int,
              andOr: Boolean,
-             columnId: Int,
+             attributeId: Int,
              operation: String,
              value: String,
              value2: String,
-             uuid: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, andOr, columnId,
-    operation, value, None, uuid)
+             uuid: String) = Find(findId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
+    andOr, attributeId, operation, value, None, uuid)
 }
 
 

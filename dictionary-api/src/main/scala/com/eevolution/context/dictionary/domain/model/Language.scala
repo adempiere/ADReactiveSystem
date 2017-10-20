@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param languageIso Language Iso
+  * @param languageISO Language ISO
   * @param countryCode Country Code
   * @param isBaseLanguage is Base Language
   * @param isSystemLanguage Is System Language
@@ -53,7 +53,7 @@ case class Language(languageId: Int,
                     updated: DateTime =  DateTime.now,
                     updatedBy: Int,
                     name: String,
-                    languageIso: Option[String],
+                    languageISO: Option[String],
                     countryCode: Option[String],
                     isBaseLanguage: Boolean = false,
                     isSystemLanguage: Boolean = false,
@@ -89,7 +89,7 @@ object Language {
              updated: DateTime,
              updatedBy: Int,
              name: String,
-             languageIso: String,
+             languageISO: String,
              countryCode: String,
              isBaseLanguage: Boolean,
              isSystemLanguage: Boolean,

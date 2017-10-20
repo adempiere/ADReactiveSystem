@@ -18,8 +18,10 @@ import org.joda.time.DateTime
   * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
+
 /**
   * Field Trl Entity
+  * @param fieldId Field ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -35,7 +37,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class FieldTrl (language: String,
+case class FieldTrl (fieldId: Int,
+                     language: String,
                      tenantId: Int,
                      organizationId: Int,
                      isActive: Boolean = true,
@@ -66,7 +69,8 @@ case class FieldTrl (language: String,
 object FieldTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[FieldTrl]
 
-  def create(language: String,
+  def create(fieldId: Int,
+             language: String,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -78,6 +82,6 @@ object FieldTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = FieldTrl(language, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = FieldTrl(fieldId, language, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, uuid)
 }

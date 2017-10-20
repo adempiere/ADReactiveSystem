@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param description Description
   * @param isSummary Is Summary
-  * @param isSoTrx Is So Trx
+  * @param isSOTrx Is So Trx
   * @param isReadOnly Is Read Only
   * @param action Action
   * @param windowId Window ID
@@ -59,7 +59,7 @@ case class Menu(menuId: Int,
                 updatedBy: Int,
                 description: Option[String],
                 isSummary: Boolean = false,
-                isSoTrx: Boolean = true,
+                isSOTrx: Boolean = true,
                 isReadOnly: Boolean = false,
                 action: Option[Boolean],
                 windowId: Option[Int],
@@ -100,7 +100,7 @@ object Menu {
              updatedBy: Int,
              description: String,
              isSummary: Boolean,
-             isSoTrx: Boolean,
+             isSOTrx: Boolean,
              isReadOnly: Boolean,
              action: Boolean,
              windowId: Int,
@@ -113,6 +113,6 @@ object Menu {
              isCentrallyMaintained: Boolean,
              browseId: Int,
              uuid: String) = Menu (menuId, tenantId, organizationId, isActive, created, createdBy, updated,
-    name, updatedBy,None, isSummary, isSoTrx, isReadOnly, None, None, None, None, None, None,
+    name, updatedBy,None, isSummary, isSOTrx, isReadOnly, None, None, None, None, None, None,
     None, entityType, isCentrallyMaintained, None, uuid)
 }

@@ -32,7 +32,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param imageUrl Image URL
+  * @param imageURL Image URL
   * @param binaryData Binary Data
   * @param entityType Entity Type
   * @param description Description
@@ -48,7 +48,7 @@ case class Image (imageId: Int,
                   updated: DateTime =  DateTime.now,
                   updatedBy: Int,
                   name: String,
-                  imageUrl: Option[String],
+                  imageURL: Option[String],
                   binaryData: String,
                   entityType: String,
                   description: Option[String],
@@ -79,7 +79,7 @@ object Image {
              updated: DateTime,
              updatedBy: Int,
              name: String,
-             imageUrl: String,
+             imageURL: String,
              binaryData: String,
              entityType: String,
              description: String,

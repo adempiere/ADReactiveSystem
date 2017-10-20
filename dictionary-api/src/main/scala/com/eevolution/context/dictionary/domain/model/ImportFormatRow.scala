@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param importFormatId Imp Format Id
   * @param seqNo Seq No
   * @param name Name
-  * @param columnId Column ID
+  * @param attributeId Column ID
   * @param startNo Start No
   * @param endNo End No
   * @param dataType Data Type
@@ -56,7 +56,7 @@ case class ImportFormatRow(importFormatRowId: Int,
                            importFormatId: Int,
                            seqNo: Int,
                            name: String,
-                           columnId: String,
+                           attributeId: String,
                            startNo: Option[Int],
                            endNo: Option[Int],
                            dataType: Boolean,
@@ -87,7 +87,7 @@ case class ImportFormatRow(importFormatRowId: Int,
 object ImportFormatRow {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ImportFormatRow]
 
-  def create(impportFormatRowId: Int,
+  def create(importFormatRowId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -98,7 +98,7 @@ object ImportFormatRow {
              importFormatId: Int,
              seqNo: Int,
              name: String,
-             columnId: String,
+             attributeId: String,
              startNo: Int,
              endNo: Int,
              dataType: Boolean,
@@ -109,7 +109,7 @@ object ImportFormatRow {
              callout: String,
              script: String,
              defaultValue: String,
-             uuid: String) = ImportFormatRow(impportFormatRowId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, importFormatId, seqNo, name, columnId, None, None, dataType, None, decimalPoint, divideBy100,
+             uuid: String) = ImportFormatRow(importFormatRowId, tenantId, organizationId, isActive, created, createdBy,
+    updated, updatedBy, importFormatId, seqNo, name, attributeId, None, None, dataType, None, decimalPoint, divideBy100,
     None, None, None, None, uuid)
 }

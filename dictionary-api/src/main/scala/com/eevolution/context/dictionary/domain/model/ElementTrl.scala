@@ -23,7 +23,7 @@ import org.joda.time.DateTime
 /**
   * Element TRL Entity
   * @param elementId Element ID
-  * @param languageId Language ID
+  * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -45,7 +45,7 @@ import org.joda.time.DateTime
 
 
 case class ElementTrl(elementId: Int,
-                      languageId: String,
+                      language: String,
                       tenantId: Int,
                       organizationId: Int,
                       isActive: Boolean = true,
@@ -82,7 +82,7 @@ case class ElementTrl(elementId: Int,
 object ElementTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[ElementTrl]
   def create(elementId: Int,
-             languageId: String,
+             language: String,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -99,6 +99,6 @@ object ElementTrl {
              descriptionPO: String,
              helpPO: String,
              isTranslated: Boolean,
-             uuid: String) = ElementTrl(elementId, languageId, tenantId, organizationId, isActive, created,
+             uuid: String) = ElementTrl(elementId, language, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, None, None, None, None, None, None, None, isTranslated, uuid)
 }

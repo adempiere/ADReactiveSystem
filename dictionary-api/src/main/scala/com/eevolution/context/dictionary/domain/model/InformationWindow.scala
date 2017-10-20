@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param name Name
   * @param description Description
   * @param help Help
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param entityType Entity Type
   * @param fromClause From Clause
   * @param otherClause Other Clause
@@ -52,7 +52,7 @@ case class InformationWindow(infoWindowId: Int,
                              name: String,
                              description: Option[String],
                              help: Option[String],
-                             tableId: Int,
+                             entityId: Int,
                              entityType: String = "D",
                              fromClause: String,
                              otherClause: Option[String],
@@ -86,12 +86,12 @@ object InformationWindow  {
              name: String,
              description: String,
              help: String,
-             tableId: Int,
+             entityId: Int,
              entityType: String,
              fromClause: String,
              otherClause: String,
              processing: Boolean,
              uuid: String) = InformationWindow(infoWindowId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, None, tableId, entityType, fromClause, None, None, uuid)
+    createdBy, updated, updatedBy, name, None, None, entityId, entityType, fromClause, None, None, uuid)
 }
 

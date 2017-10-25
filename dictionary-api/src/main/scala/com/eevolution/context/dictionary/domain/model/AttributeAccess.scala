@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param isReadOnly Is Read Only
   * @param isExclude Is Exclude
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param uuid UUID
   */
 
@@ -48,7 +48,7 @@ case class AttributeAccess(attributeId: Int,
                            updatedBy: Int,
                            isReadOnly: Boolean = false,
                            isExclude: Boolean = true,
-                           tableId: Option[Int],
+                           entityId: Option[Int],
                            uuid: String
                        ) extends DomainModel
 
@@ -78,7 +78,7 @@ object AttributeAccess {
              updatedBy: Int,
              isReadOnly: Boolean,
              isExclude: Boolean,
-             tableId: Int,
+             entityId: Int,
              uuid: String) = AttributeAccess (attributeId, roleId, tenantId, organizationId,isActive,created,
     createdBy, updated, updatedBy, isReadOnly, isExclude, None, uuid)
 }

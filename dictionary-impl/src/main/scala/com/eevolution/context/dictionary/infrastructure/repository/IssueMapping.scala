@@ -37,7 +37,7 @@ trait IssueMapping {
       _.releaseNo-> "ReleaseNo",
       _.version-> "Version",
       _.name-> "Name",
-      _.username-> "UserName",
+      _.userName-> "UserName",
       _.supportEmail-> "SupportEmail",
       _.dbAddress-> "DBAddress",
       _.localHost-> "Local_Host",

@@ -31,7 +31,7 @@ import org.joda.time.DateTime
   * @param created Created
   * @param createdBy Created By
   * @param entityType Entity Type
-  * @param exportXml Export XML
+  * @param exportXML Export XML
   * @param isActive is Active
   * @param name Name
   * @param releaseNo Release No
@@ -52,7 +52,7 @@ case class Migration(migrationId: Int,
                      created: DateTime =  DateTime.now,
                      createdBy: Int,
                      entityType: String,
-                     exportXml: Option[Boolean],
+                     exportXML: Option[Boolean],
                      isActive: Boolean = true,
                      name: String,
                      releaseNo: Option[String],
@@ -88,7 +88,7 @@ object Migration  {
              created: DateTime,
              createdBy: Int,
              entityType: String,
-             exportXml: Boolean,
+             exportXML: Boolean,
              isActive: Boolean,
              name: String,
              releaseNo: String,

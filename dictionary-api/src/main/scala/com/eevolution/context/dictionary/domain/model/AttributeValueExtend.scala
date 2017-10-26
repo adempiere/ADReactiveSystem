@@ -20,7 +20,12 @@ import org.joda.time.DateTime
   */
 /**
   * Attribute Value Entity
-  * @param attributeValueExtendId Attribute Value Extend ID
+  * @param attributeId Is Attribute ID
+  * @param isActive Is Active
+  * @param created Created
+  * @param createdBy Created By
+  * @param updated Updated
+  * @param updatedBy Updated By
   * @param recordId Record ID
   * @param vNumber V Number
   * @param vDate V Date
@@ -28,8 +33,7 @@ import org.joda.time.DateTime
   * @param uuid UU ID
   */
 
-case class AttributeValueExtend(attributeValueExtendId: Int,
-                                attributeId: Int,
+case class AttributeValueExtend(attributeId: Int,
                                 isActive: Boolean,
                                 created: DateTime,
                                 createdBy: Int,
@@ -49,17 +53,16 @@ case class AttributeValueExtend(attributeValueExtendId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = attributeValueExtendId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_Attribute_Value"
-  override val identifier: String = "AD_Attribute_Value_ID"
+  override val identifier: String = null
 
 }
 
 object AttributeValueExtend {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AttributeValueExtend]
-  def create(attributeValueExtendId: Int,
-             attributeId: Int,
+  def create(attributeId: Int,
              isActive: Boolean,
              created: DateTime,
              createdBy: Int,
@@ -69,6 +72,6 @@ object AttributeValueExtend {
              vNumber: Int,
              vDate: DateTime,
              vString: String,
-             uuid: String) = AttributeValueExtend(attributeValueExtendId, attributeId, isActive, created, createdBy,
+             uuid: String) = AttributeValueExtend(attributeId, isActive, created, createdBy,
     updated, updatedBy, recordId, None, None, None, uuid)
 }

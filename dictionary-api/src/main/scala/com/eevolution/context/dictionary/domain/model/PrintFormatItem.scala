@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param seqNo Seq No
   * @param printFormatType Print Format Type
   * @param attributeId Attribute ID
-  * @param printFormatChildIs Print Format Child Is
+  * @param printFormatChildId Print Format Child ID
   * @param isRelativePosition Is Relative Position
   * @param isNextLine Is Next Line
   * @param xSpace X Space
@@ -102,7 +102,7 @@ case class PrintFormatItem (printFormatItemId: Int,
                             seqNo: Int,
                             printFormatType: Boolean,
                             attributeId: Option[Int],
-                            printFormatChildIs: Option[Int],
+                            printFormatChildId: Option[Int],
                             isRelativePosition: Boolean = true,
                             isNextLine: Boolean = true,
                             xSpace: Int,
@@ -184,7 +184,7 @@ object PrintFormatItem {
              seqNo: Int,
              printFormatType: Boolean,
              attributeId: Int,
-             printFormatChildIs: Int,
+             printFormatChildId: Int,
              isRelativePosition: Boolean,
              isNextLine: Boolean,
              xSpace: Int,

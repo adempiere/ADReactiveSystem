@@ -89,7 +89,7 @@ object MigrationStep  {
              tenantId: Int,
              organizationId: Int,
              migrationId: Int,
-             tableId: Int,
+             entityId: Int,
              action: Boolean,
              apply: Boolean,
              comments: String,

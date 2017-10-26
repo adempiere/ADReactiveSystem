@@ -67,7 +67,7 @@ object ReplicationOrganizationAccess  {
              tenantId: Int,
              organizationId: Int,
              replicationStrategyId: Int,
-             created : DateTime = DateTime.now,
+             created : DateTime,
              createdBy : Int ,
              isActive : Boolean,
              isReadOnly: Boolean,

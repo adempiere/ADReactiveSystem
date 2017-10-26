@@ -80,7 +80,7 @@ object Reference  {
              isActive : Boolean,
              created : DateTime,
              createdBy : Int ,
-             updated : DateTime = DateTime.now,
+             updated : DateTime,
              updatedBy :Int,
              name : String,
              description: String,

@@ -29,7 +29,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param username Username
+  * @param userName userName
   * @param info Info
   * @param version Version
   * @param releaseNo Release No
@@ -73,7 +73,7 @@ case class System (systemId: Int,
                    updated: DateTime = DateTime.now,
                    updatedBy: Int,
                    name: String,
-                   username: String,
+                   userName: String,
                    info: Option[String],
                    version: Option[String],
                    releaseNo: Option[String],
@@ -133,7 +133,7 @@ object System {
              updated: DateTime,
              updatedBy: Int,
              name: String,
-             username: String,
+             userName: String,
              info: String,
              version: String,
              releaseNo: String,
@@ -166,7 +166,7 @@ object System {
              lastBuiltInfo: String,
              isFailOnBuildDiffer: Boolean,
              uuid: String) = System(systemId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, username, None, None, None, None, None, replicationType, None, None, None, None, isJustMigrate,
+    updatedBy, name, userName, None, None, None, None, None, replicationType, None, None, None, None, isJustMigrate,
     None, None, None, None, None, None, isAutoErrorReport, None, None, None, None, isAllowStatistics, None, None, None,
     None, systemStatus, isFailOnMissingModelValidator, None, isFailOnBuildDiffer, uuid)
 }

@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param releaseNo release No
   * @param version Version
   * @param name Name
-  * @param username Username
+  * @param userName User Name
   * @param supportEmail Support Email
   * @param dbAddress DB Address
   * @param localHost Local Host
@@ -85,7 +85,7 @@ case class Issue(issueId: Int,
                  releaseNo: String,
                  version: String,
                  name: String,
-                 username: String,
+                 userName: String,
                  supportEmail: Option[String],
                  dbAddress: Option[String],
                  localHost: Option[String],
@@ -152,7 +152,7 @@ object Issue  {
              releaseNo: String,
              version: String,
              name: String,
-             username: String,
+             userName: String,
              supportEmail: String,
              dbAddress: String,
              localHost: String,
@@ -191,7 +191,7 @@ object Issue  {
              processId: Int,
              formId: Int,
              uuid: String) = Issue(issueId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
-    releaseNo, version, name, username, None, None, None, None, None, None, None, None, None, issueSummary, None, None,
+    releaseNo, version, name, userName, None, None, None, None, None, None, None, None, None, issueSummary, None, None,
     None, None, lineNo, None, None, None, None, None, None, None, None, processed, isVanillaSystem, isReproducible,
     None, None, None, systemStatus, None, None, None, None, None, None, None, uuid)
 }

@@ -113,7 +113,7 @@ object PackageExportCommon {
              updated: DateTime,
              updatedBy: Int,
              formId: Int,
-             impFormatId: Int,
+             importFormatId: Int,
              reportViewId: Int,
              entityId: Int,
              workbenchId: Int,
@@ -126,7 +126,7 @@ object PackageExportCommon {
              fileName: String,
              destinationDirectory: String,
              description: String,
-             typePackage: String, // Cambiamos Type a TypePackage
+             typePackage: String,
              targetDirectory: String,
              sqlStatement: String,
              processing: Boolean,

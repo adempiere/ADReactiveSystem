@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.addthis.metrics:reporter-config-base:3.0.0:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.addthis.metrics/reporter-config-base/jars/reporter-config-base-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.addthis.metrics/reporter-config-base/srcs/reporter-config-base-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

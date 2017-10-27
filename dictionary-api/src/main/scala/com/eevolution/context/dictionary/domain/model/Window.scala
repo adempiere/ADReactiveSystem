@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param description Description
   * @param help Help
   * @param windowType Window Type
-  * @param isSotRx Is Sort Rx
+  * @param isSOTrx Is SO Trx
   * @param entityType Entity Type
   * @param processing Processing
   * @param imageId Image ID
@@ -58,7 +58,7 @@ case class Window(windowId: Int,
                   description: Option[String],
                   help: Option[String],
                   windowType: Option[Boolean],
-                  isSotRx: Boolean = true,
+                  isSOTrx: Boolean = true,
                   entityType: String = "D",
                   processing: Option[Boolean],
                   imageId: Option[Int],
@@ -97,7 +97,7 @@ object Window {
              description: String,
              help: String,
              windowType: Boolean,
-             isSotRx: Boolean,
+             isSOTrx: Boolean,
              entityType: String,
              processing: Boolean,
              imageId: Int,
@@ -107,6 +107,6 @@ object Window {
              winWidth: Int,
              isBetaFunctionality: Boolean,
              uuid: String) = Window(windowId, tenantId, organizationId, isActive, created, createdBy, updated,
-    updatedBy, name, None, None, None, isSotRx, entityType, None, None, None, isDefault,
+    updatedBy, name, None, None, None, isSOTrx, entityType, None, None, None, isDefault,
     None, None, isBetaFunctionality, uuid)
 }

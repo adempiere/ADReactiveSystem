@@ -35,25 +35,25 @@ import org.joda.time.DateTime
   * @param value Value
   * @param name Name
   * @param description Description
-  * @param smTpHost Sm Tp Host
+  * @param smtpHost Sm Tp Host
   * @param requestEmail Request Email
   * @param requestUser Request User
   * @param requestUserPW Request User Pw
   * @param requestFolder Request Folder
   * @param language Language
   * @param isMultilingualDocument Is Multilingual Document
-  * @param isSmTpAuthorization Is Sm Tp Authorization
+  * @param isSMTPAuthorization Is Sm Tp Authorization
   * @param isUseBetaFunctions Is Use Beta Functions
-  * @param LDAPQuery LDAP Query
+  * @param ldapQuery LDAP Query
   * @param modelValidationClasses modelValidationClasses
   * @param isAutoArchive Is Auto Archive
-  * @param MMPolicy MM Policy
+  * @param mmPolicy MM Policy
   * @param emailTest Email Test
   * @param isServerEmail Is Server Email
   * @param documentDir Document Dir
   * @param isPostImmediate Is Post Immediate
   * @param isCostImmediate Is Cost Immediate
-  * @param IsStoreAttachmentsOnFileSystem Is Store Attachment On File System
+  * @param isStoreAttachmentsOnFileSystem Is Store Attachments On File System
   * @param windowsAttachmentPath Window Attachment Path
   * @param unixAttachmentPath Unix Attachment Path
   * @param isStoreArchiveOnFileSystem Is Store Archive On File System
@@ -73,25 +73,25 @@ case class Tenant(tenantId: Int,
                   value : String ,
                   name: String,
                   description: Option[String],
-                  smTpHost : Option[String] ,
+                  smtpHost : Option[String] ,
                   requestEmail : Option[String] ,
                   requestUser : Option[String] ,
                   requestUserPW : Option[String] ,
                   requestFolder : Option[String] ,
                   language : Option[String] ,
                   isMultilingualDocument : Boolean = false ,
-                  isSmTpAuthorization : Boolean = false ,
+                  isSMTPAuthorization : Boolean = false ,
                   isUseBetaFunctions : Boolean =  false ,
-                  LDAPQuery : Option[String] ,
+                  ldapQuery : Option[String] ,
                   modelValidationClasses : Option[String] ,
                   isAutoArchive : Boolean = false ,
-                  MMPolicy : String = "F" ,
+                  mmPolicy : String = "F" ,
                   emailTest : Option[String] ,
                   isServerEmail : Boolean = false ,
                   documentDir : Option[String] ,
                   isPostImmediate : Boolean =  false ,
                   isCostImmediate : Boolean =  false ,
-                  IsStoreAttachmentsOnFileSystem : Boolean = false ,
+                  isStoreAttachmentsOnFileSystem : Boolean = false ,
                   windowsAttachmentPath : Option[String] ,
                   unixAttachmentPath : Option[String] ,
                   isStoreArchiveOnFileSystem : Boolean = false ,
@@ -118,7 +118,7 @@ case class Tenant(tenantId: Int,
 
 object Tenant  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[Tenant]
-  def create(clientId: Int,
+  def create(tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
              created: DateTime,
@@ -128,36 +128,36 @@ object Tenant  {
              value: String,
              name: String,
              description:String,
-             smTpHost: String,
+             smtpHost: String,
              requestEmail: String,
              requestUser: String,
-             requestUserPw: String,
+             requestUserPW: String,
              requestFolder: String,
              language: String,
              isMultilingualDocument: Boolean,
-             isSmTpAuthorization: Boolean,
+             isSMTPAuthorization: Boolean,
              isUseBetaFunctions: Boolean,
              ldapQuery: String,
              modelValidationClasses: String,
-             autoArchive: Boolean,
+             isAutoArchive: Boolean,
              mmPolicy: String,
              emailTest: Boolean,
              isServerEmail: Boolean,
              documentDir: String,
              isPostImmediate: Boolean,
              isCostImmediate: Boolean,
-             storeAttachmentSonFileSystem: Boolean,
+             isStoreAttachmentsOnFileSystem: Boolean,
              windowsAttachmentPath: String,
              unixAttachmentPath: String,
              storeArchiveOnFileSystem: Boolean,
              windowsArchivePath: String,
              unixArchivePath: String,
-             isUseAsp: Boolean,
+             isUseASP: Boolean,
              replicationStrategyId: Int,
              emailConfigId: Int,
-             uuid: String) = Tenant(clientId, organizationId, isActive, created, createdBy, updated, updatedBy, value,
-    name, None, None, None, None, None, None, None, isMultilingualDocument, isSmTpAuthorization,
-    isUseBetaFunctions, None, None, autoArchive, mmPolicy, None, isServerEmail, None,
-    isPostImmediate, isCostImmediate, storeAttachmentSonFileSystem, None, None,
-    storeArchiveOnFileSystem, None, None, isUseAsp, None, None, uuid)
+             uuid: String) = Tenant(tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, value,
+    name, None, None, None, None, None, None, None, isMultilingualDocument, isSMTPAuthorization,
+    isUseBetaFunctions, None, None, isAutoArchive, mmPolicy, None, isServerEmail, None,
+    isPostImmediate, isCostImmediate, isStoreAttachmentsOnFileSystem, None, None,
+    storeArchiveOnFileSystem, None, None, isUseASP, None, None, uuid)
 }

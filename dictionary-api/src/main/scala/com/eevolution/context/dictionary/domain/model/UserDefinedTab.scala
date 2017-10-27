@@ -84,7 +84,7 @@ object UserDefinedTab  {
              createdBy : Int,
              updated : DateTime,
              updatedBy : Int,
-             userDefiendWindowId: Int,
+             userDefinedWindowId: Int,
              tabId: Int,
              isMultiRowOnly: Boolean,
              name: String,
@@ -93,7 +93,7 @@ object UserDefinedTab  {
              isReadOnly: Boolean,
              isSingleRow: Boolean,
              uuid: String) = UserDefinedTab(userDefinedTabId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, userDefiendWindowId, tabId, isMultiRowOnly, name, None, None, isReadOnly,
+    createdBy, updated, updatedBy, userDefinedWindowId, tabId, isMultiRowOnly, name, None, None, isReadOnly,
     isSingleRow, uuid)
 }
 

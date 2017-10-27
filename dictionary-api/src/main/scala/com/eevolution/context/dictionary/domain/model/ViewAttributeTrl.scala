@@ -21,40 +21,36 @@ import org.joda.time.DateTime
   */
 
 /**
-  * User Query Entity
-  * @param userQueryId User Query ID
+  * View Attribute Trl Entity
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param isActive Is Active
   * @param created Created
   * @param createdBy Created By
+  * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param name Name
+  * @param viewAttributeId View Attribute ID
+  * @param language Language
   * @param description Description
-  * @param userId User ID
-  * @param entityId Entity ID
-  * @param code Code
-  * @param tabId Tab ID
+  * @param help Help
+  * @param isTranslated Is Translated
   * @param uuid UUID
   */
 
-case class UserQuery(userQueryId: Int,
-                     tenantId: Int,
-                     organizationId: Int,
-                     isActive: Boolean = true,
-                     created: DateTime = DateTime.now,
-                     createdBy: Int,
-                     updated: DateTime = DateTime.now,
-                     updatedBy: Int,
-                     name: String,
-                     description: Option[String],
-                     userId: Option[Int],
-                     entityId: Int,
-                     code: Option[String],
-                     tabId: Option[Int],
-                     uuid: String
-                    ) extends DomainModel
+case class ViewAttributeTrl(tenantId: Int,
+                            organizationId: Int,
+                            created: DateTime = DateTime.now,
+                            createdBy: Int,
+                            isActive: Boolean,
+                            updated: DateTime = DateTime.now,
+                            updatedBy: Int,
+                            viewAttributeId: Int,
+                            language: String,
+                            description: Option[String],
+                            help: Option[String],
+                            isTranslated: Boolean,
+                            uuid: String
+                        ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -63,28 +59,27 @@ case class UserQuery(userQueryId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = userQueryId
+  override def Id: Int = 0
 
-  override val entityName: String = "AD_UserQuery"
-  override val identifier: String = "AD_UserQuery_ID"
+  override val entityName: String = "AD_View_Column_Trl"
+  override val identifier: String = null
 }
 
-object UserQuery  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[UserQuery]
-  def create(userQueryId: Int,
-             tenantId: Int,
+object ViewAttributeTrl  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewAttributeTrl]
+  def create(tenantId: Int,
              organizationId: Int,
-             isActive: Boolean,
              created: DateTime,
              createdBy: Int,
+             isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             name: String,
+             viewAttributeId: Int,
+             language: String,
              description: String,
-             userId: Int,
-             entityId: Int,
-             code: String,
-             tabId: Int,
-             uuid: String) = UserQuery(userQueryId, tenantId, organizationId, isActive, created, createdBy,
-    updated, updatedBy, name, None, None, entityId, None, None, uuid)
+             help: String,
+             isTranslated: Boolean,
+             uuid: String) = ViewAttributeTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
+    viewAttributeId, language, None, None, isTranslated, uuid)
 }
+

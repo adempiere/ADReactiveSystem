@@ -21,7 +21,8 @@ import org.joda.time.DateTime
   */
 
 /**
-  * View Column Trl Entity
+  * View Attribute Entity
+  * @param viewAttributeId View Attribute ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param created Created
@@ -29,28 +30,37 @@ import org.joda.time.DateTime
   * @param isActive Is Active
   * @param updated Updated
   * @param updatedBy Updated By
-  * @param viewColumnId View Column ID
-  * @param language Language
+  * @param viewDefinitionId View Definition ID
   * @param description Description
+  * @param entityType Entity Type
   * @param help Help
-  * @param isTranslated Is Translated
+  * @param name Name
+  * @param attributeSQL Attribute SQL
+  * @param attributeName Attribute Name
+  * @param viewId View ID
+  * @param attributeId Attribute ID
   * @param uuid UUID
   */
 
-case class ViewColumnTrl(tenantId: Int,
-                         organizationId: Int,
+case class ViewAttribute(viewAttributeId: Int,
+                         tenantId: Int,
+                         organizationId : Int,
                          created: DateTime = DateTime.now,
                          createdBy: Int,
                          isActive: Boolean,
                          updated: DateTime = DateTime.now,
                          updatedBy: Int,
-                         viewColumnId: Int,
-                         language: String,
+                         viewDefinitionId: Option[Int],
                          description: Option[String],
+                         entityType: String =  "D",
                          help: Option[String],
-                         isTranslated: Boolean,
+                         name: String,
+                         attributeSQL: Option[String],
+                         attributeName: Option[String],
+                         viewId: Option[Int],
+                         attributeId: Option[Int],
                          uuid: String
-                        ) extends DomainModel
+                     ) extends DomainModel
 
   with ActiveEnabled
   with Identifiable
@@ -59,27 +69,32 @@ case class ViewColumnTrl(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = viewAttributeId
 
-  override val entityName: String = "AD_View_Column_Trl"
-  override val identifier: String = null
+  override val entityName: String = "AD_View_Column"
+  override val identifier: String = "AD_View_Column_ID"
 }
 
-object ViewColumnTrl  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewColumnTrl]
-  def create(tenantId: Int,
-             organizationId: Int,
+object ViewAttribute  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ViewAttribute]
+  def create(viewAttributeId: Int,
+             tenantId: Int,
+             organizationId : Int ,
              created: DateTime,
              createdBy: Int,
              isActive: Boolean,
              updated: DateTime,
              updatedBy: Int,
-             viewColumnId: Int,
-             language: String,
+             viewDefinitionId: Int,
              description: String,
+             entityType: String,
              help: String,
-             isTranslated: Boolean,
-             uuid: String) = ViewColumnTrl(tenantId, organizationId, created, createdBy, isActive, updated, updatedBy,
-    viewColumnId, language, None, None, isTranslated, uuid)
+             name: String,
+             attributeSQL: String,
+             attributeName: String,
+             viewId: Int,
+             attributeId: Int,
+             uuid: String) = ViewAttribute(viewAttributeId,  tenantId, organizationId, created, createdBy,
+    isActive, updated, updatedBy, None, None, entityType, None, name, None, None, None, None, uuid)
 }
 

@@ -51,16 +51,16 @@ import org.joda.time.DateTime
   * @param processing Processing
   * @param imageId Image ID
   * @param importFields Import Fields
-  * @param columnORTOrderId Column ORT Order ID
-  * @param columnORTYesNoId Column ORT Yes No ID
-  * @param isORTTab Is ORT Tab
+  * @param attributeSortOrderId Attribute Sort Order ID
+  * @param attributeSortYesNoId Attribute Sort Yes No ID
+  * @param isSortTab Is Sort Tab
   * @param entityType Entity Type
   * @param includedTabId Included Tab ID
   * @param readOnlyLogic Read Only Logic
   * @param displayLogic Display Logic
   * @param isInsertRecord Is Insert Record
   * @param isAdvancedTab Is Advanced Tab
-  * @param parentColumnId Parent Column ID
+  * @param parentAttributeId Parent Attribute ID
   * @param uuid UUID
   */
 
@@ -92,16 +92,16 @@ case class Tab(tabId: Int,
                processing: Option[String],
                imageId: Option[Int],
                importFields: Option[Boolean],
-               columnORTOrderId: Option[Int],
-               columnORTYesNoId: Option[Int],
-               isORTTab: Boolean = false,
+               attributeSortOrderId: Option[Int],
+               attributeSortYesNoId: Option[Int],
+               isSortTab: Boolean = false,
                entityType: String = "D",
                includedTabId: Option[Int],
                readOnlyLogic: Option[String],
                displayLogic: Option[String],
                isInsertRecord: Boolean = true,
                isAdvancedTab: Boolean = false,
-               parentColumnId: Option[Int],
+               parentAttributeId: Option[Int],
                uuid: String
               ) extends DomainModel
 
@@ -148,19 +148,19 @@ object Tab  {
              processing: String,
              imageId: Int,
              importFields: Boolean,
-             columnORTOrderId: Int,
-             columnORTYesNoId: Int,
-             isORTTab: Boolean,
+             attributeSortOrderId: Int,
+             attributeSortYesNoId: Int,
+             isSortTab: Boolean,
              entityType: String ,
              includedTabId: Int,
              readOnlyLogic: String,
              displayLogic: String,
              isInsertRecord: Boolean ,
              isAdvancedTab: Boolean,
-             parentColumnId: Int,
+             parentAttributeId: Int,
              uuid: String ) = Tab(tabId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, entityId, windowId, seqNo, tabLevel, isSingleRow, isInfoTab, isTranslationTab,
-    isReadOnly, None, hasTree, None, None, None, None, None, None, None, None, None, isORTTab, entityType,
+    isReadOnly, None, hasTree, None, None, None, None, None, None, None, None, None, isSortTab, entityType,
     None, None, None, isInsertRecord, isAdvancedTab, None, uuid)
 }
 

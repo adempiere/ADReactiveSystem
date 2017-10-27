@@ -32,8 +32,8 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param viewId View ID
   * @param seqNo Seq No
-  * @param tableId Table ID
-  * @param tableAlias Table Alias
+  * @param entityId Entity ID
+  * @param entityAlias Entity Alias
   * @param joinClause Join Clause
   * @param processing Processing
   * @param uuid UUID
@@ -49,8 +49,8 @@ case class ViewDefinition(viewDefinitionId: Int,
                           updatedBy: Int,
                           viewId: Option[Int],
                           seqNo: Option[Int],
-                          tableId: Option[Int],
-                          tableAlias: String,
+                          entityId: Option[Int],
+                          entityAlias: String,
                           joinClause: Option[String],
                           processing: Option[Boolean],
                           uuid: String
@@ -81,10 +81,10 @@ object ViewDefinition  {
              updatedBy: Int,
              viewId: Int,
              seqNo: Int,
-             tableId: Int,
-             tableAlias: String,
+             entityId: Int,
+             entityAlias: String,
              joinClause: String,
              processing: Boolean,
              uuid: String) = ViewDefinition(viewDefinitionId, tenantId, organizationId, created, createdBy,
-    isActive, updated, updatedBy, None, None, None, tableAlias, None, None, uuid)
+    isActive, updated, updatedBy, None, None, None, entityAlias, None, None, uuid)
 }

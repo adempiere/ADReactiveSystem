@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param name Name
   * @param description Description
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param shareType Share Type
   * @param uuid UUID
   */
@@ -48,7 +48,7 @@ case class TenantShare(tenantShareId: Int,
                        updatedBy: Int,
                        name: String,
                        description: Option[String],
-                       tableId: Int,
+                       entityId: Int,
                        shareType: Boolean,
                        uuid: String
                       ) extends DomainModel
@@ -78,10 +78,10 @@ object TenantShare  {
              updatedBy: Int,
              name: String,
              description: String,
-             tableId: Int,
+             entityId: Int,
              shareType: Boolean,
              uuid: String) = TenantShare(tenantShareId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy,
-    name, None, tableId, shareType, uuid)
+    name, None, entityId, shareType, uuid)
 }
 
 

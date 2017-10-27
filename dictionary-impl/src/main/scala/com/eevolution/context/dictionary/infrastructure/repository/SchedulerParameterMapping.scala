@@ -1,6 +1,6 @@
 package com.eevolution.context.dictionary.infrastructure.repository
 
-import com.eevolution.context.dictionary.domain.model.SchedulerLog
+import com.eevolution.context.dictionary.domain.model.SchedulerParameter
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 
 /**
@@ -20,13 +20,13 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 /**
-  * Scheduler Log Mapping
+  * Scheduler Parameter Mapping
   */
-trait SchedulerLogMapping  {
-  val querySchedulerLog = quote {
-    querySchema[SchedulerLog]("AD_SchedulerLog",
+trait SchedulerParameterMapping  {
+  val querySchedulerParameter = quote {
+    querySchema[SchedulerParameter]("AD_Scheduler_Para",
       _.schedulerId -> "AD_Scheduler_ID",
-      _.schedulerLogId -> "AD_SchedulerLog_ID",
+      _.processParameterId -> "AD_process_Para_ID",
       _.tenantId -> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",
       _.isActive -> "IsActive",
@@ -34,12 +34,8 @@ trait SchedulerLogMapping  {
       _.createdBy -> "CreatedBy",
       _.updated -> "Updated",
       _.updatedBy -> "UpdatedBy",
-      _.isError -> "IsError",
-      _.summary -> "Summary",
-      _.reference -> "Reference",
+      _.parameterDefault -> "ParameterDefault",
       _.description -> "Description",
-      _.textMsg -> "TextMsg",
-      _.binaryData -> "BinaryData",
       _.uuid -> "UUID")
   }
 }

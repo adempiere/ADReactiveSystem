@@ -1,6 +1,6 @@
 package com.eevolution.context.dictionary.infrastructure.repository
 
-import com.eevolution.context.dictionary.domain.model.SchedulerLog
+import com.eevolution.context.dictionary.domain.model.SchedulerRecipient
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 
 /**
@@ -20,13 +20,12 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 /**
-  * Scheduler Log Mapping
+  * Scheduler Recipient Mapping
   */
-trait SchedulerLogMapping  {
-  val querySchedulerLog = quote {
-    querySchema[SchedulerLog]("AD_SchedulerLog",
-      _.schedulerId -> "AD_Scheduler_ID",
-      _.schedulerLogId -> "AD_SchedulerLog_ID",
+trait SchedulerRecipientMapping  {
+  val querySchedulerRecipient = quote {
+    querySchema[SchedulerRecipient]("AD_Scheduler",
+      _.schedulerRecipientId -> "AD_Scheduler_ID",
       _.tenantId -> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",
       _.isActive -> "IsActive",
@@ -34,12 +33,9 @@ trait SchedulerLogMapping  {
       _.createdBy -> "CreatedBy",
       _.updated -> "Updated",
       _.updatedBy -> "UpdatedBy",
-      _.isError -> "IsError",
-      _.summary -> "Summary",
-      _.reference -> "Reference",
-      _.description -> "Description",
-      _.textMsg -> "TextMsg",
-      _.binaryData -> "BinaryData",
+      _.schedulerId -> "AD_Scheduler_ID",
+      _.userId -> "AD_User_ID",
+      _.roleId -> "AD_Role_ID",
       _.uuid -> "UUID")
   }
 }

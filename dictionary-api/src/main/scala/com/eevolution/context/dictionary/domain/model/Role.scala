@@ -48,7 +48,7 @@ import org.joda.time.DateTime
   * @param isAccessAllOrgs Is Access All Organizations
   * @param isChangeLog Is Change Log
   * @param preferenceType Preference Type
-  * @param isOverwritePriceLimit Is Over Write price Limit
+  * @param overwritePriceLimit Is Overwrite price Limit
   * @param isUseUserOrgAccess Is User User Organization Access
   * @param treeOrgId Tree Organization ID
   * @param confirmQueryRecords Confirm Query Records
@@ -101,7 +101,7 @@ case class Role(roleId: Int,
                 isAccessAllOrgs : Boolean = false ,
                 isChangeLog : Boolean = false ,
                 preferenceType : String = "C",
-                isOverwritePriceLimit : Boolean = false ,
+                overwritePriceLimit : Boolean = false ,
                 isUseUserOrgAccess : Boolean =  false ,
                 treeOrgId : Option [Int],
                 confirmQueryRecords : Int = 0 ,
@@ -169,7 +169,7 @@ object Role  {
              isAccessAllOrgs : Boolean,
              isChangeLog : Boolean,
              preferenceType : String,
-             isOverwritePriceLimit : Boolean,
+             overwritePriceLimit : Boolean,
              isUseUserOrgAccess : Boolean,
              treeOrgId : Int,
              confirmQueryRecords : Int,
@@ -197,7 +197,7 @@ object Role  {
              uuid: String) = Role(roleId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, userLevel, None, None, None, isManual, isShowAcct, isPersonalLock, isPersonalAccess,
     isCanExport, isCanReport, None, isCanApproveOwnDoc, isAccessAllOrgs, isChangeLog, preferenceType,
-    isOverwritePriceLimit, isUseUserOrgAccess, None, confirmQueryRecords, maxQueryRecords, None,
+    overwritePriceLimit, isUseUserOrgAccess, None, confirmQueryRecords, maxQueryRecords, None,
     allowInfoAccount, allowInfoAsset, allowInfoBPartner, allowInfoCashJournal, allowInfoInOut, allowInfoInvoice,
     allowInfoOrder, allowInfoPayment, allowInfoProduct, allowInfoResource, allowInfoSchedule,
     None, allowInfoMRP, allowInfoCRP, isDiscountUpToLimitPrice, isDiscountAllowedOnTotal, allowHTMLView,

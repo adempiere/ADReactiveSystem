@@ -30,7 +30,7 @@ import org.joda.time.DateTime
   * @param updatedBy Updated By
   * @param reportViewId Report View ID
   * @param attributeId Attribute ID
-  * @param functionAttributeId Function Attribute ID
+  * @param functionAttribute Function Attribute
   * @param isGroupFunction Is Group Function
   * @param uuid UUID
   */
@@ -45,7 +45,7 @@ case class ReportViewAttribute (reportViewAttributeId: Int,
                                 updatedBy : Int,
                                 reportViewId: Int,
                                 attributeId: Option[Int],
-                                functionAttributeId: Option[String],
+                                functionAttribute: Option[String],
                                 isGroupFunction: Boolean = false,
                                 uuid: String
                                ) extends DomainModel
@@ -68,15 +68,15 @@ object ReportViewAttribute  {
   def create(reportViewAttributeId: Int,
              tenantId: Int,
              organizationId: Int,
-             isActive : Boolean = true,
-             created : DateTime = DateTime.now,
+             isActive : Boolean,
+             created : DateTime,
              createdBy : Int ,
-             updated : DateTime = DateTime.now,
+             updated : DateTime,
              updatedBy : Int,
              reportViewId: Int,
-             attributeId: Option[Int],
-             functionAttributeId: Option[String],
-             isGroupFunction: Boolean = false,
+             attributeId: Int,
+             functionAttribute: String,
+             isGroupFunction: Boolean,
              uuid: String) = ReportViewAttribute(reportViewAttributeId, tenantId, organizationId, isActive,
     created, createdBy, updated, updatedBy, reportViewId, None, None,isGroupFunction, uuid)
 }

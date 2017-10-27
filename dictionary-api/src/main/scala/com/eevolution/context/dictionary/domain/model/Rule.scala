@@ -90,7 +90,7 @@ object Rule  {
              isActive : Boolean,
              name: String,
              ruleType : String,
-             updated : DateTime = DateTime.now,
+             updated : DateTime,
              updatedBy :Int,
              value: String,
              script : String,

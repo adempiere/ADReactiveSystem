@@ -62,7 +62,7 @@ case class PrintFont (printFontId: Int,
 
 object PrintFont {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrintFont]
-  def create(printColorId: Int,
+  def create(printFontId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -73,6 +73,6 @@ object PrintFont {
              name: String,
              isDefault: Boolean,
              code: String,
-             uuid: String) = PrintFont(printColorId, tenantId, organizationId, isActive, created, createdBy, updated,
+             uuid: String) = PrintFont(printFontId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, isDefault, code, uuid)
 }

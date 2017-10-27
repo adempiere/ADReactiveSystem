@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param replicationRunId Replication Run ID
   * @param replicationTableId Replication Table ID
   * @param message Message
-  * @param isReplication Is Replication
+  * @param isReplicated Is Replicated
   * @param uuid UUID
   */
 
@@ -48,7 +48,7 @@ case class ReplicationLog(replicationLogId: Int,
                           replicationRunId: Int,
                           replicationTableId: Option[Int],
                           message: Option[String],
-                          isReplication: Boolean = false,
+                          isReplicated: Boolean = false,
                           uuid: String
                          ) extends DomainModel
 
@@ -78,7 +78,7 @@ object ReplicationLog  {
              replicationRunId: Int,
              replicationTableId: Int,
              message: String,
-             isReplication: Boolean,
+             isReplicated: Boolean,
              uuid: String) = ReplicationLog(replicationLogId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, replicationRunId, None, None, isReplication, uuid)
+    createdBy, updated, updatedBy, replicationRunId, None, None, isReplicated, uuid)
 }

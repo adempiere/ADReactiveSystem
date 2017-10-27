@@ -22,7 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Record Access Entity
-  * @param recordAccessId Record Access ID
+  * @param recordId Record Access ID
   * @param roleId Role ID
   * @param entityId Table ID
   * @param isActive Is Active
@@ -36,9 +36,9 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class RecordAccess(recordAccessId: Int,
-                        roleId: Int,
+case class RecordAccess(roleId: Int,
                         tenantId: Int,
+                        recordId: Int,
                         organizationId: Int,
                         entityId: Int,
                         isActive: Boolean = true,
@@ -59,17 +59,17 @@ case class RecordAccess(recordAccessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = recordAccessId
+  override def Id: Int = 0
 
   override val entityName: String = "AD_Record_Access"
-  override val identifier: String = "AD_Record_Access_ID"
+  override val identifier: String = null
 }
 
 object RecordAccess  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[RecordAccess]
-  def create(recordAccessId: Int,
-             roleId: Int,
+  def create(roleId: Int,
              tenantId: Int,
+             recordId: Int,
              organizationId: Int,
              entityId: Int,
              isActive: Boolean,
@@ -80,7 +80,7 @@ object RecordAccess  {
              isReadOnly: Boolean,
              isExclude: Boolean,
              isDependentEntities: Boolean,
-             uuid: String) = RecordAccess(recordAccessId, roleId, tenantId, organizationId, entityId, isActive,
+             uuid: String) = RecordAccess(recordId, roleId, tenantId, organizationId, entityId, isActive,
     created, createdBy, updated, updatedBy, isReadOnly, isExclude, isDependentEntities, uuid)
 }
 

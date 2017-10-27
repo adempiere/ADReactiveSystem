@@ -100,7 +100,7 @@ object Registration  {
              isActive : Boolean,
              created : DateTime ,
              createdBy : Int ,
-             updated : DateTime = DateTime.now,
+             updated : DateTime,
              updatedBy :Int,
              isRegistered: Boolean,
              recordId: Int,

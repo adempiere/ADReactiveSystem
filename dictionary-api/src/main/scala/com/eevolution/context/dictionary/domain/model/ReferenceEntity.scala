@@ -22,7 +22,7 @@ import org.joda.time.DateTime
   */
 
 /**
-  * Reference Table Entity
+  * Entity for Reference Entity
   * @param referenceId Reference ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -45,28 +45,27 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class ReferenceTable (referenceId: Int,
+case class ReferenceEntity(referenceId: Int,
                            tenantId: Int,
                            organizationId: Int,
                            isActive : Boolean = true,
                            created : DateTime = DateTime.now,
-                           createdBy : Int ,
+                           createdBy : Int,
                            updated : DateTime = DateTime.now,
                            updatedBy : Int,
-                           entityId : Int ,
-                           key :Int ,
-                           display : Int ,
-                           isValueDisplayed : Boolean = false ,
+                           entityId : Int,
+                           key :Int,
+                           display : Int,
+                           isValueDisplayed : Boolean = false,
                            whereClause : Option[String],
-                           orderByClause : Option[String] ,
+                           orderByClause : Option[String],
                            entityType : String = EntityType.Dictionary,
-                           windowId :  Option[Int] ,
-                           isAlert : Boolean =  false ,
+                           windowId :  Option[Int],
+                           isAlert : Boolean =  false,
                            displaySQL : Option[String],
                            isDisplayIdentifier : Boolean =  false,
                            uuid: String
                           ) extends DomainModel
-
 
   with ActiveEnabled
   with Identifiable
@@ -81,29 +80,29 @@ case class ReferenceTable (referenceId: Int,
   override val identifier: String = null
 }
 
-object ReferenceTable  {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ReferenceTable]
+object ReferenceEntity  {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[ReferenceEntity]
   def create(referenceId: Int,
              tenantId: Int,
              organizationId: Int,
-             isActive : Boolean = true,
-             created : DateTime = DateTime.now,
+             isActive : Boolean,
+             created : DateTime,
              createdBy : Int ,
-             updated : DateTime = DateTime.now,
+             updated : DateTime,
              updatedBy : Int,
              entityId : Int ,
              key :Int ,
              display : Int ,
-             isValueDisplayed : Boolean = false ,
-             whereClause : Option[String],
-             orderByClause : Option[String] ,
-             entityType : String = EntityType.Dictionary,
-             windowId :  Option[Int] ,
-             isAlert : Boolean =  false ,
-             displaySQL : Option[String],
-             isDisplayIdentifier : Boolean =  false,
-             uuid: String) = ReferenceTable(referenceId, tenantId, organizationId, isActive, created,
+             isValueDisplayed : Boolean,
+             whereClause : String,
+             orderByClause : String ,
+             entityType : String,
+             windowId :  Int ,
+             isAlert : Boolean,
+             displaySQL : String,
+             isDisplayIdentifier : Boolean,
+             uuid: String) = ReferenceEntity(referenceId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, entityId, key, display, isValueDisplayed, None, None, entityType,
-    windowId, isAlert, None, isDisplayIdentifier, uuid)
+    None, isAlert, None, isDisplayIdentifier, uuid)
 }
 

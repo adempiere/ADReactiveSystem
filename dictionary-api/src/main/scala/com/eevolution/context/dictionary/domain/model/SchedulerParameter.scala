@@ -21,7 +21,7 @@ import org.joda.time.DateTime
 /**
   * Scheduler Para Entity
   * @param schedulerId Scheduler ID
-  * @param processParaId Process Para ID
+  * @param processParameterId Process Parameter ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
   * @param isActive Is Active
@@ -34,18 +34,18 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class SchedulerPara (schedulerId: Int,
-                          processParaId: Int,
-                          tenantId: Int,
-                          organizationId: Int,
-                          isActive: Boolean = true,
-                          created: DateTime = DateTime.now,
-                          createdBy: Int,
-                          updated: DateTime = DateTime.now,
-                          updatedBy: Int,
-                          parameterDefault: Option[String],
-                          description: Option[String],
-                          uuid: String
+case class SchedulerParameter(schedulerId: Int,
+                              processParameterId: Int,
+                              tenantId: Int,
+                              organizationId: Int,
+                              isActive: Boolean = true,
+                              created: DateTime = DateTime.now,
+                              createdBy: Int,
+                              updated: DateTime = DateTime.now,
+                              updatedBy: Int,
+                              parameterDefault: Option[String],
+                              description: Option[String],
+                              uuid: String
                          )extends DomainModel
 
   with ActiveEnabled
@@ -62,10 +62,10 @@ case class SchedulerPara (schedulerId: Int,
 
 }
 
-object SchedulerPara {
-  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerPara]
+object SchedulerParameter {
+  implicit lazy val jsonFormat = Jsonx.formatCaseClass[SchedulerParameter]
   def create(schedulerId: Int,
-             processParaId: Int,
+             processParameterId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -75,6 +75,6 @@ object SchedulerPara {
              updatedBy: Int,
              parameterDefault: String,
              description: String,
-             uuid: String) = SchedulerPara(schedulerId, processParaId, tenantId, organizationId, isActive, created,
+             uuid: String) = SchedulerParameter(schedulerId, processParameterId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, None, uuid)
 }

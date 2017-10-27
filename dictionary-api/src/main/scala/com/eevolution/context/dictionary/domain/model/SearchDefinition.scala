@@ -29,6 +29,8 @@ import org.joda.time.DateTime
   * @param windowId Window ID
   * @param created Created
   * @param createdBy Created By
+  * @param dataType CData Type
+  * @param description Description
   * @param isActive Is Active
   * @param name Name
   * @param query Query
@@ -49,6 +51,8 @@ case class SearchDefinition (searchDefinitionId: Int,
                              windowId: Int,
                              created: DateTime = DateTime.now,
                              createdBy: Int,
+                             dataType: Boolean,
+                             description: Option[String],
                              isActive: Boolean = true,
                              name: Option[String],
                              query: Option[String],
@@ -85,6 +89,8 @@ object SearchDefinition {
              windowId: Int,
              created: DateTime,
              createdBy: Int,
+             dataType: Boolean,
+             description: Option[String],
              isActive: Boolean,
              name: String,
              query: String,
@@ -95,5 +101,5 @@ object SearchDefinition {
              poWindowId:Int,
              isDefault: Boolean,
              uuid: String) = SearchDefinition(searchDefinitionId, tenantId, None, organizationId, entityId, windowId,
-    updated, updatedBy, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, uuid)
+    updated, updatedBy, dataType, None, isActive, None, None, searchType, None, updated, updatedBy, None, isDefault, uuid)
 }

@@ -33,7 +33,7 @@ import org.joda.time.DateTime
   * @param frequency Frequency
   * @param dateLastRun Date Last Run
   * @param dateNextRun Date Next Run
-  * @param superVisorId Super Visor ID
+  * @param supervisorId Supervisor ID
   * @param keepLogDays Keep Log Days
   * @param processing Processing
   * @param weekDay Week Day
@@ -61,7 +61,7 @@ case class Scheduler (schedulerId: Int,
                       frequency: Int,
                       dateLastRun: Option[DateTime],
                       dateNextRun: Option[DateTime],
-                      superVisorId: Int,
+                      supervisorId: Int,
                       keepLogDays: Int,
                       processing: Option[Boolean],
                       weekDay: Option[Boolean],
@@ -105,7 +105,7 @@ object Scheduler {
              frequency: Int,
              dateLastRun: DateTime,
              dateNextRun: DateTime,
-             superVisorId: Int,
+             supervisorId: Int,
              keepLogDays: Int,
              processing: Boolean,
              weekDay: Boolean,
@@ -116,6 +116,6 @@ object Scheduler {
              entityId: Int,
              recordId: Int,
              uuid: String) = Scheduler(schedulerId, tenantId, organizationId, isActive, created, createdBy, updated, updatedBy, name,
-    None, processId, frequencyType, frequency, None, None, superVisorId, keepLogDays, None, None, scheduleType,
+    None, processId, frequencyType, frequency, None, None, supervisorId, keepLogDays, None, None, scheduleType,
     None, isIgnoreProcessingTime, None, None, None, uuid)
 }

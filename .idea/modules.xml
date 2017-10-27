@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dictionaryApi.iml" filepath="$PROJECT_DIR$/.idea/modules/dictionaryApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dictionaryApi-build.iml" filepath="$PROJECT_DIR$/.idea/modules/dictionaryApi-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dictionaryImpl.iml" filepath="$PROJECT_DIR$/.idea/modules/dictionaryImpl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dictionaryImpl-build.iml" filepath="$PROJECT_DIR$/.idea/modules/dictionaryImpl-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
+    </modules>
+  </component>
+</project>

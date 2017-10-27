@@ -35,7 +35,7 @@ trait ProcessMapping  {
       _.updatedBy -> "UpdatedBy",
       _.value -> "Value",
       _.name -> "Name",
-      _.description -> "Descripcion",
+      _.description -> "Description",
       _.help -> "Help",
       _.accessLevel -> "AccessLevel",
       _.entityType -> "EntityType",

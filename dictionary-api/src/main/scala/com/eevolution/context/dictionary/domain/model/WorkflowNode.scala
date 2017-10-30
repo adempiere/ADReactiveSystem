@@ -49,6 +49,8 @@ import org.joda.time.DateTime
   * @param startMode Start Mode
   * @param finishMode Finish Mode
   * @param limit Limit
+  * @param priority Priority
+  * @param duration Duration
   * @param cost Cost
   * @param workingTime Working Time
   * @param waitingTime Waiting Time
@@ -57,7 +59,7 @@ import org.joda.time.DateTime
   * @param joinElement Join Element
   * @param splitElement Split Element
   * @param waitTime Wait Time
-  * @param columnId Column ID
+  * @param attributeId Attibute ID
   * @param attributeName Attribute Name
   * @param attributeValue Attribute Value
   * @param docAction Doc Action
@@ -111,6 +113,8 @@ case class WorkflowNode(workflowNodeId: Int,
                         startMode: Option[Boolean],
                         finishMode: Option[Boolean],
                         limit: Int = 0,
+                        priority: Option[Int],
+                        duration: Int,
                         cost: Int = 0,
                         workingTime: Option[Int],
                         waitingTime: Int = 0,
@@ -119,7 +123,7 @@ case class WorkflowNode(workflowNodeId: Int,
                         joinElement: Boolean,
                         splitElement: Boolean,
                         waitTime: Option[Int],
-                        columnId: Option[Int],
+                        attributeId: Option[Int],
                         attributeName: Option[String],
                         attributeValue: Option[String],
                         docAction: Option[String],
@@ -188,6 +192,8 @@ object WorkflowNode  {
              startMode: Boolean,
              finishMode: Boolean,
              limit: Int,
+             priority: Int,
+             duration: Int,
              cost: Int,
              workingTime: Int,
              waitingTime: Int,
@@ -196,7 +202,7 @@ object WorkflowNode  {
              joinElement: Boolean,
              splitElement: Boolean,
              waitTime: Int,
-             columnId: Int,
+             attributeId: Int,
              attributeName: String,
              attributeValue: String,
              docAction: String,
@@ -222,8 +228,8 @@ object WorkflowNode  {
              browseId: Int,
              uuid: String) = WorkflowNode(workflowNodeId, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, workFlowId, isCentrallyMaintained, action, None, None, None, None,
-    None, entityType, xPosition, yPosition, None, None, None, None, limit, cost, None, waitingTime,
-    None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,
+    None, entityType, xPosition, yPosition, None, None, None, None, limit, None, duration, cost, None,
+    waitingTime, None, None, joinElement, splitElement, None, None, None, None, None, value, None, None,
     None, None, None, None, isMilestone, isSubContracting, unitsCycles, None, None, None,
     None, None, None, None, yieldData, None, None, uuid)
 }

@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param seqNo Seq No
   * @param entityType Entity Type
   * @param andOr And Or
-  * @param columnId Column ID
+  * @param attributeId Attribute ID
   * @param operation Operation
   * @param value Value
   * @param value2 Value 2
@@ -53,7 +53,7 @@ case class WorkflowNextCondition(workflowNextConditionId: Int,
                                  seqNo: Int,
                                  entityType: String = "D",
                                  andOr: Boolean,
-                                 columnId: Int,
+                                 attributeId: Int,
                                  operation: String,
                                  value: String,
                                  value2: Option[String],
@@ -87,12 +87,12 @@ object WorkflowNextCondition  {
              seqNo: Int,
              entityType: String,
              andOr: Boolean,
-             columnId: Int,
+             attributeId: Int,
              operation: String,
              value: String,
              value2: String,
              uuid: String) = WorkflowNextCondition(workflowNextConditionId, tenantId, organizationId, isActive,
-    created, createdBy, updated, updatedBy, workflowNodeNextId, seqNo, entityType, andOr, columnId, operation,
+    created, createdBy, updated, updatedBy, workflowNodeNextId, seqNo, entityType, andOr, attributeId, operation,
     value, None, uuid)
 }
 

@@ -34,7 +34,7 @@ import org.joda.time.DateTime
   * @param workflowState Wf State
   * @param workflowProcessId Wf Process ID
   * @param nodeId Node ID
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param recordId Record ID
   * @param workflowResponsibleId Wf Responsive ID
   * @param userId User ID
@@ -59,7 +59,7 @@ case class WorkflowEventAudit(workflowEventAuditId: Int,
                               workflowState: String,
                               workflowProcessId: Int,
                               nodeId: Int,
-                              tableId: Int,
+                              entityId: Int,
                               recordId: Int,
                               workflowResponsibleId: Int,
                               userId: Option[Int],
@@ -99,7 +99,7 @@ object WorkflowEventAudit  {
              workflowState: String,
              workflowProcessId: Int,
              nodeId: Int,
-             tableId: Int,
+             entityId: Int,
              recordId: Int,
              workflowResponsibleId: Int,
              userId: Int,
@@ -110,7 +110,7 @@ object WorkflowEventAudit  {
              description: String,
              textMsg: String,
              uuid: String) = WorkflowEventAudit(workflowEventAuditId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, eventType, workflowState, workflowProcessId, nodeId, tableId, recordId,
+    createdBy, updated, updatedBy, eventType, workflowState, workflowProcessId, nodeId, entityId, recordId,
     workflowResponsibleId, None, elapsedTimeMs, None, None, None, None, None, uuid)
 }
 

@@ -61,11 +61,11 @@ import org.joda.time.DateTime
   * @param processType Process Type
   * @param documentNo Document No
   * @param quantityBatchSize G Ty Batch Size
-  * @param queUIngTime Que U Ing Time
+  * @param queuingTime Queuing Time
   * @param isBetaFunctionality Is Beta Functionality
   * @param yieldData Yield Data
   * @param unitsCycles Units Cycles
-  * @param overLapUnits Over Lap Units
+  * @param overlapUnits Overlap Units
   * @param uuid UUID
   */
 
@@ -111,11 +111,11 @@ case class Workflow(workflowId: Int,
                     processType: Option[String],
                     documentNo: Option[String],
                     quantityBatchSize: Option[Int],
-                    queUIngTime: Option[Int],
+                    queuingTime: Option[Int],
                     isBetaFunctionality: Boolean = false,
                     yieldData: Option[Int],
                     unitsCycles: Option[Int],
-                    overLapUnits: Option[Int],
+                    overlapUnits: Option[Int],
                     uuid: String
                     ) extends DomainModel
 
@@ -175,11 +175,11 @@ object Workflow {
              processType: String,
              documentNo: String,
              quantityBatchSize: Int,
-             queUIngTime: Int,
+             queuingTime: Int,
              isBetaFunctionality: Boolean,
              yieldData: Int,
              unitsCycles: Int,
-             overLapUnits: Int,
+             overlapUnits: Int,
              uuid: String) = Workflow(workflowId, tenantId, organizationId, isActive, created, createdBy, updated,
     updatedBy, name, None, None, accessLevel, None, entityType, None, author, version, None, None, None, None, duration,
     cost, workingTime, waitingTime, None, publishStatus, None, value, isDefault, None, None, workflowType, None,

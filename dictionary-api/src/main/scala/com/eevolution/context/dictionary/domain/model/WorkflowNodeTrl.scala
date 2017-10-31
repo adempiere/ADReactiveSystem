@@ -22,6 +22,7 @@ import org.joda.time.DateTime
 
 /**
   * Workflow Node Trl Entity
+  * @param workflowNodeId Workflow Node ID
   * @param language Language
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
@@ -37,7 +38,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkflowNodeTrl(language: String,
+case class WorkflowNodeTrl(workflowNodeId: Int,
+                           language: String,
                            tenantId: Int,
                            organizationId : Int ,
                            isActive: Boolean = true,
@@ -68,7 +70,8 @@ case class WorkflowNodeTrl(language: String,
 
 object WorkflowNodeTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkflowNodeTrl]
-  def create(language: String,
+  def create(workflowNodeId: Int,
+             language: String,
              tenantId: Int,
              organizationId : Int ,
              isActive: Boolean,
@@ -80,7 +83,7 @@ object WorkflowNodeTrl {
              description: String,
              help: String,
              isTranslated: Boolean,
-             uuid: String) = WorkflowNodeTrl( language, tenantId, organizationId, isActive, created, createdBy,
+             uuid: String) = WorkflowNodeTrl(workflowNodeId, language, tenantId, organizationId, isActive, created, createdBy,
     updated, updatedBy, name, None, None, isTranslated, uuid)
 
 }

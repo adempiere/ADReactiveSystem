@@ -38,7 +38,7 @@ import org.joda.time.DateTime
   * @param processing Processing
   * @param processed Processed
   * @param textMsg Text Msg
-  * @param tableId Table ID
+  * @param entityId Entity ID
   * @param recordId Record ID
   * @param priority Priority
   * @param uuid UUID
@@ -60,7 +60,7 @@ case class WorkflowProcess(workflowProcessId: Int,
                            processing: Option[Boolean],
                            processed: Boolean = false,
                            textMsg: Option[String],
-                           tableId: Int,
+                           entityId: Int,
                            recordId: Int,
                            priority: Option[Int],
                            uuid: String
@@ -98,11 +98,11 @@ object WorkflowProcess {
              processing: Boolean,
              processed: Boolean,
              textMsg: String,
-             tableId: Int,
+             entityId: Int,
              recordId: Int,
              priority: Int,
              uuid: String) = WorkflowProcess(workflowProcessId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, workFlowId, workflowResponsiveId, None, workflowState, None, None,
-    processed, None, tableId, recordId, None, uuid)
+    processed, None, entityId, recordId, None, uuid)
 
 }

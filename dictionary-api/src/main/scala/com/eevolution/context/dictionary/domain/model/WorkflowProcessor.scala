@@ -35,7 +35,7 @@ import org.joda.time.DateTime
   * @param frequency Frequency
   * @param dateLastRun Date Last Run
   * @param dateNextRun Date Next Run
-  * @param superVisorId Super Visor ID
+  * @param supervisorId Supervisor ID
   * @param keepLogDays Keep Log Days
   * @param processing Processing
   * @param inactivityAlertDays Inactivity Alert Days
@@ -58,7 +58,7 @@ case class WorkflowProcessor(workflowProcessorId: Int,
                              frequency: Int,
                              dateLastRun: Option[DateTime],
                              dateNextRun: Option[DateTime],
-                             superVisorId: Int,
+                             supervisorId: Int,
                              keepLogDays: Int,
                              processing: Option[Boolean],
                              inactivityAlertDays: Option[Int],
@@ -96,13 +96,13 @@ object WorkflowProcessor {
              frequency: Int,
              dateLastRun: DateTime,
              dateNextRun: DateTime,
-             superVisorId: Int,
+             supervisorId: Int,
              keepLogDays: Int,
-             processing: Option[Boolean],
+             processing: Boolean,
              inactivityAlertDays: Int,
              remindDays: Int,
              alertOverPriority: Int,
              uuid: String) = WorkflowProcessor(workflowProcessorId, tenantId, organizationId, isActive, created,
-    createdBy, updated, updatedBy, name, None, frequencyType, frequency, None, None, superVisorId, keepLogDays,
+    createdBy, updated, updatedBy, name, None, frequencyType, frequency, None, None, supervisorId, keepLogDays,
     None, None, None, None, uuid)
 }

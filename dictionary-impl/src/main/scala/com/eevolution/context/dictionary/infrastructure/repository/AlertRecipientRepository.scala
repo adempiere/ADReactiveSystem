@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.AlertProcessor
+import com.eevolution.context.dictionary.domain.model.AlertRecipient
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,48 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Alert Processor Repository
+  * Alert Recipient Repository
   * @param session
   * @param executionContext
   */
 
-class AlertProcessorRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.AlertProcessorRepository[AlertProcessor , Int]
-    with AlertProcessorMapping {
+class AlertRecipientRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.AlertRecipientRepository[AlertRecipient , Int]
+    with AlertRecipientMapping {
 
-  def getById(id: Int): Future[AlertProcessor] = {
-    Future(run(queryAlertProcessor.filter(_.alertProcessorId == lift(id))).headOption.get)
+  def getById(id: Int): Future[AlertRecipient] = {
+    Future(run(queryAlertRecipient.filter(_.alertRecipientId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[AlertProcessor] = {
-    Future(run(queryAlertProcessor.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[AlertRecipient] = {
+    Future(run(queryAlertRecipient.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByAlertProcessorId(id : Int) : Future[List[AlertProcessor]] = {
-    Future(run(queryAlertProcessor))
+  def getByAlertRecipientId(id : Int) : Future[List[AlertRecipient]] = {
+    Future(run(queryAlertRecipient))
   }
 
-  def getAll() : Future[List[AlertProcessor]] = {
-    Future(run(queryAlertProcessor))
+  def getAll() : Future[List[AlertRecipient]] = {
+    Future(run(queryAlertRecipient))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[AlertProcessor]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[AlertRecipient]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countAlertProcessor()
+      count <- countAlertRecipient()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectAlertProcessor(offset, limit)
+      else selectAlertRecipient(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countAlertProcessor() = {
-    Future(run(queryAlertProcessor.size).toInt)
+  private def countAlertRecipient() = {
+    Future(run(queryAlertRecipient.size).toInt)
   }
 
-  private def selectAlertProcessor(offset: Int, limit: Int): Future[Seq[AlertProcessor]] = {
-    Future(run(queryAlertProcessor).drop(offset).take(limit).toSeq)
+  private def selectAlertRecipient(offset: Int, limit: Int): Future[Seq[AlertRecipient]] = {
+    Future(run(queryAlertRecipient).drop(offset).take(limit).toSeq)
   }
 }

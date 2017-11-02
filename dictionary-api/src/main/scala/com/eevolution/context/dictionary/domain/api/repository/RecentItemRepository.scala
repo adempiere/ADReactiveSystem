@@ -18,5 +18,5 @@ import com.eevolution.context.dictionary._
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 02/11/17.
   */
 
-trait PrintFormRepository [PrintForm , Int] extends api.Repostory [PrintForm , Int] {
+trait RecentItemRepository [RecentItem , Int] extends api.Repostory [RecentItem , Int] {
 }

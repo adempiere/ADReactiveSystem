@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 trait WorkflowBlockMapping {
-  val queryWindowTrl = quote {
+  val queryWorkflowBlock = quote {
     querySchema[WorkflowBlock]("AD_WF_Block",
       _.workflowBlockId-> "AD_WF_Block_ID",
       _.isActive-> "IsActive",

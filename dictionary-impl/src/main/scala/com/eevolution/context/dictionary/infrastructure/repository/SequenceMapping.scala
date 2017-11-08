@@ -23,7 +23,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   * Sequence Mapping
   */
 trait SequenceMapping  {
-  val queryScheduler = quote {
+  val querySequence = quote {
     querySchema[Sequence]("AD_Sequence",
       _.sequenceId -> "AD_Sequence_ID",
       _.tenantId -> "AD_Client_ID",

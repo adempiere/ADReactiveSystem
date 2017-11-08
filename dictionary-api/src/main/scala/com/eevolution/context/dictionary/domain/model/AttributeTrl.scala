@@ -36,7 +36,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class AttributeTrl(attributeTrlId: Int,
+case class AttributeTrl(attributeId: Int,
                         language: String,
                         tenantId: Int,
                         organizationId: Int,
@@ -65,7 +65,7 @@ case class AttributeTrl(attributeTrlId: Int,
 
 object AttributeTrl  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[AttributeTrl]
-  def create(attributeTrlId: Int,
+  def create(attributeId: Int,
              language: String,
              tenantId: Int,
              organizationId: Int,
@@ -76,6 +76,6 @@ object AttributeTrl  {
              updatedBy: Int,
              name: String,
              isTranslated: Boolean,
-             uuid: String) = AttributeTrl(attributeTrlId, language, tenantId, organizationId, isActive, created,
+             uuid: String) = AttributeTrl(attributeId, language, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, name, isTranslated, uuid)
 }

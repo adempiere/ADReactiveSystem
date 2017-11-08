@@ -42,7 +42,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PackageImportDetail(packageImpDetailId: Int,
+case class PackageImportDetail(packageImportDetailId: Int,
                                tenantId: Int,
                                organizationId: Int,
                                isActive: Boolean = true,
@@ -69,7 +69,7 @@ case class PackageImportDetail(packageImpDetailId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = packageImpDetailId
+  override def Id: Int = packageImportDetailId
 
   override val entityName: String = "AD_Package_Imp_Detail"
   override val identifier: String = "AD_Package_Imp_Detail_ID"
@@ -78,7 +78,7 @@ case class PackageImportDetail(packageImpDetailId: Int,
 
 object PackageImportDetail {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PackageImportDetail]
-  def create(packageImpDetailId: Int,
+  def create(packageImportDetailId: Int,
              tenantId: Int,
              organizationId: Int,
              isActive: Boolean,
@@ -96,6 +96,6 @@ object PackageImportDetail {
              tableName: String,
              entityId: Int,
              uninstall: Boolean,
-             uuid: String) = PackageImportDetail(packageImpDetailId, tenantId, organizationId, isActive, created,
+             uuid: String) = PackageImportDetail(packageImportDetailId, tenantId, organizationId, isActive, created,
     createdBy, updated, updatedBy, None, packageImportId, originalId, None, None, None, None, None, None, None, uuid)
 }

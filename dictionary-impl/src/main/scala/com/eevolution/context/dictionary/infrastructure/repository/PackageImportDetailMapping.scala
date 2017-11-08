@@ -26,7 +26,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 trait PackageImportDetailMapping {
   val queryPackageImportDetail = quote {
     querySchema[PackageImportDetail]("AD_Package_Imp_Detail",
-      _.packageImpDetailId-> "AD_Package_Imp_Detail_ID",
+      _.packageImportDetailId-> "AD_Package_Imp_Detail_ID",
       _.tenantId-> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",
       _.isActive-> "IsActive",

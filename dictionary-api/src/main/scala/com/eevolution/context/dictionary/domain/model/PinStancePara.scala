@@ -41,7 +41,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PinStancePara(pinStanceParaId: Int,
+case class PinStancePara(pinStanceId: Int,
                          tenantId: Int,
                          organizationId: Int,
                          seqNo: Int,
@@ -69,15 +69,15 @@ case class PinStancePara(pinStanceParaId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = pinStanceParaId
+  override def Id: Int = pinStanceId
 
   override val entityName: String = "AD_PinStance_Para"
-  override val identifier: String = "AD_PinStance_Para_ID"
+  override val identifier: String = null
 }
 
 object PinStancePara {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PinStancePara]
-  def create(pinStanceParaId: Int,
+  def create(pinStanceId: Int,
              tenantId: Int,
              organizationId: Int,
              seqNo: Int,
@@ -95,6 +95,6 @@ object PinStancePara {
              updated: DateTime,
              updatedBy: Int,
              isActive: Boolean,
-             uuid: String) = PinStancePara(pinStanceParaId, tenantId, organizationId, seqNo, None, None, None,
+             uuid: String) = PinStancePara(pinStanceId, tenantId, organizationId, seqNo, None, None, None,
     None, None, date, dateTo, None, None, created, createdBy, updated, updatedBy, isActive, uuid)
 }

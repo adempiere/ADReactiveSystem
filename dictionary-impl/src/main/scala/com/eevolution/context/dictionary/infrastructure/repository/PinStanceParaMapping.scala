@@ -26,7 +26,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 trait PinStanceParaMapping {
   val queryPinStancePara = quote {
     querySchema[PinStancePara]("AD_PinStance_Para",
-      _.pinStanceParaId-> "AD_PinStance_ID",
+      _.pinStanceId-> "AD_PinStance_ID",
       _.tenantId-> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",
       _.seqNo-> "SeqNo",

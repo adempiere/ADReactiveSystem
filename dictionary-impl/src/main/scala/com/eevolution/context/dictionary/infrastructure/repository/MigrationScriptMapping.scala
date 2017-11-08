@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 trait MigrationScriptMapping {
-  val queryFind = quote {
+  val queryMigrationScript = quote {
     querySchema[MigrationScript]("AD_MigrationScript",
       _.tenantId-> "AD_Client_ID",
       _.migrationScriptId-> "AD_MigrationScript_ID",

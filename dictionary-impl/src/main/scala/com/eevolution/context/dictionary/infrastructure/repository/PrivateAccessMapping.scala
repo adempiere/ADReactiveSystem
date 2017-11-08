@@ -23,7 +23,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   * Private Access
   */
 trait PrivateAccessMapping  {
-  val queryPrintPaper = quote {
+  val queryPrivateAccess = quote {
     querySchema[PrivateAccess]("AD_Private_Access",
       _.userId -> "AD_User_ID",
       _.entityId -> "AD_Table_ID",

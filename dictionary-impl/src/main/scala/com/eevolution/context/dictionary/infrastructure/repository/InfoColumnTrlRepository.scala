@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.InfoColumnTrl
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,49 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Info Column Trl Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
+class InfoColumnTrlRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.InfoColumnTrlRepository[InfoColumnTrl , Int]
+    with InfoColumnTrlMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+  //It doesn't have ID
+  def getById(id: Int): Future[InfoColumnTrl] = {
+    Future(run(queryInfoColumnTrl.filter(null)).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[InfoColumnTrl] = {
+    Future(run(queryInfoColumnTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByInfoColumnTrlId(id : Int) : Future[List[InfoColumnTrl]] = {
+    Future(run(queryInfoColumnTrl))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[InfoColumnTrl]] = {
+    Future(run(queryInfoColumnTrl))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[InfoColumnTrl]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countInfoColumnTrl()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectInfoColumnTrl(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countInfoColumnTrl() = {
+    Future(run(queryInfoColumnTrl.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectInfoColumnTrl(offset: Int, limit: Int): Future[Seq[InfoColumnTrl]] = {
+    Future(run(queryInfoColumnTrl).drop(offset).take(limit).toSeq)
   }
 }

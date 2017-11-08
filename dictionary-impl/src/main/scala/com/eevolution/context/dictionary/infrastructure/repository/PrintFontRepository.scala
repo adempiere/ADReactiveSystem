@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.PrintFont
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,48 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Print Font Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
+class PrintFontRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.PrintFontRepository[PrintFont , Int]
+    with PrintFontMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+  def getById(id: Int): Future[PrintFont] = {
+    Future(run(queryPrintFont.filter(_.printFontId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[PrintFont] = {
+    Future(run(queryPrintFont.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByPrintFontId(id : Int) : Future[List[PrintFont]] = {
+    Future(run(queryPrintFont))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[PrintFont]] = {
+    Future(run(queryPrintFont))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[PrintFont]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countPrintFont()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectPrintFont(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countPrintFont() = {
+    Future(run(queryPrintFont.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectPrintFont(offset: Int, limit: Int): Future[Seq[PrintFont]] = {
+    Future(run(queryPrintFont).drop(offset).take(limit).toSeq)
   }
 }

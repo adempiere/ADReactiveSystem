@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.Color
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,48 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Color Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
+class ColorRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.ColorRepository[Color , Int]
+    with ColorMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+  def getById(id: Int): Future[Color] = {
+    Future(run(queryColor.filter(_.colorId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[Color] = {
+    Future(run(queryColor.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByColorId(id : Int) : Future[List[Color]] = {
+    Future(run(queryColor))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[Color]] = {
+    Future(run(queryColor))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Color]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countColor()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectColor(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countColor() = {
+    Future(run(queryColor.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectColor(offset: Int, limit: Int): Future[Seq[Color]] = {
+    Future(run(queryColor).drop(offset).take(limit).toSeq)
   }
 }

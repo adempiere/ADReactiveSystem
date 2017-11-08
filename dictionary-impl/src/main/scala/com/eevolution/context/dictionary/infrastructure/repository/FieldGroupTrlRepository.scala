@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.FieldGroupTrl
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,48 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Field Group Trl Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
+class FieldGroupTrlRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.FieldGroupTrlRepository[FieldGroupTrl , Int]
+    with FieldGroupTrlMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+  def getById(id: Int): Future[FieldGroupTrl] = {
+    Future(run(queryFieldGroupTrl.filter(null)).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[FieldGroupTrl] = {
+    Future(run(queryFieldGroupTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByFieldGroupTrlId(id : Int) : Future[List[FieldGroupTrl]] = {
+    Future(run(queryFieldGroupTrl))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[FieldGroupTrl]] = {
+    Future(run(queryFieldGroupTrl))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[FieldGroupTrl]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countFieldGroupTrl()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectFieldGroupTrl(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countFieldGroupTrl() = {
+    Future(run(queryFieldGroupTrl.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectFieldGroupTrl(offset: Int, limit: Int): Future[Seq[FieldGroupTrl]] = {
+    Future(run(queryFieldGroupTrl).drop(offset).take(limit).toSeq)
   }
 }

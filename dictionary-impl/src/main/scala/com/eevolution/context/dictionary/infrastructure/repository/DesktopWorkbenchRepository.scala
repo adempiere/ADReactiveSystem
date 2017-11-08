@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.DesktopWorkbench
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,48 +27,48 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Desktop Workbench Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
+class DesktopWorkbenchRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.DesktopWorkbenchRepository[DesktopWorkbench , Int]
+    with DesktopWorkbenchMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+  def getById(id: Int): Future[DesktopWorkbench] = {
+    Future(run(queryDesktopWorkbench.filter(_.desktopWorkbenchId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[DesktopWorkbench] = {
+    Future(run(queryDesktopWorkbench.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByDesktopWorkbenchId(id : Int) : Future[List[DesktopWorkbench]] = {
+    Future(run(queryDesktopWorkbench))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[DesktopWorkbench]] = {
+    Future(run(queryDesktopWorkbench))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[DesktopWorkbench]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countDesktopWorkbench()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectDesktopWorkbench(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countDesktopWorkbench() = {
+    Future(run(queryDesktopWorkbench.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectDesktopWorkbench(offset: Int, limit: Int): Future[Seq[DesktopWorkbench]] = {
+    Future(run(queryDesktopWorkbench).drop(offset).take(limit).toSeq)
   }
 }

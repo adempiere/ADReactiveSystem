@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 trait EntityTypeMapping {
-  val queryEntityTypeMapping = quote {
+  val queryEntityType = quote {
     querySchema[EntityType]("AD_EntityType",
       _.entityTypeId-> "AD_EntityType_ID",
       _.tenantId-> "AD_Client_ID",

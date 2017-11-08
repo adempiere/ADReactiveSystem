@@ -41,7 +41,7 @@ class AlertRepository (session: JdbcSession)(implicit executionContext: Executio
   }
 
   def getByUUID(uuid: UUID): Future[Alert] = {
-    Future(run(queryAlert.filter(_.name == lift(uuid.toString))).headOption.get)
+    Future(run(queryAlert.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
   def getByAlertId(id : Int) : Future[List[Alert]] = {

@@ -3,13 +3,12 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Archive
+import com.eevolution.context.dictionary.domain.model.DynamicValidationRule
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
 
 import scala.concurrent.{ExecutionContext, Future}
-
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
   * This program is free software: you can redistribute it and/or modify
@@ -27,48 +26,49 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Archive Repository
+  * Dynamic Validation Rule Repository
   * @param session
   * @param executionContext
   */
 
-class ArchiveRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ArchiveRepository[Archive , Int]
-    with ArchiveMapping {
 
-  def getById(id: Int): Future[Archive] = {
-    Future(run(queryArchive.filter(_.archiveId == lift(id))).headOption.get)
+class DynamicValidationRuleRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.DynamicValidationRuleRepository[DynamicValidationRule , Int]
+    with DynamicValidationRuleMapping {
+
+  def getById(id: Int): Future[DynamicValidationRule] = {
+    Future(run(queryDynamicValidationRule.filter(_.dynamicValidationRuleId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[Archive] = {
-    Future(run(queryArchive.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[DynamicValidationRule] = {
+    Future(run(queryDynamicValidationRule.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByArchiveId(id : Int) : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getByDynamicValidationRuleId(id : Int) : Future[List[DynamicValidationRule]] = {
+    Future(run(queryDynamicValidationRule))
   }
 
-  def getAll() : Future[List[Archive]] = {
-    Future(run(queryArchive))
+  def getAll() : Future[List[DynamicValidationRule]] = {
+    Future(run(queryDynamicValidationRule))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Archive]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[DynamicValidationRule]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countArchive()
+      count <- countDynamicValidationRule()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectArchive(offset, limit)
+      else selectDynamicValidationRule(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countArchive() = {
-    Future(run(queryArchive.size).toInt)
+  private def countDynamicValidationRule() = {
+    Future(run(queryDynamicValidationRule.size).toInt)
   }
 
-  private def selectArchive(offset: Int, limit: Int): Future[Seq[Archive]] = {
-    Future(run(queryArchive).drop(offset).take(limit).toSeq)
+  private def selectDynamicValidationRule(offset: Int, limit: Int): Future[Seq[DynamicValidationRule]] = {
+    Future(run(queryDynamicValidationRule).drop(offset).take(limit).toSeq)
   }
 }

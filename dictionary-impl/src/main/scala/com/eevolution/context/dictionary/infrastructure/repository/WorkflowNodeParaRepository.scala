@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ZoomCondition
+import com.eevolution.context.dictionary.domain.model.WorkflowNodePara
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,49 +27,50 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Zoom Condition Repository
+  * Workflow Node Para Repository
   * @param session
   * @param executionContext
   */
 
-class ZoomConditionRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ZoomConditionRepository[ZoomCondition , Int]
-    with ZoomConditionMapping {
 
-  def getById(id: Int): Future[ZoomCondition] = {
-    Future(run(queryZoomCondition.filter(_.zoomConditionId == lift(id))).headOption.get)
+class WorkflowNodeParaRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.WorkflowNodeParaRepository[WorkflowNodePara , Int]
+    with WorkflowNodeParaMapping {
+
+  def getById(id: Int): Future[WorkflowNodePara] = {
+    Future(run(queryWorkflowNodePara.filter(_.workflowNodeParaId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[ZoomCondition] = {
-    Future(run(queryZoomCondition.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[WorkflowNodePara] = {
+    Future(run(queryWorkflowNodePara.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByZoomConditionId(id : Int) : Future[List[ZoomCondition]] = {
-    Future(run(queryZoomCondition))
+  def getByWorkflowNodeParaId(id : Int) : Future[List[WorkflowNodePara]] = {
+    Future(run(queryWorkflowNodePara))
   }
 
-  def getAll() : Future[List[ZoomCondition]] = {
-    Future(run(queryZoomCondition))
+  def getAll() : Future[List[WorkflowNodePara]] = {
+    Future(run(queryWorkflowNodePara))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[ZoomCondition]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[WorkflowNodePara]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countZoomCondition()
+      count <- countWorkflowNodePara()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectZoomCondition(offset, limit)
+      else selectWorkflowNodePara(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countZoomCondition() = {
-    Future(run(queryZoomCondition.size).toInt)
+  private def countWorkflowNodePara() = {
+    Future(run(queryWorkflowNodePara.size).toInt)
   }
 
 
-  private def selectZoomCondition(offset: Int, limit: Int): Future[Seq[ZoomCondition]] = {
-    Future(run(queryZoomCondition).drop(offset).take(limit).toSeq)
+  private def selectWorkflowNodePara(offset: Int, limit: Int): Future[Seq[WorkflowNodePara]] = {
+    Future(run(queryWorkflowNodePara).drop(offset).take(limit).toSeq)
   }
 }

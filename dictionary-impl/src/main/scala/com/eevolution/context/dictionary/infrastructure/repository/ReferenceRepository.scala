@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessTrl
+import com.eevolution.context.dictionary.domain.model.Reference
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,51 +27,49 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Process Trl Repository
+  * Reference Repository
   * @param session
   * @param executionContext
   */
 
+class ReferenceRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.ReferenceRepository[Reference , Int]
+    with ReferenceMapping {
 
-class ProcessTrlRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ProcessTrlRepository[ProcessTrl , Int]
-    with ProcessTrlMapping {
-
-  //It doesn't have ID
-  def getById(id: Int): Future[ProcessTrl] = {
-    Future(run(queryProcessTrl.filter(null)).headOption.get)
+  def getById(id: Int): Future[Reference] = {
+    Future(run(queryReference.filter(_.referenceId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[ProcessTrl] = {
-    Future(run(queryProcessTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[Reference] = {
+    Future(run(queryReference.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByProcessTrlId(id : Int) : Future[List[ProcessTrl]] = {
-    Future(run(queryProcessTrl))
+  def getByReferenceId(id : Int) : Future[List[Reference]] = {
+    Future(run(queryReference))
   }
 
-  def getAll() : Future[List[ProcessTrl]] = {
-    Future(run(queryProcessTrl))
+  def getAll() : Future[List[Reference]] = {
+    Future(run(queryReference))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[ProcessTrl]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[Reference]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countProcessTrl()
+      count <- countReference()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectProcessTrl(offset, limit)
+      else selectReference(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countProcessTrl() = {
-    Future(run(queryProcessTrl.size).toInt)
+  private def countReference() = {
+    Future(run(queryReference.size).toInt)
   }
 
 
-  private def selectProcessTrl(offset: Int, limit: Int): Future[Seq[ProcessTrl]] = {
-    Future(run(queryProcessTrl).drop(offset).take(limit).toSeq)
+  private def selectReference(offset: Int, limit: Int): Future[Seq[Reference]] = {
+    Future(run(queryReference).drop(offset).take(limit).toSeq)
   }
 }

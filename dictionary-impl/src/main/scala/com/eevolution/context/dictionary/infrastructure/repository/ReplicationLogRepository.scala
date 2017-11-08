@@ -3,7 +3,7 @@ package com.eevolution.context.dictionary.infrastructure.repository
 import java.util.UUID
 
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessTrl
+import com.eevolution.context.dictionary.domain.model.ReplicationLog
 import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcSession
@@ -27,51 +27,49 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Process Trl Repository
+  * Replication Log Repository
   * @param session
   * @param executionContext
   */
 
+class ReplicationLogRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
+  extends api.repository.ReplicationLogRepository[ReplicationLog , Int]
+    with ReplicationLogMapping {
 
-class ProcessTrlRepository (session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.ProcessTrlRepository[ProcessTrl , Int]
-    with ProcessTrlMapping {
-
-  //It doesn't have ID
-  def getById(id: Int): Future[ProcessTrl] = {
-    Future(run(queryProcessTrl.filter(null)).headOption.get)
+  def getById(id: Int): Future[ReplicationLog] = {
+    Future(run(queryReplicationLog.filter(_.replicationLogId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[ProcessTrl] = {
-    Future(run(queryProcessTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
+  def getByUUID(uuid: UUID): Future[ReplicationLog] = {
+    Future(run(queryReplicationLog.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByProcessTrlId(id : Int) : Future[List[ProcessTrl]] = {
-    Future(run(queryProcessTrl))
+  def getByReplicationLogId(id : Int) : Future[List[ReplicationLog]] = {
+    Future(run(queryReplicationLog))
   }
 
-  def getAll() : Future[List[ProcessTrl]] = {
-    Future(run(queryProcessTrl))
+  def getAll() : Future[List[ReplicationLog]] = {
+    Future(run(queryReplicationLog))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[ProcessTrl]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[ReplicationLog]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
-      count <- countProcessTrl()
+      count <- countReplicationLog()
       elements <- if (offset > count) Future.successful(Nil)
-      else selectProcessTrl(offset, limit)
+      else selectReplicationLog(offset, limit)
     } yield {
       PaginatedSequence(elements, page, pageSize, count)
     }
   }
 
-  private def countProcessTrl() = {
-    Future(run(queryProcessTrl.size).toInt)
+  private def countReplicationLog() = {
+    Future(run(queryReplicationLog.size).toInt)
   }
 
 
-  private def selectProcessTrl(offset: Int, limit: Int): Future[Seq[ProcessTrl]] = {
-    Future(run(queryProcessTrl).drop(offset).take(limit).toSeq)
+  private def selectReplicationLog(offset: Int, limit: Int): Future[Seq[ReplicationLog]] = {
+    Future(run(queryReplicationLog).drop(offset).take(limit).toSeq)
   }
 }

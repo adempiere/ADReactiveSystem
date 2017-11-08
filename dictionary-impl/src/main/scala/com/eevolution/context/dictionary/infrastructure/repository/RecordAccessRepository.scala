@@ -36,6 +36,7 @@ class RecordAccessRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.RecordAccessRepository[RecordAccess , Int]
     with RecordAccessMapping {
 
+  //It doesn't have ID
   def getById(id: Int): Future[RecordAccess] = {
     Future(run(queryRecordAccess.filter(null)).headOption.get)
   }

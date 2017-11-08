@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 
 trait ReplicationTableMapping {
-  val queryOrganizationType = quote {
+  val queryReplicationTable = quote {
     querySchema[ReplicationTable]("AD_ReplicationTable",
       _.replicationTableId-> "AD_ReplicationTable_ID",
       _.tenantId-> "AD_Client_ID",

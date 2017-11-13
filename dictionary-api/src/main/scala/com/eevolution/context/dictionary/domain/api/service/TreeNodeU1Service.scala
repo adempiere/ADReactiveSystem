@@ -1,7 +1,7 @@
 package com.eevolution.context.dictionary.domain.api.service
 
 import com.eevolution.context.dictionary.api
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.TreeNodeU1
 
 /**
   * Copyright (C) 2003-2017, e-Evolution Consultants S.A. , http://www.e-evolution.com
@@ -20,9 +20,9 @@ import com.eevolution.context.dictionary.domain.model.Process
   */
 
 /**
-  * Process Service
+  * Tree Node U1 Service
   */
 
-trait ProcessService extends api.Service[Process, Int] {
+trait TreeNodeU1Service extends api.Service[TreeNodeU1, Int] {
   //Definition
 }

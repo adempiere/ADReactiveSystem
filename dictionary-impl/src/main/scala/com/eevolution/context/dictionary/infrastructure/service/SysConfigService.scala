@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessParameterTrl
+import com.eevolution.context.dictionary.domain.model.SysConfig
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Parameter Trl Service
+  * Sys Config Service
   */
 
-trait ProcessParameterTrlService extends Service with api.service.ProcessParameterTrlService {
+trait SysConfigService extends Service with api.service.SysConfigService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[ProcessParameterTrl]]
-  override def getById(id: Int): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ProcessParameterTrl]]
+  override def getAll() :  ServiceCall[NotUsed, List[SysConfig]]
+  override def getById(id: Int): ServiceCall[NotUsed, SysConfig]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, SysConfig]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[SysConfig]]
 
   def descriptor = {
     import Service._
-    named("processParameterTrl").withCalls(
-      pathCall("/api/v1_0_0/processParameterTrl/all", getAll _) ,
-      pathCall("/api/v1_0_0/processParameterTrl/:id", getById _),
-      pathCall("/api/v1_0_0/processParameterTrl/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/processParameterTrl?pageNo&pageSize", getAllByPage _)
+    named("sysConfig").withCalls(
+      pathCall("/api/v1_0_0/sysConfig/all", getAll _) ,
+      pathCall("/api/v1_0_0/sysConfig/:id", getById _),
+      pathCall("/api/v1_0_0/sysConfig/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/sysConfig?pageNo&pageSize", getAllByPage _)
     )
   }
 }

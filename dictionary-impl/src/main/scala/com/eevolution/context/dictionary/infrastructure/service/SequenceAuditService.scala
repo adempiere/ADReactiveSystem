@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessParameterTrl
+import com.eevolution.context.dictionary.domain.model.SequenceAudit
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Parameter Trl Service
+  * Sequence Audit Service
   */
 
-trait ProcessParameterTrlService extends Service with api.service.ProcessParameterTrlService {
+trait SequenceAuditService extends Service with api.service.SequenceAuditService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[ProcessParameterTrl]]
-  override def getById(id: Int): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ProcessParameterTrl]]
+  override def getAll() :  ServiceCall[NotUsed, List[SequenceAudit]]
+  override def getById(id: Int): ServiceCall[NotUsed, SequenceAudit]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, SequenceAudit]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[SequenceAudit]]
 
   def descriptor = {
     import Service._
-    named("processParameterTrl").withCalls(
-      pathCall("/api/v1_0_0/processParameterTrl/all", getAll _) ,
-      pathCall("/api/v1_0_0/processParameterTrl/:id", getById _),
-      pathCall("/api/v1_0_0/processParameterTrl/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/processParameterTrl?pageNo&pageSize", getAllByPage _)
+    named("sequenceAudit").withCalls(
+      pathCall("/api/v1_0_0/sequenceAudit/all", getAll _) ,
+      pathCall("/api/v1_0_0/sequenceAudit/:id", getById _),
+      pathCall("/api/v1_0_0/sequenceAudit/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/sequenceAudit?pageNo&pageSize", getAllByPage _)
     )
   }
 }

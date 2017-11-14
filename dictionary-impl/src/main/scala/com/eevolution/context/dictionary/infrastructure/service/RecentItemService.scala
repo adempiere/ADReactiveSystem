@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessParameterTrl
+import com.eevolution.context.dictionary.domain.model.RecentItem
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Parameter Trl Service
+  * Recent Item Service
   */
 
-trait ProcessParameterTrlService extends Service with api.service.ProcessParameterTrlService {
+trait RecentItemService extends Service with api.service.RecentItemService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[ProcessParameterTrl]]
-  override def getById(id: Int): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ProcessParameterTrl]]
+  override def getAll() :  ServiceCall[NotUsed, List[RecentItem]]
+  override def getById(id: Int): ServiceCall[NotUsed, RecentItem]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, RecentItem]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[RecentItem]]
 
   def descriptor = {
     import Service._
-    named("processParameterTrl").withCalls(
-      pathCall("/api/v1_0_0/processParameterTrl/all", getAll _) ,
-      pathCall("/api/v1_0_0/processParameterTrl/:id", getById _),
-      pathCall("/api/v1_0_0/processParameterTrl/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/processParameterTrl?pageNo&pageSize", getAllByPage _)
+    named("recentItem").withCalls(
+      pathCall("/api/v1_0_0/recentItem/all", getAll _) ,
+      pathCall("/api/v1_0_0/recentItem/:id", getById _),
+      pathCall("/api/v1_0_0/recentItem/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/recentItem?pageNo&pageSize", getAllByPage _)
     )
   }
 }

@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessParameterTrl
+import com.eevolution.context.dictionary.domain.model.SchedulerLog
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Parameter Trl Service
+  * Scheduler Log Service
   */
 
-trait ProcessParameterTrlService extends Service with api.service.ProcessParameterTrlService {
+trait SchedulerLogService extends Service with api.service.SchedulerLogService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[ProcessParameterTrl]]
-  override def getById(id: Int): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ProcessParameterTrl]]
+  override def getAll() :  ServiceCall[NotUsed, List[SchedulerLog]]
+  override def getById(id: Int): ServiceCall[NotUsed, SchedulerLog]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, SchedulerLog]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[SchedulerLog]]
 
   def descriptor = {
     import Service._
-    named("processParameterTrl").withCalls(
-      pathCall("/api/v1_0_0/processParameterTrl/all", getAll _) ,
-      pathCall("/api/v1_0_0/processParameterTrl/:id", getById _),
-      pathCall("/api/v1_0_0/processParameterTrl/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/processParameterTrl?pageNo&pageSize", getAllByPage _)
+    named("schedulerLog").withCalls(
+      pathCall("/api/v1_0_0/schedulerLog/all", getAll _) ,
+      pathCall("/api/v1_0_0/schedulerLog/:id", getById _),
+      pathCall("/api/v1_0_0/schedulerLog/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/schedulerLog?pageNo&pageSize", getAllByPage _)
     )
   }
 }

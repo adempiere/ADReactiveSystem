@@ -1,10 +1,9 @@
 package com.eevolution.context.dictionary.infrastructure.service
-
 import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.ProcessParameterTrl
+import com.eevolution.context.dictionary.domain.model.ReplicationRun
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +24,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Parameter Trl Service
+  * Replication Run Service
   */
 
-trait ProcessParameterTrlService extends Service with api.service.ProcessParameterTrlService {
+trait ReplicationRunService extends Service with api.service.ReplicationRunService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[ProcessParameterTrl]]
-  override def getById(id: Int): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ProcessParameterTrl]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ProcessParameterTrl]]
+  override def getAll() :  ServiceCall[NotUsed, List[ReplicationRun]]
+  override def getById(id: Int): ServiceCall[NotUsed, ReplicationRun]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, ReplicationRun]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[ReplicationRun]]
 
   def descriptor = {
     import Service._
-    named("processParameterTrl").withCalls(
-      pathCall("/api/v1_0_0/processParameterTrl/all", getAll _) ,
-      pathCall("/api/v1_0_0/processParameterTrl/:id", getById _),
-      pathCall("/api/v1_0_0/processParameterTrl/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/processParameterTrl?pageNo&pageSize", getAllByPage _)
+    named("replicationRun").withCalls(
+      pathCall("/api/v1_0_0/replicationRun/all", getAll _) ,
+      pathCall("/api/v1_0_0/replicationRun/:id", getById _),
+      pathCall("/api/v1_0_0/replicationRun/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/replicationRun?pageNo&pageSize", getAllByPage _)
     )
   }
 }

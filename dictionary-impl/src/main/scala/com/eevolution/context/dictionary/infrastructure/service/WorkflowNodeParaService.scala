@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.WorkflowNodePara
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * Workflow Node Para Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait WorkflowNodeParaService extends Service with api.service.WorkflowNodeParaService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[WorkflowNodePara]]
+  override def getById(id: Int): ServiceCall[NotUsed, WorkflowNodePara]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, WorkflowNodePara]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[WorkflowNodePara]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("workflowNodePara").withCalls(
+      pathCall("/api/v1_0_0/workflowNodePara/all", getAll _) ,
+      pathCall("/api/v1_0_0/workflowNodePara/:id", getById _),
+      pathCall("/api/v1_0_0/workflowNodePara/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/workflowNodePara?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

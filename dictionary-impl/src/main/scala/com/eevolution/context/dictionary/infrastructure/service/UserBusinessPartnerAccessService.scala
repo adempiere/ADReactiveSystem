@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.UserBusinessPartnerAccess
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * User Business Partner Access Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait UserBusinessPartnerAccessService extends Service with api.service.UserBusinessPartnerAccessService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[UserBusinessPartnerAccess]]
+  override def getById(id: Int): ServiceCall[NotUsed, UserBusinessPartnerAccess]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, UserBusinessPartnerAccess]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[UserBusinessPartnerAccess]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("userBusinessPartnerAccess").withCalls(
+      pathCall("/api/v1_0_0/userBusinessPartnerAccess/all", getAll _) ,
+      pathCall("/api/v1_0_0/userBusinessPartnerAccess/:id", getById _),
+      pathCall("/api/v1_0_0/userBusinessPartnerAccess/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/userBusinessPartnerAccess?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

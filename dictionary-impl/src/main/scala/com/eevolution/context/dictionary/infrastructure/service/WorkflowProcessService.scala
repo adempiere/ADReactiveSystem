@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.WorkflowProcess
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * Workflow Process Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait WorkflowProcessService extends Service with api.service.WorkflowProcessService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[WorkflowProcess]]
+  override def getById(id: Int): ServiceCall[NotUsed, WorkflowProcess]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, WorkflowProcess]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[WorkflowProcess]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("workflowProcess").withCalls(
+      pathCall("/api/v1_0_0/workflowProcess/all", getAll _) ,
+      pathCall("/api/v1_0_0/workflowProcess/:id", getById _),
+      pathCall("/api/v1_0_0/workflowProcess/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/workflowProcess?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

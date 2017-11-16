@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.WorkflowResponsible
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * Workflow Responsible Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait WorkflowResponsibleService extends Service with api.service.WorkflowResponsibleService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[WorkflowResponsible]]
+  override def getById(id: Int): ServiceCall[NotUsed, WorkflowResponsible]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, WorkflowResponsible]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[WorkflowResponsible]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("workflowResponsible").withCalls(
+      pathCall("/api/v1_0_0/workflowResponsible/all", getAll _) ,
+      pathCall("/api/v1_0_0/workflowResponsible/:id", getById _),
+      pathCall("/api/v1_0_0/workflowResponsible/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/workflowResponsible?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

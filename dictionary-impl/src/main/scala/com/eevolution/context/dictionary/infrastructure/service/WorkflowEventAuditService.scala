@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.WorkflowEventAudit
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * Workflow Event Audit Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait WorkflowEventAuditService extends Service with api.service.WorkflowEventAuditService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[WorkflowEventAudit]]
+  override def getById(id: Int): ServiceCall[NotUsed, WorkflowEventAudit]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, WorkflowEventAudit]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[WorkflowEventAudit]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("workflowEventAudit").withCalls(
+      pathCall("/api/v1_0_0/workflowEventAudit/all", getAll _) ,
+      pathCall("/api/v1_0_0/workflowEventAudit/:id", getById _),
+      pathCall("/api/v1_0_0/workflowEventAudit/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/workflowEventAudit?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

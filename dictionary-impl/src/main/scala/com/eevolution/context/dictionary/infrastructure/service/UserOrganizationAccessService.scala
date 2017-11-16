@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.UserOrganizationAccess
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * User Organization Access Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait UserOrganizationAccessService extends Service with api.service.UserOrganizationAccessService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[UserOrganizationAccess]]
+  override def getById(id: Int): ServiceCall[NotUsed, UserOrganizationAccess]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, UserOrganizationAccess]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[UserOrganizationAccess]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("userOrganizationAccess").withCalls(
+      pathCall("/api/v1_0_0/userOrganizationAccess/all", getAll _) ,
+      pathCall("/api/v1_0_0/userOrganizationAccess/:id", getById _),
+      pathCall("/api/v1_0_0/userOrganizationAccess/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/userOrganizationAccess?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.UserDefinedTab
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -24,26 +24,24 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
 
-
 /**
-  * Process Service
+  * User Defined Tab Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait UserDefinedTabService extends Service with api.service.UserDefinedTabService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[UserDefinedTab]]
+  override def getById(id: Int): ServiceCall[NotUsed, UserDefinedTab]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, UserDefinedTab]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[UserDefinedTab]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("userDefinedTab").withCalls(
+      pathCall("/api/v1_0_0/userDefinedTab/all", getAll _) ,
+      pathCall("/api/v1_0_0/userDefinedTab/:id", getById _),
+      pathCall("/api/v1_0_0/userDefinedTab/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/userDefinedTab?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

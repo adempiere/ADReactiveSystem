@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.FormTrl
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Service
+  * Form Trl Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait FormTrlService extends Service with api.service.FormTrlService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[FormTrl]]
+  override def getById(id: Int): ServiceCall[NotUsed, FormTrl]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, FormTrl]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[FormTrl]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("formTrl").withCalls(
+      pathCall("/api/v1_0_0/formTrl/all", getAll _) ,
+      pathCall("/api/v1_0_0/formTrl/:id", getById _),
+      pathCall("/api/v1_0_0/formTrl/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/formTrl?pageNo&pageSize", getAllByPage _)
     )
   }
 }

@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.AlertProcessorLog
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,24 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Service
+  * Alert Processor Log Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait AlertProcessorLogService extends Service with api.service.AlertProcessorLogService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[AlertProcessorLog]]
+  override def getById(id: Int): ServiceCall[NotUsed, AlertProcessorLog]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, AlertProcessorLog]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[AlertProcessorLog]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("alertProcessorLog").withCalls(
+      pathCall("/api/v1_0_0/alertProcessorLog/all", getAll _) ,
+      pathCall("/api/v1_0_0/alertProcessorLog/:id", getById _),
+      pathCall("/api/v1_0_0/alertProcessorLog/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/alertProcessorLog?pageNo&pageSize", getAllByPage _)
     )
   }
 }
-

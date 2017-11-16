@@ -4,7 +4,7 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.eevolution.context.dictionary.domain._
-import com.eevolution.context.dictionary.domain.model.Process
+import com.eevolution.context.dictionary.domain.model.PackageImportBackup
 import com.eevolution.utils.PaginatedSequence
 import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
 
@@ -25,23 +25,23 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   */
 
 /**
-  * Process Service
+  * Package Import Backup Service
   */
 
-trait ProcessService extends Service with api.service.ProcessService {
+trait PackageImportBackupService extends Service with api.service.PackageImportBackupService {
 
-  override def getAll() :  ServiceCall[NotUsed, List[Process]]
-  override def getById(id: Int): ServiceCall[NotUsed, Process]
-  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, Process]
-  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[Process]]
+  override def getAll() :  ServiceCall[NotUsed, List[PackageImportBackup]]
+  override def getById(id: Int): ServiceCall[NotUsed, PackageImportBackup]
+  override def getByUUID(uuid :UUID): ServiceCall[NotUsed, PackageImportBackup]
+  override def getAllByPage(pageNo: Option[Int], pageSize: Option[Int]): ServiceCall[NotUsed, PaginatedSequence[PackageImportBackup]]
 
   def descriptor = {
     import Service._
-    named("process").withCalls(
-      pathCall("/api/v1_0_0/process/all", getAll _) ,
-      pathCall("/api/v1_0_0/process/:id", getById _),
-      pathCall("/api/v1_0_0/process/:uuid", getByUUID _) ,
-      pathCall("/api/v1_0_0/process?pageNo&pageSize", getAllByPage _)
+    named("packageImportBackup").withCalls(
+      pathCall("/api/v1_0_0/packageImportBackup/all", getAll _) ,
+      pathCall("/api/v1_0_0/packageImportBackup/:id", getById _),
+      pathCall("/api/v1_0_0/packageImportBackup/:uuid", getByUUID _) ,
+      pathCall("/api/v1_0_0/packageImportBackup?pageNo&pageSize", getAllByPage _)
     )
   }
 }

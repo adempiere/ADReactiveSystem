@@ -20,9 +20,10 @@ import com.lightbend.lagom.scaladsl.api.{Service, ServiceCall}
   * GNU General Public License for more details.
   * You should have received a copy of the GNU General Public License
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/EmerisScala
-  * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 15/11/17.
+  * Email: eduardo.moreno@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Created by eduardo.moreno@e-evolution.com , www.e-evolution.com
   */
+
 
 /**
   * Process Service

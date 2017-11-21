@@ -27,32 +27,32 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 
 /**
-  * Zoom Condition Repository
+  * Workflow Process Data Repository
   * @param session
   * @param executionContext
   */
 
 class WorkflowProcessDataRepository(session: JdbcSession)(implicit executionContext: ExecutionContext)
-  extends api.repository.WorkflowProcessDataRepository[WorkflowProcessDataRepository , Int]
+  extends api.repository.WorkflowProcessDataRepository[WorkflowProcessData , Int]
     with WorkflowProcessDataMapping {
 
-  def getById(id: Int): Future[WorkflowProcessDataRepository] = {
+  def getById(id: Int): Future[WorkflowProcessData] = {
     Future(run(queryWorkflowProcessData.filter(_.workflowProcessDataId == lift(id))).headOption.get)
   }
 
-  def getByUUID(uuid: UUID): Future[WorkflowProcessDataRepository] = {
+  def getByUUID(uuid: UUID): Future[WorkflowProcessData] = {
     Future(run(queryWorkflowProcessData.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }
 
-  def getByWorkflowProcessDataId(id : Int) : Future[List[WorkflowProcessDataRepository]] = {
+  def getByWorkflowProcessDataId(id : Int) : Future[List[WorkflowProcessData]] = {
     Future(run(queryWorkflowProcessData))
   }
 
-  def getAll() : Future[List[WorkflowProcessDataRepository]] = {
+  def getAll() : Future[List[WorkflowProcessData]] = {
     Future(run(queryWorkflowProcessData))
   }
 
-  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[WorkflowProcessDataRepository]] = {
+  def getAllByPage(page: Int, pageSize: Int): Future[PaginatedSequence[WorkflowProcessData]] = {
     val offset = page * pageSize
     val limit = (page + 1) * pageSize
     for {
@@ -69,7 +69,7 @@ class WorkflowProcessDataRepository(session: JdbcSession)(implicit executionCont
   }
 
 
-  private def selectWorkflowProcessData(offset: Int, limit: Int): Future[Seq[WorkflowProcessDataRepository]] = {
+  private def selectWorkflowProcessData(offset: Int, limit: Int): Future[Seq[WorkflowProcessData]] = {
     Future(run(queryWorkflowProcessData).drop(offset).take(limit).toSeq)
   }
 }

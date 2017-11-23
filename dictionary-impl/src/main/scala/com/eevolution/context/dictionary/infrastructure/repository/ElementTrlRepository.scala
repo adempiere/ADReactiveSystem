@@ -39,7 +39,7 @@ class ElementTrlRepository (session: JdbcSession)(implicit executionContext: Exe
     with ElementTrlMapping {
 
   def getById(id: Int): Future[ElementTrl] = {
-    Future(run(queryElementTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
   }
 
   def getByLanguage(id: Int , lang : String): Future[ElementTrl] = {

@@ -24,6 +24,8 @@ import scala.concurrent.{ExecutionContext, Future}
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/EmerisScala
   * Created by emeris.hernandez@e-evolution.com , www.e-evolution.com on 07/11/17.
+  * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
+  * Author by victor.perez@e-evolution.com , www.e-evolution.com
   */
 
 /**
@@ -36,9 +38,12 @@ class ElementTrlRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.ElementTrlRepository[ElementTrl , Int]
     with ElementTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ElementTrl] = {
     Future(run(queryElementTrl.filter(null)).headOption.get)
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ElementTrl] = {
+    Future(run(queryElementTrl.filter(element => element.elementId == lift(lang)  && element.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ElementTrl] = {

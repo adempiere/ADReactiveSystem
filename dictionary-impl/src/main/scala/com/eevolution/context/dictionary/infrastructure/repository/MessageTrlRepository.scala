@@ -37,7 +37,12 @@ class MessageTrlRepository (session: JdbcSession)(implicit executionContext: Exe
     with MessageTrlMapping {
 
   def getById(id: Int): Future[MessageTrl] = {
-    Future(run(queryMessageTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[MessageTrl] = {
+    Future(run(queryMessageTrl.filter(message => message.messageId == lift(id)
+      && message.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[MessageTrl] = {

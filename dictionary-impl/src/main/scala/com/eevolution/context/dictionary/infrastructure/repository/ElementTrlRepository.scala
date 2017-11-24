@@ -43,7 +43,7 @@ class ElementTrlRepository (session: JdbcSession)(implicit executionContext: Exe
   }
 
   def getByLanguage(id: Int , lang : String): Future[ElementTrl] = {
-    Future(run(queryElementTrl.filter(element => element.elementId == lift(lang)  && element.language == lift(lang))).headOption.get)
+    Future(run(queryElementTrl.filter(element => element.elementId == lift(id)  && element.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ElementTrl] = {

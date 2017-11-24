@@ -36,9 +36,13 @@ class WorkbenchTrlRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.WorkbenchTrlRepository[WorkbenchTrl , Int]
     with WorkbenchTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WorkbenchTrl] = {
-    Future(run(queryWorkbenchTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[WorkbenchTrl] = {
+    Future(run(queryWorkbenchTrl.filter(workbench => workbench.workbenchId == lift(id)
+      && workbench.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WorkbenchTrl] = {

@@ -36,11 +36,14 @@ class MenuTrlRepository (session: JdbcSession)(implicit executionContext: Execut
   extends api.repository.MenuTrlRepository[MenuTrl , Int]
     with MenuTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[MenuTrl] = {
-    Future(run(queryMenuTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
   }
 
+  def getByLanguage(id: Int , lang : String): Future[MenuTrl] = {
+    Future(run(queryMenuTrl.filter(menu => menu.menuId == lift(id)
+      && menu.language == lift(lang))).headOption.get)
+  }
   def getByUUID(uuid: UUID): Future[MenuTrl] = {
     Future(run(queryMenuTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }

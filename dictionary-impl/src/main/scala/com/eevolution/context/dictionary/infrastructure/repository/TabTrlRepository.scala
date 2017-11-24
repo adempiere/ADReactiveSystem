@@ -36,9 +36,13 @@ class TabTrlRepository (session: JdbcSession)(implicit executionContext: Executi
   extends api.repository.TabTrlRepository[TabTrl , Int]
     with TabTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TabTrl] = {
-    Future(run(queryTabTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[TabTrl] = {
+    Future(run(queryTabTrl.filter(tab => tab.tabId == lift(id)
+      && tab.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TabTrl] = {

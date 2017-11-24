@@ -36,9 +36,13 @@ class ReferenceListTrlRepository (session: JdbcSession)(implicit executionContex
   extends api.repository.ReferenceListTrlRepository[ReferenceListTrl , Int]
     with ReferenceListTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ReferenceListTrl] = {
-    Future(run(queryReferenceListTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ReferenceListTrl] = {
+    Future(run(queryReferenceListTrl.filter(referenceList => referenceList.referenceListId == lift(id)
+      && referenceList.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ReferenceListTrl] = {

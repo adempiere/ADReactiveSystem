@@ -36,9 +36,13 @@ class ReferenceTrlRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.ReferenceTrlRepository[ReferenceTrl , Int]
     with ReferenceTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ReferenceTrl] = {
-    Future(run(queryReferenceTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ReferenceTrl] = {
+    Future(run(queryReferenceTrl.filter(reference => reference.referenceId == lift(id)
+      && reference.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ReferenceTrl] = {

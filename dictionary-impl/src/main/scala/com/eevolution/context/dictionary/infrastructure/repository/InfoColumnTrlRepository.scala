@@ -36,9 +36,13 @@ class InfoColumnTrlRepository (session: JdbcSession)(implicit executionContext: 
   extends api.repository.InfoColumnTrlRepository[InfoColumnTrl , Int]
     with InfoColumnTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[InfoColumnTrl] = {
-    Future(run(queryInfoColumnTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[InfoColumnTrl] = {
+    Future(run(queryInfoColumnTrl.filter(infoColumn => infoColumn.infoColumnId == lift(id)
+      && infoColumn.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[InfoColumnTrl] = {

@@ -37,9 +37,13 @@ class ProcessTrlRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.ProcessTrlRepository[ProcessTrl , Int]
     with ProcessTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ProcessTrl] = {
-    Future(run(queryProcessTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ProcessTrl] = {
+    Future(run(queryProcessTrl.filter(process => process.processId == lift(id)
+      && process.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ProcessTrl] = {

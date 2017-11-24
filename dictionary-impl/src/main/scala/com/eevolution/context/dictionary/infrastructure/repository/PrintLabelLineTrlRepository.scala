@@ -37,7 +37,12 @@ class PrintLabelLineTrlRepository (session: JdbcSession)(implicit executionConte
     with PrintLabelLineTrlMapping {
 
   def getById(id: Int): Future[PrintLabelLineTrl] = {
-    Future(run(queryPrintLabelLineTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[PrintLabelLineTrl] = {
+    Future(run(queryPrintLabelLineTrl.filter(printLabelLine => printLabelLine.printLabelLineId == lift(id)
+      && printLabelLine.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[PrintLabelLineTrl] = {

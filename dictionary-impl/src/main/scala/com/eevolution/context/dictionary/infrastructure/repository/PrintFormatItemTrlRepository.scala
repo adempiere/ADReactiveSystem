@@ -36,9 +36,13 @@ class PrintFormatItemTrlRepository (session: JdbcSession)(implicit executionCont
   extends api.repository.PrintFormatItemTrlRepository[PrintFormatItemTrl , Int]
     with PrintFormatItemTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[PrintFormatItemTrl] = {
-    Future(run(queryPrintFormatItemTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[PrintFormatItemTrl] = {
+    Future(run(queryPrintFormatItemTrl.filter(printFormatItem => printFormatItem.printFormatItemId == lift(id)
+      && printFormatItem.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[PrintFormatItemTrl] = {

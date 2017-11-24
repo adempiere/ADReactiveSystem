@@ -36,9 +36,13 @@ class AttributeTrlRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.AttributeTrlRepository[AttributeTrl , Int]
     with AttributeTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[AttributeTrl] = {
-    Future(run(queryAttributeTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[AttributeTrl] = {
+    Future(run(queryAttributeTrl.filter(attribute => attribute.attributeId == lift(id)
+      && attribute.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[AttributeTrl] = {

@@ -37,9 +37,13 @@ class WorkflowTrlRepository (session: JdbcSession)(implicit executionContext: Ex
   extends api.repository.WorkflowTrlRepository[WorkflowTrl , Int]
     with WorkflowTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WorkflowTrl] = {
-    Future(run(queryWorkflowTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[WorkflowTrl] = {
+    Future(run(queryWorkflowTrl.filter(workflow => workflow.workflowId == lift(id)
+      && workflow.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WorkflowTrl] = {

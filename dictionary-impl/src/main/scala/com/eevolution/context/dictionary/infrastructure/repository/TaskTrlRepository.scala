@@ -36,9 +36,13 @@ class TaskTrlRepository (session: JdbcSession)(implicit executionContext: Execut
   extends api.repository.TaskTrlRepository[TaskTrl , Int]
     with TaskTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TaskTrl] = {
-    Future(run(queryTaskTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[TaskTrl] = {
+    Future(run(queryTaskTrl.filter(task => task.taskId == lift(id)
+      && task.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TaskTrl] = {

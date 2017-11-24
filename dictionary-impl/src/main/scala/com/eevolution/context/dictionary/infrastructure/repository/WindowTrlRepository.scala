@@ -36,9 +36,13 @@ class WindowTrlRepository (session: JdbcSession)(implicit executionContext: Exec
   extends api.repository.WindowTrlRepository[WindowTrl , Int]
     with WindowTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WindowTrl] = {
-    Future(run(queryWindowTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[WindowTrl] = {
+    Future(run(queryWindowTrl.filter(window => window.windowId == lift(id)
+      && window.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WindowTrl] = {

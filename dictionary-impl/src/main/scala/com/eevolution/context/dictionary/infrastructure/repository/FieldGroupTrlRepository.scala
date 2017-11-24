@@ -37,7 +37,12 @@ class FieldGroupTrlRepository (session: JdbcSession)(implicit executionContext: 
     with FieldGroupTrlMapping {
 
   def getById(id: Int): Future[FieldGroupTrl] = {
-    Future(run(queryFieldGroupTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[FieldGroupTrl] = {
+    Future(run(queryFieldGroupTrl.filter(fieldGroup => fieldGroup.fieldGroupId == lift(id)
+      && fieldGroup.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[FieldGroupTrl] = {

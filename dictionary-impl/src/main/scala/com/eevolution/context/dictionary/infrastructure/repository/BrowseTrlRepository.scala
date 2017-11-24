@@ -36,9 +36,13 @@ class BrowseTrlRepository (session: JdbcSession)(implicit executionContext: Exec
   extends api.repository.BrowseTrlRepository[BrowseTrl , Int]
     with BrowseTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[BrowseTrl] = {
-    Future(run(queryBrowseTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[BrowseTrl] = {
+    Future(run(queryBrowseTrl.filter(browse => browse.browseId == lift(id)
+      && browse.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[BrowseTrl] = {

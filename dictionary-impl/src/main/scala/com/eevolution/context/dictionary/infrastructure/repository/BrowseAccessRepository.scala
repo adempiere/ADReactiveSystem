@@ -36,9 +36,13 @@ class BrowseAccessRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.BrowseAccessRepository[BrowseAccess , Int]
     with BrowseAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[BrowseAccess] = {
-    Future(run(queryBrowseAccess.filter(null)).headOption.get)
+    getByRole(id , 102)
+  }
+
+  def getByRole(id: Int , role : Int): Future[BrowseAccess] = {
+    Future(run(queryBrowseAccess.filter(browseAccess => browseAccess.browseId == lift(id)
+      && browseAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[BrowseAccess] = {

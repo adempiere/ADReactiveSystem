@@ -36,9 +36,13 @@ class FormTrlRepository (session: JdbcSession)(implicit executionContext: Execut
   extends api.repository.FormTrlRepository[FormTrl , Int]
     with FormTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[FormTrl] = {
-    Future(run(queryFormTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[FormTrl] = {
+    Future(run(queryFormTrl.filter(form => form.formId == lift(id)
+      && form.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[FormTrl] = {

@@ -36,9 +36,13 @@ class ViewTrlRepository (session: JdbcSession)(implicit executionContext: Execut
   extends api.repository.ViewTrlRepository[ViewTrl , Int]
     with ViewTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ViewTrl] = {
-    Future(run(queryViewTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ViewTrl] = {
+    Future(run(queryViewTrl.filter(view => view.viewId == lift(id)
+      && view.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ViewTrl] = {

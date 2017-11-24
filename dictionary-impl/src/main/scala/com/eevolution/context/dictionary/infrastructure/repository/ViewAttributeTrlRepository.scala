@@ -36,9 +36,13 @@ class ViewAttributeTrlRepository (session: JdbcSession)(implicit executionContex
   extends api.repository.ViewAttributeTrlRepository[ViewAttributeTrl , Int]
     with ViewAttributeTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ViewAttributeTrl] = {
-    Future(run(queryViewAttributeTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[ViewAttributeTrl] = {
+    Future(run(queryViewAttributeTrl.filter(viewAttribute => viewAttribute.viewAttributeId == lift(id)
+      && viewAttribute.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ViewAttributeTrl] = {

@@ -36,9 +36,13 @@ class FieldTrlRepository (session: JdbcSession)(implicit executionContext: Execu
   extends api.repository.FieldTrlRepository[FieldTrl , Int]
     with FieldTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[FieldTrl] = {
-    Future(run(queryFieldTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[FieldTrl] = {
+    Future(run(queryFieldTrl.filter(field => field.fieldId == lift(id)
+      && field.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[FieldTrl] = {

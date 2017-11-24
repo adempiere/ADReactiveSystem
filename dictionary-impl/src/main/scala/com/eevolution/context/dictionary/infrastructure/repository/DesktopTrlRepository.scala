@@ -36,9 +36,13 @@ class DesktopTrlRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.DesktopTrlRepository[DesktopTrl , Int]
     with DesktopTrlMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[DesktopTrl] = {
-    Future(run(queryDesktopTrl.filter(null)).headOption.get)
+    getByLanguage(id , "en_US")
+  }
+
+  def getByLanguage(id: Int , lang : String): Future[DesktopTrl] = {
+    Future(run(queryDesktopTrl.filter(desktop => desktop.desktopId == lift(id)
+      && desktop.language == lift(lang))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[DesktopTrl] = {

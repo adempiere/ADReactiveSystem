@@ -59,7 +59,7 @@ case class MessageTrl(messageId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = messageId
 
   override val entityName: String = "AD_MessageTrl"
   override val identifier: String = null

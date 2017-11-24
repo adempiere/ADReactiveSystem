@@ -61,7 +61,7 @@ case class InfoColumnTrl(infoColumnId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = infoColumnId
 
   override val entityName: String = "AD_InfoColumn_Trl"
   override val identifier: String = null

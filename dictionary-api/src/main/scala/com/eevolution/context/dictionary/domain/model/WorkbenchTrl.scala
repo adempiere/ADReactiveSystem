@@ -58,7 +58,8 @@ case class WorkbenchTrl(workbenchId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = workbenchId
 
   override val entityName: String = "AD_Workbench_Trl"
   override val identifier: String = null

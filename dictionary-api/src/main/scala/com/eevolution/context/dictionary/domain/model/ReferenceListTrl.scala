@@ -59,7 +59,7 @@ case class ReferenceListTrl(referenceListId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = referenceListId
 
   override val entityName: String = "AD_Ref_List_Trl"
   override val identifier: String = null

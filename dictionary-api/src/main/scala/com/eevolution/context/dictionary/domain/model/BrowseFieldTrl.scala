@@ -61,7 +61,7 @@ case class BrowseFieldTrl(browseFieldId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = browseFieldId
 
   override val entityName: String = "AD_Browse_Field_Trl"
   override val identifier: String = null

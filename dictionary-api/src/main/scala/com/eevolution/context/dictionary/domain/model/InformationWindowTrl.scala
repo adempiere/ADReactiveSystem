@@ -61,7 +61,7 @@ case class InformationWindowTrl(infoWindowId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = infoWindowId
 
   override val entityName: String = "AD_InfoWindow_Trl"
   override val identifier: String = null

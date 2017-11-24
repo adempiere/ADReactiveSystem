@@ -73,7 +73,7 @@ case class ElementTrl(elementId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = elementId
 
   override val entityName: String = "AD_Element_Trl"
   override val identifier: String = null

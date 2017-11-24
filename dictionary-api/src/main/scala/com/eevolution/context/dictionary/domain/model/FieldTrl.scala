@@ -59,7 +59,7 @@ case class FieldTrl (fieldId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+  override def Id: Int = fieldId
 
   override val entityName: String = "AD_Field_Trl"
   override val identifier: String = null

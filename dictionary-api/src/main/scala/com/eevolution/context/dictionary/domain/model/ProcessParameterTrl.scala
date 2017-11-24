@@ -60,7 +60,7 @@ case class ProcessParameterTrl(processParameterId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = processParameterId
 
   override val entityName: String = "AD_Process_Para_Trl"
   override val identifier: String = null

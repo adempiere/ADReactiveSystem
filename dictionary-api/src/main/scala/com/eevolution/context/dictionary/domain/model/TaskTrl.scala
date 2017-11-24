@@ -41,9 +41,9 @@ case class TaskTrl (taskId: Int,
                     tenantId: Int,
                     organizationId: Int,
                     isActive: Boolean = true,
-                    created: DateTime = DateTime.now(),
+                    created: DateTime = DateTime.now,
                     createdBy: Int,
-                    updated: DateTime = DateTime.now(),
+                    updated: DateTime = DateTime.now,
                     updatedBy: Int,
                     name: String,
                     description: Option[String],
@@ -58,7 +58,8 @@ case class TaskTrl (taskId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = taskId
 
   override val entityName: String = "AD_Task_Trl"
   override val identifier: String = null

@@ -60,7 +60,7 @@ case class MenuTrl(menuId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = menuId
 
   override val entityName: String = "AD_Menu_Trl"
   override val identifier: String = null

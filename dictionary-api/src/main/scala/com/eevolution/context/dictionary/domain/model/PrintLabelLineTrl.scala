@@ -54,7 +54,8 @@ case class PrintLabelLineTrl (printLabelLineId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = printLabelLineId
 
   override val entityName: String = "AD_PrintLabelLine_Trl"
   override val identifier: String = null

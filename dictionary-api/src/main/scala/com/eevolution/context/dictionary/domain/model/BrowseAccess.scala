@@ -55,7 +55,7 @@ case class BrowseAccess(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = browseId
 
   override val entityName: String = "AD_Browse_Access"
   override val identifier: String = null

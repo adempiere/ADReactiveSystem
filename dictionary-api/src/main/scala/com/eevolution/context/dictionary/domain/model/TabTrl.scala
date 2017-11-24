@@ -63,7 +63,7 @@ case class TabTrl(tabId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = tabId
 
   override val entityName: String = "AD_Tab_Trl"
   override val identifier: String = null

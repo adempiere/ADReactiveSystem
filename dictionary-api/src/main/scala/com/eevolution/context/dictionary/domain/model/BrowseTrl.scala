@@ -60,7 +60,7 @@ case class BrowseTrl(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = tenantId
 
   override val entityName: String = "AD_Browse_Trl"
   override val identifier: String = null

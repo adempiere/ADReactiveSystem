@@ -61,7 +61,7 @@ case class DesktopTrl(desktopId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = desktopId
 
   override val entityName: String = "AD_Desktop_Trl"
   override val identifier: String = null

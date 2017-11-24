@@ -26,7 +26,7 @@ import org.joda.time.DateTime
   * @param reportViewId Report View ID
   * @param created Created
   * @param createdBy Created By
-  * @param description DEscription
+  * @param description Description
   * @param isActive Is Active
   * @param isTranslated Is Translated
   * @param name Name
@@ -59,7 +59,7 @@ case class ReportViewTrl (tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = reportViewId
 
   override val entityName: String = "AD_ReportView_Trl"
   override val identifier: String = null

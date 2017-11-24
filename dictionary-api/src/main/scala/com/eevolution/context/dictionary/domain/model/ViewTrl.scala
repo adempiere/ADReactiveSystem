@@ -61,7 +61,7 @@ case class ViewTrl(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = viewId
 
   override val entityName: String = "AD_View_Trl"
   override val identifier: String = null

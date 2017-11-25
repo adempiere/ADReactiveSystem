@@ -26,6 +26,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 trait WorkbenchWindowMapping {
   val queryWorkbenchWindow = quote {
     querySchema[WorkbenchWindow]("AD_WorkbenchWindow",
+      _.workbenchWindowId -> "AD_WorkbenchWindow_ID",
       _.isActive-> "IsActive",
       _.tenantId-> "AD_Client_ID",
       _.organizationId -> "AD_Org_ID" ,

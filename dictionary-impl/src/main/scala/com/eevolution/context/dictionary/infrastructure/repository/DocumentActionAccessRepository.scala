@@ -37,9 +37,17 @@ class DocumentActionAccessRepository (session: JdbcSession)(implicit executionCo
   extends api.repository.DocumentActionAccessRepository[DocumentActionAccess , Int]
     with DocumentActionAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[DocumentActionAccess] = {
-    Future(run(queryDocumentActionAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int, role: Int): Future[DocumentActionAccess] = {
+    getByDoctype(id, role, 0)
+  }
+
+  def getByDoctype(id: Int , role : Int, doctype: Int): Future[DocumentActionAccess] = {
+    Future(run(queryDocumentActionAccess.filter(documentActionAccess => documentActionAccess.refListId == lift(id)
+      && documentActionAccess.roleId == lift(role) && documentActionAccess.doctypeId == lift(doctype))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[DocumentActionAccess] = {

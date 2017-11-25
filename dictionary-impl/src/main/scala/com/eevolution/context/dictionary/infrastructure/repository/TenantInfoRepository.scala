@@ -36,9 +36,8 @@ class TenantInfoRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.TenantInfoRepository[TenantInfo , Int]
     with TenantInfoMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TenantInfo] = {
-    Future(run(queryTenantInfo.filter(null)).headOption.get)
+    Future(run(queryTenantInfo.filter(_.tenantId == lift(id))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TenantInfo] = {
@@ -68,7 +67,6 @@ class TenantInfoRepository (session: JdbcSession)(implicit executionContext: Exe
   private def countTenantInfo() = {
     Future(run(queryTenantInfo.size).toInt)
   }
-
 
   private def selectTenantInfo(offset: Int, limit: Int): Future[Seq[TenantInfo]] = {
     Future(run(queryTenantInfo).drop(offset).take(limit).toSeq)

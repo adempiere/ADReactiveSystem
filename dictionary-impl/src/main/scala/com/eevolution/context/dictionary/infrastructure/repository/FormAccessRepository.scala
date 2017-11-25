@@ -36,9 +36,13 @@ class FormAccessRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.FormAccessRepository[FormAccess , Int]
     with FormAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[FormAccess] = {
-    Future(run(queryFormAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[FormAccess] = {
+    Future(run(queryFormAccess.filter(formAccess => formAccess.formId == lift(id)
+      && formAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[FormAccess] = {

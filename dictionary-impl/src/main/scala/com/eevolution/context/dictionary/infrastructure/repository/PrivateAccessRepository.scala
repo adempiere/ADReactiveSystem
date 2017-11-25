@@ -37,7 +37,16 @@ class PrivateAccessRepository (session: JdbcSession)(implicit executionContext: 
     with PrivateAccessMapping {
 
   def getById(id: Int): Future[PrivateAccess] = {
-    Future(run(queryPrivateAccess.filter(_.privateAccessId == lift(id))).headOption.get)
+    getByRecord(id , 0)
+  }
+
+  def getByRecord(id: Int, record: Int): Future[PrivateAccess] = {
+    getByUser(id, record, 0)
+  }
+
+  def getByUser(id: Int , record : Int, user: Int): Future[PrivateAccess] = {
+    Future(run(queryPrivateAccess.filter(privateAccess => privateAccess.entityId == lift(id)
+      && privateAccess.recordId == lift(record) && privateAccess.userId == lift(user))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[PrivateAccess] = {

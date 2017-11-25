@@ -36,9 +36,13 @@ class ProcessAccessRepository (session: JdbcSession)(implicit executionContext: 
   extends api.repository.ProcessAccessRepository[ProcessAccess , Int]
     with ProcessAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ProcessAccess] = {
-    Future(run(queryProcessAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[ProcessAccess] = {
+    Future(run(queryProcessAccess.filter(processAccess => processAccess.processId == lift(id)
+      && processAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ProcessAccess] = {

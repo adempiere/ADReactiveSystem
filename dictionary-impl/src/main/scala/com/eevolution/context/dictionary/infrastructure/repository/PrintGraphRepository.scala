@@ -15,7 +15,7 @@ class PrintGraphRepository (session: JdbcSession)(implicit executionContext: Exe
     with PrintGraphMapping {
 
   def getById(id: Int): Future[PrintGraph] = {
-    Future(run(queryPrintGraph.filter(null)).headOption.get)
+    Future(run(queryPrintGraph.filter(_.printGraphId == lift(id))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[PrintGraph] = {

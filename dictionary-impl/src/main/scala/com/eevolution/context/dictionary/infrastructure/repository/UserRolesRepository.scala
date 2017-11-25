@@ -36,10 +36,15 @@ class UserRolesRepository (session: JdbcSession)(implicit executionContext: Exec
   extends api.repository.UserRolesRepository[UserRoles , Int]
     with UserRolesMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[UserRoles] = {
-    Future(run(queryUserRoles.filter(null)).headOption.get)
+    getByRole(id , 0)
   }
+
+  def getByRole(id: Int , role : Int): Future[UserRoles] = {
+    Future(run(queryUserRoles.filter(userRoles => userRoles.userId == lift(id)
+      && userRoles.roleId == lift(role))).headOption.get)
+  }
+
 
   def getByUUID(uuid: UUID): Future[UserRoles] = {
     Future(run(queryUserRoles.filter(_.uuid == lift(uuid.toString))).headOption.get)

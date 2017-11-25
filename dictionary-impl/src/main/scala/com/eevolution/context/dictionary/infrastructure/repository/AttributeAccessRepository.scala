@@ -36,9 +36,13 @@ class AttributeAccessRepository(session: JdbcSession)(implicit executionContext:
   extends api.repository.AttributeAccessRepository[AttributeAccess , Int]
     with AttributeAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[AttributeAccess] = {
-    Future(run(queryAttributeAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[AttributeAccess] = {
+    Future(run(queryAttributeAccess.filter(attributeAccess => attributeAccess.attributeId == lift(id)
+      && attributeAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[AttributeAccess] = {

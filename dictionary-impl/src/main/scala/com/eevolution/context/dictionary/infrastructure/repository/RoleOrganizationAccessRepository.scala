@@ -36,11 +36,14 @@ class RoleOrganizationAccessRepository (session: JdbcSession)(implicit execution
   extends api.repository.RoleOrganizationAccessRepository[RoleOrganizationAccess , Int]
     with RoleOrganizationAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[RoleOrganizationAccess] = {
-    Future(run(queryRoleOrganizationAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
   }
 
+  def getByRole(id: Int , role : Int): Future[RoleOrganizationAccess] = {
+    Future(run(queryRoleOrganizationAccess.filter(roleOrganizationAccess => roleOrganizationAccess.organizationId == lift(id)
+      && roleOrganizationAccess.roleId == lift(role))).headOption.get)
+  }
   def getByUUID(uuid: UUID): Future[RoleOrganizationAccess] = {
     Future(run(queryRoleOrganizationAccess.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }

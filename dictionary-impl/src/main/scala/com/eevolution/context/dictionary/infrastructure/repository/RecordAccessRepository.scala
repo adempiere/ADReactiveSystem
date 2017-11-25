@@ -36,9 +36,13 @@ class RecordAccessRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.RecordAccessRepository[RecordAccess , Int]
     with RecordAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[RecordAccess] = {
-    Future(run(queryRecordAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[RecordAccess] = {
+    Future(run(queryRecordAccess.filter(recordAccess => recordAccess.recordId == lift(id)
+      && recordAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[RecordAccess] = {

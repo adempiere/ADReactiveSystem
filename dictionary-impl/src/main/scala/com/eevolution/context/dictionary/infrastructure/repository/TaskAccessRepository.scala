@@ -36,9 +36,13 @@ class TaskAccessRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.TaskAccessRepository[TaskAccess , Int]
     with TaskAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TaskAccess] = {
-    Future(run(queryTaskAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[TaskAccess] = {
+    Future(run(queryTaskAccess.filter(taskAccess => taskAccess.taskId == lift(id)
+      && taskAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TaskAccess] = {

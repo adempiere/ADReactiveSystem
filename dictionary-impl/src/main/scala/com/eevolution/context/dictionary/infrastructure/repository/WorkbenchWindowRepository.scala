@@ -36,9 +36,8 @@ class WorkbenchWindowRepository (session: JdbcSession)(implicit executionContext
   extends api.repository.WorkbenchWindowRepository[WorkbenchWindow , Int]
     with WorkbenchWindowMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WorkbenchWindow] = {
-    Future(run(queryWorkbenchWindow.filter(null)).headOption.get)
+    Future(run(queryWorkbenchWindow.filter(_.workbenchWindowId == lift(id))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WorkbenchWindow] = {

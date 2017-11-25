@@ -36,9 +36,13 @@ class WorkflowAccessRepository (session: JdbcSession)(implicit executionContext:
   extends api.repository.WorkflowAccessRepository[WorkflowAccess , Int]
     with WorkflowAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WorkflowAccess] = {
-    Future(run(queryWorkflowAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[WorkflowAccess] = {
+    Future(run(queryWorkflowAccess.filter(workflowAccess => workflowAccess.workflowId == lift(id)
+      && workflowAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WorkflowAccess] = {

@@ -36,9 +36,13 @@ class WindowAccessRepository (session: JdbcSession)(implicit executionContext: E
   extends api.repository.WindowAccessRepository[WindowAccess , Int]
     with WindowAccessMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[WindowAccess] = {
-    Future(run(queryWindowAccess.filter(null)).headOption.get)
+    getByRole(id , 0)
+  }
+
+  def getByRole(id: Int , role : Int): Future[WindowAccess] = {
+    Future(run(queryWindowAccess.filter(windowAccess => windowAccess.windowId == lift(id)
+      && windowAccess.roleId == lift(role))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[WindowAccess] = {

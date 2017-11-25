@@ -37,7 +37,7 @@ class BrowseAccessRepository (session: JdbcSession)(implicit executionContext: E
     with BrowseAccessMapping {
 
   def getById(id: Int): Future[BrowseAccess] = {
-    getByRole(id , 102)
+    getByRole(id , 0)
   }
 
   def getByRole(id: Int , role : Int): Future[BrowseAccess] = {

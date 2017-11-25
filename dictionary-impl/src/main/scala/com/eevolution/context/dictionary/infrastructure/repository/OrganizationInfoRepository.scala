@@ -36,9 +36,8 @@ class OrganizationInfoRepository (session: JdbcSession)(implicit executionContex
   extends api.repository.OrganizationInfoRepository[OrganizationInfo , Int]
     with OrganizationInfoMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[OrganizationInfo] = {
-    Future(run(queryOrganizationInfo.filter(null)).headOption.get)
+    Future(run(queryOrganizationInfo.filter(_.organizationId == lift(id))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[OrganizationInfo] = {

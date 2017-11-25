@@ -55,7 +55,7 @@ case class WindowAccess(windowId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = windowId
 
   override val entityName: String = "AD_WindowAccess"
   override val identifier: String = null

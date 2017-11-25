@@ -95,7 +95,7 @@ case class TenantInfo(tenantId: Int,
   override def Id: Int = tenantId
 
   override val entityName: String = "AD_ClientInfo"
-  override val identifier: String = "AD_ClientInfo_ID"
+  override val identifier: String = "AD_Client_ID"
 }
 
 object TenantInfo  {

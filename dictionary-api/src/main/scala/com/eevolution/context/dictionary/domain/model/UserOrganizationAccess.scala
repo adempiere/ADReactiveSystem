@@ -53,7 +53,7 @@ case class UserOrganizationAccess(userId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = userId
 
   override val entityName: String = "AD_User_OrgAccess"
   override val identifier: String = null

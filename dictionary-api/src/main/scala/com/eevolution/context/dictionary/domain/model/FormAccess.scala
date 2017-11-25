@@ -55,7 +55,7 @@ case class FormAccess(formId : Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = formId
 
   override val entityName: String = "AD_Form_Access"
   override val identifier: String = null

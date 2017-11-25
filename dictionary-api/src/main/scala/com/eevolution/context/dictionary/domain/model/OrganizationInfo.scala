@@ -83,10 +83,11 @@ case class OrganizationInfo(organizationId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = organizationId
 
   override val entityName: String = "AD_OrgInfo"
-  override val identifier: String = null
+  override val identifier: String = "AD_Org_ID"
 }
 
 object OrganizationInfo{

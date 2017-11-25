@@ -52,7 +52,8 @@ case class TaskAccess (taskId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = taskId
 
   override val entityName: String = "AD_Task_Access"
   override val identifier: String = null

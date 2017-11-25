@@ -59,7 +59,7 @@ case class RecordAccess(roleId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = recordId
 
   override val entityName: String = "AD_Record_Access"
   override val identifier: String = null

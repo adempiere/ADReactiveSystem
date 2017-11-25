@@ -38,7 +38,8 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class WorkbenchWindow(isActive: Boolean = true,
+case class WorkbenchWindow(workbenchWindowId: Int,
+                           isActive: Boolean = true,
                            tenantId: Int,
                            organizationId : Int ,
                            created: DateTime = DateTime.now,
@@ -62,16 +63,18 @@ case class WorkbenchWindow(isActive: Boolean = true,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
-  override def Id: Int = 0
+
+  override def Id: Int = workbenchWindowId
 
   override val entityName: String = "AD_WorkbenchWindow"
-  override val identifier: String = null
+  override val identifier: String = "AD_WorkbenchWindow_ID"
 
 }
 
 object WorkbenchWindow {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[WorkbenchWindow]
-  def create(isActive: Boolean,
+  def create(workbenchWindowId: Int,
+             isActive: Boolean,
              tenantId: Int,
              organizationId : Int ,
              created: DateTime,
@@ -86,6 +89,6 @@ object WorkbenchWindow {
              processId: Int,
              taskId: Int,
              entityType: String,
-             uuid: String) = WorkbenchWindow(isActive, tenantId, organizationId, created, createdBy, updated,
-    updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, uuid)
+             uuid: String) = WorkbenchWindow(workbenchWindowId, isActive, tenantId, organizationId, created,
+    createdBy, updated, updatedBy, workbenchId, seqNo, isPrimary, None, None, None, None, entityType, uuid)
 }

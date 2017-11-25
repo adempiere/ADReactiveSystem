@@ -22,7 +22,6 @@ import org.joda.time.DateTime
 
 /**
   * Private Access Entity
-  * @param privateAccessId Private Access ID
   * @param userId User ID
   * @param entityId Table ID
   * @param recordId Record ID
@@ -34,8 +33,7 @@ import org.joda.time.DateTime
   * @param uuid UUID
   */
 
-case class PrivateAccess(privateAccessId: Int,
-                         tenantId: Int,
+case class PrivateAccess(tenantId: Int,
                          organizationId: Int,
                          userId: Int,
                          entityId: Int,
@@ -55,7 +53,7 @@ case class PrivateAccess(privateAccessId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = privateAccessId
+  override def Id: Int = entityId
 
   override val entityName: String = "AD_Private_Access"
   override val identifier: String = "AD_Private_Access_ID"
@@ -63,8 +61,7 @@ case class PrivateAccess(privateAccessId: Int,
 
 object PrivateAccess  {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[PrivateAccess]
-  def create(privateAccessId: Int,
-             tenantId: Int,
+  def create(tenantId: Int,
              organizationId: Int,
              userId: Int,
              entityId: Int,
@@ -74,6 +71,6 @@ object PrivateAccess  {
              createdBy: Int,
              updated: DateTime,
              updatedBy: Int,
-             uuid: String) = PrivateAccess(privateAccessId, tenantId, organizationId, userId, entityId, recordId,
+             uuid: String) = PrivateAccess(tenantId, organizationId, userId, entityId, recordId,
     isActive, created, createdBy, updated, updatedBy, uuid)
 }

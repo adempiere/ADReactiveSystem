@@ -29,7 +29,7 @@ import org.joda.time.DateTime
   * @param updated Updated
   * @param updatedBy Updated By
   * @param name Name
-  * @param description Descrption
+  * @param description Description
   * @param graphType Graph Type
   * @param descriptionPrintFormatItemId Description Print Format Item ID
   * @param dataPrintFormatItemID Data Print Format Item ID
@@ -68,6 +68,7 @@ case class PrintGraph (printGraphId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+
   override def Id: Int = printGraphId
 
   override val entityName: String = "AD_PrintGraph"

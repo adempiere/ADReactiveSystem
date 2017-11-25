@@ -55,7 +55,7 @@ case class DocumentActionAccess(tenantId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = refListId
 
   override val entityName: String = "AD_Document_Action_ Access"
   override val identifier: String = null

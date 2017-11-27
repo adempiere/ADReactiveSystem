@@ -55,7 +55,7 @@ case class SchedulerParameter(schedulerId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = schedulerId
 
   override val entityName: String = "AD_Scheduler_Para"
   override val identifier: String = null

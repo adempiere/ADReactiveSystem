@@ -57,7 +57,7 @@ case class TreeNodeCMC(treeId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = treeId
 
   override val entityName: String = "AD_TreeNodeCMC"
   override val identifier: String = null

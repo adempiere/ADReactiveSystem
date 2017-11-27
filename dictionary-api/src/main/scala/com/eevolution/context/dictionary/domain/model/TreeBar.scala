@@ -53,7 +53,7 @@ case class TreeBar(treeId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = treeId
 
   override val entityName: String = "AD_TreeBar"
   override val identifier: String = null

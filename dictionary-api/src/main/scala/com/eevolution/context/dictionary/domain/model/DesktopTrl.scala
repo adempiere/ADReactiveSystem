@@ -39,7 +39,7 @@ import org.joda.time.DateTime
   */
 
 case class DesktopTrl(desktopId: Int,
-                      language: Int,
+                      language: String,
                       tenantId: Int,
                       organizationId: Int,
                       isActive:Boolean=true,
@@ -70,7 +70,7 @@ case class DesktopTrl(desktopId: Int,
 object DesktopTrl {
   implicit lazy val jsonFormat = Jsonx.formatCaseClass[DesktopTrl]
   def create(desktopId: Int,
-             language: Int,
+             language: String,
              tenantId: Int,
              organizationId: Int,
              isActive:Boolean,

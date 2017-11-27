@@ -53,7 +53,7 @@ case class AttributeValueExtend(attributeId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = attributeId
 
   override val entityName: String = "AD_Attribute_Value"
   override val identifier: String = null

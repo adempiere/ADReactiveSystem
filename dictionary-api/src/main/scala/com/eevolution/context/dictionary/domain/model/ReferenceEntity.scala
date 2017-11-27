@@ -74,10 +74,10 @@ case class ReferenceEntity(referenceId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = referenceId
 
   override val entityName: String = "AD_Ref_Table"
-  override val identifier: String = null
+  override val identifier: String = "AD_Reference_ID"
 }
 
 object ReferenceEntity  {

@@ -97,6 +97,7 @@ case class AttributeExtend(attributeExtendId: Int,
   override type ActiveEnabled = this.type
   override type Identifiable = this.type
   override type Traceable = this.type
+
   override def Id: Int = attributeExtendId
 
   override val entityName: String = "AD_Attribute"

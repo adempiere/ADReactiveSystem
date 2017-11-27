@@ -55,7 +55,7 @@ case class SequenceAudit (sequenceId: Int,
   override type Identifiable = this.type
   override type Traceable = this.type
 
-  override def Id: Int = 0
+  override def Id: Int = sequenceId
 
   override val entityName: String = "AD_Sequence_Audit"
   override val identifier: String = null

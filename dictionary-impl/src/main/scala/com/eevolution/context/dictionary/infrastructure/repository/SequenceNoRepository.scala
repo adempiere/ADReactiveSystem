@@ -36,9 +36,13 @@ class SequenceNoRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.SequenceNoRepository[SequenceNo , Int]
     with SequenceNoMapping {
 
-  //It dosen't have ID
   def getById(id: Int): Future[SequenceNo] = {
-    Future(run(querySequenceNo.filter(null)).headOption.get)
+    getByCalendarYear(id , "")
+  }
+
+  def getByCalendarYear(id: Int , calendarYear : String): Future[SequenceNo] = {
+    Future(run(querySequenceNo.filter(sequenceNo => sequenceNo.sequenceId == lift(id)
+      && sequenceNo.calendarYear == lift(calendarYear))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[SequenceNo] = {

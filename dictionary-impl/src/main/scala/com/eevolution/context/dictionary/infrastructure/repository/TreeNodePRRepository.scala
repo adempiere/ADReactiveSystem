@@ -36,9 +36,13 @@ class TreeNodePRRepository (session: JdbcSession)(implicit executionContext: Exe
   extends api.repository.TreeNodePRRepository[TreeNodePR , Int]
     with TreeNodePRMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TreeNodePR] = {
-    Future(run(queryTreeNodePR.filter(null)).headOption.get)
+    getByNode(id , 0)
+  }
+
+  def getByNode(id: Int , node : Int): Future[TreeNodePR] = {
+    Future(run(queryTreeNodePR.filter(treeNodePR => treeNodePR.treeId == lift(id)
+      && treeNodePR.nodeId == lift(node))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TreeNodePR] = {

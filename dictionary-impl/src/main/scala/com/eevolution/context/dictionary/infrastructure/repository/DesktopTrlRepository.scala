@@ -45,6 +45,7 @@ class DesktopTrlRepository (session: JdbcSession)(implicit executionContext: Exe
       && desktop.language == lift(lang))).headOption.get)
   }
 
+
   def getByUUID(uuid: UUID): Future[DesktopTrl] = {
     Future(run(queryDesktopTrl.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }

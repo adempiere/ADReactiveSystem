@@ -35,9 +35,13 @@ class SchedulerParameterRepository (session: JdbcSession)(implicit executionCont
   extends api.repository.SchedulerParameterRepository[SchedulerParameter , Int]
     with SchedulerParameterMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[SchedulerParameter] = {
-    Future(run(querySchedulerParameter.filter(null)).headOption.get)
+    getByParameter(id , 400)
+  }
+
+  def getByParameter(id: Int , parameter : Int): Future[SchedulerParameter] = {
+    Future(run(querySchedulerParameter.filter(schedulerParameter => schedulerParameter.schedulerId == lift(id)
+      && schedulerParameter.processParameterId == lift(parameter))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[SchedulerParameter] = {

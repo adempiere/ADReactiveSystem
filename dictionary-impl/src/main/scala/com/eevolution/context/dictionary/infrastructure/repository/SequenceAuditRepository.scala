@@ -36,9 +36,13 @@ class SequenceAuditRepository (session: JdbcSession)(implicit executionContext: 
   extends api.repository.SequenceAuditRepository[SequenceAudit , Int]
     with SequenceAuditMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[SequenceAudit] = {
-    Future(run(querySequenceAudit.filter(null)).headOption.get)
+    getByDocumentNo(id , "")
+  }
+
+  def getByDocumentNo(id: Int , document : String): Future[SequenceAudit] = {
+    Future(run(querySequenceAudit.filter(sequenceAudit => sequenceAudit.sequenceId == lift(id)
+      && sequenceAudit.documentNo == lift(document))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[SequenceAudit] = {

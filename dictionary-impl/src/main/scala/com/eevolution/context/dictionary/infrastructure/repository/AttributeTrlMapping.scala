@@ -25,7 +25,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 trait AttributeTrlMapping  {
   val queryAttributeTrl = quote {
     querySchema[AttributeTrl]("AD_Column_Trl",
-      _.attributeTrlId -> "AD_Column_ID",
+      _.attributeId -> "AD_Column_ID",
       _.language -> "AD_Language",
       _.tenantId -> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",

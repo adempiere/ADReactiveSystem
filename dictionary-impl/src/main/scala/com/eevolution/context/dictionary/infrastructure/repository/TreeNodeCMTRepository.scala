@@ -36,9 +36,13 @@ class TreeNodeCMTRepository (session: JdbcSession)(implicit executionContext: Ex
   extends api.repository.TreeNodeCMTRepository[TreeNodeCMT , Int]
     with TreeNodeCMTMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TreeNodeCMT] = {
-    Future(run(queryTreeNodeCMT.filter(null)).headOption.get)
+    getByNode(id , 0)
+  }
+
+  def getByNode(id: Int , node : Int): Future[TreeNodeCMT] = {
+    Future(run(queryTreeNodeCMT.filter(treeNodeCMT => treeNodeCMT.treeId == lift(id)
+      && treeNodeCMT.nodeId == lift(node))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TreeNodeCMT] = {

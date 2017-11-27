@@ -37,7 +37,12 @@ class AttributeValueExtendRepository (session: JdbcSession)(implicit executionCo
     with AttributeValueExtendMapping {
 
   def getById(id: Int): Future[AttributeValueExtend] = {
-    Future(run(queryAttributeValueExtend.filter(null)).headOption.get)
+    getByRecord(id , 0)
+  }
+
+  def getByRecord(id: Int , record: Int): Future[AttributeValueExtend] = {
+    Future(run(queryAttributeValueExtend.filter(attributeValueExtend => attributeValueExtend.attributeId == lift(id)
+      && attributeValueExtend.recordId == lift(record))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[AttributeValueExtend] = {

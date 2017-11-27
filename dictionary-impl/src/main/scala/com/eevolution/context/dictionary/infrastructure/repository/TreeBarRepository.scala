@@ -36,9 +36,17 @@ class TreeBarRepository (session: JdbcSession)(implicit executionContext: Execut
   extends api.repository.TreeBarRepository[TreeBar , Int]
     with TreeBarMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[TreeBar] = {
-    Future(run(queryTreeBar.filter(null)).headOption.get)
+    getByUser(id , 0)
+  }
+
+  def getByUser(id: Int, user: Int): Future[TreeBar] = {
+    getByNode(id, user, 0)
+  }
+
+  def getByNode(id: Int , user: Int, node: Int): Future[TreeBar] = {
+    Future(run(queryTreeBar.filter(treeBar => treeBar.treeId == lift(id)
+      && treeBar.userId == lift(user) && treeBar.nodeId == lift(node))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[TreeBar] = {

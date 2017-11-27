@@ -36,9 +36,13 @@ class PinStanceParaRepository (session: JdbcSession)(implicit executionContext: 
   extends api.repository.PinStanceParaRepository[PinStancePara , Int]
     with PinStanceParaMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[PinStancePara] = {
-    Future(run(queryPinStancePara.filter(null)).headOption.get)
+    getBySeqNo(id , 10)
+  }
+
+  def getBySeqNo(id: Int , seqNo : Int): Future[PinStancePara] = {
+    Future(run(queryPinStancePara.filter(pinStancePara => pinStancePara.pinStanceId == lift(id)
+      && pinStancePara.seqNo == lift(seqNo))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[PinStancePara] = {

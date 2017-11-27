@@ -44,6 +44,7 @@ class RoleOrganizationAccessRepository (session: JdbcSession)(implicit execution
     Future(run(queryRoleOrganizationAccess.filter(roleOrganizationAccess => roleOrganizationAccess.organizationId == lift(id)
       && roleOrganizationAccess.roleId == lift(role))).headOption.get)
   }
+
   def getByUUID(uuid: UUID): Future[RoleOrganizationAccess] = {
     Future(run(queryRoleOrganizationAccess.filter(_.uuid == lift(uuid.toString))).headOption.get)
   }

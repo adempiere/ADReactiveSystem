@@ -36,9 +36,8 @@ class ReferenceEntityRepository (session: JdbcSession)(implicit executionContext
   extends api.repository.ReferenceEntityRepository[ReferenceEntity , Int]
     with ReferenceEntityMapping {
 
-  //It doesn't have ID
   def getById(id: Int): Future[ReferenceEntity] = {
-    Future(run(queryReferenceEntity.filter(null)).headOption.get)
+    Future(run(queryReferenceEntity.filter(_.referenceId == lift(id))).headOption.get)
   }
 
   def getByUUID(uuid: UUID): Future[ReferenceEntity] = {

@@ -21,7 +21,7 @@ lazy val dictionaryApi = (project in file("dictionary-api"))
       lagomScaladslApi,
       playJsonExtensions,
       playJsonDerivedCodecs,
-      "io.getquill" %% "quill-jdbc" % "1.3.0"
+      "io.getquill" %% "quill-jdbc" % "2.3.1"
       //"io.getquill" %% "quill-async-postgres" % "1.0.1"
     )
   )

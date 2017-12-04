@@ -26,7 +26,7 @@ import org.joda.time.DateTime
   * @param migrationId Migration ID
   * @param tenantId Tenant ID
   * @param organizationId Organization ID
-  * @param apply Apply
+  * @param applyScript Apply Script
   * @param comments Comments
   * @param created Created
   * @param createdBy Created By
@@ -47,7 +47,7 @@ import org.joda.time.DateTime
 case class Migration(migrationId: Int,
                      tenantId : Int ,
                      organizationId : Int,
-                     apply: Option[Boolean],
+                     applyScript: Option[Boolean],
                      comments: Option[String],
                      created: DateTime =  DateTime.now,
                      createdBy: Int,
@@ -83,7 +83,7 @@ object Migration  {
   def create(migrationId: Int,
              tenantId : Int ,
              organizationId : Int,
-             apply: Boolean,
+             applyScript: Boolean,
              comments: String,
              created: DateTime,
              createdBy: Int,

@@ -32,7 +32,7 @@ trait MigrationStepMapping {
       _.migrationId-> "AD_Migration_ID",
       _.entityId-> "AD_Table_ID",
       _.action-> "Action",
-      _.apply-> "Apply",
+      _.applyScript -> "Apply",
       _.comments-> "Comments",
       _.created-> "Created",
       _.createdBy-> "CreatedBy",

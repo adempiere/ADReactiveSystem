@@ -26,7 +26,7 @@ import org.joda.time.DateTime
   * @param migrationId Migration ID
   * @param entityId Table ID
   * @param action Action
-  * @param apply Apply
+  * @param applyScript Apply Script
   * @param comments Comments
   * @param created Created
   * @param createdBy Created By
@@ -51,7 +51,7 @@ case class MigrationStep(migrationStepId: Int,
                          migrationId: Int,
                          entityId: Option[Int],
                          action: Option[Boolean],
-                         apply: Option[Boolean],
+                         applyScript: Option[Boolean],
                          comments: Option[String],
                          created: DateTime =  DateTime.now,
                          createdBy: Int,
@@ -91,7 +91,7 @@ object MigrationStep  {
              migrationId: Int,
              entityId: Int,
              action: Boolean,
-             apply: Boolean,
+             applyScript: Boolean,
              comments: String,
              created: DateTime,
              createdBy: Int,

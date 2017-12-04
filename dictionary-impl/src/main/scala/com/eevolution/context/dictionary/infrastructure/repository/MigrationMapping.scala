@@ -29,7 +29,7 @@ trait MigrationMapping {
       _.migrationId-> "AD_Migration_ID",
       _.tenantId -> "AD_Client_ID" ,
       _.organizationId -> "AD_Org_ID",
-      _.apply-> "Apply",
+      _.applyScript -> "Apply",
       _.comments-> "Comments",
       _.created-> "Created",
       _.createdBy-> "CreatedBy",

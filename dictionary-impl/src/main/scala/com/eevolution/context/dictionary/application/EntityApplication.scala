@@ -51,21 +51,22 @@ trait EntityComponents extends LagomServerComponents
   * Entity Application
   * @param context
   */
-abstract class EntityApplication (context: LagomApplicationContext) extends LagomApplication(context)
-  with ElementComponents
+
+ abstract class EntityApplication (context: LagomApplicationContext) extends LagomApplication(context)
+  with EntityComponents
   with AhcWSComponents {
 
   override lazy val lagomServer = LagomServer.forServices(
     bindService[EntityService].to(wire[EntityServiceImpl])
   )
-  lazy val entityRepository = wire[EntityRepository]
+  override lazy val entityRepository = wire[EntityRepository]
 }
 
 /**
   * Entity Application Loader
   */
 class EntityApplicationLoader extends LagomApplicationLoader {
-  override def load(context: LagomApplicationContext) = new ElementApplication(context) {
+  override def load(context: LagomApplicationContext) = new EntityApplication(context) {
     override def serviceLocator = NoServiceLocator
   }
 

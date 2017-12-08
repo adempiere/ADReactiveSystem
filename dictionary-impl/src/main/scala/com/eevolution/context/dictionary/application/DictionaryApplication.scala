@@ -1,8 +1,9 @@
 package com.eevolution.context.dictionary.application
 
-import com.eevolution.context.dictionary.infrastructure.repository.ElementRepository
-import com.eevolution.context.dictionary.infrastructure.service.ElementService
-import com.eevolution.context.dictionary.infrastructure.service.impl.ElementServiceImpl
+import com.eevolution.context.dictionary.domain.model.Attribute
+import com.eevolution.context.dictionary.infrastructure.repository.{AttributeRepository, ElementRepository, EntityRepository}
+import com.eevolution.context.dictionary.infrastructure.service.{AttributeService, ElementService, EntityService}
+import com.eevolution.context.dictionary.infrastructure.service.impl.{AttributeAccessServiceImpl, AttributeServiceImpl, ElementServiceImpl, EntityServiceImpl}
 import com.lightbend.lagom.scaladsl.api.ServiceLocator.NoServiceLocator
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcPersistenceComponents
@@ -31,9 +32,9 @@ import scala.concurrent.ExecutionContext
   */
 
 /**
-  * Element Componet
+  * Entity Component
   */
-trait ElementComponents extends LagomServerComponents
+trait DictionaryComponents extends LagomServerComponents
   with JdbcPersistenceComponents
   with HikariCPComponents {
 
@@ -41,34 +42,46 @@ trait ElementComponents extends LagomServerComponents
   def environment: Environment
 
   override lazy val lagomServer = LagomServer.forServices(
-    bindService[ElementService].to(wire[ElementServiceImpl])
+    bindService[ElementService].to(wire[ElementServiceImpl]),
+    bindService[EntityService].to(wire[EntityServiceImpl]),
+    bindService[AttributeService].to(wire[AttributeServiceImpl])
   )
+
   lazy val elementRepository = wire[ElementRepository]
-  lazy val jsonSerializerRegistry = ElementSerializerRegistry
+  lazy val entityRepository = wire[EntityRepository]
+  lazy val attributeRepository = wire[AttributeRepository]
+
+  lazy val jsonSerializerRegistry = DictionarySerializerRegistry
+
 }
 
 /**
-  * Element Application
+  * Entity Application
   * @param context
   */
-abstract class ElementApplication (context: LagomApplicationContext) extends LagomApplication(context)
-  with ElementComponents
+
+ abstract class DictionaryApplication(context: LagomApplicationContext) extends LagomApplication(context)
+  with DictionaryComponents
   with AhcWSComponents {
 
   override lazy val lagomServer = LagomServer.forServices(
-    bindService[ElementService].to(wire[ElementServiceImpl])
+    bindService[ElementService].to(wire[ElementServiceImpl]),
+    bindService[EntityService].to(wire[EntityServiceImpl]),
+    bindService[AttributeService].to(wire[AttributeServiceImpl])
   )
   override lazy val elementRepository = wire[ElementRepository]
+  override lazy val entityRepository = wire[EntityRepository]
+  override lazy val attributeRepository = wire[AttributeRepository]
 }
 
 /**
-  * Element Application Loader
+  * Entity Application Loader
   */
-class ElementApplicationLoader extends LagomApplicationLoader {
-  override def load(context: LagomApplicationContext) = new ElementApplication(context) {
+class DictionaryApplicationLoader extends LagomApplicationLoader {
+  override def load(context: LagomApplicationContext) = new DictionaryApplication(context) {
     override def serviceLocator = NoServiceLocator
   }
 
   override def loadDevMode(context: LagomApplicationContext) =
-    new ElementApplication(context) with LagomDevModeComponents
+    new DictionaryApplication(context) with LagomDevModeComponents
 }

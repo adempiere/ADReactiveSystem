@@ -1,6 +1,6 @@
 package com.eevolution.context.dictionary.application
 
-import com.eevolution.context.dictionary.domain.model.{Attribute, Element, Entity}
+import com.eevolution.context.dictionary.domain.model.{Attribute, Element, Entity, Window}
 import com.lightbend.lagom.scaladsl.playjson.{JsonSerializer, JsonSerializerRegistry}
 
 /**
@@ -26,6 +26,7 @@ object DictionarySerializerRegistry extends JsonSerializerRegistry {
   override def serializers = List(
     JsonSerializer[Element],
     JsonSerializer[Entity],
-    JsonSerializer[Attribute]
+    JsonSerializer[Attribute],
+    JsonSerializer[Window]
   )
 }

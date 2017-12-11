@@ -1,9 +1,8 @@
 package com.eevolution.context.dictionary.application
 
-import com.eevolution.context.dictionary.domain.model.Attribute
-import com.eevolution.context.dictionary.infrastructure.repository.{AttributeRepository, ElementRepository, EntityRepository, WindowRepository}
-import com.eevolution.context.dictionary.infrastructure.service.{AttributeService, ElementService, EntityService}
-import com.eevolution.context.dictionary.infrastructure.service.impl.{AttributeAccessServiceImpl, AttributeServiceImpl, ElementServiceImpl, EntityServiceImpl}
+import com.eevolution.context.dictionary.infrastructure.repository._
+import com.eevolution.context.dictionary.infrastructure.service._
+import com.eevolution.context.dictionary.infrastructure.service.impl._
 import com.lightbend.lagom.scaladsl.api.ServiceLocator.NoServiceLocator
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
 import com.lightbend.lagom.scaladsl.persistence.jdbc.JdbcPersistenceComponents
@@ -44,13 +43,15 @@ trait DictionaryComponents extends LagomServerComponents
   override lazy val lagomServer = LagomServer.forServices(
     bindService[ElementService].to(wire[ElementServiceImpl]),
     bindService[EntityService].to(wire[EntityServiceImpl]),
-    bindService[AttributeService].to(wire[AttributeServiceImpl])
+    bindService[AttributeService].to(wire[AttributeServiceImpl]),
+    bindService[AccessLogService].to(wire[AccessLogServiceImpl])
   )
 
   lazy val elementRepository = wire[ElementRepository]
   lazy val entityRepository = wire[EntityRepository]
   lazy val attributeRepository = wire[AttributeRepository]
   lazy val windowRepository = wire[WindowRepository]
+  lazy val accessLogRepository = wire[AccessLogRepository]
 
   lazy val jsonSerializerRegistry = DictionarySerializerRegistry
 
@@ -68,12 +69,16 @@ trait DictionaryComponents extends LagomServerComponents
   override lazy val lagomServer = LagomServer.forServices(
     bindService[ElementService].to(wire[ElementServiceImpl]),
     bindService[EntityService].to(wire[EntityServiceImpl]),
-    bindService[AttributeService].to(wire[AttributeServiceImpl])
+    bindService[AttributeService].to(wire[AttributeServiceImpl]),
+    bindService[AccessLogService].to(wire[AccessLogServiceImpl])
   )
   override lazy val elementRepository = wire[ElementRepository]
   override lazy val entityRepository = wire[EntityRepository]
   override lazy val attributeRepository = wire[AttributeRepository]
   override lazy val windowRepository = wire[WindowRepository]
+  override lazy val accessLogRepository = wire[AccessLogRepository]
+
+
 }
 
 /**

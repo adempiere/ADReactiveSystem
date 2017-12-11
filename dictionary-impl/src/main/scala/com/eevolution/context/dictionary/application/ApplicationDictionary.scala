@@ -1,7 +1,7 @@
 package com.eevolution.context.dictionary.application
 
-import com.eevolution.context.dictionary.infrastructure.repository.{AttributeRepository, ElementRepository, EntityRepository, WindowRepository}
-import com.eevolution.context.dictionary.infrastructure.service.{AttributeService, ElementService, EntityService, WindowService}
+import com.eevolution.context.dictionary.infrastructure.repository._
+import com.eevolution.context.dictionary.infrastructure.service._
 import com.eevolution.context.dictionary.infrastructure.service.impl._
 import com.lightbend.lagom.scaladsl.api.ServiceLocator.NoServiceLocator
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
@@ -70,12 +70,15 @@ trait DictionaryComponents extends LagomServerComponents
     bindService[ElementService].to(wire[ElementServiceImpl]),
     bindService[EntityService].to(wire[EntityServiceImpl]),
     bindService[AttributeService].to(wire[AttributeServiceImpl]),
-    bindService[WindowService].to(wire[WindowServiceImpl])
+    bindService[WindowService].to(wire[WindowServiceImpl]),
+    bindService[AccessLogService].to(wire[AccessLogServiceImpl])
   )
   override lazy val elementRepository = wire[ElementRepository]
   override lazy val entityRepository = wire[EntityRepository]
   override lazy val attributeRepository = wire[AttributeRepository]
   override lazy val windowRepository = wire[WindowRepository]
+  override lazy val accessLogRepository = wire[AccessLogRepository]
+
 }
 
 /**

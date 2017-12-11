@@ -33,6 +33,7 @@ import scala.concurrent.ExecutionContext
 /**
   * Entity Component
   */
+/*
 trait DictionaryComponents extends LagomServerComponents
   with JdbcPersistenceComponents
   with HikariCPComponents {
@@ -54,6 +55,7 @@ trait DictionaryComponents extends LagomServerComponents
   lazy val jsonSerializerRegistry = DictionarySerializerRegistry
 
 }
+*/
 
 /**
   * Entity Application

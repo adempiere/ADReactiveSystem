@@ -1,7 +1,7 @@
 package com.eevolution.context.dictionary.application
 
 import com.eevolution.context.dictionary.domain.model.Attribute
-import com.eevolution.context.dictionary.infrastructure.repository.{AttributeRepository, ElementRepository, EntityRepository}
+import com.eevolution.context.dictionary.infrastructure.repository.{AttributeRepository, ElementRepository, EntityRepository, WindowRepository}
 import com.eevolution.context.dictionary.infrastructure.service.{AttributeService, ElementService, EntityService}
 import com.eevolution.context.dictionary.infrastructure.service.impl.{AttributeAccessServiceImpl, AttributeServiceImpl, ElementServiceImpl, EntityServiceImpl}
 import com.lightbend.lagom.scaladsl.api.ServiceLocator.NoServiceLocator
@@ -50,6 +50,7 @@ trait DictionaryComponents extends LagomServerComponents
   lazy val elementRepository = wire[ElementRepository]
   lazy val entityRepository = wire[EntityRepository]
   lazy val attributeRepository = wire[AttributeRepository]
+  lazy val windowRepository = wire[WindowRepository]
 
   lazy val jsonSerializerRegistry = DictionarySerializerRegistry
 
@@ -72,6 +73,7 @@ trait DictionaryComponents extends LagomServerComponents
   override lazy val elementRepository = wire[ElementRepository]
   override lazy val entityRepository = wire[EntityRepository]
   override lazy val attributeRepository = wire[AttributeRepository]
+  override lazy val windowRepository = wire[WindowRepository]
 }
 
 /**

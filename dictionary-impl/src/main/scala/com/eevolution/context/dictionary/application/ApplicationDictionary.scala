@@ -28,6 +28,8 @@ import scala.concurrent.ExecutionContext
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   * Email: victor.perez@e-evolution.com, http://www.e-evolution.com , http://github.com/e-Evolution
   * Created by victor.perez@e-evolution.com , www.e-evolution.com
+  * Email: emeris.hernandez@e-evolution.com, http://www.e-evolution.com , http://github.com/EmerisScala
+  * Modified by emeris.hernandez@e-evolution.com , www.e-evolution.com on 13/12/2017.
   */
 
 /**
@@ -67,17 +69,452 @@ trait DictionaryComponents extends LagomServerComponents
   with AhcWSComponents {
 
   override lazy val lagomServer = LagomServer.forServices(
-    bindService[ElementService].to(wire[ElementServiceImpl]),
-    bindService[EntityService].to(wire[EntityServiceImpl]),
+    bindService[AccessLogService].to(wire[AccessLogServiceImpl]),
+    bindService[AlertService].to(wire[AlertServiceImpl]),
+    bindService[AlertProcessorService].to(wire[AlertProcessorServiceImpl]),
+    bindService[AlertProcessorLogService].to(wire[AlertProcessorLogServiceImpl]),
+    bindService[AlertRecipientService].to(wire[AlertRecipientServiceImpl]),
+    bindService[AlertRuleService].to(wire[AlertRuleServiceImpl]),
+    bindService[ArchiveService].to(wire[ArchiveServiceImpl]),
+    bindService[AttachmentService].to(wire[AttachmentServiceImpl]),
+    bindService[AttachmentNoteService].to(wire[AttachmentNoteServiceImpl]),
     bindService[AttributeService].to(wire[AttributeServiceImpl]),
+    bindService[AttributeAccessService].to(wire[AttributeAccessServiceImpl]),
+    bindService[AttributeExtendService].to(wire[AttributeExtendServiceImpl]),
+    bindService[AttributeProcessService].to(wire[AttributeProcessServiceImpl]),
+    bindService[AttributeProcessParaService].to(wire[AttributeProcessParaServiceImpl]),
+    bindService[AttributeTrlService].to(wire[AttributeTrlServiceImpl]),
+    bindService[AttributeValueExtendService].to(wire[AttributeValueExtendServiceImpl]),
+
+    bindService[BrowseService].to(wire[BrowseServiceImpl]),
+    bindService[BrowseAccessService].to(wire[BrowseAccessServiceImpl]),
+    bindService[BrowseFieldService].to(wire[BrowseFieldServiceImpl]),
+    bindService[BrowseFieldTrlService].to(wire[BrowseFieldTrlServiceImpl]),
+    bindService[BrowseTrlService].to(wire[BrowseTrlServiceImpl]),
+
+    bindService[ChangeLogService].to(wire[ChangeLogServiceImpl]),
+    bindService[ChartService].to(wire[ChartServiceImpl]),
+    bindService[ChartDataSourceService].to(wire[ChartDataSourceServiceImpl]),
+    bindService[ColorService].to(wire[ColorServiceImpl]),
+
+    bindService[DesktopService].to(wire[DesktopServiceImpl]),
+    bindService[DesktopTrlService].to(wire[DesktopTrlServiceImpl]),
+    bindService[DesktopWorkbenchService].to(wire[DesktopWorkbenchServiceImpl]),
+    bindService[DocumentActionAccessService].to(wire[DocumentActionAccessServiceImpl]),
+    bindService[DynamicValidationRuleService].to(wire[DynamicValidationRuleServiceImpl]),
+
+    bindService[ElementService].to(wire[ElementServiceImpl]),
+    bindService[ElementTrlService].to(wire[ElementTrlServiceImpl]),
+    bindService[EmailConfigService].to(wire[EmailConfigServiceImpl]),
+    bindService[EntityService].to(wire[EntityServiceImpl]),
+    bindService[EntityTypeService].to(wire[EntityTypeServiceImpl]),
+    bindService[ErrorService].to(wire[ErrorServiceImpl]),
+
+    bindService[FieldService].to(wire[FieldServiceImpl]),
+    bindService[FieldGroupService].to(wire[FieldGroupServiceImpl]),
+    bindService[FieldGroupTrlService].to(wire[FieldGroupTrlServiceImpl]),
+    bindService[FieldTrlService].to(wire[FieldTrlServiceImpl]),
+    bindService[FindService].to(wire[FindServiceImpl]),
+    bindService[FormService].to(wire[FormServiceImpl]),
+    bindService[FormAccessService].to(wire[FormAccessServiceImpl]),
+    bindService[FormTrlService].to(wire[FormTrlServiceImpl]),
+
+    bindService[HouseKeepingService].to(wire[HouseKeepingServiceImpl]),
+
+    bindService[ImageService].to(wire[ImageServiceImpl]),
+    bindService[ImportFormatService].to(wire[ImportFormatServiceImpl]),
+    bindService[ImportFormatRowService].to(wire[ImportFormatRowServiceImpl]),
+    bindService[InfoColumnTrlService].to(wire[InfoColumnTrlServiceImpl]),
+    bindService[InformationColumnService].to(wire[InformationColumnServiceImpl]),
+    bindService[InformationWindowService].to(wire[InformationWindowServiceImpl]),
+    bindService[InformationWindowTrlService].to(wire[InformationWindowTrlServiceImpl]),
+    bindService[IssueService].to(wire[IssueServiceImpl]),
+
+    bindService[LabelPrinterService].to(wire[LabelPrinterServiceImpl]),
+    bindService[LabelPrinterFunctionService].to(wire[LabelPrinterFunctionServiceImpl]),
+    bindService[LanguageService].to(wire[LanguageServiceImpl]),
+    bindService[LdapAccessService].to(wire[LdapAccessServiceImpl]),
+    bindService[LdapProcessorService].to(wire[LdapProcessorServiceImpl]),
+    bindService[LdapProcessorLogService].to(wire[LdapProcessorLogServiceImpl]),
+
+    bindService[MemoService].to(wire[MemoServiceImpl]),
+    bindService[MenuService].to(wire[MenuServiceImpl]),
+    bindService[MenuTrlService].to(wire[MenuTrlServiceImpl]),
+    bindService[MessageService].to(wire[MessageServiceImpl]),
+    bindService[MessageTrlService].to(wire[MessageTrlServiceImpl]),
+    bindService[MigrationService].to(wire[MigrationServiceImpl]),
+    bindService[MigrationDataService].to(wire[MigrationDataServiceImpl]),
+    bindService[MigrationScriptService].to(wire[MigrationScriptServiceImpl]),
+    bindService[MigrationStepService].to(wire[MigrationStepServiceImpl]),
+    bindService[ModelValidatorService].to(wire[ModelValidatorServiceImpl]),
+    bindService[ModificationService].to(wire[ModificationServiceImpl]),
+
+    bindService[NoteService].to(wire[NoteServiceImpl]),
+
+    bindService[OrganizationService].to(wire[OrganizationServiceImpl]),
+    bindService[OrganizationInfoService].to(wire[OrganizationInfoServiceImpl]),
+    bindService[OrganizationTypeService].to(wire[OrganizationTypeServiceImpl]),
+
+    bindService[PackageExportService].to(wire[PackageExportServiceImpl]),
+    bindService[PackageExportCommonService].to(wire[PackageExportCommonServiceImpl]),
+    bindService[PackageExportDetailService].to(wire[PackageExportDetailServiceImpl]),
+    bindService[PackageImportService].to(wire[PackageImportServiceImpl]),
+    bindService[PackageImportBackupService].to(wire[PackageImportBackupServiceImpl]),
+    bindService[PackageImportDetailService].to(wire[PackageImportDetailServiceImpl]),
+    bindService[PackageImportInstallService].to(wire[PackageImportInstallServiceImpl]),
+    bindService[PackageImportProcessService].to(wire[PackageImportProcessServiceImpl]),
+    bindService[PinStanceService].to(wire[PinStanceServiceImpl]),
+    bindService[PinStanceLogService].to(wire[PinStanceLogServiceImpl]),
+    bindService[PinStanceParaService].to(wire[PinStanceParaServiceImpl]),
+    bindService[PreferenceService].to(wire[PreferenceServiceImpl]),
+    bindService[PrintColorService].to(wire[PrintColorServiceImpl]),
+    bindService[PrintFontService].to(wire[PrintFontServiceImpl]),
+    bindService[PrintFormService].to(wire[PrintFormServiceImpl]),
+    bindService[PrintFormatService].to(wire[PrintFormatServiceImpl]),
+    bindService[PrintFormatItemService].to(wire[PrintFormatItemServiceImpl]),
+    bindService[PrintFormatItemTrlService].to(wire[PrintFormatItemTrlServiceImpl]),
+    bindService[PrintGraphService].to(wire[PrintGraphServiceImpl]),
+    bindService[PrintLabelService].to(wire[PrintLabelServiceImpl]),
+    bindService[PrintLabelLineService].to(wire[PrintLabelLineServiceImpl]),
+    bindService[PrintLabelLineTrlService].to(wire[PrintLabelLineTrlServiceImpl]),
+    bindService[PrintPaperService].to(wire[PrintPaperServiceImpl]),
+    bindService[PrintTableFormatService].to(wire[PrintTableFormatServiceImpl]),
+    bindService[PrivateAccessService].to(wire[PrivateAccessServiceImpl]),
+    bindService[ProcessService].to(wire[ProcessServiceImpl]),
+    bindService[ProcessAccessService].to(wire[ProcessAccessServiceImpl]),
+    bindService[ProcessParameterService].to(wire[ProcessParameterServiceImpl]),
+    bindService[ProcessParameterTrlService].to(wire[ProcessParameterTrlServiceImpl]),
+    bindService[ProcessTrlService].to(wire[ProcessTrlServiceImpl]),
+
+    bindService[RecentItemService].to(wire[RecentItemServiceImpl]),
+    bindService[RecordAccessService].to(wire[RecordAccessServiceImpl]),
+    bindService[ReferenceService].to(wire[ReferenceServiceImpl]),
+    bindService[ReferenceEntityService].to(wire[ReferenceEntityServiceImpl]),
+    bindService[ReferenceListService].to(wire[ReferenceListServiceImpl]),
+    bindService[ReferenceListTrlService].to(wire[ReferenceListTrlServiceImpl]),
+    bindService[ReferenceTrlService].to(wire[ReferenceTrlServiceImpl]),
+    bindService[RegistrationService].to(wire[RegistrationServiceImpl]),
+    bindService[RelationTypeService].to(wire[RelationTypeServiceImpl]),
+    bindService[ReplicationService].to(wire[ReplicationServiceImpl]),
+    bindService[ReplicationDocumentService].to(wire[ReplicationDocumentServiceImpl]),
+    bindService[ReplicationLogService].to(wire[ReplicationLogServiceImpl]),
+    bindService[ReplicationOrganizationAccessService].to(wire[ReplicationOrganizationAccessServiceImpl]),
+    bindService[ReplicationRoleAccessService].to(wire[ReplicationRoleAccessServiceImpl]),
+    bindService[ReplicationRunService].to(wire[ReplicationRunServiceImpl]),
+    bindService[ReplicationStrategyService].to(wire[ReplicationStrategyServiceImpl]),
+    bindService[ReplicationTableService].to(wire[ReplicationTableServiceImpl]),
+    bindService[ReportViewService].to(wire[ReportViewServiceImpl]),
+    bindService[ReportViewAttributeService].to(wire[ReportViewAttributeServiceImpl]),
+    bindService[ReportViewTrlService].to(wire[ReportViewTrlServiceImpl]),
+    bindService[RoleService].to(wire[RoleServiceImpl]),
+    bindService[RoleIncludedService].to(wire[RoleIncludedServiceImpl]),
+    bindService[RoleOrganizationAccessService].to(wire[RoleOrganizationAccessServiceImpl]),
+    bindService[RuleService].to(wire[RuleServiceImpl]),
+
+    bindService[SchedulerService].to(wire[SchedulerServiceImpl]),
+    bindService[SchedulerLogService].to(wire[SchedulerLogServiceImpl]),
+    bindService[SchedulerParameterService].to(wire[SchedulerParameterServiceImpl]),
+    bindService[SchedulerRecipientService].to(wire[SchedulerRecipientServiceImpl]),
+    bindService[SearchDefinitionService].to(wire[SearchDefinitionServiceImpl]),
+    bindService[SequenceService].to(wire[SequenceServiceImpl]),
+    bindService[SequenceAuditService].to(wire[SequenceAuditServiceImpl]),
+    bindService[SequenceNoService].to(wire[SequenceNoServiceImpl]),
+    bindService[SessionService].to(wire[SessionServiceImpl]),
+    bindService[SysConfigService].to(wire[SysConfigServiceImpl]),
+    bindService[SystemService].to(wire[SystemServiceImpl]),
+
+    bindService[TabService].to(wire[TabServiceImpl]),
+    bindService[TabTrlService].to(wire[TabTrlServiceImpl]),
+    bindService[TaskService].to(wire[TaskServiceImpl]),
+    bindService[TaskAccessService].to(wire[TaskAccessServiceImpl]),
+    bindService[TaskInstanceService].to(wire[TaskInstanceServiceImpl]),
+    bindService[TaskTrlService].to(wire[TaskTrlServiceImpl]),
+    bindService[TenantService].to(wire[TenantServiceImpl]),
+    bindService[TenantInfoService].to(wire[TenantInfoServiceImpl]),
+    bindService[TenantShareService].to(wire[TenantShareServiceImpl]),
+    bindService[TreeService].to(wire[TreeServiceImpl]),
+    bindService[TreeBarService].to(wire[TreeBarServiceImpl]),
+    bindService[TreeFavoriteService].to(wire[TreeFavoriteServiceImpl]),
+    bindService[TreeFavoriteNodeService].to(wire[TreeFavoriteNodeServiceImpl]),
+    bindService[TreeNodeService].to(wire[TreeNodeServiceImpl]),
+    bindService[TreeNodeBPService].to(wire[TreeNodeBPServiceImpl]),
+    bindService[TreeNodeCMCService].to(wire[TreeNodeCMCServiceImpl]),
+    bindService[TreeNodeCMMService].to(wire[TreeNodeCMMServiceImpl]),
+    bindService[TreeNodeCMSService].to(wire[TreeNodeCMSServiceImpl]),
+    bindService[TreeNodeCMTService].to(wire[TreeNodeCMTServiceImpl]),
+    bindService[TreeNodeMMService].to(wire[TreeNodeMMServiceImpl]),
+    bindService[TreeNodePRService].to(wire[TreeNodePRServiceImpl]),
+    bindService[TreeNodeU1Service].to(wire[TreeNodeU1ServiceImpl]),
+    bindService[TreeNodeU2Service].to(wire[TreeNodeU2ServiceImpl]),
+    bindService[TreeNodeU3Service].to(wire[TreeNodeU3ServiceImpl]),
+    bindService[TreeNodeU4Service].to(wire[TreeNodeU4ServiceImpl]),
+
+    bindService[UserService].to(wire[UserServiceImpl]),
+    bindService[UserBusinessPartnerAccessService].to(wire[UserBusinessPartnerAccessServiceImpl]),
+    bindService[UserDefinedFieldService].to(wire[UserDefinedFieldServiceImpl]),
+    bindService[UserDefinedTabService].to(wire[UserDefinedTabServiceImpl]),
+    bindService[UserDefinedWindowService].to(wire[UserDefinedWindowServiceImpl]),
+    bindService[UserMailService].to(wire[UserMailServiceImpl]),
+    bindService[UserOrganizationAccessService].to(wire[UserOrganizationAccessServiceImpl]),
+    bindService[UserQueryService].to(wire[UserQueryServiceImpl]),
+    bindService[UserRolesService].to(wire[UserRolesServiceImpl]),
+    bindService[UserSubstituteService].to(wire[UserSubstituteServiceImpl]),
+
+    bindService[ViewService].to(wire[ViewServiceImpl]),
+    bindService[ViewAttributeService].to(wire[ViewAttributeServiceImpl]),
+    bindService[ViewAttributeTrlService].to(wire[ViewAttributeTrlServiceImpl]),
+    bindService[ViewDefinitionService].to(wire[ViewDefinitionServiceImpl]),
+    bindService[ViewTrlService].to(wire[ViewTrlServiceImpl]),
+
     bindService[WindowService].to(wire[WindowServiceImpl]),
-    bindService[AccessLogService].to(wire[AccessLogServiceImpl])
+    bindService[WindowAccessService].to(wire[WindowAccessServiceImpl]),
+    bindService[WindowTrlService].to(wire[WindowTrlServiceImpl]),
+    bindService[WorkbenchService].to(wire[WorkbenchServiceImpl]),
+    bindService[WorkbenchTrlService].to(wire[WorkbenchTrlServiceImpl]),
+    bindService[WorkbenchWindowService].to(wire[WorkbenchWindowServiceImpl]),
+    bindService[WorkflowService].to(wire[WorkflowServiceImpl]),
+    bindService[WorkflowAccessService].to(wire[WorkflowAccessServiceImpl]),
+    bindService[WorkflowActivityService].to(wire[WorkflowActivityServiceImpl]),
+    bindService[WorkflowActivityResultService].to(wire[WorkflowActivityResultServiceImpl]),
+    bindService[WorkflowBlockService].to(wire[WorkflowBlockServiceImpl]),
+    bindService[WorkflowEventAuditService].to(wire[WorkflowEventAuditServiceImpl]),
+    bindService[WorkflowNextConditionService].to(wire[WorkflowNextConditionServiceImpl]),
+    bindService[WorkflowNodeService].to(wire[WorkflowNodeServiceImpl]),
+    bindService[WorkflowNodeNextService].to(wire[WorkflowNodeNextServiceImpl]),
+    bindService[WorkflowNodeParaService].to(wire[WorkflowNodeParaServiceImpl]),
+    bindService[WorkflowNodeTrlService].to(wire[WorkflowNodeTrlServiceImpl]),
+    bindService[WorkflowProcessService].to(wire[WorkflowProcessServiceImpl]),
+    bindService[WorkflowProcessDataService].to(wire[WorkflowProcessDataServiceImpl]),
+    bindService[WorkflowProcessorService].to(wire[WorkflowProcessorServiceImpl]),
+    bindService[WorkflowProcessorLogService].to(wire[WorkflowProcessorLogServiceImpl]),
+    bindService[WorkflowResponsibleService].to(wire[WorkflowResponsibleServiceImpl]),
+    bindService[WorkflowTrlService].to(wire[WorkflowTrlServiceImpl]),
+
+    bindService[ZoomConditionService].to(wire[ZoomConditionServiceImpl])
   )
-  override lazy val elementRepository = wire[ElementRepository]
-  override lazy val entityRepository = wire[EntityRepository]
-  override lazy val attributeRepository = wire[AttributeRepository]
-  override lazy val windowRepository = wire[WindowRepository]
+
   override lazy val accessLogRepository = wire[AccessLogRepository]
+  override lazy val alertRepository = wire[AlertRepository]
+  override lazy val alertProcessorRepository = wire[AlertProcessorRepository]
+  override lazy val alertProcessorLogRepository = wire[AlertProcessorLogRepository]
+  override lazy val alertRecipientRepository = wire[AlertRecipientRepository]
+  override lazy val alertRuleRepository = wire[AlertRuleRepository]
+  override lazy val archiveRepository = wire[ArchiveRepository]
+  override lazy val attachmentRepository = wire[AttachmentRepository]
+  override lazy val attachmentNoteRepository = wire[AttachmentNoteRepository]
+  override lazy val attributeRepository = wire[AttributeRepository]
+  override lazy val attributeAccessRepository = wire[AttributeAccessRepository]
+  override lazy val attributeExtendRepository = wire[AttributeExtendRepository]
+  override lazy val attributeProcessRepository = wire[AttributeProcessRepository]
+  override lazy val attributeProcessParaRepository = wire[AttributeProcessParaRepository]
+  override lazy val attributeTrlRepository = wire[AttributeTrlRepository]
+  override lazy val attributeValueExtendRepository = wire[AttributeValueExtendRepository]
+
+  override lazy val browseRepository = wire[BrowseRepository]
+  override lazy val browseAccessRepository = wire[BrowseAccessRepository]
+  override lazy val browseFieldRepository = wire[BrowseFieldRepository]
+  override lazy val browseFieldTrlRepository = wire[BrowseFieldTrlRepository]
+  override lazy val browseTrlRepository = wire[BrowseTrlRepository]
+
+  override lazy val changeLogRepository = wire[ChangeLogRepository]
+  override lazy val chartRepository = wire[ChartRepository]
+  override lazy val chartDataSourceRepository = wire[ChartDataSourceRepository]
+  override lazy val colorRepository = wire[ColorRepository]
+
+  override lazy val desktopRepository = wire[DesktopRepository]
+  override lazy val desktopTrlRepository = wire[DesktopTrlRepository]
+  override lazy val desktopWorkbenchRepository = wire[DesktopWorkbenchRepository]
+  override lazy val documentActionAccessRepository = wire[DocumentActionAccessRepository]
+  override lazy val dynamicValidationRuleRepository = wire[DynamicValidationRuleRepository]
+
+  override lazy val elementRepository = wire[ElementRepository]
+  override lazy val elementTrlRepository = wire[ElementTrlRepository]
+  override lazy val emailConfigRepository = wire[EmailConfigRepository]
+  override lazy val entityRepository = wire[EntityRepository]
+  override lazy val entityTypeRepository = wire[EntityTypeRepository]
+  override lazy val errorRepository = wire[ErrorRepository]
+
+  override lazy val fieldRepository = wire[FieldRepository]
+  override lazy val fieldGroupRepository = wire[FieldGroupRepository]
+  override lazy val fieldGroupTrlRepository = wire[FieldGroupTrlRepository]
+  override lazy val fieldTrlRepository = wire[FieldTrlRepository]
+  override lazy val findRepository = wire[FindRepository]
+  override lazy val formRepository = wire[FormRepository]
+  override lazy val formAccessRepository = wire[FormAccessRepository]
+  override lazy val formTrlRepository = wire[FormTrlRepository]
+
+  override lazy val houseKeepingRepository = wire[HouseKeepingRepository]
+
+  override lazy val imageRepository = wire[ImageRepository]
+  override lazy val importFormatRepository = wire[ImportFormatRepository]
+  override lazy val importFormatRowRepository = wire[ImportFormatRowRepository]
+  override lazy val infoColumnTrlRepository = wire[InfoColumnTrlRepository]
+  override lazy val informationColumnRepository = wire[InformationColumnRepository]
+  override lazy val informationWindowRepository = wire[InformationWindowRepository]
+  override lazy val informationWindowTrlRepository = wire[InformationWindowTrlRepository]
+  override lazy val issueRepository = wire[IssueRepository]
+
+  override lazy val labelPrinterRepository = wire[LabelPrinterRepository]
+  override lazy val labelPrinterFunctionRepository = wire[LabelPrinterFunctionRepository]
+  override lazy val languageRepository = wire[LanguageRepository]
+  override lazy val ldapAccessRepository = wire[LdapAccessRepository]
+  override lazy val ldapProcessorRepository = wire[LdapProcessorRepository]
+  override lazy val ldapProcessorLogRepository = wire[LdapProcessorLogRepository]
+
+  override lazy val memoRepository = wire[MemoRepository]
+  override lazy val menuRepository = wire[MenuRepository]
+  override lazy val menuTrlRepository = wire[MenuTrlRepository]
+  override lazy val messageRepository = wire[MessageRepository]
+  override lazy val messageTrlRepository = wire[MessageTrlRepository]
+  override lazy val migrationRepository = wire[MigrationRepository]
+  override lazy val migrationDataRepository = wire[MigrationDataRepository]
+  override lazy val migrationScriptRepository = wire[MigrationScriptRepository]
+  override lazy val migrationStepRepository = wire[MigrationStepRepository]
+  override lazy val modelValidatorRepository = wire[ModelValidatorRepository]
+  override lazy val modificationRepository = wire[ModificationRepository]
+
+  override lazy val noteRepository = wire[NoteRepository]
+
+  override lazy val organizationRepository = wire[OrganizationRepository]
+  override lazy val organizationInfoRepository = wire[OrganizationInfoRepository]
+  override lazy val organizationTypeRepository = wire[OrganizationTypeRepository]
+
+  override lazy val packageExportRepository = wire[PackageExportRepository]
+  override lazy val packageExportCommonRepository = wire[PackageExportCommonRepository]
+  override lazy val packageExportDetailRepository = wire[PackageExportDetailRepository]
+  override lazy val packageImportRepository = wire[PackageImportRepository]
+  override lazy val packageImportBackupRepository = wire[PackageImportBackupRepository]
+  override lazy val packageImportDetailRepository = wire[PackageImportDetailRepository]
+  override lazy val packageImportInstallRepository = wire[PackageImportInstallRepository]
+  override lazy val packageImportProcessRepository = wire[PackageImportProcessRepository]
+  override lazy val pinStanceRepository = wire[PinStanceRepository]
+  override lazy val pinStanceLogRepository = wire[PinStanceLogRepository]
+  override lazy val pinStanceParaRepository = wire[PinStanceParaRepository]
+  override lazy val preferenceRepository = wire[PreferenceRepository]
+  override lazy val printColorRepository = wire[PrintColorRepository]
+  override lazy val printFontRepository = wire[PrintFontRepository]
+  override lazy val printFormRepository = wire[PrintFormRepository]
+  override lazy val printFormatRepository = wire[PrintFormatRepository]
+  override lazy val printFormatItemRepository = wire[PrintFormatItemRepository]
+  override lazy val printFormatItemTrlRepository = wire[PrintFormatItemTrlRepository]
+  override lazy val printGraphRepository = wire[PrintGraphRepository]
+  override lazy val printLabelRepository = wire[PrintLabelRepository]
+  override lazy val printLabelLineRepository = wire[PrintLabelLineRepository]
+  override lazy val printLabelLineTrlRepository = wire[PrintLabelLineTrlRepository]
+  override lazy val printPaperRepository = wire[PrintPaperRepository]
+  override lazy val printTableFormatRepository = wire[PrintTableFormatRepository]
+  override lazy val privateAccessRepository = wire[PrivateAccessRepository]
+  override lazy val processRepository = wire[ProcessRepository]
+  override lazy val processAccessRepository = wire[ProcessAccessRepository]
+  override lazy val processParameterRepository = wire[ProcessParameterRepository]
+  override lazy val processParameterTrlRepository = wire[ProcessParameterTrlRepository]
+  override lazy val processTrlRepository = wire[ProcessTrlRepository]
+
+  override lazy val recentItemRepository = wire[RecentItemRepository]
+  override lazy val recordAccessRepository = wire[RecordAccessRepository]
+  override lazy val referenceRepository = wire[ReferenceRepository]
+  override lazy val referenceEntityRepository = wire[ReferenceEntityRepository]
+  override lazy val referenceListRepository = wire[ReferenceListRepository]
+  override lazy val referenceListTrlRepository = wire[ReferenceListTrlRepository]
+  override lazy val referenceTrlRepository = wire[ReferenceTrlRepository]
+  override lazy val registrationRepository = wire[RegistrationRepository]
+  override lazy val relationTypeRepository = wire[RelationTypeRepository]
+  override lazy val replicationRepository = wire[ReplicationRepository]
+  override lazy val replicationDocumentRepository = wire[ReplicationDocumentRepository]
+  override lazy val replicationLogRepository = wire[ReplicationLogRepository]
+  override lazy val replicationOrganizationAccessRepository = wire[ReplicationOrganizationAccessRepository]
+  override lazy val replicationRoleAccessRepository = wire[ReplicationRoleAccessRepository]
+  override lazy val replicationRunRepository = wire[ReplicationRunRepository]
+  override lazy val replicationStrategyRepository = wire[ReplicationStrategyRepository]
+  override lazy val replicationTableRepository = wire[ReplicationTableRepository]
+  override lazy val reportViewRepository = wire[ReportViewRepository]
+  override lazy val reportViewAttributeRepository = wire[ReportViewAttributeRepository]
+  override lazy val reportViewTrlRepository = wire[ReportViewTrlRepository]
+  override lazy val roleRepository = wire[RoleRepository]
+  override lazy val roleIncludedRepository = wire[RoleIncludedRepository]
+  override lazy val roleOrganizationAccessRepository = wire[RoleOrganizationAccessRepository]
+  override lazy val ruleRepository = wire[RuleRepository]
+
+  override lazy val schedulerRepository = wire[SchedulerRepository]
+  override lazy val schedulerLogRepository = wire[SchedulerLogRepository]
+  override lazy val schedulerParameterRepository = wire[SchedulerParameterRepository]
+  override lazy val schedulerRecipientRepository = wire[SchedulerRecipientRepository]
+  override lazy val searchDefinitionRepository = wire[SearchDefinitionRepository]
+  override lazy val sequenceRepository = wire[SequenceRepository]
+  override lazy val sequenceAuditRepository = wire[SequenceAuditRepository]
+  override lazy val sequenceNoRepository = wire[SequenceNoRepository]
+  override lazy val sessionRepository = wire[SessionRepository]
+  override lazy val sysConfigRepository = wire[SysConfigRepository]
+  override lazy val systemRepository = wire[SystemRepository]
+
+  override lazy val tabRepository = wire[TabRepository]
+  override lazy val tabTrlRepository = wire[TabTrlRepository]
+  override lazy val taskRepository = wire[TaskRepository]
+  override lazy val taskAccessRepository = wire[TaskAccessRepository]
+  override lazy val taskInstanceRepository = wire[TaskInstanceRepository]
+  override lazy val taskTrlRepository = wire[TaskTrlRepository]
+  override lazy val tenantRepository = wire[TenantRepository]
+  override lazy val tenantInfoRepository = wire[TenantInfoRepository]
+  override lazy val tenantShareRepository = wire[TenantShareRepository]
+  override lazy val treeRepository = wire[TreeRepository]
+  override lazy val treeBarRepository = wire[TreeBarRepository]
+  override lazy val treeFavoriteRepository = wire[TreeFavoriteRepository]
+  override lazy val treeFavoriteNodeRepository = wire[TreeFavoriteNodeRepository]
+  override lazy val treeNodeRepository = wire[TreeNodeRepository]
+  override lazy val treeNodeBPRepository = wire[TreeNodeBPRepository]
+  override lazy val treeNodeCMCRepository = wire[TreeNodeCMCRepository]
+  override lazy val treeNodeCMMRepository = wire[TreeNodeCMMRepository]
+  override lazy val treeNodeCMSRepository = wire[TreeNodeCMSRepository]
+  override lazy val treeNodeCMTRepository = wire[TreeNodeCMTRepository]
+  override lazy val treeNodeMMRepository = wire[TreeNodeMMRepository]
+  override lazy val treeNodePRRepository = wire[TreeNodePRRepository]
+  override lazy val treeNodeU1Repository = wire[TreeNodeU1Repository]
+  override lazy val treeNodeU2Repository = wire[TreeNodeU2Repository]
+  override lazy val treeNodeU3Repository = wire[TreeNodeU3Repository]
+  override lazy val treeNodeU4Repository = wire[TreeNodeU4Repository]
+
+  override lazy val userRepository = wire[UserRepository]
+  override lazy val userBusinessPartnerAccessRepository = wire[UserBusinessPartnerAccessRepository]
+  override lazy val userDefinedFieldRepository = wire[UserDefinedFieldRepository]
+  override lazy val userDefinedTabRepository = wire[UserDefinedTabRepository]
+  override lazy val userDefinedWindowRepository = wire[UserDefinedWindowRepository]
+  override lazy val userMailRepository = wire[UserMailRepository]
+  override lazy val userOrganizationAccessRepository = wire[UserOrganizationAccessRepository]
+  override lazy val userQueryRepository = wire[UserQueryRepository]
+  override lazy val userRolesRepository = wire[UserRolesRepository]
+  override lazy val userSubstituteRepository = wire[UserSubstituteRepository]
+
+  override lazy val viewRepository = wire[ViewRepository]
+  override lazy val viewAttributeRepository = wire[ViewAttributeRepository]
+  override lazy val viewAttributeTrlRepository = wire[ViewAttributeTrlRepository]
+  override lazy val viewDefinitionRepository = wire[ViewDefinitionRepository]
+  override lazy val viewTrlRepository = wire[ViewTrlRepository]
+
+  override lazy val windowRepository = wire[WindowRepository]
+  override lazy val windowAccessRepository = wire[WindowAccessRepository]
+  override lazy val windowTrlRepository = wire[WindowTrlRepository]
+  override lazy val workbenchRepository = wire[WorkbenchRepository]
+  override lazy val workbenchTrlRepository = wire[WorkbenchTrlRepository]
+  override lazy val workbenchWindowRepository = wire[WorkbenchWindowRepository]
+  override lazy val workflowRepository = wire[WorkflowRepository]
+  override lazy val workflowAccessRepository = wire[WorkflowAccessRepository]
+  override lazy val workflowActivityRepository = wire[WorkflowActivityRepository]
+  override lazy val workflowActivityResultRepository = wire[WorkflowActivityResultRepository]
+  override lazy val workflowBlockRepository = wire[WorkflowBlockRepository]
+  override lazy val workflowEventAuditRepository = wire[WorkflowEventAuditRepository]
+  override lazy val workflowNextConditionRepository = wire[WorkflowNextConditionRepository]
+  override lazy val workflowNodeRepository = wire[WorkflowNodeRepository]
+  override lazy val workflowNodeNextRepository = wire[WorkflowNodeNextRepository]
+  override lazy val workflowNodeParaRepository = wire[WorkflowNodeParaRepository]
+  override lazy val workflowNodeTrlRepository = wire[WorkflowNodeTrlRepository]
+  override lazy val workflowProcessRepository = wire[WorkflowProcessRepository]
+  override lazy val workflowProcessDataRepository = wire[WorkflowProcessDataRepository]
+  override lazy val workflowProcessorRepository = wire[WorkflowProcessorRepository]
+  override lazy val workflowProcessorLogRepository = wire[WorkflowProcessorLogRepository]
+  override lazy val workflowResponsibleRepository = wire[WorkflowResponsibleRepository]
+  override lazy val workflowTrlRepository = wire[WorkflowTrlRepository]
+
+  override lazy val zoomConditionRepository = wire[ZoomConditionRepository]
 
 }
 

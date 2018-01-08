@@ -28,7 +28,7 @@ trait ChartMapping {
     querySchema[Chart]("AD_Chart",
       _.chartId-> "AD_Chart_ID",
       _.chartType-> "ChartType",
-      _.tenantId-> "AD_Client_AD",
+      _.tenantId-> "AD_Client_ID",
       _.organizationId-> "AD_Org_ID",
       _.created-> "Created",
       _.createdBy-> "CreatedBy",

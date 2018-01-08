@@ -25,7 +25,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 
 trait MenuTrlMapping {
   val queryMenuTrl = quote {
-    querySchema[MenuTrl]("AD_MenuTrl",
+    querySchema[MenuTrl]("AD_Menu_Trl",
       _.menuId-> "AD_Menu_ID",
       _.language-> "AD_Language",
       _.tenantId -> "AD_Client_ID" ,

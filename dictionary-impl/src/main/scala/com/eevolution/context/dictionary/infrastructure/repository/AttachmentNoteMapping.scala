@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 trait AttachmentNoteMapping {
   val queryAttachmentNote = quote {
     querySchema[AttachmentNote]("AD_AttachmentNote",
-      _.attachmentId -> "AD_AttachmentNote_ID",
+      _.attachmentNoteId -> "AD_AttachmentNote_ID",
       _.tenantId -> "AD_Client_ID",
       _.organizationId -> "AD_Org_ID",
       _.isActive -> "IsActive",

@@ -34,7 +34,7 @@ trait LdapAccessMapping {
       _.createdBy-> "CreatedBy",
       _.updated-> "Updated",
       _.updatedBy-> "UpdatedBy",
-      _.ldapProcessorId-> "LdapProcessor_ID",
+      _.ldapProcessorId-> "AD_LdapProcessor_ID",
       _.userId-> "AD_User_ID",
       _.interestAreaId-> "R_InterestArea_ID",
       _.isError-> "IsError",

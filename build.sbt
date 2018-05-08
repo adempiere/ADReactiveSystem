@@ -6,11 +6,11 @@ lazy val root = (project in file("."))
 organization in ThisBuild := "com.evolution"
 
 // the Scala version that will be used for cross-compiled libraries
-scalaVersion in ThisBuild := "2.11.8"
-
-val playJsonDerivedCodecs = "org.julienrf" %% "play-json-derived-codecs" % "3.3"
-val playJsonExtensions = "ai.x" %% "play-json-extensions" % "0.9.0"
-val macwire = "com.softwaremill.macwire" %% "macros" % "2.3.0" % "provided"
+scalaVersion in ThisBuild := "2.12.6"
+val playJsonJoda ="com.typesafe.play" %% "play-json-joda" % "2.6.9"
+val playJsonDerivedCodecs = "org.julienrf" %% "play-json-derived-codecs" % "4.0.0"
+val playJsonExtensions = "ai.x" %% "play-json-extensions" % "0.10.0"
+val macwire = "com.softwaremill.macwire" %% "macros" % "2.3.1" % "provided"
 val scalaTest = "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
 lazy val dictionaryApi = (project in file("dictionary-api"))
@@ -19,9 +19,10 @@ lazy val dictionaryApi = (project in file("dictionary-api"))
     version := "1.0-SNAPSHOT",
     libraryDependencies ++= Seq(
       lagomScaladslApi,
+      playJsonJoda,
       playJsonExtensions,
       playJsonDerivedCodecs,
-      "io.getquill" %% "quill-jdbc" % "2.3.1"
+      "io.getquill" %% "quill-jdbc" % "2.4.2"
       //"io.getquill" %% "quill-async-postgres" % "1.0.1"
     )
   )

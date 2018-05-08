@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$/project" />
           </set>
         </option>
-        <option name="useSbtShell" value="true" />
+        <option name="sbtVersion" value="1.1.4" />
       </SbtProjectSettings>
     </option>
     <option name="maximumHeapSize" value="2048" />

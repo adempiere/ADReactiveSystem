@@ -44,7 +44,7 @@ trait OrganizationInfoMapping {
       _.transferBankId->"TransferBank_ID",
       _.transferCashBookId-> "TransferCashBook_ID",
       _.receiptFooterMsg-> "ReceiptFooterMsg",
-      _.dropShipWarehouseId-> "DropShipFooterMsg",
+      _.dropShipWarehouseId-> "DropShip_Warehouse_ID",
       _.calendarId-> "C_Calendar_ID",
       _.logoId-> "Logo_ID",
       _.phone-> "Phone",

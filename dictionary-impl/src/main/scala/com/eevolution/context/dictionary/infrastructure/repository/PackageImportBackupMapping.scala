@@ -37,7 +37,7 @@ trait PackageImportBackupMapping {
       _.packageImportId-> "AD_Package_Imp_ID",
       _.packageImportDetailId-> "AD_Package_Imp_Detail_ID",
       _.entityId-> "AD_Table_ID",
-      _.attributeId-> "AD_Attribute_ID",
+      _.attributeId-> "AD_Column_ID",
       _.referenceId-> "AD_Reference_ID",
       _.packageImportBckDir-> "AD_Package_Imp_Bck_Dir",
       _.packageImportOrgDir-> "AD_Package_Imp_Org_Dir",

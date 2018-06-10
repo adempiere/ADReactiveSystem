@@ -52,7 +52,7 @@ trait PrintFormatMapping  {
       _.jasperProcessId -> "JasperProcess_ID",
       _.className -> "ClassName",
       _.args -> "args",
-      _.isSummary -> "IsSumary",
+      _.isSummary -> "IsSummary",
       _.isPrintParameters -> "IsPrintParameters",
       _.uuid -> "UUID")
   }

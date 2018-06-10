@@ -24,7 +24,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
   */
 trait AttributeAccessMapping  {
   val queryAttributeAccess = quote {
-    querySchema[AttributeAccess]("AD_ColumnAccess",
+    querySchema[AttributeAccess]("AD_Column_Access",
       _.attributeId -> "AD_Column_ID",
       _.roleId -> "AD_Role_ID",
       _.tenantId -> "AD_Client_ID",

@@ -34,7 +34,7 @@ trait PrintPaperMapping  {
       _.updated -> "Updated",
       _.updatedBy -> "UpdatedBy",
       _.name -> "Name",
-      _.description -> "Descripcion",
+      _.description -> "Description",
       _.isDefault -> "IsDefault",
       _.isLandscape -> "IsLandScape",
       _.code -> "Code",

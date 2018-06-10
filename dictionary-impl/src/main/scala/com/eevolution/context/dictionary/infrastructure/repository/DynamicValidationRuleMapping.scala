@@ -36,7 +36,7 @@ trait DynamicValidationRuleMapping {
       _.updatedBy-> "UpdatedBy",
       _.name-> "Name",
       _.description-> "Description",
-      _.typePackage-> "TypePackage",
+      _.typePackage-> "Type",
       _.code-> "Code",
       _.entityType-> "EntityType",
       _.uuid-> "UUID")

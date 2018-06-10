@@ -36,7 +36,7 @@ trait BrowseFieldMapping {
       _.updatedBy-> "UpdatedBy",
       _.elementId-> "AD_Element_ID",
       _.referenceId-> "AD_Reference_ID",
-      _.viewColumnId-> "AD_ViewColumn_ID",
+      _.viewColumnId-> "AD_View_Column_ID",
       _.description-> "Description",
       _.entityType-> "EntityType",
       _.help-> "Help",

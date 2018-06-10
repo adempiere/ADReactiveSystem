@@ -25,7 +25,7 @@ import com.eevolution.context.dictionary.infrastructure.db.DbContext._
 
 trait FormAccessMapping {
   val queryFormAccess = quote {
-    querySchema[FormAccess]("AD_FormAccess",
+    querySchema[FormAccess]("AD_Form_Access",
       _.formId -> "AD_Form_ID",
       _.roleId -> "AD_Role_ID",
       _.tenantId -> "AD_Client_ID" ,

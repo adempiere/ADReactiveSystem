@@ -14,6 +14,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="dictionaryApi" exported="" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalatest:scalatest_2.12:3.0.5:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_2.12:3.0.5:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-json-joda_2.12:2.6.9:jar" level="project" />
     <orderEntry type="library" name="sbt: tyrex:tyrex:1.0.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.xerial.snappy:snappy-java:1.1.2.6:jar" level="project" />
@@ -46,7 +48,6 @@
     <orderEntry type="library" name="sbt: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.8.11:jar" level="project" />
     <orderEntry type="library" name="sbt: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.11:jar" level="project" />
     <orderEntry type="library" name="sbt: com.fasterxml.jackson.datatype:jackson-datatype-pcollections:2.8.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.dnvriend:akka-persistence-jdbc_2.12:3.3.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.jnr:jffi:1.2.16:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.jnr:jffi:1.2.16:native:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.jnr:jnr-constants:0.9.9:jar" level="project" />
@@ -56,97 +57,23 @@
     <orderEntry type="library" name="sbt: com.google.errorprone:error_prone_annotations:2.0.18:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.guava:guava:22.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.j2objc:j2objc-annotations:1.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-api_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-client_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-cluster-core_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-core-testkit_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-broker_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-client_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-server_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-logback_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-persistence-cassandra-core_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-persistence-core_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-persistence-jdbc-core_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-api_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-broker_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-client_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-cluster_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-dev-mode_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-kafka-broker_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-kafka-client_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence-cassandra_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence-jdbc_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-play-json_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-server_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-scaladsl-testkit_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-server_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-spi_2.12:1.4.4:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.12:0.2.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster-sharding_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster-tools_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-distributed-data_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-http-core_2.12:10.0.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-parsing_2.12:10.0.11:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.akka:akka-persistence-cassandra-launcher_2.12:0.60:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.akka:akka-persistence-cassandra_2.12:0.60:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-persistence-query_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-persistence_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-protobuf_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-remote_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_2.12:2.5.11:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream-kafka_2.12:0.18:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.akka:akka-stream-testkit_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_2.12:2.5.11:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-testkit_2.12:2.5.11:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.netty:netty-reactive-streams:2.0.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:build-link:2.6.12:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:cachecontrol_2.12:1.1.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws-standalone_2.12:1.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-akka-http-server_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-exceptions:2.6.12:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-functional_2.12:2.6.9:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-jdbc-api_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-jdbc_2.12:2.6.12:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:play-json_2.12:2.6.9:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-netty-utils:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-server_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-streams_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-json_2.12:1.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-xml_2.12:1.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone_2.12:1.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:play_2.12:2.6.12:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-asynchttpclient:1.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-oauth:1.1.6:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.play:twirl-api_2.12:1.3.14:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.scala-logging:scala-logging_2.12:3.7.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick-hikaricp_2.12:3.2.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick_2.12:3.2.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.yammer.metrics:metrics-core:2.2.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.zaxxer:HikariCP:2.7.8:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.aeron:aeron-client:1.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.aeron:aeron-driver:1.7.0:jar" level="project" />
     <orderEntry type="library" name="sbt: io.dropwizard.metrics:metrics-core:3.2.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.getquill:quill-core_2.12:2.4.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.getquill:quill-jdbc_2.12:2.4.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.getquill:quill-sql_2.12:2.4.2:jar" level="project" />
     <orderEntry type="library" name="sbt: io.jsonwebtoken:jjwt:0.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-buffer:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-codec:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-codec-http:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-common:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-handler:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-resolver:4.1.22.Final:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.netty:netty-transport:4.1.22.Final:jar" level="project" />
     <orderEntry type="library" name="sbt: javax.cache:cache-api:1.0.0:jar" level="project" />
     <orderEntry type="library" name="sbt: joda-time:joda-time:2.9.9:jar" level="project" />
-    <orderEntry type="library" name="sbt: log4j:log4j:1.2.16:jar" level="project" />
     <orderEntry type="library" name="sbt: net.sf.jopt-simple:jopt-simple:5.0.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.agrona:agrona:0.9.12:jar" level="project" />
     <orderEntry type="library" name="sbt: org.apache.commons:commons-lang3:3.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.apache.commons:commons-math:2.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.apache.curator:curator-client:2.10.0:jar" level="project" />
@@ -170,13 +97,86 @@
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.12:0.8.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.12:1.0.5:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-xml_2.12:1.0.6:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_2.12:3.0.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scalamacros:resetallattrs_2.12:1.0.0:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: org.scalatest:scalatest_2.12:3.0.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.typelevel:macro-compat_2.12:1.1.1:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: com.softwaremill.macwire:macros_2.12:2.3.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-compiler:2.12.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.12.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.dnvriend:akka-persistence-jdbc_2.12:3.4.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-api_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-client_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-cluster-core_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-core-testkit_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-broker_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-client_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-kafka-server_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-logback_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-persistence-cassandra-core_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-persistence-core_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-persistence-jdbc-core_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-api_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-broker_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-client_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-cluster_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-dev-mode_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-kafka-broker_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-kafka-client_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence-cassandra_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence-jdbc_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-persistence_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-play-json_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-scaladsl-server_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: com.lightbend.lagom:lagom-scaladsl-testkit_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-server_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lightbend.lagom:lagom-spi_2.12:1.4.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.12:0.2.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster-sharding_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster-tools_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-distributed-data_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-http-core_2.12:10.0.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-parsing_2.12:10.0.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-persistence-query_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-persistence_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-protobuf_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-remote_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.akka:akka-stream-testkit_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-testkit_2.12:2.5.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:build-link:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws-standalone_2.12:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ahc-ws_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-akka-http-server_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-exceptions:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-jdbc-api_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-jdbc_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-netty-utils:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-server_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-streams_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-json_2.12:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone-xml_2.12:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws-standalone_2.12:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play-ws_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:play_2.12:2.6.13:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-asynchttpclient:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.play:shaded-oauth:1.1.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.zaxxer:HikariCP:2.7.9:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.aeron:aeron-client:1.9.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.aeron:aeron-driver:1.9.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-buffer:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-codec:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-codec-http:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-common:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-handler:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-resolver:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.netty:netty-transport:4.1.23.Final:jar" level="project" />
+    <orderEntry type="library" name="sbt: log4j:log4j:1.2.17:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.agrona:agrona:0.9.17:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.getquill:quill-core_2.12:2.5.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.getquill:quill-jdbc_2.12:2.5.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.getquill:quill-sql_2.12:2.5.4:jar" level="project" />
   </component>
 </module>

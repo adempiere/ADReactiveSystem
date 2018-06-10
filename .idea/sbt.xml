@@ -15,6 +15,7 @@
           </set>
         </option>
         <option name="sbtVersion" value="1.1.4" />
+        <option name="useAutoImport" value="true" />
       </SbtProjectSettings>
     </option>
     <option name="maximumHeapSize" value="2048" />

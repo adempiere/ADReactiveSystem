@@ -3,6 +3,7 @@ lazy val root = (project in file("."))
   .aggregate(dictionaryApi, dictionaryImpl)
   .settings(commonSettings: _*)
 
+
 organization in ThisBuild := "com.evolution"
 
 // the Scala version that will be used for cross-compiled libraries
@@ -11,7 +12,7 @@ val playJsonJoda ="com.typesafe.play" %% "play-json-joda" % "2.6.9"
 val playJsonDerivedCodecs = "org.julienrf" %% "play-json-derived-codecs" % "4.0.0"
 val playJsonExtensions = "ai.x" %% "play-json-extensions" % "0.10.0"
 val macwire = "com.softwaremill.macwire" %% "macros" % "2.3.1" % "provided"
-val scalaTest = "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+val scalaTest = "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 
 lazy val dictionaryApi = (project in file("dictionary-api"))
   .settings(commonSettings: _*)
@@ -22,7 +23,7 @@ lazy val dictionaryApi = (project in file("dictionary-api"))
       playJsonJoda,
       playJsonExtensions,
       playJsonDerivedCodecs,
-      "io.getquill" %% "quill-jdbc" % "2.4.2"
+      "io.getquill" %% "quill-jdbc" % "2.5.4"
       //"io.getquill" %% "quill-async-postgres" % "1.0.1"
     )
   )
